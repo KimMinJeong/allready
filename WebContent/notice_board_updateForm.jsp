@@ -10,12 +10,9 @@
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
-
-
-
 </head>
 <body>
-      
+
     <div class="container">
      <font size="4">
 <ul class="nav nav-tabs" role="tablist" >
@@ -29,7 +26,7 @@
   <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
 </ul>
 </font>
-    
+
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
@@ -45,8 +42,9 @@
         </div>
   	
         <!-- main area -->
-        <br>
+
         <div class="col-xs-12 col-sm-9">
+        <br>
         <div class="btn-group">
   <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
     Action <span class="caret"></span>
@@ -81,20 +79,6 @@
   </div><!--/.container-->
 </div><!--/.page-container-->
 
-
-
- 
-</ul>  
-</div>  
-</div>  
-</div> 
-
-
-
-  
-<script type="text/javascript">
-
-</script>
 
 </body>
 </html>

@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+<<<<<<< HEAD
     <wb-module deploy-name="Projec">
         <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <property name="context-root" value="Projec"/>
         <property name="java-output-path" value="/Projec/build/classes"/>
+=======
+    <wb-module deploy-name="Apart">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="Apart"/>
+        <property name="java-output-path" value="/Apart/build/classes"/>
+>>>>>>> 0147909b43ff910853d03fa60c09c6f103800531
     </wb-module>
 </project-modules>

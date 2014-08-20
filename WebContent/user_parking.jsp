@@ -12,6 +12,7 @@
 </head>
 <body>
 <div class="container">
+
   <font size="4">
 <ul class="nav nav-tabs" role="tablist" >
 
@@ -24,11 +25,12 @@
   <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
 </ul>
 </font>
-    
+
 	<div class="row row-offcanvas row-offcanvas-left">
 		<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 		<br/><br/>
             <ul class="nav">
+
               <li class="active"><a href="#"><font size="4">B1</font></a></li>
               <li><a href="#"><font size="4">B2</font></a></li>
               <li><a href="#"><font size="4">B3</font></a></li>              
@@ -36,6 +38,7 @@
         </div>
         
         <br>
+
         <div class="col-xs-12 col-sm-9">
         <img src="..." height="200" width="200" class="img-rounded" onclick="#">
         <img src="..." height="200" width="200" class="img-rounded" onclick="#">

@@ -9,11 +9,14 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
 <link  href="static/css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 <body>
 <br>
 	<div class="container">
+
 		<font size="4">
 	<ul class="nav nav-tabs size" role="tablist" >
 
@@ -40,6 +43,7 @@
 
 		 <div class="col-xs-12 col-sm-9">
 		 <br>
+
 		<div class="table-responsive">
 			<table class="table table-striped" border="1">
 				<tr height="250px">

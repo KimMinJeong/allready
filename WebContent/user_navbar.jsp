@@ -13,6 +13,48 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+<<<<<<< HEAD
+	<div class="container">
+		<nav class="navbar navbar-inverse" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <a class="navbar-brand" href="#">HOME</a>
+		    </div>
+		
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+		      <ul class="nav navbar-nav">
+		        <li class="active"><a href="#">CCTV</a></li>
+		        <li><a href="#">주차장</a></li>
+		        <li><a href="#">관리세</a></li>
+		        <li><a href="#">게시판</a></li>
+		        <li><a href="#">방문객</a></li>
+		        <li><a href="#">소통의 장</a></li>
+		      </ul>
+		    </div><!-- /.navbar-collapse -->
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+</body>
+
+<script>
+// 	$(document).ready(function(){
+// 		$("#btn").hide();
+// 	});
+=======
+=======
+>>>>>>> b65511c7cb3f74224791491d3b342ccba2381313
+>>>>>>> 0147909b43ff910853d03fa60c09c6f103800531
    <div class="container">
       <div class="row">
          <nav class="navbar navbar-inverse" role="navigation">
@@ -49,5 +91,12 @@
 //    $(document).ready(function(){
 //       $("#btn").hide();
 //    });
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> d5b52f06751a7b17f0e2c5eff214307aadee6901
+=======
+>>>>>>> b65511c7cb3f74224791491d3b342ccba2381313
+>>>>>>> 0147909b43ff910853d03fa60c09c6f103800531
 </script>
 </html>

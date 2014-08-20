@@ -11,11 +11,14 @@
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
 <body>
+
 <div class="container" style="margin-top:4%">
+
 <div class="col-md-offset-3 col-md-6">
 
 	<h1 align="center">상세정보 기입란</h1>
-	<br/><br/>
+	<br><br>
+
 	<form role="form" >
   <div class="form-group">
     <label for="exampleInputEmail1">세대주 ID</label>

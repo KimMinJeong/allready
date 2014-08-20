@@ -18,6 +18,7 @@
 </head>
 <body>
 
+
     <div class="container">
      <font size="4">
 <ul class="nav nav-tabs" role="tablist" >
@@ -36,6 +37,8 @@
       <div class="col-xs-10 col-sm-7">
         
        <br>
+
+
  <div class="panel panel-default">
 		 
 
@@ -73,7 +76,9 @@
 		</div>
 		</div>
 		
+
 		 <div class="container"><br>
+
       <div class="row row-offcanvas row-offcanvas-right">
       
       <div class="row">
@@ -92,8 +97,10 @@
        
         <div class="col-xs-12 col-sm-4">
        
+
  <button type="button" class="btn btn-default btn-lg button1">
  <span class="glyphicon glyphicon-facetime-video"></span> CCTV
+
 </button>
 </div>
        
@@ -143,23 +150,10 @@
           
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
-  </div><!--/.container-->
-</div><!--/.page-container-->
 
 
 
- 
-</ul>  
-</div>  
-</div>  
-</div> 
 
-
-
-  
-<script type="text/javascript">
-
-</script>
 
 </body>
 </html>

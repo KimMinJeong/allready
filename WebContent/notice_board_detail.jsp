@@ -30,25 +30,30 @@
   <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
 </ul>
 </font>
-    
+
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
         	<font size="4">
+
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
               <li><a href="#">민원 게시판</a></li>
               <li><a href="#">자유 게시판</a></li>
               <li><a href="#">Link 3</a></li>              
             </ul>
+
             </font>
         </div>
   	
+
         <!-- main area -->
-        <br>
+
         <div class="col-xs-12 col-sm-9">
-        <center><h1>공지사항1. 인사를 하며 지냅시다^-^</h1></center>
+        <br>
+        <center><h1>공지사항1. 인사를 하며 지냅시다^-^</h1></center><br>
         <textarea rows="20" cols="135">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nisi eu arcu tempus vehicula. 
             Nulla faucibus cursus metus in sagittis. Nunc elit leo, imperdiet in ligula in, euismod varius est. 
@@ -70,20 +75,6 @@
   </div><!--/.container-->
 </div><!--/.page-container-->
 
-
-
- 
-</ul>  
-</div>  
-</div>  
-</div> 
-
-
-
-  
-<script type="text/javascript">
-
-</script>
 
 </body>
 </html>

@@ -28,13 +28,14 @@
 </font>
     
     <br>
+
 	<div class="col-md-offset-2 col-md-10">
 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">
 	</div>
 	<br/>
 	<h2>관리비</h2>
-	<table border="1" align="center" width="1000" id="table">
+	<table class="table" id="table">
 		<tr>
 			<th>시/도</th>
 			<th>단지 수</th>
@@ -54,7 +55,7 @@
 			<td>595</td>
 			<td>47</td>
 			<td>1.355</td>
-			<td><input type="button" onclick="#" value="상세보기"></td>
+			<td><button type="button" class="btn btn-default">상세보기</button></td>
 		</tr>
 		<tr>
 			<td>상암 월드컵</td>
@@ -64,14 +65,14 @@
 			<td>816</td>
 			<td>0</td>
 			<td>1.425</td>
-			<td><input type="button" onclick="#" value="상세보기"></td>
+			<td><button type="button" class="btn btn-default">상세보기</button></td>
 		</tr>
 	</table>
 	
 	<br/><br/><br/>
 	
 	<h2>월별 통계</h2>
-	<table border="1" align="center" width="1000">
+	<table class="table">
 		<tr>
 			<th align="center">분류</th>
 			<th align="center">1월</th>

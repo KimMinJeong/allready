@@ -9,11 +9,14 @@
 <script src="static/js/bootstrap.min.js"></script>
 
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+
 
 
 </head>
 <body>
+
 
     <div class="container">
     
@@ -41,11 +44,14 @@
               <li><a href="#">자유 게시판</a></li>           
             </ul>
             </font>
+
         </div>
      
         <!-- main area -->
         <div class="col-sm-9">
+
         <br>
+
 	        <div class="btn-group btn-input clearfix">
 			  <button type="button" class="btn btn-default dropdown-toggle form-control" data-toggle="dropdown">
 			    <span data-bind="label">Select One</span> <span class="caret"></span>
@@ -65,6 +71,7 @@
 	      <br>
 	      	<input type="file" class="file"/>
 	      	<br>
+
 	      	<div class="col-md-3 col-md-offset-9 ">
 			<input type="checkbox" class="checkbox inline" />
 			<span class="text inline">익명</span>
@@ -72,6 +79,7 @@
 			<span class="text inline">비밀글</span>
 	      	<button type="button" class="btn btn-primary inline" >등록</button>
 	      	</div>
+
     </div><!--/.row-->
   </div><!--/.container-->
 

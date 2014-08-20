@@ -47,7 +47,6 @@
 			<li class="active"><a href="#"> 정문 </a></li>
 			<li><a href="#"> 후문 </a></li>
 		</ul>  -->
-		
 		<div class="col-xs-12 col-sm-8">
 		
 		<br>
@@ -61,6 +60,7 @@
                 <tr height="250px">
                   <td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>정문</td>
                   <td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>후문</td>
+
                 </tr>
             </table>
 	</div>

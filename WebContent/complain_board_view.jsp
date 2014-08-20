@@ -15,21 +15,22 @@
 </head>
 <body>
 
+
     <div class="container">
     
     	<font size="4">
 	<ul class="nav nav-tabs size" role="tablist" >
 
 
-<li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
- <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
+  <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+  <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
   <li><a href="#messages" role="tab" data-toggle="tab">주차장</a></li>
   <li><a href="#settings" role="tab" data-toggle="tab">관리세</a></li>
   <li><a href="#settings" role="tab" data-toggle="tab">게시판</a></li>
   <li><a href="#settings" role="tab" data-toggle="tab">방문객</a></li>
   <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
-
-</ul>  </font>
+</ul>  
+</font>
 
       <div class="row row-offcanvas row-offcanvas-left">
         <!-- sidebar -->
@@ -40,14 +41,16 @@
               <li><a href="#">민원 게시판</a></li>
               <li><a href="#">자유 게시판</a></li>           
             </ul>
+
             </font>
         </div>
      
         <!-- main area -->
         <div class="col-md-9">
+
         <br><br>
        		<div class="col-md-4">
-       		
+
 				<small>글쓴이 : 103동 1401호 </small>			 	
 			</div>
 			<div class="col-md-4 col-md-offset-4">
@@ -68,13 +71,15 @@
 	            odio vitae, posuere volutpat magna. Nam pulvinar lacus in sapien feugiat, sit amet vestibulum enim 
 	            eleifend. Integer sit amet ante auctor, lacinia sem quis, consectetur nulla.
 	        </div>
-	      	<br>
+	      	<br><br>
     </div><!--/.row-->
     <div class="col-md-offset-10 col-md-2">
 		<button type="button" class="btn btn-primary" id="modify_btn">수정</button>
       	<button type="button" class="btn btn-danger" id="delete_btn">삭제</button>
     </div>
-    <br><br>
+
+    <br><br><br>
+
     <div class="col-md-offset-6 col-md-6">
 	    <div class="btn-group">
 		  <button type="button" class="btn btn-primary">추천(5)</button>

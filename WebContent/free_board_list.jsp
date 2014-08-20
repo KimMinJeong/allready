@@ -17,6 +17,7 @@
 <body>
 
 
+
 <div class="page-container">
   
 	<!-- top navbar -->
@@ -31,7 +32,7 @@
     
     
  <font size="4">
-<ul class="nav nav-tabs" role="tablist" >
+	<ul class="nav nav-tabs" role="tablist" >
 
 <li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
  <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
@@ -44,23 +45,28 @@
 </font>
     
     
-      <div class="row row-offcanvas row-offcanvas-left">
+   <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
         	<font size="4">
+
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
               <li><a href="#">민원 게시판</a></li>
               <li><a href="#">자유 게시판</a></li>
               <li><a href="#">Link 3</a></li>              
             </ul>
+
             </font>
+
         </div>
   	
         <!-- main area -->
         <div class="col-xs-12 col-sm-9">
-        		 <div align="right">
+        <br>
+        <div align="right">
 		<button type="button" class="btn btn-default navbar-btn" >글작성</button></div>
 		 <div class="panel panel-default">
 		 

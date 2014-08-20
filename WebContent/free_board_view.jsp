@@ -15,6 +15,7 @@
 </head>
 <body>
 
+
     <div class="container">
         
  <font size="4">
@@ -35,6 +36,7 @@
         <!-- sidebar -->
         <div class="col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
         	<font size="4">
+
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
               <li><a href="#">민원 게시판</a></li>
@@ -45,7 +47,9 @@
      
         <!-- main area -->
         <div class="col-md-9">
+
         	<br><br>
+
        		<div class="col-md-4">
 				<small>글쓴이 : 103동 1401호 </small>			 	
 			</div>
@@ -72,6 +76,7 @@
     <div class="col-md-offset-10 col-md-2">
 		<button type="button" class="btn btn-primary" id="modify_btn">수정</button>
       	<button type="button" class="btn btn-danger" id="delete_btn">삭제</button><br><br><br>
+
     </div>
 
 	<div class="col-md-8 col-md-offset-3" align="left">

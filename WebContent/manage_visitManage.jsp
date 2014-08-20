@@ -8,6 +8,7 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link  href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
 
@@ -29,12 +30,12 @@
   <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
 </ul>
 </font>
-    
-    
+
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
         	<font size="4">
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
@@ -42,28 +43,30 @@
               <li><a href="#">자유 게시판</a></li>
               <li><a href="#">Link 3</a></li>              
             </ul>
-            	<font size="4">
-        </div>
+            </font>
+            </div>
   	
-  	<br>
-  	<div align="right">
-		<div align="right">
-		<form class="navbar-form navbar-left" role="search">
-  		<div class="form-group">
-  		<input type="text" class="form-control" placeholder="Search" size="20" align="center" value="동 호수" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<input type="text" class="form-control" placeholder="Search" size="20" align="center" value="방문자 신분" >&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-  		<input type="text" class="form-control" placeholder="Search" size="50" align="center" value = "용무">&nbsp;&nbsp;&nbsp;
-  		</div>
- 		 <button type="submit" class="btn btn-default">입력</button>
-		</form></div><br>
-		
 
   		
         <!-- main area -->
+
+	    <div class=" col-xs-3 col-sm-9">
+		<div align="left">
+		<form class="navbar-form navbar-left" role="search">
+		
+		
+  		<div class="form-group">
+  		<input type="text" class="form-control" placeholder="Search" size="19" align="center" value="동 호수" >&nbsp;&nbsp;&nbsp;&nbsp;
+  		<input type="text" class="form-control" placeholder="Search" size="19" align="center" value="방문자 신분" >&nbsp;&nbsp;&nbsp;&nbsp;
+  		<input type="text" class="form-control inline" placeholder="Search" size="48" align="center" value = "용무">&nbsp;&nbsp;&nbsp;&nbsp;
+ 		 <button type="submit" class="btn btn-default inline">입력</button>
+		</form>
+		</div></div><br>
+		
+		
         <br><br>
-        <div class="col-xs-12 col-sm-9">
-    		
-		 <div class="panel panel-default">
+       <div class="col-sm-12 col-xs-12">
+      <div class="panel panel-default">
 		  <!-- Default panel contents -->
 		  <div class="panel-heading"><center>고정 방문객 리스트</center></div>
 		
@@ -157,22 +160,6 @@
   </div><!--/.container-->
 </div><!--/.page-container-->
 
-
-
- 
-</ul>  
-</div>  
-</div>  
-</div> 
-
-
-
-
-
-  
-<script type="text/javascript">
-
-</script>
 
 </body>
 </html>

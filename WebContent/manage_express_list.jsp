@@ -17,6 +17,7 @@
 </head>
 <body>
 
+
      
     <div class="container">
      <font size="4">
@@ -32,12 +33,11 @@
 </ul>
 </font>
     
-  
-    
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
         	<font size="4">
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
@@ -50,8 +50,9 @@
   	
         <!-- main area -->
         <div class="col-xs-12 col-sm-9">
+
         <br>
-        		 <div align="right">
+   		 <div align="right">
 	
 <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
   등록
@@ -88,6 +89,7 @@
    <div class="col-xs-7">
     <input type="text" class="form-control" placeholder=".col-xs-2" value="이름을 입력하세요">
     </div></div>
+
     <br><br><br>
     
  <div class="btn-group" id="location">
@@ -105,7 +107,6 @@
     <li><a href="#">Separated link</a></li>
 </ul>
 </div>
-    
      
       </div>
       <div class="modal-footer">
@@ -119,10 +120,9 @@
 
 </div>
 <br>
+
 		 <div class="panel panel-default">
 		 
-
-		
 		  <!-- Default panel contents -->
 		  <div class="panel-heading"><center>Express List</center></div>
 		

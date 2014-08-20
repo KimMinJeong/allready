@@ -12,8 +12,6 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
 
-
-
 </head>
 <body>
 
@@ -31,10 +29,12 @@
 </ul>
 </font>
     
+
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
         <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+
         	<font size="4">
             <ul class="nav">
               <li class="active"><a href="#">공지사항 게시판</a></li>
@@ -46,6 +46,7 @@
      
         <!-- main area -->
         <br><br>
+
         <div class="col-xs-12 col-sm-9">
        <div class="panel panel-default">
        
@@ -105,16 +106,7 @@
           
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
-  </div><!--/.container-->
-</div><!--/.page-container-->
 
-
-
- 
-</ul>  
-</div>  
-</div>  
-</div> 
 
 
 
