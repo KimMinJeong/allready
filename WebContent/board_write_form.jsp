@@ -24,7 +24,7 @@
 	<ul class="nav nav-tabs size" role="tablist" >
 
 
-<li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
+<li class="active"><a href="#home" role="tab" data-toggle="tab">Home1</a></li>
  <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
   <li><a href="#messages" role="tab" data-toggle="tab">주차장</a></li>
   <li><a href="#settings" role="tab" data-toggle="tab">관리세</a></li>
