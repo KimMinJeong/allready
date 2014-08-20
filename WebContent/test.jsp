@@ -7,10 +7,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<<<<<<< HEAD
-a
-=======
+
 123
->>>>>>> a08377bf839803031b27e998850a94c65394b3f2
+
 </body>
 </html>
