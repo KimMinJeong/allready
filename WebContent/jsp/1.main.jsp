@@ -9,18 +9,15 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="static/css/Style.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
 	<div class="container" align="right">
-
 		<div class="center">
-
 			<center>
 				<h1>BETWEEN APARTMENT</h1>
 			</center>
 			<div class="col-md-offset-4 col-md-4">
-
 				<div class="input-group">
 					<span class="input-group-addon">&nbsp;&nbsp;아이디&nbsp;&nbsp;</span>
 					<input type="text" class="form-control" placeholder="아이디"
