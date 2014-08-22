@@ -1,5 +1,8 @@
 package kr.ac.apart.dao;
 
-public interface UserDAO {
+import kr.ac.apart.vo.UserVO;
 
+public interface UserDAO {
+	
+	public UserVO getUser(String userId);
 }

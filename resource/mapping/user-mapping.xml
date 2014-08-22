@@ -2,26 +2,22 @@
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
-<sqlMap namespace="User">
+<sqlMap namespace="USERS">
 	<typeAlias alias="user" type="kr.ac.apart.vo.UserVO"/>
 	
 	<resultMap id="userResult" class="user">
-		<result property="" column="USER_ID" />
-		<result property="" column=""/>
-		<result property="" column="" nullValue="" />
-		<result property="" column="" nullValue="" />
-		<result property="" column="" nullValue="" />
-		<result property="" column="" nullValue="" />
-		
-		
+		<result property="user_id" column="USER_ID" />
+		<result property="password" column="PASSWORD"/>
+		<result property="user_name" column="USER_NAME" nullValue="" />
+		<result property="e_mail" column="E_MAIL" nullValue="" />
+		<result property="phone" column="PHONE" nullValue="" />
+		<result property="role" column="ROLE" />
 	</resultMap>
-<!-- 	<select id="getUser" resultMap="userResult" parameterClass="java.lang.String"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			SELECT * -->
-<!-- 			FROM BLOG_USER -->
-<!-- 			WHERE USER_ID=#userId# -->
-<!-- 		]]> -->
-<!-- 	</select> -->
+	<select id="getUser" resultMap="userResult" parameterClass="java.lang.String">
+ 			SELECT *
+ 			FROM USERS
+ 			WHERE USER_ID=#user_id#
+	</select>
 
 <!-- 	<insert id="addUser" parameterClass="user"> -->
 <!-- 		<![CDATA[ -->
