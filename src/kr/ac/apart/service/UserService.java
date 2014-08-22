@@ -1,7 +1,9 @@
 package kr.ac.apart.service;
 
-import org.springframework.stereotype.Repository;
+
+import kr.ac.apart.vo.UserVO;
 
 public interface UserService {
 
+	public UserVO getUser(String userId);
 }

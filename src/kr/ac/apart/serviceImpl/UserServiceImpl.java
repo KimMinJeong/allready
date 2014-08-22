@@ -1,11 +1,19 @@
 package kr.ac.apart.serviceImpl;
 
+import kr.ac.apart.dao.UserDAO;
+import kr.ac.apart.service.UserService;
+import kr.ac.apart.vo.UserVO;
+
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.orm.ibatis.SqlMapClientTemplate;
+import org.springframework.stereotype.Service;
 
-public class UserServiceImpl {
-	
+@Service("userService")
+public class UserServiceImpl implements UserService{
 	@Autowired
-	private SqlMapClientTemplate sqlMapClientTemplate;
-
+	private UserDAO userDao;
+	
+	public UserVO getUser(String userId)
+	{
+		return userDao.getUser(userId);
+	}
 }
