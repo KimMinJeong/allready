@@ -5,7 +5,7 @@ public class ParkingVO {
 	private String floor;
 	private String section;
 	private String parking_lot;
-	private boolean isfull;
+	private String isfull;
 	@Override
 	public String toString() {
 		return "ParkingVO [parking_no=" + parking_no + ", floor=" + floor
@@ -36,10 +36,10 @@ public class ParkingVO {
 	public void setParking_lot(String parking_lot) {
 		this.parking_lot = parking_lot;
 	}
-	public boolean isIsfull() {
+	public String getIsfull() {
 		return isfull;
 	}
-	public void setIsfull(boolean isfull) {
+	public void setIsfull(String isfull) {
 		this.isfull = isfull;
 	}
 	

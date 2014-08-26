@@ -6,7 +6,7 @@ public class ExpressVO {
 	private String orderer;
 	private String receiver;
 	private String express_company;
-	private boolean checked;
+	private String checked;
 	private String reg_date;
 	@Override
 	public String toString() {
@@ -45,10 +45,10 @@ public class ExpressVO {
 	public void setExpress_company(String express_company) {
 		this.express_company = express_company;
 	}
-	public boolean isChecked() {
+	public String getChecked() {
 		return checked;
 	}
-	public void setChecked(boolean checked) {
+	public void setChecked(String checked) {
 		this.checked = checked;
 	}
 	public String getReg_date() {
