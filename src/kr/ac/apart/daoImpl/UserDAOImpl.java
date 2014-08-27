@@ -1,5 +1,7 @@
 package kr.ac.apart.daoImpl;
 
+import java.util.List;
+
 import kr.ac.apart.dao.UserDAO;
 import kr.ac.apart.vo.UserVO;
 
@@ -14,5 +16,23 @@ public class UserDAOImpl implements UserDAO{
 	
 	public UserVO getUser(String userId){
 		return (UserVO) sqlMapClientTemplate.queryForObject("getUser", userId);
+	}
+
+	@Override
+	public List<UserVO> testList() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public void add(UserVO vo) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public int delete(int no) {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 }
