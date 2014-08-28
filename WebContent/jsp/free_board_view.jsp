@@ -18,18 +18,7 @@
 
     <div class="container">
         
- <font size="4">
-<ul class="nav nav-tabs" role="tablist" >
 
-<li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
- <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
-  <li><a href="#messages" role="tab" data-toggle="tab">주차장</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">관리세</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">게시판</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">방문객</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
-</ul>
-</font>
     
     
       <div class="row row-offcanvas row-offcanvas-left">
