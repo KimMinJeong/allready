@@ -16,19 +16,6 @@
 <body>
 
     <div class="container">
-     <font size="4">
-<ul class="nav nav-tabs" role="tablist" >
-
-<li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
- <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
-  <li><a href="#messages" role="tab" data-toggle="tab">주차장</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">관리세</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">게시판</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">방문객</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
-</ul>
-</font>
-
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
@@ -36,22 +23,23 @@
 
         	<font size="4">
             <ul class="nav">
-              <li class="active"><a href="#">공지사항 게시판</a></li>
-              <li><a href="#">민원 게시판</a></li>
-              <li><a href="#">자유 게시판</a></li>         
+              <li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
+              <li><a href="complainBoard.do">민원 게시판</a></li>
+              <li><a href="freeBoard.do">자유 게시판</a></li>           
             </ul>
             </font>
         </div>
      
         <!-- main area -->
-        <br>
-        <div class="col-xs-12 col-sm-9">
-               <div align="right">
-      <button type="button" class="btn btn-default navbar-btn" >글작성</button></div><br>
+        <br><br>
 
+        <div class="col-xs-12 col-sm-9">
        <div class="panel panel-default">
-         <!-- Default panel contents -->
-        <div class="panel-heading"><center><strong>자유 게시판</strong></center></div>
+       
+
+      
+        <!-- Default panel contents -->
+        <div class="panel-heading"><center>공지사항 게시판</center></div>
       
         <!-- Table -->
         <table class="table">
@@ -61,17 +49,22 @@
                   <th>작성자</th>
                 <th>날짜</th>
           </tr>
-          
           <tr>
+             <td>3</td>
+             <a href="#"><td>필독</td></a>
+             <td>관리자</td>
+             <td>2014-8-18</td>
+          </tr>
+            <tr>
              <td>2</td>
-             <a href="#"><td>질문 잇심</td></a>
-             <td>102동 301호</td>
+             <a href="#"><td>공지사항</td></a>
+             <td>관리자</td>
              <td>2014-8-18</td>
           </tr>
             <tr>
              <td>1</td>
-             <a href="#"><td>잘 지내봄세!!</td></a>
-             <td>103동 1202호</td>
+             <a href="#"><td>보석바는 제발 제발 제발....좀..</td></a>
+             <td>관리자</td>
              <td>2014-8-18</td>
           </tr>
         </table>
@@ -99,10 +92,14 @@
           
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
-  </div><!--/.container-->
-</div><!--/.page-container-->
 
 
+
+
+  
+<script type="text/javascript">
+
+</script>
 
 </body>
 </html>

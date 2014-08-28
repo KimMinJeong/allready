@@ -2,11 +2,11 @@ package kr.ac.apart.vo;
 
 public class CCTVVO {
 	private int cctv_no;
-	private String file;
+	private String file_name;
 	private String reg_date;
 	@Override
 	public String toString() {
-		return "CCTVVO [cctv_no=" + cctv_no + ", file=" + file + ", reg_date="
+		return "CCTVVO [cctv_no=" + cctv_no + ", file=" + file_name + ", reg_date="
 				+ reg_date + "]";
 	}
 	public int getCctv_no() {
@@ -15,11 +15,11 @@ public class CCTVVO {
 	public void setCctv_no(int cctv_no) {
 		this.cctv_no = cctv_no;
 	}
-	public String getFile() {
-		return file;
+	public String getFile_name() {
+		return file_name;
 	}
-	public void setFile(String file) {
-		this.file = file;
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
 	}
 	public String getReg_date() {
 		return reg_date;

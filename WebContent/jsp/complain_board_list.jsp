@@ -17,19 +17,6 @@
 <body>
 
     <div class="container">
-     <font size="4">
-<ul class="nav nav-tabs" role="tablist" >
-
-<li class="active"><a href="#home" role="tab" data-toggle="tab">Home</a></li>
- <li><a href="#profile" role="tab" data-toggle="tab">cctv</a></li>
-  <li><a href="#messages" role="tab" data-toggle="tab">주차장</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">관리세</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">게시판</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">방문객</a></li>
-  <li><a href="#settings" role="tab" data-toggle="tab">소통의 장</a></li>
-</ul>
-</font>
-
       <div class="row row-offcanvas row-offcanvas-left">
         
         <!-- sidebar -->
@@ -37,10 +24,9 @@
 
         	<font size="4">
             <ul class="nav">
-              <li class="active"><a href="#">공지사항 게시판</a></li>
-              <li><a href="#">민원 게시판</a></li>
-              <li><a href="#">자유 게시판</a></li>
-              <li><a href="#">Link 3</a></li>              
+            <li><a href="noticeBoard.do">공지사항 게시판</a></li>
+              <li class="active"><a href="complainBoard.do">민원 게시판</a></li>
+              <li><a href="freeBoard.do">자유 게시판</a></li>        
             </ul>
 
             </font>
@@ -51,7 +37,7 @@
         <div class="col-xs-12 col-sm-9">
         <br>
         		 <div align="right">
-		<button type="button" class="btn btn-default navbar-btn" >글작성</button></div>
+		<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'" >글작성</button></div>
 		 <div class="panel panel-default">
 		 
 

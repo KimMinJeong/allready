@@ -5,7 +5,7 @@ public class VisitorVO {
 	private String user_id;
 	private String visitor_name;
 	private String business;
-	private boolean fixed;
+	private String fixed;
 	@Override
 	public String toString() {
 		return "VisitorVO [visitor_no=" + visitor_no + ", user_id=" + user_id
@@ -36,10 +36,10 @@ public class VisitorVO {
 	public void setBusiness(String business) {
 		this.business = business;
 	}
-	public boolean isFixed() {
+	public String getFixed() {
 		return fixed;
 	}
-	public void setFixed(boolean fixed) {
+	public void setFixed(String fixed) {
 		this.fixed = fixed;
 	}
 	

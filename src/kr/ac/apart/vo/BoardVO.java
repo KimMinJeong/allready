@@ -10,17 +10,17 @@ public class BoardVO {
 	private int view_count;
 	private int good;
 	private int bad;
-	private boolean anonymous;
-	private boolean closed;
-	private String file;
+	private String anonymous;
+	private String closed;
+	private String file_name;
 	@Override
 	public String toString() {
 		return "BoardVO [board_no=" + board_no + ", writer_id=" + writer_id
 				+ ", category=" + category + ", title=" + title + ", contents="
 				+ contents + ", reg_date=" + reg_date + ", view_count="
 				+ view_count + ", good=" + good + ", bad=" + bad
-				+ ", anonymous=" + anonymous + ", closed=" + closed + ", file="
-				+ file + "]";
+				+ ", anonymous=" + anonymous + ", closed=" + closed + ", file_name="
+				+ file_name + "]";
 	}
 	public int getBoard_no() {
 		return board_no;
@@ -76,23 +76,23 @@ public class BoardVO {
 	public void setBad(int bad) {
 		this.bad = bad;
 	}
-	public boolean isAnonymous() {
+	public String getAnonymous() {
 		return anonymous;
 	}
-	public void setAnonymous(boolean anonymous) {
+	public void setAnonymous(String anonymous) {
 		this.anonymous = anonymous;
 	}
-	public boolean isClosed() {
+	public String getClosed() {
 		return closed;
 	}
-	public void setClosed(boolean closed) {
+	public void setClosed(String closed) {
 		this.closed = closed;
 	}
-	public String getFile() {
-		return file;
+	public String getFile_name() {
+		return file_name;
 	}
-	public void setFile(String file) {
-		this.file = file;
+	public void setFile_name(String file_name) {
+		this.file_name = file_name;
 	}
 	
 }
