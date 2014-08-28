@@ -15,4 +15,9 @@ public class UserController{
 	public String index(){
 		return "1.main";
 	}
+	
+	@RequestMapping(value="/login.do")
+	public String main(){
+		return "user_main";
+	}
 }
