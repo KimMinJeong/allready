@@ -1,5 +1,7 @@
 package kr.ac.apart.daoImpl;
 
+import java.util.List;
+
 import kr.ac.apart.dao.UserDAO;
 import kr.ac.apart.vo.UserVO;
 

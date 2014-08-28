@@ -1,5 +1,7 @@
 package kr.ac.apart.service;
 
+import java.util.List;
+
 import kr.ac.apart.vo.UserVO;
 
 
