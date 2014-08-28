@@ -3,7 +3,7 @@
   <display-name>Apart</display-name>
   
 	<welcome-file-list>
-		<welcome-file>intro.do</welcome-file>
+		<welcome-file>loginForm.do</welcome-file>
 	</welcome-file-list>
 	
 	<context-param>
