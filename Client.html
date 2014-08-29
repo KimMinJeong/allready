@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="https://cdn.socket.io/socket.io-1.0.0.js"></script>
+		<script>
+		var socket = io();
+		var ctx, canvas, img;
+		
+		$(document).ready(function(){
+			$('#btnStart').click(function() {
+				socket.emit('start', function(){
+				});
+			});
+			$('#btnStop').click(function(){
+				socket.emit('end', null);
+			});
+			canvas = $("#mycanvas").get(0);	
+			canvas.width = 400;
+			canvas.height = 300;
+			ctx = canvas.getContext('2d');	
+			img = new Image();
+			
+			socket.on('image', function(data){	
+				ctx.clearRect(0,0,400,300);
+				img.src = 'data:image/png;base64,' + data;
+				ctx.drawImage(img, 0, 0, 400, 300);
+			});
+		});
+			
+		</script>
+	</head>
+	<body>
+		<button id='btnStart'>start capture</button>
+		<button id='btnStop'>stop capture</button>
+		<br /><br />
+		<canvas id='mycanvas'></canvas>
+	</body>
+</html>
