@@ -6,6 +6,7 @@
 	<settings cacheModelsEnabled="true" useStatementNamespaces="false" />
 	<sqlMap resource="mapping/user-mapping.xml"/>
 	<sqlMap resource="mapping/parking-mapping.xml"/>
+	<sqlMap resource="mapping/visitor-mapping.xml"/>
 </sqlMapConfig>
 
 

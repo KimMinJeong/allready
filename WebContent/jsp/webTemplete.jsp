@@ -35,7 +35,7 @@
 				<li><a href="#messages" data-toggle="tab">林瞒厘</a></li>
 				<li><a href="#settings" data-toggle="tab">包府技</a></li>
 				<li><a href="noticeBoard.do">霸矫魄</a></li>
-				<li><a href="#settings" data-toggle="tab">规巩按</a></li>
+				<li><a href="user_visitor.do">规巩按</a></li>
 				<li><a href="#settings" data-toggle="tab">家烹狼 厘</a></li>
 			</ul>
 		</font>
