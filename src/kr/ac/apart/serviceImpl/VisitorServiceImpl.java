@@ -46,5 +46,11 @@ public class VisitorServiceImpl implements VisitorService {
 		
 		return visitorList;
 	}
+	
+	@Override
+	public void deleteVisitor(String no){
+		System.out.println("deleteService");
+		visitorDao.deleteVisitor(no);
+	}
 
 }

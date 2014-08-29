@@ -69,7 +69,8 @@ public class VisitorController {
 	
 	@RequestMapping(value="/deleteVisitor.do")
 	public String deleteVisitor(String name){
-		System.out.println("visitor_no : " + name);
+		
+		visitorService.deleteVisitor(name);
 		
 		return "redirect:/getVisitorList.do";
 	}

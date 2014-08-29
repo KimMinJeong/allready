@@ -15,9 +15,9 @@
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<div class="container"> <br>
-	<form action="addVisitor.do" class="navbar-form navbar-left" method="post">
+	<div class="container">
 		<div class="col-md-5 col-md-offset-7">
+		<form action="addVisitor.do" class="navbar-form navbar-left" method="post">
 			<input type="checkbox" class="checkbox inline" name="fixed">&nbsp;&nbsp;
 			<h4 class="text inline">고정방문객</h4>
 		</div>
@@ -32,15 +32,14 @@
 			  <input type="text" class="form-control" placeholder="용무" name="business">
 			</div>
 		</div>
-	
+		<br><br><br><br>
 		<div class=".col-md-1">
-			<br><br>
 			<button type="submit" class="btn btn-primary" id="visitor_submit_btn">등록</button>
 		</div>
 	</form>
-	<br><br><br>
+	<br>
 	
-	 <form action="deleteVisitor.do"> 
+	 <form action="deleteVisitor.do">
 	<div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -53,7 +52,7 @@
                 </tr>
               </thead>
               <tbody>
-           
+    <!-- <form action="deleteVisitor.do">    -->     
 	<%
 	List<VisitorVO> visitorList = (List<VisitorVO>)request.getAttribute("VisitorFlag");
 	
@@ -67,10 +66,8 @@
                   	<%}else if(vo.getFixed().equals("UNFIXED")){ %>
                   	<td>일시</td>
                   	<%} %>
-                  	
-                  	<td><button type="submit" class="btn btn-primary" name="<%=vo.getVisitor_no()%>">삭제</button></td>
-                	
-                </tr>
+                  	 <td><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></td>
+                   </tr>
                 <%} %>
               </tbody>
             </table>
