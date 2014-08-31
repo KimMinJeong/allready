@@ -28,10 +28,10 @@ public class VisitorController {
 	
 	@RequestMapping(value="/manage_visitor.do")    //관리자의 방문페이지
 	public String manage_visitor(){
-		return "manage_visitManage";
+		return "webTemplete.jsp?nextPage=manage_visitManage";
 	}
 	
-	@RequestMapping(value="/addVisitor.do")      //방문객 추가
+	@RequestMapping(value="/addVisitor.do")      //nomal user의 방문객 추가
 	public String addVisitor(String fixed, String visitor_name, String business, HttpSession session){
 		UserVO userVO = (UserVO)session.getAttribute("UserFlag");
 		String user_id = userVO.getUser_id();    //현재 로그인 중인 user의 id 가져오기
@@ -48,6 +48,25 @@ public class VisitorController {
 		visitorService.addVisitor(visitorVO);
 
 		return "redirect:/getVisitorList.do";
+	}
+	
+	@RequestMapping(value="/addVisitorManger.do")
+	public ModelAndView addVisitorManager(String user_id, String visitor_name, String business){
+		ModelAndView mav = new ModelAndView("redirect:/getVisitorManager.do");
+		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
+	/*	VisitorVO vo = (VisitorVO)visitorService.addVisitor(visitorVO);
+		mav.addObject("Test", vo);        //visitorT에 값 입력
+	*/			
+		return mav;
+	}
+	
+	@RequestMapping(value="/getVisitorManager.do")
+	public String getVisitorManager(HttpServletRequest request){
+		
+		System.out.println("Test" + request.getAttribute("Test"));
+		
+		return "redirect:/manage_visitor.do";
+		
 	}
 	
 	@RequestMapping(value="/getVisitorList.do")
@@ -69,10 +88,22 @@ public class VisitorController {
 	
 	@RequestMapping(value="/deleteVisitor.do")
 	public String deleteVisitor(String name){
-		
 		visitorService.deleteVisitor(name);
 		
 		return "redirect:/getVisitorList.do";
 	}
+	
+	@RequestMapping(value="/getVisitor")
+	ModelAndView getVisitor(String user_id){
+		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_visitManage");
+		List<VisitorVO> visitorList = null;
+		try{
+			visitorList = visitorService.getVisitorList(user_id);
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		mav.addObject("VisitorManagerFlag", visitorList);
 
+		return mav;
+	}
 }

@@ -36,5 +36,13 @@
 		]]>
 	</delete>
 	
+	<!-- <select id="getVisitor" resultMap="visitorResult" parameterClass="java.lang.String">
+		<![CDATA[
+			SELECT *
+			FROM VISITOR
+			WHERE VIITOR_NAME = #visitor_name#
+		]]>
+	</select> -->
+	
 </sqlMap>
 

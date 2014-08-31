@@ -42,4 +42,12 @@ public class visitorDAOTest {
 		
 		assertEquals(count, 1);
 	}
+	
+	@Test
+	public void addVisitorManagerTest(){
+		int count = visitorDao.addVisitorManager("18");
+		
+		assertEquals(count, 1);
+		
+	}
 }

@@ -58,13 +58,13 @@
 	
 	for(VisitorVO vo : visitorList){ %>
                 <tr>
-                  <td><%=vo.getUser_id() %></td>
-                  <td><%=vo.getVisitor_name() %></td>
-                  <td><%=vo.getBusiness() %></td>
+                  <td><center><%=vo.getUser_id() %></center></td>
+                  <td><center><%=vo.getVisitor_name() %></center></td>
+                  <td><center><%=vo.getBusiness() %></center></td>
                   <% if(vo.getFixed().equals("FIXED")){%>
-                  	<td>고정</td>
+                  	<td><center>고정</center></td>
                   	<%}else if(vo.getFixed().equals("UNFIXED")){ %>
-                  	<td>일시</td>
+                  	<td><center>일시</center></td>
                   	<%} %>
                   	 <td><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></td>
                    </tr>

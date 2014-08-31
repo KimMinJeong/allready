@@ -11,8 +11,6 @@
 <title>WebTemplate</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
-
-<!-- Custom styles for this template -->
 <link href="justified-nav.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 
@@ -22,21 +20,34 @@
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
-</head>
 <body>
+<%
+	UserVO vo = (UserVO)session.getAttribute("UserFlag");
+%>
 	<div class="container">
 		<div class="masthead">
 			<h3 class="text-muted">
 				<font size="4">
 					<div class="tabbable">
-						<ul class="nav nav-tabs" role="tablist" id="tabs">
-							<li><a class="active" href="main.do">Home</a></li>
-							<li><a href="#profile" data-toggle="tab">cctv</a></li>
-							<li><a href="#messages" data-toggle="tab">주차장</a></li>
-							<li><a href="#settings" data-toggle="tab">관리세</a></li>
+						<ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
+						<%if(vo.getRole().equals("NORMAL")) {%>     <!-- 로그인 사용자가 normal -->
+							<li><a href="main.do">Home</a></li>
+							<li><a href="#profile">cctv</a></li>
+							<li><a href="#messages">주차장</a></li>
+							<li><a href="#settings">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings" data-toggle="tab">소통의 장</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<%}
+							else if(vo.getRole().equals("MANAGER")) {%>     <!-- 로그인 사용자가 manager -->
+							<li class="active"><a href="main.do">Home</a></li>
+							<li><a href="#profile">cctv</a></li>
+							<li><a href="#">주차장</a></li>
+							<li><a href="#settings">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="#settings">전체관리세</a></li>
+							<li><a href="#settings">택배관리</a></li>
+							<%} %>
 						</ul>
 				</font>
 			</h3>
@@ -51,12 +62,50 @@
 	<script src="static/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="static/js/respond.js"></script>
-
-	</script>
+	
 	<script type="text/javascript">
-jQuery(document).ready(function ($) {
-    $('#tabs').tab();
-});
+   $(document).ready(function () {
+       $(".container .tabbale #tabs li a").on('click', function (e) {
+           e.preventDefault();
+           
+           $('a').each(function () {
+               $('li').removeClass('active');    
+           });
+           $('li').addClass('active');
+           
+	        var target = this.hash,
+	            menu = target;
+	        $target = $(target);
+	        $('html, body').stop().animate({
+	           
+	        }, 500, 'swing', function () {
+	        });
+       });
+   });
 </script>
+	
+<!-- <script type="text/javascript">
+	$(document).ready(function () {
+	    $('a[href^="#"]').on('click', function (e) {
+	        e.preventDefault();
+	        
+	        $('a').each(function () {
+	            $('li').removeClass('active');    
+	        })
+	        $('li').addClass('active');
+	      
+	        var target = this.hash,
+	            menu = target;
+	        $target = $(target);
+	        $('html, body').stop().animate({
+	           
+	        }, 500, 'swing', function () {
+	        });
+	    });
+	});
+</script>
+ -->
+
+
 </body>
 </html>
