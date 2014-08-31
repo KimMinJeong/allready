@@ -12,4 +12,4 @@ app.get('/', function(req, res){
 http.listen(8088);
 
 require('./socket_test')(io);  //파일 불러오기
-require('./tcpClient');
+require('./tcpServer');

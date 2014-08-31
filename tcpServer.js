@@ -27,7 +27,7 @@ ioClient.on('connect', function() {
 		socket.on('end', function () {
 			// 접속이 끊겼을 때 배열에서 해당 소켓 지우기
 			var i = sockets.indexOf(socket);
-			sockets.splice(i, 1);
+			sockets.splice(i, -1);
 			console.log('Disconnected');
 		});
 	});
