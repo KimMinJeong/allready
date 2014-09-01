@@ -8,5 +8,5 @@ public interface VisitorDAO {
 	public int addVisitor(VisitorVO vo);
 	public List<VisitorVO> getVisitorList(String id);
 	public int deleteVisitor(String id);
-	public int addVisitorManager(String visitor_no);
+	public boolean addVisitorManager();
 }

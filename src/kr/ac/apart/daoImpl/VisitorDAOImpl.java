@@ -3,6 +3,7 @@ package kr.ac.apart.daoImpl;
 import java.util.List;
 
 import kr.ac.apart.dao.VisitorDAO;
+import kr.ac.apart.vo.Visit_RecordVO;
 import kr.ac.apart.vo.VisitorVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,8 +28,9 @@ public class VisitorDAOImpl implements VisitorDAO{
 		return (Integer) sqlMapClientTemplate.delete("deleteVisitor", id);
 	}
 	
-	public int addVisitorManager(String visitor_no){
-		return (Integer) sqlMapClientTemplate.update("addVisitorManager", visitor_no);
+	public boolean addVisitorManager(){
+		sqlMapClientTemplate.insert("addVisitorManager", new Visit_RecordVO());
+		return true;
 	}
 
 }

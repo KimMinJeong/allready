@@ -3,6 +3,7 @@ import static org.junit.Assert.*;
 
 import java.util.List;
 
+import kr.ac.apart.vo.Visit_RecordVO;
 import kr.ac.apart.vo.VisitorVO;
 
 import org.junit.Test;
@@ -44,10 +45,12 @@ public class visitorDAOTest {
 	}
 	
 	@Test
-	public void addVisitorManagerTest(){
-		int count = visitorDao.addVisitorManager("18");
-		
-		assertEquals(count, 1);
-		
+	public void addVisitRecordTest(){
+		boolean flag = false;
+		if(visitorDao.addVisitorManager())
+		{
+			System.out.println("true");
+		};
+
 	}
 }

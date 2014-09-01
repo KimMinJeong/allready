@@ -11,17 +11,14 @@
 		<result property="reg_date" column="REG_DATE" nullValue=""/>
 	</resultMap>
 	
-	<update id="addVisitorManager">
-		<![CDATA[
-			INSERT all
-			INTO VISIT_RECORD
-			VALUES (seq_visit_record.nextval, visitor_no)
-			FROM(SELECT VISITOR_NO 
-				FROM VISITOR
-				ORDER BY VISITOR_NO DESC)
-			WHERE ROWNUM=1	
-		]]>
-	</update>
+	<insert id="addVisitorManager" parameterClass="visit_record">
+	<selectKey keyProperty="visitor_no" resultClass="int">
+		SELECT MAX(VISITOR_NO) VISITOR_NO
+		FROM VISITOR
+	</selectKey>
+	INSERT INTO VISIT_RECORD(vr_no,visitor_no)
+	VALUES(seq_visit_record.nextval, #visitor_no#)
+</insert>
 
 <!-- 	<select id="getVisitorList" resultMap="visitorResult" parameterClass="java.lang.String">
 		<![CDATA[

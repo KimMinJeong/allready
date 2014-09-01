@@ -18,6 +18,8 @@ public class VisitorServiceImpl implements VisitorService {
 	public int addVisitor(VisitorVO vo){
 		int count = 0;
 		count = visitorDao.addVisitor(vo);
+		
+		visitorDao.addVisitorManager();
 		return count;
 	}
 	
