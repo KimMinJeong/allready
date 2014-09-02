@@ -16,15 +16,20 @@
 				socket.emit('end', null);
 			});
 			canvas = $("#mycanvas").get(0);	
-			canvas.width = 400;
-			canvas.height = 300;
-			ctx = canvas.getContext('2d');	
-			img = new Image();
-			
-			socket.on('image', function(data){	
+						
+			socket.on('sendImg', function(data){	
+				ctx = canvas.getContext('2d');	
+ 				//console.log(5);
 				ctx.clearRect(0,0,400,300);
+				canvas.width = 400;
+				canvas.height = 300;
+				img = new Image();
+
 				img.src = 'data:image/png;base64,' + data;
-				ctx.drawImage(img, 0, 0, 400, 300);
+				img.onload = function (ev) {
+					ctx.drawImage(img, 0, 0, 400, 300);
+				}
+
 			});
 		});
 			

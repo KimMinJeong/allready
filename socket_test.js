@@ -7,11 +7,11 @@ module.exports = function(io)//외부에서 접근 가능
 		socket.on('start', function(data){
 			console.log('start');
 		});
-		socket.on('image', function(data){
-			socket.broadcast.emit('image', data.img);
-		});
 		socket.on('end', function(data){
 			console.log('end');
+		});
+		socket.on('img', function(data){
+			socket.broadcast.emit('sendImg', data.img);
 		});
 	});
 };
