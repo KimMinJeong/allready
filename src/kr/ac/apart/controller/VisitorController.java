@@ -50,23 +50,13 @@ public class VisitorController {
 		return "redirect:/getVisitorList.do";
 	}
 	
-	@RequestMapping(value="/addVisitorManger.do")
+	@RequestMapping(value="/addVisitorManger.do")    //manager의 방문객 추가
 	public ModelAndView addVisitorManager(String user_id, String visitor_name, String business){
-		ModelAndView mav = new ModelAndView("redirect:/getVisitorManager.do");
+		ModelAndView mav = new ModelAndView("redirect:/manage_visitor.do");
 		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
-	/*	VisitorVO vo = (VisitorVO)visitorService.addVisitor(visitorVO);
-		mav.addObject("Test", vo);        //visitorT에 값 입력
-	*/			
+		
+		visitorService.addVisitorManager(visitorVO);
 		return mav;
-	}
-	
-	@RequestMapping(value="/getVisitorManager.do")
-	public String getVisitorManager(HttpServletRequest request){
-		
-		System.out.println("Test" + request.getAttribute("Test"));
-		
-		return "redirect:/manage_visitor.do";
-		
 	}
 	
 	@RequestMapping(value="/getVisitorList.do")

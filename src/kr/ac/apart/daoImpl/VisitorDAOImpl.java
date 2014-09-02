@@ -28,9 +28,9 @@ public class VisitorDAOImpl implements VisitorDAO{
 		return (Integer) sqlMapClientTemplate.delete("deleteVisitor", id);
 	}
 	
-	public boolean addVisitorManager(){
-		sqlMapClientTemplate.insert("addVisitorManager", new Visit_RecordVO());
-		return true;
+	public int addVisitorManager(){
+		return (Integer) sqlMapClientTemplate.insert("addVisitorManager", new Visit_RecordVO());
+
 	}
 
 }

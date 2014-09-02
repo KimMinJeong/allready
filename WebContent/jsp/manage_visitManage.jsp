@@ -115,8 +115,12 @@
 				<center>방문 기록 리스트</center>
 			</div>
 
+
+
+
+
 			<!-- Table -->
-			<table class="table">
+		<!-- 	<table class="table">
 				<tr>
 					<th><center>동호수</center></th>
 					<th><center>방문자신분</center></th>
@@ -142,7 +146,7 @@
 					<td><center>2014-8-18</center></td>
 				</tr>
 			</table>
-		</div>
+		</div> -->
 
 		<div align="center">
 			<ul class="pagination">

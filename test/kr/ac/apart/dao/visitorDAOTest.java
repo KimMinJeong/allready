@@ -46,11 +46,9 @@ public class visitorDAOTest {
 	
 	@Test
 	public void addVisitRecordTest(){
-		boolean flag = false;
-		if(visitorDao.addVisitorManager())
-		{
-			System.out.println("true");
-		};
+		int count = visitorDao.addVisitorManager();
+		
+		assertEquals(count, 27);
 
 	}
 }

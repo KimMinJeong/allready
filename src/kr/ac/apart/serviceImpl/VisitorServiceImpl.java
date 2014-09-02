@@ -1,11 +1,16 @@
 package kr.ac.apart.serviceImpl;
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+import javax.servlet.http.HttpUtils;
+
+import org.apache.catalina.connector.Request;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.ac.apart.dao.VisitorDAO;
 import kr.ac.apart.service.VisitorService;
+import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
 
 @Service("visitorService")
@@ -18,9 +23,17 @@ public class VisitorServiceImpl implements VisitorService {
 	public int addVisitor(VisitorVO vo){
 		int count = 0;
 		count = visitorDao.addVisitor(vo);
-		
-		visitorDao.addVisitorManager();
+
 		return count;
+	}
+	@Override
+	public int addVisitorManager(VisitorVO vo){
+		int count = 0;
+		count = visitorDao.addVisitor(vo);
+		count = visitorDao.addVisitorManager();
+		
+		return count;
+		
 	}
 	
 	@Override
