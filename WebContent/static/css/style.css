@@ -1,0 +1,25 @@
+@CHARSET "UTF-8";
+
+.button1{
+	width:350px;
+	height:200px;
+}
+
+#location{
+	left: -86%
+}
+
+.size{
+	font-size: 10;
+}
+
+.inline{
+	display: inline;
+}
+
+.active {
+   
+    color: red;
+  
+}
+
