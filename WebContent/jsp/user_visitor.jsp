@@ -39,7 +39,7 @@
 	</form>
 	<br>
 	
-	 <form action="deleteVisitor.do">
+	 <form action="updateVisitor.do">
 	<div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -56,7 +56,8 @@
 	<%
 	List<VisitorVO> visitorList = (List<VisitorVO>)request.getAttribute("VisitorFlag");
 	
-	for(VisitorVO vo : visitorList){ %>
+	for(VisitorVO vo : visitorList){ 
+		if(vo.getViewing().equals("TRUE")){%>
                 <tr>
                   <td><center><%=vo.getUser_id() %></center></td>
                   <td><center><%=vo.getVisitor_name() %></center></td>
@@ -68,7 +69,8 @@
                   	<%} %>
                   	 <td><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></td>
                    </tr>
-                <%} %>
+                <%} 
+                }%>
               </tbody>
             </table>
             </form>

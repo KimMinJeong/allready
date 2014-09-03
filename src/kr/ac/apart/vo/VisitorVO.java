@@ -6,11 +6,19 @@ public class VisitorVO {
 	private String visitor_name;
 	private String business;
 	private String fixed;
+	private String viewing;
+	
 	@Override
 	public String toString() {
 		return "VisitorVO [visitor_no=" + visitor_no + ", user_id=" + user_id
 				+ ", visitor_name=" + visitor_name + ", business=" + business
-				+ ", fixed=" + fixed + "]";
+				+ ", fixed=" + fixed + ", viewing=" + viewing + "]";
+	}
+	public String getViewing() {
+		return viewing;
+	}
+	public void setViewing(String viewing) {
+		this.viewing = viewing;
 	}
 	public int getVisitor_no() {
 		return visitor_no;

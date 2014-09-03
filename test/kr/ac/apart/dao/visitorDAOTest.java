@@ -31,9 +31,7 @@ public class visitorDAOTest {
 	@Test
 	public void getVisitorListTest(){
 		List<VisitorVO> list = visitorDao.getVisitorList("111");
-		
 		System.out.println(list);
-		
 		assertNotNull(list);
 	}
 	
@@ -49,6 +47,37 @@ public class visitorDAOTest {
 		int count = visitorDao.addVisitorManager();
 		
 		assertEquals(count, 27);
+	}
+	
+	@Test
+	public void updateVisitorTest(){
+		int count = visitorDao.updateVisitor("71");
+		
+		assertEquals(count, 1);
+	}
+	
+	@Test
+	public void getVisitorListManagerTest(){
+		List<Visit_RecordVO> list = visitorDao.getVisitorListManager();
+		System.out.println(list);
 
+		assertNotNull(list);
+	}
+	
+	@Test
+	public void getVisitorListAllTest(){
+		List<VisitorVO> list = visitorDao.getVisitorListAll();
+		System.out.println(list);
+		
+		assertNotNull(list);
+	}
+	
+	@Test
+	public void getRegDate(){
+
+		String vo =  visitorDao.getRegDate();
+		System.out.println(vo);
+		assertNotNull(vo);
+		
 	}
 }

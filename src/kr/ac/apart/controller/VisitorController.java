@@ -1,17 +1,24 @@
 package kr.ac.apart.controller;
 
+import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.VisitorService;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
 
+import net.sf.json.JSONObject;
+
+import org.dom4j.VisitorSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller("visitorController")
@@ -27,8 +34,12 @@ public class VisitorController {
 	}
 	
 	@RequestMapping(value="/manage_visitor.do")    //관리자의 방문페이지
-	public String manage_visitor(){
-		return "webTemplete.jsp?nextPage=manage_visitManage";
+	public ModelAndView manage_visitor(){
+		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_visitManage");
+		mav.addObject("visitRecord", visitorService.getVisitorListManager());  //방문기록리스트가져오기
+		mav.addObject("visitorList", visitorService.getVisitorListAll());      //등록방문객리스트가져오기
+		
+		return mav;
 	}
 	
 	@RequestMapping(value="/addVisitor.do")      //nomal user의 방문객 추가
@@ -37,9 +48,7 @@ public class VisitorController {
 		String user_id = userVO.getUser_id();    //현재 로그인 중인 user의 id 가져오기
 		VisitorVO visitorVO = new VisitorVO();
 		
-		//fixed 체크되면 on, 체크 안되면 null
-		System.out.println("user_id : " + user_id + " fixed : " + fixed + " visitor_name : " + visitor_name + " business : " + business);
-		if(fixed != null){
+		if(fixed != null){     //fixed 체크되면 on, 체크 안되면 null
 			visitorVO = visitorService.insert(user_id, visitor_name, business, fixed);
 		}
 		else if(fixed == null){
@@ -50,14 +59,41 @@ public class VisitorController {
 		return "redirect:/getVisitorList.do";
 	}
 	
-	@RequestMapping(value="/addVisitorManger.do")    //manager의 방문객 추가
-	public ModelAndView addVisitorManager(String user_id, String visitor_name, String business){
-		ModelAndView mav = new ModelAndView("redirect:/manage_visitor.do");
-		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
+	@RequestMapping(value="/addVisitorManager.do")   //manager가 방문객 추가할 때 
+	public @ResponseBody String addVisitorManager(String user_id, String visitor_name, String business, HttpServletResponse response,HttpServletRequest request) throws Exception {
+		//String은 view를 뿌려주는? 가져다주는 애! 앞에 @ResponseBody 를 붙여주면 view를 넘겨주지않고 데이터만? 넘겨준다.
+		System.out.println("addVisitorManager.do start!!!");
 		
-		visitorService.addVisitorManager(visitorVO);
-		return mav;
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json; charset=utf-8");
+
+		JSONObject obj = new JSONObject();
+	
+		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
+		visitorService.addVisitorManager(visitorVO);	
+
+		obj.put("add", visitorVO);
+		obj.put("add2", visitorService.getRegDate());
+		
+		System.out.println(obj.toString());
+		
+		return obj.toString();
 	}
+//	@RequestMapping(value="/insertVisit.do")
+//	public @ResponseBody String insertVisit(String user_id2, String visitor_name2, String business2, HttpServletResponse response,HttpServletRequest request) throws Exception{
+//		System.out.println("insertVisit.do start!!!");
+//		request.setCharacterEncoding("utf-8");
+//		response.setContentType("application/json; charset=utf-8");
+//
+//		JSONObject obj = new JSONObject();
+//		System.out.println(user_id2);
+//		obj.put("user_id", user_id2);
+//		obj.put("visitor_name", visitor_name2);
+//		obj.put("business", business2);
+//		obj.put("regdate", visitorService.getRegDate());
+//		
+//		return obj.toString();
+//	}
 	
 	@RequestMapping(value="/getVisitorList.do")
 	public ModelAndView getVisitorList(HttpSession session){   //id에 해당하는 방문객정보 session으로 가지고 있기
@@ -76,14 +112,21 @@ public class VisitorController {
 		return mav;		
 	}
 	
-	@RequestMapping(value="/deleteVisitor.do")
-	public String deleteVisitor(String name){
-		visitorService.deleteVisitor(name);
+	@RequestMapping(value="/updateVisitor.do")    //noramal이 방문객 삭제를 눌렀을 때
+	public String updateVisitor(String name){
+		visitorService.updateVisitor(name);
 		
 		return "redirect:/getVisitorList.do";
 	}
 	
-	@RequestMapping(value="/getVisitor")
+//	@RequestMapping(value="/deleteVisitor.do")     //normal의 방문객 삭제
+//	public String deleteVisitor(String name){
+//		visitorService.deleteVisitor(name);
+//		
+//		return "redirect:/getVisitorList.do";
+//	}
+	
+	@RequestMapping(value="/getVisitor")     //고정방문객 검색
 	ModelAndView getVisitor(String user_id){
 		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_visitManage");
 		List<VisitorVO> visitorList = null;

@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import kr.ac.apart.dao.VisitorDAO;
 import kr.ac.apart.service.VisitorService;
 import kr.ac.apart.vo.UserVO;
+import kr.ac.apart.vo.Visit_RecordVO;
 import kr.ac.apart.vo.VisitorVO;
 
 @Service("visitorService")
@@ -33,7 +34,6 @@ public class VisitorServiceImpl implements VisitorService {
 		count = visitorDao.addVisitorManager();
 		
 		return count;
-		
 	}
 	
 	@Override
@@ -58,7 +58,7 @@ public class VisitorServiceImpl implements VisitorService {
 	@Override
 	public List<VisitorVO> getVisitorList(String id){     //user id를 이용 방문객 list
 		List<VisitorVO> visitorList = visitorDao.getVisitorList(id);
-		
+		System.out.println(visitorList);
 		return visitorList;
 	}
 	
@@ -67,5 +67,30 @@ public class VisitorServiceImpl implements VisitorService {
 		System.out.println("deleteService");
 		visitorDao.deleteVisitor(no);
 	}
-
+	
+	@Override
+	public void updateVisitor(String no){
+		visitorDao.updateVisitor(no);
+	}
+	
+	@Override
+	public List<Visit_RecordVO> getVisitorListManager(){
+		List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager();
+		
+		return visitList;
+	}
+	
+	@Override
+	public List<VisitorVO> getVisitorListAll(){
+		List<VisitorVO> visitorListAll = visitorDao.getVisitorListAll();
+		
+		return visitorListAll;
+	}
+	
+	@Override
+	public String getRegDate(){
+		String regDate = visitorDao.getRegDate();
+		
+		return regDate;
+	}
 }

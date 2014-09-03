@@ -20,6 +20,21 @@
 	VALUES(seq_visit_record.nextval, #visitor_no#)
 </insert>
 
+	<select id="getVisitorListManager" resultMap="visitResult" parameterClass="java.lang.String">
+	<![CDATA[
+		SELECT *
+		FROM VISIT_RECORD	
+		ORDER BY REG_DATE DESC
+	]]>
+	</select>
+	
+	<select id="getRegDate" resultClass="String">
+		<![CDATA[
+			SELECT MAX(REG_DATE)
+			FROM VISIT_RECORD
+		]]>
+	</select>
+
 <!-- 	<select id="getVisitorList" resultMap="visitorResult" parameterClass="java.lang.String">
 		<![CDATA[
 			SELECT *
