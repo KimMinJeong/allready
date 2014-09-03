@@ -4,9 +4,11 @@ import static org.junit.Assert.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.List;
 
 import kr.ac.apart.vo.ParkingVO;
 import kr.ac.apart.vo.UserVO;
+import kr.ac.apart.vo.VisitorVO;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -21,6 +23,8 @@ public class junit_test {
 	private UserDAO userDao;
 	@Autowired
 	private ParkingDAO parkingDao;
+	@Autowired
+	private VisitorDAO visitorDao;
 
 	@Test
 	public void getUser() {
@@ -60,5 +64,4 @@ public class junit_test {
 			fr.close();
 		}
 	}
-
 }
