@@ -18,8 +18,7 @@
 			canvas = $("#mycanvas").get(0);	
 						
 			socket.on('sendImg', function(data){	
-				ctx = canvas.getContext('2d');	
- 				//console.log(5);
+				ctx = canvas.getContext('2d');
 				ctx.clearRect(0,0,400,300);
 				canvas.width = 400;
 				canvas.height = 300;
@@ -32,7 +31,6 @@
 
 			});
 		});
-			
 		</script>
 	</head>
 	<body>
