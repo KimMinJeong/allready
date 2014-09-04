@@ -12,8 +12,7 @@ module.exports = function(io)//외부에서 접근 가능
 		});
 		socket.on('img', function(data){
 			var draw=data.img;
-			//console.log(draw);
-			socket.broadcast.emit('sendImg', draw);
+			socket.broadcast.emit('sendImg', data.img);
 		});
 	});
 };
