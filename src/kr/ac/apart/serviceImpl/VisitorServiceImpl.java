@@ -35,6 +35,11 @@ public class VisitorServiceImpl implements VisitorService {
 		
 		return count;
 	}
+	@Override
+	public void addVisitormanagerOnly(){
+		visitorDao.addVisitorManager();
+			
+	}
 	
 	@Override
 	public VisitorVO insert(String user_id, String visitor_name, String business, String fixed){

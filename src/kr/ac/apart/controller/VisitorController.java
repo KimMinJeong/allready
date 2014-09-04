@@ -79,21 +79,26 @@ public class VisitorController {
 		
 		return obj.toString();
 	}
-//	@RequestMapping(value="/insertVisit.do")
-//	public @ResponseBody String insertVisit(String user_id2, String visitor_name2, String business2, HttpServletResponse response,HttpServletRequest request) throws Exception{
-//		System.out.println("insertVisit.do start!!!");
-//		request.setCharacterEncoding("utf-8");
-//		response.setContentType("application/json; charset=utf-8");
-//
-//		JSONObject obj = new JSONObject();
-//		System.out.println(user_id2);
-//		obj.put("user_id", user_id2);
-//		obj.put("visitor_name", visitor_name2);
-//		obj.put("business", business2);
-//		obj.put("regdate", visitorService.getRegDate());
-//		
-//		return obj.toString();
-//	}
+	
+	@RequestMapping(value="/insertVisit.do")  //검색된 방문객 방문객 리스트에 넣기
+	public @ResponseBody String insertVisit(String user_id2, String visitor_name2, String business2, HttpServletResponse response,HttpServletRequest request) throws Exception{
+		System.out.println("insertVisit.do start!!!");
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json; charset=utf-8");
+
+		JSONObject obj = new JSONObject();
+		
+		visitorService.addVisitormanagerOnly();
+		
+		obj.put("user_id", user_id2);
+		obj.put("visitor_name", visitor_name2);
+		obj.put("business", business2);
+		obj.put("regdate", visitorService.getRegDate());
+		
+		System.out.println("obj.toString : " + obj.toString());
+		return obj.toString();
+	}
 	
 	@RequestMapping(value="/getVisitorList.do")
 	public ModelAndView getVisitorList(HttpSession session){   //id에 해당하는 방문객정보 session으로 가지고 있기
