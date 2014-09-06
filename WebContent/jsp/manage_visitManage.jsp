@@ -77,8 +77,8 @@
 										for (VisitorVO vo : visitorList) {
 							%>
 							<tr>
-								<td id="user_id2"><center><%=vo.getUser_id()%></center></td>
-								<td id="visitor_name2"><center><%=vo.getVisitor_name()%></center></td>
+								<td id="user_id"><center><%=vo.getUser_id()%></center></td>
+								<td id="visitor_name"><center><%=vo.getVisitor_name()%></center></td>
 								<td id="business2"><center><%=vo.getBusiness()%></center></td>
 								<%
 									if (vo.getFixed().equals("FIXED")) {
