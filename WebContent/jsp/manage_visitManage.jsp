@@ -22,20 +22,25 @@
 		<div class=" col-xs-3 col-sm-9">
 			<div class="navbar-form navbar-center" role="search">
 				<div class="form-group">
-					<input type="text" class="form-control" placeholder="동/호수" size="19" id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
-					<input type="text" class="form-control" placeholder="방문자 신분" size="19" id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
-					<input type="text" class="form-control inline" placeholder="용무" size="48" id="business">&nbsp;
-					<button type="button" class="btn btn-default inline" id="addVisitorManagerButton">입력</button>
+					<input type="text" class="form-control" placeholder="동/호수"
+						size="19" id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; <input
+						type="text" class="form-control" placeholder="방문자 신분" size="19"
+						id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; <input
+						type="text" class="form-control inline" placeholder="용무" size="48"
+						id="business">&nbsp;
+					<button type="button" class="btn btn-default inline"
+						id="addVisitorManagerButton">입력</button>
 				</div>
 			</div>
 		</div>
 		<br> <br> <br>
 
-		<form class="navbar-form navbar-right" role="search" action="getVisitor.do">
+		<form class="navbar-form navbar-right" role="search">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="방문자 신분" size="20%" align="center" name="user_id">
+				<input type="text" class="form-control" placeholder="방문자 신분"
+					size="20%" align="center" name="user_id" id="searchUserId">
 			</div>
-			<button type="submit" class="btn btn-default">검색</button>
+			<button type="button" class="btn btn-default" id="searching">검색</button>
 		</form>
 		<br> <br>
 
@@ -54,13 +59,15 @@
 							<th><center>방문자신분</center></th>
 							<th><center>용무</center></th>
 							<th><center>고정/일시</center></th>
-							<th><center></center>
+							<th><center>입력</center></th>
 						</tr>
 					</thead>
-					<tbody>
-						<%
-								List<VisitorVO> visitorList = (List<VisitorVO>) request.getAttribute("VisitorManagerFlag");
 
+					<tbody id = "searchVisitor">
+					
+						<%-- <%
+							int i=0;    //버튼과 td마다 다른 class명을 주기위해 +i를 해줄 예정
+								List<VisitorVO> visitorList = (List<VisitorVO>) request.getAttribute("VisitorManagerFlag");
 								if (visitorList != null) {
 									if (visitorList.size() == 0) {
 						%>
@@ -68,13 +75,16 @@
 							<td colspan="5"><center>일치하는 검색결과가 없습니다.</center></td>
 						</tr>
 						<%
-								} else {
-										for (VisitorVO vo : visitorList) {
-							%>
+						}
+						else {
+					 		
+							for (VisitorVO vo : visitorList) {
+								i++;
+						%>
 						<tr>
-							<td class="user_id2"><center><%=vo.getUser_id()%></center></td>
-							<td class="visitor_name2"><center><%=vo.getVisitor_name()%></center></td>
-							<td class="business2" ><center><%=vo.getBusiness()%></center></td>
+							<td class = "userId<%=i%>"><center><%=vo.getUser_id()%></center></td>
+							<td class = "visitorName<%=i%>"><center><%=vo.getVisitor_name()%></center></td>
+							<td class = "business<%=i%>"><center><%=vo.getBusiness()%></center></td>
 							<%
 									if (vo.getFixed().equals("FIXED")) {
 							%>
@@ -87,14 +97,15 @@
 									}
 							%>
 							<td><center>
-									<button type="button" class="btn btn-default insertVisitButton">입력</button>
-								</center>
-							</td>
+									<button type="button"
+										class="btn btn-default insertVisitButton[<%=i%>]">입력</button>
+								</center></td>
 						</tr>
 						<%
 								}
+							 }
 									}
-								} else if (visitorList == null) {
+								 else if (visitorList == null) {
 						%>
 						<tr>
 							<td colspan="5"><center>검색어를 입력해주세요.</center></td>
@@ -102,7 +113,8 @@
 						<%
 								}
 						%>
-					</tbody>
+					</tbody> --%>
+
 				</table>
 			</div>
 			<br>
@@ -115,13 +127,12 @@
 				</div>
 
 				<!-- Table -->
-				<table class="table">
+				<table class="table" id="test">
 					<tr>
 						<th><center>동호수</center></th>
 						<th><center>방문자신분</center></th>
 						<th><center>용무</center></th>
 						<th><center>날짜</center></th>
-						<div id="aaa"></div>
 					</tr>
 					<tr id="add">
 
@@ -132,6 +143,7 @@
 						for(Visit_RecordVO vr : visitRecord){
 							for(VisitorVO v : visitorListAll ){
 								if(v.getVisitor_no() == vr.getVisitor_no()){%>
+					
 					<tr>
 						<td><center><%=v.getUser_id() %></center></td>
 						<td><center><%=v.getVisitor_name() %></center></td>
@@ -163,81 +175,110 @@
 
 	<!--/.page-container-->
 </body>
-
+<script type="text/javascript" src="springboard/js/jquery-1.8.0.js" charset="utf-8"></script>
 <script type="text/javascript">
-	$("#addVisitorManagerButton").on('click',function(){
-			var a = $("#user_id").val();
-			var b = $("#visitor_name").val();
-			var c = $("#business").val();
-			
-			$.ajax({
-				url : "addVisitorManager.do",
-				type : "get",
-				dataType : "json",
-				data : {				
-					user_id : a,
-					visitor_name : b,
-					business : c
-				},
-				contentType : "application/json; charset=utf-8",
-				success : function(data) {
-					var reg = data.add2;
-					$("#add").after(   //append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
-							"<tr><td><center>" + data.add.user_id + "</center></td><td><center>"
-									+ data.add.visitor_name + "</center></td><td><center>"
-									+ data.add.business + "</center></td><td><center>"
-									+ reg + "</center></td></tr>"
-					);
-				},
-				 error:function(e){  
-			            alert(e.responseText);  
-			      }  
-				
+	
+$("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가 버튼 클릭시
+			function() { //직접 입력
+				$.ajax({
+					url : "addVisitorManager.do",
+					type : "get",
+					dataType : "json",
+					data : {
+						user_id : $("#user_id").val(),
+						visitor_name : $("#visitor_name").val(),
+						business : $("#business").val()
+					},
+					contentType : "application/json; charset=utf-8",
+					success : function(data) {
+						var reg = data.add2;
+						$("#add").after(
+								//append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
+								"<tr><td><center>" + data.add.user_id
+										+ "</center></td><td><center>"
+										+ data.add.visitor_name
+										+ "</center></td><td><center>"
+										+ data.add.business
+										+ "</center></td><td><center>" + reg
+										+ "</center></td></tr>");
+					},
+					error : function(e) {
+						alert(e.responseText);
+					}
+
+				});
 			});
-		});
-	
-	
-	
-	
-	$(".insertVisitButton").on('click',function(){
-		var a = $(".user_id2").text();
-		//$("#aaa").append(a);
-		var b = $(".visitor_name2").text();
-		var c = $(".business2").text(); 
-		
+
+	$("#searching").on('click', function() {
 		$.ajax({
-			url : "insertVisit.do",
+			url : "getVisitor.do",
 			type : "get",
 			dataType : "json",
-			data : {				
-				user_id2 : a,
-				visitor_name2 : b,
-				business2 : c
+			data : {
+				userId3 : $("#searchUserId").val(),
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
-				var userId = data.user_id;
-				var visitorName = data.visitor_name;
-				var business = data.business;
-				var regDate = data.regdate;
-			
-				$("#add").after(   //append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
-						"<tr><td><center>" + userId + "</center></td><td><center>"
-								+ visitorName + "</center></td><td><center>"
-								+ business + "</center></td><td><center>"
-								+ regDate + "</center></td></tr>"
-				);
+			var content = "";		
+			var i=0;
+				$.each(data.visitorListModel, function(key,visitor) {			
+						i++;
+						content += "<tr>";
+						content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
+						content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
+						content += "<td id='business" + i + "'><center>" +visitor.business + "</center></td>";
+						if(visitor.fixed == "UNFIXED"){
+							content += "<td id='fixed" + i + "'><center>" + '일시' + "</center></td>";
+						}
+						else if(visitor.fixed == "FIXED"){
+							content += "<td id='fixed" + i + "'><center>" + '고정' + "</center></td>";
+						}
+						content += "<td><center><button type='button' class='btn btn-default insertButton' >" + '입력' + "</button></center></td></tr>";
+				});
+				$("#searchVisitor").append(content);
 			},
-			 error:function(e){  
-		            alert(e.responseText);  
-		      }  
-			
+			error:function(request,status,error){
+                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
+			}
 		});
 	});
+
+	
+	
+	$(".insertButton").onClick(function() {
+		  alert( "Handler for .click() called." );
+		});
+	
+	/* $("#insertbutton1").click(function() { //검색된 방문객 방문객리스트에 추가
+		alert("a");
+	
+		 $.ajax({
+			url : "insertVisit.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				insertUserId : $("#userId1").val(),
+				insertVisitorName : $("#visitorName1").val(),
+				insertBusiness : $("#business1").val()
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				alert("success!");
+				  var reg = data.add2;
+				$("#add").after(
+						//append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
+						"<tr><td><center>" + data.add.user_id
+								+ "</center></td><td><center>"
+								+ data.add.visitor_name
+								+ "</center></td><td><center>"
+								+ data.add.business
+								+ "</center></td><td><center>" + reg
+								+ "</center></td></tr>");  
+			},
+			error : function(e) {
+				alert(e.responseText);
+			}
+		}); 
+	}); */
 </script>
-
-
-
-
-
 </html>

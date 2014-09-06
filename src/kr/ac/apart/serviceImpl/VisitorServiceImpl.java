@@ -49,6 +49,7 @@ public class VisitorServiceImpl implements VisitorService {
 		vo.setUser_id(user_id);
 		vo.setVisitor_name(visitor_name);
 		vo.setBusiness(business);
+		
 		if(fixed == null){
 			fixed = "UNFIXED";
 		}
