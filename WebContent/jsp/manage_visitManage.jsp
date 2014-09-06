@@ -248,7 +248,7 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 	$(".insertButton").onClick(function() {
 		  alert( "Handler for .click() called." );
 		});
-	
+	//githubnnnn
 	/* $("#insertbutton1").click(function() { //검색된 방문객 방문객리스트에 추가
 		alert("a");
 	
