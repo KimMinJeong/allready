@@ -253,7 +253,7 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 
 	//var rowCount = $('#visitorTable tbody tr').length;
 
-	//visitorTable searchVisitor
+	//어렵다눙 ㅠㅠ
 	for(var i=1; i<5; i++){
 	$(document).on('click','#insertButton'+i, function(){  //검색된 방문객 방문객리스트에 추가
 		var trid=$(this).closest('tr').attr('id');    //클릭한 행 tr 
