@@ -14,6 +14,7 @@
 	type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <title>관리자_방문일지</title>
 </head>
 <body>
@@ -52,7 +53,7 @@
 				</div>
 
 				<!-- Table -->
-				<table class="table">
+				<table class="table" id="visitorTable">
 					<thead>
 						<tr>
 							<th><center>동/호수</center></th>
@@ -127,7 +128,7 @@
 				</div>
 
 				<!-- Table -->
-				<table class="table" id="test">
+				<table class="table" id="Test">
 					<tr>
 						<th><center>동호수</center></th>
 						<th><center>방문자신분</center></th>
@@ -175,7 +176,7 @@
 
 	<!--/.page-container-->
 </body>
-<script type="text/javascript" src="springboard/js/jquery-1.8.0.js" charset="utf-8"></script>
+
 <script type="text/javascript">
 	
 $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가 버튼 클릭시
@@ -208,8 +209,11 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 
 				});
 			});
+			
+	var rowCount;  //동적으로 생성된 table row 갯수 선언
 
 	$("#searching").on('click', function() {
+		$("#visitorTable tr:not(:first)").remove();   //테이블의 첫행빼고 모두 삭제
 		$.ajax({
 			url : "getVisitor.do",
 			type : "get",
@@ -221,10 +225,13 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 			success : function(data) {
 			var content = "";		
 			var i=0;
+			rowCount = 0;
 				$.each(data.visitorListModel, function(key,visitor) {			
 						i++;
-						content += "<tr>";
-						content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
+						rowCount++;
+						content += "<tr id='"+ rowCount +"'>";
+						//content += "<td id='rowCount" + rowCount + "'><center>"+ rowCount + "</center></td>";
+						content += "<td id='userId" + i + "' value='aa'><center>" + visitor.user_id + "</center></td>";
 						content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
 						content += "<td id='business" + i + "'><center>" +visitor.business + "</center></td>";
 						if(visitor.fixed == "UNFIXED"){
@@ -233,7 +240,7 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 						else if(visitor.fixed == "FIXED"){
 							content += "<td id='fixed" + i + "'><center>" + '고정' + "</center></td>";
 						}
-						content += "<td><center><button type='button' class='btn btn-default insertButton' >" + '입력' + "</button></center></td></tr>";
+						content += "<td><center><button type='button' class='btn btn-default' id='insertButton" + i + "' >" + '입력' + "</button></center></td></tr>";
 				});
 				$("#searchVisitor").append(content);
 			},
@@ -243,12 +250,46 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 		});
 	});
 
-	
-	
-	$(".insertButton").onClick(function() {
-		  alert( "Handler for .click() called." );
-		});
-	//githubnnnn
+
+	//var rowCount = $('#visitorTable tbody tr').length;
+
+	//visitorTable searchVisitor
+	for(var i=1; i<5; i++){
+	$(document).on('click','#insertButton'+i, function(){  //검색된 방문객 방문객리스트에 추가
+		var trid=$(this).closest('tr').attr('id');    //클릭한 행 tr 
+
+		alert(rowCount + ", " + trid);
+		alert($(this).attr("userId" + trid));
+		 $.ajax({
+				url : "insertVisit.do",
+				type : "get",
+				dataType : "json",
+				data : {
+					insertUserId : $("userId" + trid).val(),
+					insertVisitorName : $("visitorName" + trid).val(),
+					insertBusiness :  $("business" + trid).val()
+				},
+				contentType : "application/json; charset=utf-8",
+				success : function(data) {
+					alert("success!");
+				 	 /*  var reg = data.add2;
+					$("#add").after(
+							//append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
+							"<tr><td><center>" + data.add.user_id
+									+ "</center></td><td><center>"
+									+ data.add.visitor_name
+									+ "</center></td><td><center>"
+									+ data.add.business
+									+ "</center></td><td><center>" + reg
+									+ "</center></td></tr>");    */
+				},
+				error : function(e) {
+					alert(e.responseText);
+				}
+			}); 
+	});
+	}
+
 	/* $("#insertbutton1").click(function() { //검색된 방문객 방문객리스트에 추가
 		alert("a");
 	
