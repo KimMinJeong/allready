@@ -21,7 +21,6 @@ public class UserController{
 		return "loginForm";
 	}
 	
-	
 	@RequestMapping("/login.do")
 	public String join(String user_id, String user_password, HttpSession session){
 		UserVO vo=userService.getUser(user_id, user_password);

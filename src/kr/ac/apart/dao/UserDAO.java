@@ -4,9 +4,7 @@ import java.util.List;
 
 import kr.ac.apart.vo.UserVO;
 
-
 public interface UserDAO {
-	
 	public UserVO getUser(String userId);
 	public List<UserVO> testList();
 	public void add(UserVO vo);
