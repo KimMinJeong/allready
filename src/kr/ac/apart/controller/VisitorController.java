@@ -3,6 +3,7 @@ package kr.ac.apart.controller;
 import java.io.PrintWriter;
 import java.io.UnsupportedEncodingException;
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,12 +13,15 @@ import kr.ac.apart.service.VisitorService;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
 
+import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 
 import org.dom4j.VisitorSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -79,21 +83,27 @@ public class VisitorController {
 		
 		return obj.toString();
 	}
-//	@RequestMapping(value="/insertVisit.do")
-//	public @ResponseBody String insertVisit(String user_id2, String visitor_name2, String business2, HttpServletResponse response,HttpServletRequest request) throws Exception{
-//		System.out.println("insertVisit.do start!!!");
-//		request.setCharacterEncoding("utf-8");
-//		response.setContentType("application/json; charset=utf-8");
-//
-//		JSONObject obj = new JSONObject();
-//		System.out.println(user_id2);
-//		obj.put("user_id", user_id2);
-//		obj.put("visitor_name", visitor_name2);
-//		obj.put("business", business2);
-//		obj.put("regdate", visitorService.getRegDate());
-//		
-//		return obj.toString();
-//	}
+	
+	@RequestMapping(value="/insertVisit.do")  //검색된 방문객 방문객 리스트에 넣기
+	public @ResponseBody String insertVisit(String insertUserId, String insertVisitorName, String insertBusiness, HttpServletResponse response,HttpServletRequest request) throws Exception{
+		System.out.println("insertVisit.do start!!!");
+		
+		request.setCharacterEncoding("utf-8");
+		response.setContentType("application/json; charset=utf-8");
+
+		JSONObject obj = new JSONObject();
+		
+		visitorService.addVisitormanagerOnly();
+		
+		obj.put("user_id", insertUserId);
+		obj.put("visitor_name", insertVisitorName);
+		obj.put("business", insertBusiness);
+		obj.put("regdate", visitorService.getRegDate());
+		
+		System.out.println("obj.toString : " + obj.toString());
+		
+		return obj.toString();
+	}
 	
 	@RequestMapping(value="/getVisitorList.do")
 	public ModelAndView getVisitorList(HttpSession session){   //id에 해당하는 방문객정보 session으로 가지고 있기
@@ -126,17 +136,33 @@ public class VisitorController {
 //		return "redirect:/getVisitorList.do";
 //	}
 	
-	@RequestMapping(value="/getVisitor")     //고정방문객 검색
-	ModelAndView getVisitor(String user_id){
-		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_visitManage");
+	@RequestMapping(value="/getVisitor.do")  //고정방문객 검색
+	public @ResponseBody String getVisitor(ModelMap model, String userId3) throws Throwable{
+		System.out.println("getVisitor");
 		List<VisitorVO> visitorList = null;
 		try{
-			visitorList = visitorService.getVisitorList(user_id);
+			visitorList = visitorService.getVisitorList(userId3);
 		}catch(Exception e){
 			e.printStackTrace();
 		}
-		mav.addObject("VisitorManagerFlag", visitorList);
-
-		return mav;
+		JSONObject obj = new JSONObject();
+		obj.put("visitorListModel", visitorList);
+		
+		System.out.println(obj.toString());
+		return obj.toString();
 	}
+	
+//	@RequestMapping(value="/getVisitor.do")     //고정방문객 검색MAV
+//	ModelAndView getVisitor(String user_id){
+//		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_visitManage");
+//		List<VisitorVO> visitorList = null;
+//		try{
+//			visitorList = visitorService.getVisitorList(user_id);
+//		}catch(Exception e){
+//			e.printStackTrace();
+//		}
+//		mav.addObject("VisitorManagerFlag", visitorList);
+//
+//		return mav;
+//	}
 }

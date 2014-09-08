@@ -8,7 +8,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="static/css/bootstrap.min.css" rel="stylesheet"
 	media="screen">
-<title>WebTemplate</title>
+<title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="justified-nav.css" rel="stylesheet">

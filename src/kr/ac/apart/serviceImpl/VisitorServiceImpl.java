@@ -35,6 +35,11 @@ public class VisitorServiceImpl implements VisitorService {
 		
 		return count;
 	}
+	@Override
+	public void addVisitormanagerOnly(){
+		visitorDao.addVisitorManager();
+			
+	}
 	
 	@Override
 	public VisitorVO insert(String user_id, String visitor_name, String business, String fixed){
@@ -44,6 +49,7 @@ public class VisitorServiceImpl implements VisitorService {
 		vo.setUser_id(user_id);
 		vo.setVisitor_name(visitor_name);
 		vo.setBusiness(business);
+		
 		if(fixed == null){
 			fixed = "UNFIXED";
 		}

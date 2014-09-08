@@ -18,4 +18,5 @@ public interface VisitorService {
 	public List<Visit_RecordVO> getVisitorListManager();
 	public List<VisitorVO> getVisitorListAll();
 	public String getRegDate();
+	public void addVisitormanagerOnly();
 }
