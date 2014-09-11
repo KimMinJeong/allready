@@ -80,4 +80,25 @@ public class visitorDAOTest {
 		assertNotNull(vo);
 		
 	}
+	
+	@Test
+	public void deleteVisitRecordTest(){
+		int count = visitorDao.deleteVisitRecord("137");
+		assertEquals(count, 1);
+	}
+	
+	@Test
+	public void addVisitRecordTest2(){
+		int count = 0;
+		System.out.println("count="+count);
+		count = visitorDao.addVisitRecord(144);
+		System.out.println("count="+count);
+        assertEquals(count, 1);
+	}
+	
+	@Test
+	public void getMaxVisitRecordNoTest(){
+		int count = visitorDao.getMaxVisitRecordNo();
+		System.out.println(count);
+	}
 }
