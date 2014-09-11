@@ -14,4 +14,7 @@ public interface VisitorDAO {
 	public List<Visit_RecordVO> getVisitorListManager();
 	public List<VisitorVO> getVisitorListAll();
 	public String getRegDate();
+	public int deleteVisitRecord(String id);
+	public int addVisitRecord(int visitorNo);
+	public int getMaxVisitRecordNo();
 }

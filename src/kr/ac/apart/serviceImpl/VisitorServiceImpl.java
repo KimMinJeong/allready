@@ -99,4 +99,21 @@ public class VisitorServiceImpl implements VisitorService {
 		
 		return regDate;
 	}
+	
+	@Override
+	public void deleteVisitRecord(String no){
+		int count  = visitorDao.deleteVisitRecord(no);
+	}
+	
+	@Override
+	public int addVisitRecord(int visitorNo){
+		int count = visitorDao.addVisitRecord(visitorNo);
+		return count;
+	}
+	
+	@Override
+	public int getMaxVisitRecordNo(){
+		int no = visitorDao.getMaxVisitRecordNo();
+		return no;
+	}
 }
