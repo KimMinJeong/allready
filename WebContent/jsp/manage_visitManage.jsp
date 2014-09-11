@@ -15,7 +15,6 @@
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-
 <title>관리자_방문일지</title>
 </head>
 <body>
@@ -66,6 +65,7 @@
 					</thead>
 
 					<tbody id = "searchVisitor">
+					
 						<%-- <%
 							int i=0;    //버튼과 td마다 다른 class명을 주기위해 +i를 해줄 예정
 								List<VisitorVO> visitorList = (List<VisitorVO>) request.getAttribute("VisitorManagerFlag");
@@ -115,6 +115,7 @@
 								}
 						%>
 					</tbody> --%>
+
 				</table>
 			</div>
 			<br>
