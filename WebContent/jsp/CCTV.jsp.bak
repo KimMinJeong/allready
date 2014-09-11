@@ -42,7 +42,7 @@
 		<div class="table-responsive">
             <table class="table table-striped" border="2">
                 <tr height="250px">
-                  <td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>2입구</td>
+                  <td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>입구</td>
                   <td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>놀이터</td>
                 </tr>
                 <tr height="250px">
