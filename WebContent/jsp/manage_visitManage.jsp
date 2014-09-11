@@ -287,10 +287,16 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 	});
 	}
 	
-	$("#deleteVisitRecord").on('click',  
+	$documnet.ready(function(){
+		$(".deleteVisitRecord").click(function() {
+				alert($(this).closest('button').attr('value'));
+		});
+	});
+	
+	/* $(".deleteVisitRecord").live('click',  
 			function() { 
-			alert($(this).closest('button').attr('value'));
-				$.ajax({
+			alert($(this).closest('button').attr('value')); */
+				/* $.ajax({
 					url : "deleteVisitRecord.do",
 					type : "get",
 					dataType : "json",
@@ -307,8 +313,8 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
 						alert(e.responseText);
 					}
 
-				});
-			});
+				}); */
+		/* 	}); */
 
 	
 </script>
