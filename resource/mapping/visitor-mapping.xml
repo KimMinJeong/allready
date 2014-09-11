@@ -11,11 +11,12 @@
 		<result property="visitor_name" column="VISITOR_NAME" nullValue=""/>
 		<result property="business" column="BUSINESS" nullValue="" />
 		<result property="fixed" column="FIXED" nullValue="UNFIXED" />
+		<result property="viewing" column="VIEWING" nullValue="TRUE" />
 	</resultMap>
 
 	<update id="addVisitor" parameterClass="visitor">
 		<![CDATA[
-			INSERT INTO VISITOR
+			INSERT INTO VISITOR(VISITOR_NO, USER_ID, VISITOR_NAME, BUSINESS, FIXED)
 			VALUES (seq_visitor.nextval, #user_id#, #visitor_name#, #business#, #fixed#)
 		]]>
 	</update>
@@ -28,6 +29,14 @@
 		]]>
 	</select>
 	
+	<select id="getVisitorListAll" resultMap="visitorResult">
+		<![CDATA[
+			SELECT *
+			FROM VISITOR
+		]]>
+	</select>
+	
+
 	<delete id="deleteVisitor">
 		<![CDATA[
 			DELETE
@@ -36,6 +45,15 @@
 		]]>
 	</delete>
 	
+	<update id="updateVisitor">
+		<![CDATA[
+			UPDATE VISITOR
+			SET VIEWING = 'FALSE'
+			WHERE VISITOR_NO = #visitor_no#
+		]]>
+	</update>
+	
+
 	<!-- <select id="getVisitor" resultMap="visitorResult" parameterClass="java.lang.String">
 		<![CDATA[
 			SELECT *

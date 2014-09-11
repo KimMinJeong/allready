@@ -81,8 +81,7 @@
 	int board_no = vo.getBoard_no();
 %>
                  <% if("CLOSED".equals(vo.getClosed())){
-             
-        
+                     
  		%>
  			 <%if(user_id.getUser_id().equals(vo.getWriter_id())){ %>
 			<tr> 

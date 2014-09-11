@@ -31,9 +31,7 @@ public class visitorDAOTest {
 	@Test
 	public void getVisitorListTest(){
 		List<VisitorVO> list = visitorDao.getVisitorList("111");
-		
 		System.out.println(list);
-		
 		assertNotNull(list);
 	}
 	
@@ -46,11 +44,61 @@ public class visitorDAOTest {
 	
 	@Test
 	public void addVisitRecordTest(){
-		boolean flag = false;
-		if(visitorDao.addVisitorManager())
-		{
-			System.out.println("true");
-		};
+		int count = visitorDao.addVisitorManager();
+		
+		assertEquals(count, 27);
+	}
+	
+	@Test
+	public void updateVisitorTest(){
+		int count = visitorDao.updateVisitor("71");
+		
+		assertEquals(count, 1);
+	}
+	
+	@Test
+	public void getVisitorListManagerTest(){
+		List<Visit_RecordVO> list = visitorDao.getVisitorListManager();
+		System.out.println(list);
 
+		assertNotNull(list);
+	}
+	
+	@Test
+	public void getVisitorListAllTest(){
+		List<VisitorVO> list = visitorDao.getVisitorListAll();
+		System.out.println(list);
+		
+		assertNotNull(list);
+	}
+	
+	@Test
+	public void getRegDate(){
+
+		String vo =  visitorDao.getRegDate();
+		System.out.println(vo);
+		assertNotNull(vo);
+		
+	}
+	
+	@Test
+	public void deleteVisitRecordTest(){
+		int count = visitorDao.deleteVisitRecord("137");
+		assertEquals(count, 1);
+	}
+	
+	@Test
+	public void addVisitRecordTest2(){
+		int count = 0;
+		System.out.println("count="+count);
+		count = visitorDao.addVisitRecord(144);
+		System.out.println("count="+count);
+        assertEquals(count, 1);
+	}
+	
+	@Test
+	public void getMaxVisitRecordNoTest(){
+		int count = visitorDao.getMaxVisitRecordNo();
+		System.out.println(count);
 	}
 }

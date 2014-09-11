@@ -1,18 +1,17 @@
 package kr.ac.apart.serviceImpl;
 
+
 import java.util.List;
 
 import kr.ac.apart.dao.BoardDAO;
 import kr.ac.apart.service.BoardService;
 import kr.ac.apart.vo.BoardVO;
 
-
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service("boardService")
+
 public class BoardServiceImpl implements BoardService{
 	@Autowired
 	private BoardDAO boardDao;
@@ -58,7 +57,6 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO getBoardDetail(int board_no) {
 		BoardVO vo = boardDao.getOne(board_no);
-		
 		return vo;
 	
 	}
@@ -66,21 +64,15 @@ public class BoardServiceImpl implements BoardService{
 	@Override
 	public BoardVO delete(int board_no) {
 			
-		
 		BoardVO vo = boardDao.getOne(board_no);
-		boardDao.delete(board_no);
-			
+		boardDao.delete(board_no);	
 		return vo;
-		
 	}
 
 	@Override
 	public void updateBoard(BoardVO board) {
-	
 		boardDao.updateBoard(board);
-		
-		
+			
 	}
 
-	
 }

@@ -10,4 +10,5 @@ public interface BoardDAO {
 	public BoardVO getOne(int board_no);
 	public int delete(int board_no);
 	public void updateBoard(BoardVO vo);
+
 }

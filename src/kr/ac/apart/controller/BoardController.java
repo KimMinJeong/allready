@@ -1,5 +1,6 @@
 package kr.ac.apart.controller;
 
+<<<<<<< HEAD
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -15,6 +16,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
+
 
 @Controller("boardController")
 public class BoardController {
@@ -98,8 +100,6 @@ public class BoardController {
 	
 	@RequestMapping("/Delete.do")
 	public String guestbookdelete(int board_no){
-
-		
 		boardService.delete(board_no);
 		return "redirect:/noticeBoard.do";
 		
@@ -108,13 +108,10 @@ public class BoardController {
 	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(BoardVO board){
-	
 		boardService.updateBoard(board);
-		
 		return "redirect:/noticeBoard.do";
 	
 	}
 
 }
-
 

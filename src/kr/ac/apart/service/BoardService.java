@@ -12,4 +12,5 @@ public interface BoardService {
 	public BoardVO getBoardDetail(int board_no);
 	public BoardVO delete(int board_no);
 	public void updateBoard(BoardVO board);
+
 }
