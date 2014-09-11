@@ -40,5 +40,14 @@ public class VisitorDAOImpl implements VisitorDAO{
 	public String getRegDate(){
 		return (String)sqlMapClientTemplate.queryForObject("getRegDate");
 	}
+	public int deleteVisitRecord(String id){
+		return (Integer) sqlMapClientTemplate.delete("deleteVisitRecord", id);
+	}
+	public int addVisitRecord(int visitorNo){
+		return (Integer) sqlMapClientTemplate.update("addVisitRecord", visitorNo);
+	}
+	public int getMaxVisitRecordNo(){
+		return (Integer) sqlMapClientTemplate.queryForObject("getMaxVisitRecordNo");
+	}
 
 }

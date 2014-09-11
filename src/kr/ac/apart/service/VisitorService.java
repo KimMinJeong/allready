@@ -19,4 +19,7 @@ public interface VisitorService {
 	public List<VisitorVO> getVisitorListAll();
 	public String getRegDate();
 	public void addVisitormanagerOnly();
+	public void deleteVisitRecord(String no);
+	public int addVisitRecord(int visitorNo);
+	public int getMaxVisitRecordNo();
 }

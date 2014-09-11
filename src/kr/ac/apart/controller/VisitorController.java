@@ -78,6 +78,7 @@ public class VisitorController {
 
 		obj.put("add", visitorVO);
 		obj.put("add2", visitorService.getRegDate());
+		obj.put("recordNo", visitorService.getMaxVisitRecordNo());
 		
 		System.out.println(obj.toString());
 		
@@ -85,7 +86,7 @@ public class VisitorController {
 	}
 	
 	@RequestMapping(value="/insertVisit.do")  //검색된 방문객 방문객 리스트에 넣기
-	public @ResponseBody String insertVisit(String insertUserId, String insertVisitorName, String insertBusiness, HttpServletResponse response,HttpServletRequest request) throws Exception{
+	public @ResponseBody String insertVisit(int insertUserNo, String insertUserId, String insertVisitorName, String insertBusiness, HttpServletResponse response,HttpServletRequest request) throws Exception{
 		System.out.println("insertVisit.do start!!!");
 		
 		request.setCharacterEncoding("utf-8");
@@ -93,12 +94,14 @@ public class VisitorController {
 
 		JSONObject obj = new JSONObject();
 		
-		visitorService.addVisitormanagerOnly();
+		visitorService.addVisitRecord(insertUserNo);
+		
 		
 		obj.put("user_id", insertUserId);
 		obj.put("visitor_name", insertVisitorName);
 		obj.put("business", insertBusiness);
 		obj.put("regdate", visitorService.getRegDate());
+		obj.put("recordNo", visitorService.getMaxVisitRecordNo());
 		
 		System.out.println("obj.toString : " + obj.toString());
 		
@@ -150,6 +153,13 @@ public class VisitorController {
 		
 		System.out.println(obj.toString());
 		return obj.toString();
+	}
+	
+	@RequestMapping(value="/deleteVisitRecord")  //방문객리스트 삭제
+	public @ResponseBody void deleteVisitRecord(String visitRecordNo){
+		System.out.println("deleteVisitRecord!");
+		JSONObject obj = new JSONObject();
+		visitorService.deleteVisitRecord(visitRecordNo);
 	}
 	
 //	@RequestMapping(value="/getVisitor.do")     //고정방문객 검색MAV
