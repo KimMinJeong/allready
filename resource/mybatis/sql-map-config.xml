@@ -8,6 +8,7 @@
 	<sqlMap resource="mapping/parking-mapping.xml"/>
 	<sqlMap resource="mapping/visitor-mapping.xml"/>
 	<sqlMap resource="mapping/visitRecord-mapping.xml"/>
+	<sqlMap resource="mapping/board-mapping.xml"/>
 </sqlMapConfig>
 
 

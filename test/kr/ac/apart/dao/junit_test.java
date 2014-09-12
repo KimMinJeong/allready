@@ -4,11 +4,17 @@ import static org.junit.Assert.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.List;
 
 import kr.ac.apart.vo.ParkingVO;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
+=======
+
+import kr.ac.apart.vo.ParkingVO;
+import kr.ac.apart.vo.UserVO;
+>>>>>>> df6723f264e3cc6f8e5bacb4a4ba96f700595630
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

@@ -57,7 +57,7 @@
 	List<VisitorVO> visitorList = (List<VisitorVO>)request.getAttribute("VisitorFlag");
 	
 	for(VisitorVO vo : visitorList){ 
-		if(vo.getViewing().equals("TRUE")){%>
+		if("TRUE".equals(vo.getViewing())){%>
                 <tr>
                   <td><center><%=vo.getUser_id() %></center></td>
                   <td><center><%=vo.getVisitor_name() %></center></td>

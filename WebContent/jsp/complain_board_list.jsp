@@ -1,9 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@page import="kr.ac.apart.vo.UserVO"%>
+<%@page import="kr.ac.apart.vo.BoardVO"%>
+<%@page import="java.util.List"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
@@ -24,9 +27,9 @@
 
         	<font size="4">
             <ul class="nav">
-            <li><a href="noticeBoard.do">°øÁö»çÇ× °Ô½ÃÆÇ</a></li>
-              <li class="active"><a href="complainBoard.do">¹Î¿ø °Ô½ÃÆÇ</a></li>
-              <li><a href="freeBoard.do">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>        
+            <li><a href="noticeBoard.do">ê³µì§€ì‚¬í•­ ê²Œì‹œíŒ</a></li>
+              <li class="active"><a href="complainBoard.do">ë¯¼ì› ê²Œì‹œíŒ</a></li>
+              <li><a href="freeBoard.do">ìžìœ  ê²Œì‹œíŒ</a></li>        
             </ul>
 
             </font>
@@ -37,40 +40,68 @@
         <div class="col-xs-12 col-sm-9">
         <br>
         		 <div align="right">
-		<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'" >±ÛÀÛ¼º</button></div>
+		<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'" >ê¸€ìž‘ì„±</button></div>
 		 <div class="panel panel-default">
 		 
 
 		
 		  <!-- Default panel contents -->
-		  <div class="panel-heading"><center>¹Î¿ø °Ô½ÃÆÇ</center></div>
+		  <div class="panel-heading"><center>ë¯¼ì› ê²Œì‹œíŒ</center></div>
 		
 		  <!-- Table -->
 		  <table class="table">
 		    <tr>
-		    	<th>¹øÈ£</th>
-		       	<th>Á¦¸ñ</th>
-		   	   	<th>ÀÛ¼ºÀÚ</th>
-		       	<th>³¯Â¥</th>
+		    	<th>ë²ˆí˜¸</th>
+		       	<th>ì œëª©</th>
+		   	   	<th>ìž‘ì„±ìž</th>
+		       	<th>ë‚ ì§œ</th>
 		    </tr>
-		    <tr>
-		    	<td>1</td>
-		    	<td>À­ÃþÀÌ ³Ê¹« ½Ã²ô·´½À´Ï´Ù</td>
-		    	<td>±èÀºÁö</td>
-		    	<td>2014-8-18</td>
-		    </tr>
-		      <tr>
-		    	<td>2</td>
-		    	<td>À­ÃþÀÌ ³Ê¹« ½Ã²ô·´½À´Ï´Ù</td>
-		    	<td>±èÀºÁö</td>
-		    	<td>2014-8-18</td>
-		    </tr>
-		      <tr>
-		    	<td>3</td>
-		    	<td>À­ÃþÀÌ ³Ê¹« ½Ã²ô·´½À´Ï´Ù</td>
-		    	<td>±èÀºÁö</td>
-		    	<td>2014-8-18</td>
-		    </tr>
+		           <%
+	List<BoardVO> BoardList = (List<BoardVO>)request.getAttribute("list");
+	UserVO user_id = (UserVO)session.getAttribute("UserFlag");
+	for(BoardVO vo:BoardList){
+	int board_no = vo.getBoard_no();
+%>
+        <% if("CLOSED".equals(vo.getClosed())){
+    
+      
+       
+        
+ 		%>
+ 			 <%if(user_id.getUser_id().equals(vo.getWriter_id())){ %>
+			<tr> 
+             <td><%=vo.getBoard_no() %></td>
+             <td><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
+             <%if(vo.getAnonymous().equals("ANONYMOUS")){%>
+             <td>ìµëª…</td>
+             <%}else{ %>
+             <td><%=vo.getWriter_id() %></td>
+             <%}%>
+             <td><%=vo.getReg_date() %></td>
+             
+          </tr>
+          <%}else{%>
+        	 
+          <tr> 
+            <td colspan="4"><center>ë¹„ë°€ê¸€ ìž…ë‹ˆë‹¤^3^</center></td>
+             
+          </tr>
+          
+          <%}
+        	  
+ }else{%>
+ 			<tr> 
+             <td><%=vo.getBoard_no() %></td>
+             <td></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
+             <%if("ANONYMOUS".equals(vo.getAnonymous())){%>
+             <td>ìµëª…</td>
+             <%}else{ %>
+             <td><%=vo.getWriter_id() %></td>
+             <%}%>
+             <td><%=vo.getReg_date() %></td>
+             
+          </tr>
+ 		<%}}%>
 		  </table>
 		</div>
 		
@@ -89,7 +120,7 @@
   		<div class="form-group">
   		<input type="text" class="form-control" placeholder="Search" size="100%" align="center" >
   		</div>
- 		 <button type="submit" class="btn btn-default">°Ë»ö</button>
+ 		 <button type="submit" class="btn btn-default">ê²€ìƒ‰</button>
 		</form></div>
 	
 	
