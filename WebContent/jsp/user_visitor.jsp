@@ -1,4 +1,4 @@
-
+<%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>세대주_방문객</title>
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
@@ -39,7 +39,7 @@
 	</form>
 	<br>
 	
-	 <form action="deleteVisitor.do">
+	 <form action="updateVisitor.do">
 	<div class="table-responsive">
             <table class="table table-striped">
               <thead>
@@ -56,7 +56,8 @@
 	<%
 	List<VisitorVO> visitorList = (List<VisitorVO>)request.getAttribute("VisitorFlag");
 	
-	for(VisitorVO vo : visitorList){ %>
+	for(VisitorVO vo : visitorList){ 
+		if("TRUE".equals(vo.getViewing())){%>
                 <tr>
                   <td><center><%=vo.getUser_id() %></center></td>
                   <td><center><%=vo.getVisitor_name() %></center></td>
@@ -68,7 +69,8 @@
                   	<%} %>
                   	 <td><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></td>
                    </tr>
-                <%} %>
+                <%} 
+                }%>
               </tbody>
             </table>
             </form>
@@ -76,3 +78,6 @@
       </div>
 </body>
 </html>
+
+
+

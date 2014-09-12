@@ -40,10 +40,11 @@ BoardVO vo = (BoardVO)request.getAttribute("vo");
         <div class="col-sm-9">
 		<form action="updateBoard.do">
         <br>
-		<input type="text" value="<%=vo.getCategory() %>">
+		<input type="text" name = "category" value="<%=vo.getCategory() %>">
 	    	<br>
-<%-- 	    	<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>> --%>
+	    	<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
 			  <input type="text" class="form-control title" name="title" value="<%=vo.getTitle()%>">
+	
 			<br>
 	        <textarea name="contents" rows="20" cols="135">
 	        <%=vo.getContents() %>

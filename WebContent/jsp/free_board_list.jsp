@@ -80,7 +80,7 @@
 	for(BoardVO vo:BoardList){
 	int board_no = vo.getBoard_no();
 %>
-                 <% if(vo.getClosed().equals("CLOSED")){
+                 <% if("CLOSED".equals(vo.getClosed())){
              
         
  		%>
@@ -88,7 +88,7 @@
 			<tr> 
              <td><%=vo.getBoard_no() %></td>
              <td><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
-             <%if(vo.getAnonymous().equals("ANONYMOUS")){%>
+             <%if("ANONYMOUS".equals(vo.getAnonymous())){%>
              <td>익명</td>
              <%}else{ %>
              <td><%=vo.getWriter_id() %></td>
@@ -109,7 +109,7 @@
  			<tr> 
              <td><%=vo.getBoard_no() %></td>
              <td></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
-             <%if(vo.getAnonymous().equals("ANONYMOUS")){%>
+             <%if("ANONYMOUS".equals(vo.getAnonymous())){%>
              <td>익명</td>
              <%}else{ %>
              <td><%=vo.getWriter_id() %></td>

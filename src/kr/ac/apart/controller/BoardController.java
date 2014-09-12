@@ -2,8 +2,7 @@ package kr.ac.apart.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
+
 
 
 import kr.ac.apart.dao.BoardDAO;
@@ -105,23 +104,12 @@ public class BoardController {
 		
 		}
 	
-//	@RequestMapping(value="/boardUpdate.do")
-//	public ModelAndView boardUpdate(int board_no){
-//		BoardVO vo = boardService.getBoardDetail(board_no);
-//		ModelAndView mav = new ModelAndView();
-//		mav.addObject("vo",vo);
-//		mav.setViewName("redirect:/noticeBoard.do");
-//		return mav;
-//	}
-//	
 	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(BoardVO board){
-		System.out.println(board);
-//		BoardVO board=new BoardVO();
-//		board.setBoard_no(board_no);
+	
 		boardService.updateBoard(board);
-
+		
 		return "redirect:/noticeBoard.do";
 	
 	}
