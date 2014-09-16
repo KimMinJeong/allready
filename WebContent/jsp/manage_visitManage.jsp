@@ -19,20 +19,19 @@
 <body>
    <div class="container">
       <!-- main area -->
-      <div class=" col-xs-3 col-sm-9">
+     <!--   <div class=" col-xs-3 col-sm-9"> -->
          <div class="navbar-form navbar-center" role="search">
             <div class="form-group">
-               <input type="text" class="form-control" placeholder="동/호수"
-                  size="19" id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; <input
-                  type="text" class="form-control" placeholder="방문자 신분" size="19"
-                  id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; <input
+               <input type="text" class="form-control" placeholder="동/호수" size="19" id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
+               <input type="text" class="form-control" placeholder="방문자 신분" size="19" id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
+                  <input
                   type="text" class="form-control inline" placeholder="용무" size="48"
                   id="business">&nbsp;
                <button type="button" class="btn btn-default inline"
                   id="addVisitorManagerButton">입력</button>
             </div>
          </div>
-      </div>
+      <!--  </div>-->
       <br> <br> <br>
 
       <form class="navbar-form navbar-right" role="search">
