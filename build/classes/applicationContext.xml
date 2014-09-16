@@ -31,3 +31,4 @@ xmlns:tx="http://www.springframework.org/schema/tx"
 		<property name="sqlMapClient" ref="sqlMapClient"/>
 	</bean> 
 </beans>
+

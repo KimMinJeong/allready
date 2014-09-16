@@ -6,7 +6,6 @@
 	<typeAlias alias="parking" type="kr.ac.apart.vo.ParkingVO"/>
 	<typeAlias alias="String" type="java.lang.String"/>
 	<typeAlias alias="Integer" type="java.lang.Integer"/>
-	
 	<resultMap id="parkingResult" class="parking">
 		<result property="parking_no" column="PARKING_NO" />
 		<result property="floor" column="FLOOR"/>
@@ -14,6 +13,7 @@
 		<result property="parking_lot" column="PARKING_LOT" />
 		<result property="isfull" column="ISFULL" />
 	</resultMap>
+
 	<select id="getIsFull" resultClass="String" parameterClass="parking">
  			SELECT ISFULL
  			FROM PARKING
@@ -42,7 +42,7 @@
 		SET ISFULL=#isfull#
 		WHERE PARKING_NO=#parking_no#
 	</update>
-	
+
 <!-- 	<insert id="addUser" parameterClass="user"> -->
 <!-- 		<![CDATA[ -->
 <!-- 			INSERT INTO USERS ( -->

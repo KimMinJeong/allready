@@ -1,15 +1,11 @@
 package kr.ac.apart.controller;
 
-<<<<<<< HEAD
-import kr.ac.apart.service.UserService;
-=======
+
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.UserVO;
 
-import kr.ac.apart.vo.UserVO;
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
