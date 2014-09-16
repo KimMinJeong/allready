@@ -31,3 +31,4 @@ public class ParkingDAOImpl implements ParkingDAO{
 		return (int)sqlMapClientTemplate.queryForObject("getSectionCount", parking);
 	}
 }
+

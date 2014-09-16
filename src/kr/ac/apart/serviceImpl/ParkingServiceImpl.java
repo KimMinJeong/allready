@@ -20,5 +20,4 @@ public class ParkingServiceImpl implements ParkingService{
 		else
 			return false;
 	}
-
 }

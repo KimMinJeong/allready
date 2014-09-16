@@ -16,3 +16,8 @@
 .inline{
 	display: inline;
 }
+
+.active {
+    color: red;
+}
+
