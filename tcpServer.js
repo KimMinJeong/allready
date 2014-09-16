@@ -22,6 +22,7 @@ ioClient.on('connect', function() {
 			var i = sockets.indexOf(socket);
 			sockets.splice(i, 1);
 			console.log('Disconnected');
+			
 			ioClient.emit('img', {
 				img: buff.toString('base64')
 			});
