@@ -53,15 +53,4 @@ public class BoardDAOImpl implements BoardDAO{
 		return list;
 	}
 	
-	public CommentsVO addComments(CommentsVO vo){
-		return (CommentsVO)sqlMapClientTemplate.insert("addComments", vo);
-	}
-
-	@SuppressWarnings("unchecked")
-	@Override
-	public List<CommentsVO> getComments(int board_no) {
-		return (List<CommentsVO>)sqlMapClientTemplate.queryForList("getComments", board_no);
-	}
-	
-	
 }
