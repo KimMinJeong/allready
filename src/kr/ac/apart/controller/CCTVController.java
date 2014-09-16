@@ -14,6 +14,7 @@ public class CCTVController {
 	
 	@RequestMapping(value="/cctv_client.do")
 	public String cctv_client(){
-		return "CCTV";
+		return "webTemplete.jsp?nextPage=CCTV";
 	}
+
 }

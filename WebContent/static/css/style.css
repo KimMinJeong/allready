@@ -1,25 +1,18 @@
 @CHARSET "UTF-8";
 
-.button1{
-	width:350px;
-	height:200px;
+.button1 {
+	width: 350px;
+	height: 200px;
 }
-
-#location{
+#location {
 	left: -86%
 }
-
-.size{
+.size {
 	font-size: 10;
 }
-
-.inline{
+.inline {
 	display: inline;
 }
-
 .active {
-   
-    color: red;
-  
+	color: red;
 }
-
