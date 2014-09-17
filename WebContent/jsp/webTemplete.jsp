@@ -38,15 +38,17 @@
                      <li><a href="noticeBoard.do">게시판</a></li>
                      <li><a href="user_visitor.do">방문객</a></li>
                      <li><a href="#settings">소통의 장</a></li>
+                     <li><a href="user_detail.do">설정</a></li>
                      <%}
                      else if(vo.getRole().equals("MANAGER")) {%>     <!-- 로그인 사용자가 manager -->
-                     <li class="active"><a href="main.do">Home</a></li>
-                     <li><a href="#profile">CCTV</a></li>
-                     <li><a href="#">주차장</a></li>
-                     <li><a href="noticeBoard.do">게시판</a></li>
-                     <li><a href="manage_visitor.do">방문일지</a></li>
-                     <li><a href="#settings">전체관리세</a></li>
-                     <li><a href="#settings">택배관리</a></li>
+                     <li class="test active"><a href="main.do">Home</a></li>
+                     <li class="test"><a href="#profile">CCTV</a></li>
+                     <li class="test"><a href="parking.do">주차장</a></li>
+                     <li class="test"><a href="noticeBoard.do">게시판</a></li>
+                     <li class="test"><a href="manage_visitor.do">방문일지</a></li>
+                     <li class="test"><a href="#settings">전체관리세</a></li>
+                     <li class="test"><a href="#settings">택배관리</a></li>
+                     <li class="test"><a href="manage_detail.do">설정</a></li>
                      <%} %>
                   </ul>
             </font>
@@ -64,47 +66,13 @@
    <script src="static/js/respond.js"></script>
 
    <script type="text/javascript">
-      $(document).ready(function() {
-         $(".container .tabbale #tabs li a").on('click', function(e) {
-            e.preventDefault();
-
-            $('a').each(function() {
-               $('li').removeClass('active');
-            });
-            $('li').addClass('active');
-
-            var target = this.hash, menu = target;
-            $target = $(target);
-            $('html, body').stop().animate({
-
-            }, 500, 'swing', function() {
-            });
-         });
-      });
+     $(document).on('click', '.test', function(){
+    	 alert("click");
+    	 $('.test').each(function () {
+             $('li').removeClass('active');    
+         })
+         $(this).closest('li').addClass('active');
+     });
    </script>
-
-   <!-- <script type="text/javascript">
-   $(document).ready(function () {
-       $('a[href^="#"]').on('click', function (e) {
-           e.preventDefault();
-           
-           $('a').each(function () {
-               $('li').removeClass('active');    
-           })
-           $('li').addClass('active');
-         
-           var target = this.hash,
-               menu = target;
-           $target = $(target);
-           $('html, body').stop().animate({
-              
-           }, 500, 'swing', function () {
-           });
-       });
-   });
-</script>
- -->
-
-
 </body>
 </html>

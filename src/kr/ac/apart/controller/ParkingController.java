@@ -8,6 +8,6 @@ public class ParkingController {
 
 	@RequestMapping(value="/parking.do")
 	public String parking(){
-		return "parking";
+		return "webTemplete.jsp?nextPage=parking";
 	}
 }

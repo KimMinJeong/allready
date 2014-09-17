@@ -16,10 +16,16 @@
 .inline{
 	display: inline;
 }
-
-.active {
-   
-    color: red;
-  
+/* #manageSelectDong{
+	margin-left : -4%;
+	display: inline;
 }
+#dongAddBtn{
+	margin-left : -10%;
+	display: inline;
+}
+#dongDeleteBtn{
+	margin-left : -60%;
+	display: inline;
+} */
 

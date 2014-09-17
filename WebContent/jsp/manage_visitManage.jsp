@@ -303,28 +303,5 @@ $("#addVisitorManagerButton").on('click',    //동,호수 , 이름, 용무 입력 후 추가
                   }
              });
    });
-   
-   /* $(".deleteVisitRecord").live('click',  
-         function() { 
-         alert($(this).closest('button').attr('value')); */
-            /* $.ajax({
-               url : "deleteVisitRecord.do",
-               type : "get",
-               dataType : "json",
-               data : {
-                  //visitRecordNo : $("#deleteVisitRecord").val(),
-                  
-               },
-               contentType : "application/json; charset=utf-8",
-               success : function(data) {
-                  alert("성공");
-                  $(this).parent().parent().remove();
-                  },
-               error : function(e) {
-                  alert(e.responseText);
-               }
-
-            }); */
-      /*    }); */
 </script>
 </html>

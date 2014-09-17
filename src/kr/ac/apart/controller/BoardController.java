@@ -29,7 +29,7 @@ public class BoardController {
 	@Autowired
 	private BoardService boardService;
 	
-	@RequestMapping(value="/noticeBoard.do")
+	@RequestMapping(value="/#noticeBoard.do")
 	public ModelAndView noticeList(){
 		
 		List<BoardVO> list = boardService.NoticeBoardList();

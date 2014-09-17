@@ -17,22 +17,8 @@ public class UserDAOImpl implements UserDAO{
 	public UserVO getUser(String userId){
 		return (UserVO) sqlMapClientTemplate.queryForObject("getUser", userId);
 	}
-
-	@Override
-	public List<UserVO> testList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void add(UserVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int delete(int no) {
-		// TODO Auto-generated method stub
-		return 0;
+	
+	public int modifyManager(UserVO vo){
+		return (Integer) sqlMapClientTemplate.update("modifyManager", vo);
 	}
 }
