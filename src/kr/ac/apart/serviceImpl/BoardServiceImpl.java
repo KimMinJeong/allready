@@ -92,4 +92,15 @@ public class BoardServiceImpl implements BoardService{
 		return list;
 	}
 
+	@Override
+	public void addGood(int board_no) {
+		
+		boardDao.addGood(board_no);
+		
+
+	}
+
+
+
+
 }

@@ -71,7 +71,12 @@
 	</isEqual>
 		ORDER BY TITLE
 	</select>
+	
 
+	<update id="addGood" parameterClass="java.lang.Integer" >
+			UPDATE BOARD SET GOOD=GOOD+1 
+			WHERE BOARD_NO = #board_no#
+	</update>
 
 </sqlMap>
 

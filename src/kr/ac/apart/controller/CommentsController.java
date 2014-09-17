@@ -2,6 +2,7 @@ package kr.ac.apart.controller;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.CommentsService;
 import kr.ac.apart.vo.CommentsVO;
@@ -20,10 +21,11 @@ public class CommentsController {
 	
 	@RequestMapping(value="/addComments.do")
 	public @ResponseBody String addComments(int board_no, String writer_id, String contents){
-		
+
 		System.out.println("addComments.do Start!!");
-		
+	
 		commentsService.addComments(board_no, writer_id, contents);
+		
 
 		JSONObject obj = new JSONObject();
 		
@@ -31,6 +33,7 @@ public class CommentsController {
 		obj.put("contents", contents);
 		obj.put("commentsRegDate", commentsService.getCommentsRegDate());
 		obj.put("maxCommentNo", commentsService.getMaxCommentsNo());
+		
 		
 		return obj.toString();
 	}

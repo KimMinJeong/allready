@@ -19,8 +19,7 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	@Override
 	public void add(BoardVO vo) {
-		System.out.println("DAO="+vo.getAnonymous());
-		System.out.println("DAO="+vo.getClosed());
+	
 		sqlMapClientTemplate.insert("BoardAdd",vo);
 	}
 	
@@ -52,5 +51,12 @@ public class BoardDAOImpl implements BoardDAO{
 		System.out.println(list);
 		return list;
 	}
+
+	@Override
+	public void addGood(int board_no) {
+		sqlMapClientTemplate.update("addGood", board_no);
+	}
+
+
 	
 }

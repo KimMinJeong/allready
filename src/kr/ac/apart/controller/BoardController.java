@@ -90,6 +90,7 @@ public class BoardController {
 	@RequestMapping(value="/boardDetail.do")
 	public ModelAndView boardDetail(int board_no){
 		BoardVO vo = boardService.getBoardDetail(board_no);
+		System.out.println(vo);
 		List<CommentsVO> commentsList = commentsService.getComments(board_no);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo",vo);
@@ -140,7 +141,17 @@ public class BoardController {
 		return mav;
 	}
 	
-
+	
+	@RequestMapping("/addGood.do")
+	public String addGood(int board_no){
+			
+		boardService.addGood(board_no);
+		
+	
+		return "redirect:/boardDetail.do?board_no="+board_no;
+	
+	}
+	
 	
 
 }

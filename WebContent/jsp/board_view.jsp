@@ -1,3 +1,4 @@
+<%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.CommentsVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.BoardVO"%>
@@ -16,6 +17,10 @@
 
 <%
 	BoardVO vo = (BoardVO)request.getAttribute("vo");
+	UserVO vo2 = (UserVO)session.getAttribute("UserFlag");
+
+
+
 %>
 
 </head>
@@ -52,12 +57,32 @@
         <textarea rows="20" cols="135">
 			<%=vo.getContents() %>
 		</textarea>
-		<br><div align="right">
+		<br>
+		<%if(vo2.getUser_id().equals(vo.getWriter_id())) {%>
+		<div align="right">
 		<button type="submit" class="btn btn-default navbar-btn" ><a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">수정</a></button>
 		<button type="submit" class="btn btn-default navbar-btn" ><a href="Delete.do?board_no=<%=vo.getBoard_no()%>">삭제</a></button>
 		</div>
+				<%
+			if("complain".equals(vo.getCategory())){
+			
+		%>
 		
+	<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addGood.do?board_no=<%=vo.getBoard_no()%>'">
+ 	 <span class="glyphicon glyphicon-thumbs-up"></span>
+	</button>
 	
+	
+	
+		<%} %>
+		
+		
+		
+		<%} %>
+		
+		
+		
+		<%=vo.getGood() %>
 		 
             <!-- Default panel contents -->
                     	<%
@@ -71,8 +96,8 @@
          <div class="navbar-form navbar-center" role="search">
             <div class="form-group">
               <input type="hidden" class="form-control" placeholder="게시판넘버" size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; 
-              <input type="text" class="form-control" placeholder="작성이" size="5" id="writer_id" value="<%=vo.getWriter_id()%>">
-              <input type="text" class="form-control inline" placeholder="댓글을 입력해주세요." size="88" id="contents">
+              <input type="text" class="form-control" placeholder="작성이" size="5" id="writer_id" value="<%=vo2.getUser_id()%>">
+              <input type="text" class="form-control inline" placeholder="댓글을 입력해주세요." size="80" id="contents">
               <button type="button" class="btn btn-default inline" id="addComments" value=<%=vo.getBoard_no() %>>입력</button><br><br>
      
 
@@ -100,13 +125,23 @@
                   <td><center><%=vc.getWriter_id()%></center></td>
                   <td><center><%=vc.getContents() %></center></td>
                   <td><center><%=vc.getReg_date() %></center></td>
-                  <td><center>
-                  <button type="button" class="btn btn-default deleteComments" value="<%=vc.getComments_no()%>">삭제</button></center></td>
+                                 
+                                 
+
+           <td>
+             <%
+  
+
+  	     if(vo2.getUser_id().equals(vc.getWriter_id())){
+  %>  <center>
+        <button type="button" class="btn btn-default deleteComments" value="<%=vc.getComments_no()%>">삭제</button></center> 
+          <%} %></td>
+            
                </tr>
-               <%}}} %>
+               <%}}}%>
             </table>
          </div>
-         <%} %>
+         <%}%>
                  </div>
 
       </div>
@@ -114,6 +149,7 @@
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
   </div><!--/.container-->
+  <br><br>
 
 
 
@@ -147,7 +183,7 @@ $("#addComments").click(function() {
            }); 
         });
         
-        
+     
 $(document).on('click','.deleteComments', function(){         //삭제버튼 클릭시
     alert($(this).closest('button').attr('value'));
     var clickedRow = $(this).closest('tr');              //클릭한 tr 가져오기
@@ -168,6 +204,9 @@ $(document).on('click','.deleteComments', function(){         //삭제버튼 클릭시
           }
      }); 
 });
+
+document.
+
 </script>
 
 </html>

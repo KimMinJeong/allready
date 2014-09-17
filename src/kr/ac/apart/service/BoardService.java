@@ -14,5 +14,6 @@ public interface BoardService {
 	public BoardVO delete(int board_no);
 	public void updateBoard(BoardVO board);
 	public List<BoardVO> searchBoard(String condition, String str);
+	public void addGood(int board_no);
 
 }

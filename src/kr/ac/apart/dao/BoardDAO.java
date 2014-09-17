@@ -12,4 +12,5 @@ public interface BoardDAO {
 	public int delete(int board_no);
 	public void updateBoard(BoardVO vo);
 	public List<BoardVO> searchBoard(BoardVO search);
+	public void addGood(int board_no);
 }
