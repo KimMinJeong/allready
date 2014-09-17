@@ -1,3 +1,4 @@
+<%@page import="org.jsoup.nodes.Element"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -9,17 +10,38 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="static/css/Style.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-
+<% Element tax = (Element)request.getAttribute("TaxText"); %>
 <div class="container">
-   
+	<div>
+		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
+        	전국 평균 관리비
+		</button>
+		
+		<div class="modal fade" id="myModal">
+		  <div class="modal-dialog">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+		        <h4 class="modal-title">전국 평균 관리비</h4>
+		      </div>
+		      <div class="modal-body">
+		   		<div><%=tax%></div>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		      </div>
+		    </div><!-- /.modal-content -->
+		  </div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+		
+	</div>
     <br>
-
 	<div class="col-md-offset-2 col-md-10">
-		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">
+<!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
+<!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded"> -->
 	</div>
 	<br/>
 	<h2>관리비</h2>
@@ -92,7 +114,6 @@
 			<td>X</td>
 			<td>X</td>
 		</tr>
-		
 	</table>
 </div>
 

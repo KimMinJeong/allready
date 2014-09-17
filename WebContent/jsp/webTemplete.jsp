@@ -34,7 +34,7 @@
                      <li><a href="main.do">Home</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
                      <li><a href="#messages">林瞒厘</a></li>
-                     <li><a href="#settings">包府技</a></li>
+                     <li><a href="user_tax.do">包府技</a></li>
                      <li><a href="noticeBoard.do">霸矫魄</a></li>
                      <li><a href="user_visitor.do">规巩按</a></li>
                      <li><a href="#settings">家烹狼 厘</a></li>
@@ -45,7 +45,7 @@
                      <li><a href="#">林瞒厘</a></li>
                      <li><a href="noticeBoard.do">霸矫魄</a></li>
                      <li><a href="manage_visitor.do">规巩老瘤</a></li>
-                     <li><a href="#settings">傈眉包府技</a></li>
+                     <li><a href="user_tax.do">傈眉包府技</a></li>
                      <li><a href="#settings">琶硅包府</a></li>
                      <%} %>
                   </ul>
