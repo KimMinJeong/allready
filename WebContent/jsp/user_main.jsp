@@ -57,6 +57,7 @@
 					<div class="row">
 						<div class="col-xs-6 col-md-3">
 							<a href="#" class="thumbnail"> <img data-src="holder.js/100%x180" alt="..."></a>
+							<center><span class="glyphicon glyphicon-off"><a href="logout.do">로그아웃</a></span></center>
 						</div>
 					</div>
 				</div>
@@ -64,36 +65,37 @@
 			<!-- main area -->
 
 			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1">
+				<br><button type="button" class="btn btn-default btn-lg button1">
 					<span class="glyphicon glyphicon-facetime-video"></span> CCTV
-				</button>
+				</button><br>
 			</div>
+			
 			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1">
+				<br><button type="button" class="btn btn-default btn-lg button1">
 					<span class="glyphicon glyphicon-star"></span> 주차장
 				</button>
 			</div>
-
+		
 			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1">
+				<br><button type="button" class="btn btn-default btn-lg button1">
 					<span class="glyphicon glyphicon-usd"></span> 관리세
+				</button>
+			</div>
+		
+			<div class="col-xs-12 col-sm-4">
+				<br><button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
+					<span class="glyphicon glyphicon-align-justify"></span> 게시판
 				</button>
 			</div>
 			
 			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
-					<span class="glyphicon glyphicon-align-justify"></span> 게시판
-				</button>
-			</div>
-
-			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
+				<br><button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
 					<span class="glyphicon glyphicon-user"></span> 방문객
 				</button>
 			</div>
-
+			
 			<div class="col-xs-12 col-sm-4">
-				<button type="button" class="btn btn-default btn-lg button1">
+				<br><button type="button" class="btn btn-default btn-lg button1">
 					<span class="glyphicon glyphicon-heart-empty"></span> 소통의 장
 				</button>
 			</div>

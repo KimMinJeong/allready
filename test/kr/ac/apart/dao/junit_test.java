@@ -4,11 +4,17 @@ import static org.junit.Assert.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+<<<<<<< HEAD
 import java.util.List;
 
 import kr.ac.apart.vo.ParkingVO;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
+=======
+
+import kr.ac.apart.vo.ParkingVO;
+import kr.ac.apart.vo.UserVO;
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -23,8 +29,11 @@ public class junit_test {
 	private UserDAO userDao;
 	@Autowired
 	private ParkingDAO parkingDao;
+<<<<<<< HEAD
 	@Autowired
 	private VisitorDAO visitorDao;
+=======
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 	@Test
 	public void getUser() {
@@ -64,4 +73,8 @@ public class junit_test {
 			fr.close();
 		}
 	}
+<<<<<<< HEAD
+=======
+
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 }

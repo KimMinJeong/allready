@@ -36,4 +36,13 @@ public class UserController{
 	public String main(){
 		return "webTemplete.jsp?nextPage=user_main";
 	}
+<<<<<<< HEAD
+=======
+	
+	@RequestMapping(value="/logout.do")
+	public String logout(HttpSession session){
+		session.removeAttribute("UserFlag");
+		return "redirect:/loginForm.do";
+	}
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 }

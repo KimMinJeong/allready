@@ -31,7 +31,13 @@ public class visitorDAOTest {
 	@Test
 	public void getVisitorListTest(){
 		List<VisitorVO> list = visitorDao.getVisitorList("111");
+<<<<<<< HEAD
 		System.out.println(list);
+=======
+		
+		System.out.println(list);
+		
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 		assertNotNull(list);
 	}
 	
@@ -41,6 +47,7 @@ public class visitorDAOTest {
 		
 		assertEquals(count, 1);
 	}
+<<<<<<< HEAD
 	
 	@Test
 	public void addVisitRecordTest(){
@@ -101,4 +108,9 @@ public class visitorDAOTest {
 		int count = visitorDao.getMaxVisitRecordNo();
 		System.out.println(count);
 	}
+=======
+
+
+	
+>>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 }

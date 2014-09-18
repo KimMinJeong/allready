@@ -9,12 +9,15 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
+<script src="static/js/bootstrap.min.js"></script>
 <link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link  href="static/css/style.css" rel="stylesheet" type="text/css">
+<link  href="static/css/Style.css" rel="stylesheet" type="text/css">
+<script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
 
 </head>
 <body>
+
     <div class="container">
       <div class="row row-offcanvas row-offcanvas-left">
         
@@ -50,7 +53,7 @@
                 <th>날짜</th>
           </tr>
            <%
-	List<BoardVO> BoardList = (List<BoardVO>)request.getAttribute("list");
+	List<BoardVO> BoardList = (List<BoardVO>)request.getAttribute("searchList");
     UserVO user_id = (UserVO)session.getAttribute("UserFlag");
     
 	if(BoardList != null){
@@ -63,10 +66,7 @@
 %>
  <% if("CLOSED".equals(vo.getClosed())){
     
-      
-       
-        
- 		%>
+    		%>
  			 <%if(user_id.getUser_id().equals(vo.getWriter_id())){ %>
 			<tr> 
              <td><%=vo.getBoard_no() %></td>
@@ -123,13 +123,19 @@
         <option value="contents">contents</option> 
         <option value="writer_id">글쓴이</option>       
         </select>
-        <input type="text" class="form-control" name="str">
+        <input type="text" class="form-control" size="100%" align="center" name="str" >
         </div>
         <button type="submit" class="btn btn-default">검색</button>
       </form></div>
-   
-            
+    
+          
         </div><!-- /.col-xs-12 main -->
     </div><!--/.row-->
+
+ 
+<script type="text/javascript">
+
+</script>
+
 </body>
 </html>
