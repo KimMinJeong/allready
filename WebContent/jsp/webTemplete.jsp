@@ -47,7 +47,7 @@
                      <li><a href="noticeBoard.do">게시판</a></li>
                      <li><a href="manage_visitor.do">방문일지</a></li>
                      <li><a href="#settings">전체관리세</a></li>
-                     <li><a href="#settings">택배관리</a></li>
+                     <li><a href="expressList.do">택배관리</a></li>
                      <li><a href="#settings">설정</a></li>
                      <%} %>
                   </ul>

@@ -20,7 +20,6 @@
 	UserVO vo2 = (UserVO)session.getAttribute("UserFlag");
 
 
-
 %>
 
 </head>
@@ -62,27 +61,26 @@
 		<div align="right">
 		<button type="submit" class="btn btn-default navbar-btn" ><a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">수정</a></button>
 		<button type="submit" class="btn btn-default navbar-btn" ><a href="Delete.do?board_no=<%=vo.getBoard_no()%>">삭제</a></button>
-		</div>
+		</div><%} %>
 				<%
 			if("complain".equals(vo.getCategory())){
-			
+				
 		%>
-		
-	<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addGood.do?board_no=<%=vo.getBoard_no()%>'">
+	<center>
+	<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addGood.do?board_no=<%=vo.getBoard_no()%>'"
+		onclick="event.cancelBubble = true">
  	 <span class="glyphicon glyphicon-thumbs-up"></span>
-	</button>
+	</button>	<%=vo.getGood() %> 
+
 	
+	<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addBad.do?board_no=<%=vo.getBoard_no()%>'"
+		onclick="event.cancelBubble = true">
+ 	 <span class="glyphicon glyphicon-thumbs-down"></span>
+	</button>	<%=vo.getBad() %>
+	</center>
+		
 	
-	
-		<%} %>
-		
-		
-		
-		<%} %>
-		
-		
-		
-		<%=vo.getGood() %>
+		<%}%>
 		 
             <!-- Default panel contents -->
                     	<%
@@ -117,16 +115,13 @@
                   if(comments != null){
                   for(CommentsVO vc : comments){
                  	if(vc.getBoard_no() == vo.getBoard_no()){
-                 		
-                 
+                        
                  %>
                </tr>
                <tr>
                   <td><center><%=vc.getWriter_id()%></center></td>
                   <td><center><%=vc.getContents() %></center></td>
                   <td><center><%=vc.getReg_date() %></center></td>
-                                 
-                                 
 
            <td>
              <%

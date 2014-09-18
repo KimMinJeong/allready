@@ -100,6 +100,12 @@ public class BoardServiceImpl implements BoardService{
 
 	}
 
+	@Override
+	public void addBad(int board_no) {
+		boardDao.addBad(board_no);
+		
+	}
+
 
 
 

@@ -13,4 +13,5 @@ public interface BoardDAO {
 	public void updateBoard(BoardVO vo);
 	public List<BoardVO> searchBoard(BoardVO search);
 	public void addGood(int board_no);
+	public void addBad(int board_no);
 }

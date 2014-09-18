@@ -16,10 +16,10 @@
 
 <div class="col-md-offset-3 col-md-6">
 
-	<h1 align="center">상세정보 기입란</h1>
-	<br><br>
+   <h1 align="center">상세정보 기입란</h1>
+   <br><br>
 
-	<form role="form" >
+   <form role="form" >
   <div class="form-group">
     <label for="exampleInputEmail1">세대주 ID</label>
     <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
@@ -42,9 +42,10 @@
   </div>
 <div class="form-group">
       <label for="disabledSelect">부양 가족 수</label>
+    
       <select id="disabledSelect" class="form-control">
-        <option>1</option>
-        <option>2</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
         <option>3</option>
         <option>4</option>
         <option>5</option>
@@ -55,6 +56,7 @@
         <option>10</option>
         
       </select>
+    
     </div>
     
     <div class="row">

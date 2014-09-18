@@ -136,7 +136,8 @@
                </tr>
                <tr id="add">
 
-                  <% List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
+                  <% 
+                  	 List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
                      List<VisitorVO> visitorListAll = (List<VisitorVO>)request.getAttribute("visitorList");
                
                   if(visitorListAll != null){
