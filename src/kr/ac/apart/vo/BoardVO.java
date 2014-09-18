@@ -13,11 +13,9 @@ public class BoardVO {
 	private String anonymous;
 	private String closed;
 	private String file_name;
-<<<<<<< HEAD
-=======
 	private String searchKind;
 	private String searchStr;
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
+	
 	@Override
 	public String toString() {
 		return "BoardVO [board_no=" + board_no + ", writer_id=" + writer_id
@@ -99,8 +97,6 @@ public class BoardVO {
 	public void setFile_name(String file_name) {
 		this.file_name = file_name;
 	}
-<<<<<<< HEAD
-=======
 	public String getSearchKind() {
 		return searchKind;
 	}
@@ -113,6 +109,4 @@ public class BoardVO {
 	public void setSearchStr(String searchStr) {
 		this.searchStr = searchStr;
 	}
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
-	
 }

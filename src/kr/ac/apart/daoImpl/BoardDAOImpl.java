@@ -1,16 +1,10 @@
 package kr.ac.apart.daoImpl;
 
-<<<<<<< HEAD
-import kr.ac.apart.dao.BoardDAO;
-=======
 import java.util.List;
 
 import kr.ac.apart.dao.BoardDAO;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
-
-
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
@@ -20,9 +14,7 @@ import org.springframework.stereotype.Repository;
 public class BoardDAOImpl implements BoardDAO{
 	@Autowired
 	private SqlMapClientTemplate sqlMapClientTemplate;
-	
-<<<<<<< HEAD
-=======
+
 	@Override
 	public void add(BoardVO vo) {
 		System.out.println("DAO="+vo.getAnonymous());
@@ -68,7 +60,4 @@ public class BoardDAOImpl implements BoardDAO{
 	public List<CommentsVO> getComments(int board_no) {
 		return (List<CommentsVO>)sqlMapClientTemplate.queryForList("getComments", board_no);
 	}
-	
-	
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 }

@@ -1,15 +1,9 @@
 package kr.ac.apart.controller;
 
-<<<<<<< HEAD
-import kr.ac.apart.dao.BoardDAO;
-=======
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
-
-
 
 import kr.ac.apart.dao.BoardDAO;
 import kr.ac.apart.service.BoardService;
@@ -17,40 +11,18 @@ import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
 import kr.ac.apart.vo.VisitorVO;
 
-
 import net.sf.json.JSONObject;
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-<<<<<<< HEAD
-=======
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 @Controller("boardController")
 public class BoardController {
 
 	@Autowired
-<<<<<<< HEAD
-	private BoardDAO boardDao;
-	
-	@RequestMapping(value="/noticeBoard.do")
-	public String noticeList(){
-		return "webTemplete.jsp?nextPage=notice_board_list";
-	}
-	
-	@RequestMapping(value="/complainBoard.do")
-	public String minoneList(){
-		return "webTemplete.jsp?nextPage=complain_board_list";
-	}
-	
-	@RequestMapping(value="/freeBoard.do")
-	public String freeList(){
-		return "webTemplete.jsp?nextPage=free_board_list";
-=======
 	private BoardService boardService;
 	
 	@RequestMapping(value="/noticeBoard.do")
@@ -85,16 +57,12 @@ public class BoardController {
 		mav.setViewName("webTemplete.jsp?nextPage=free_board_list");
 		return mav;
 	
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 	}
 	
 	@RequestMapping(value="/boardWriteForm.do")
 	public String boardWriteForm(){
 		return "webTemplete.jsp?nextPage=board_write_form";
 	}
-<<<<<<< HEAD
-}
-=======
 	
 	@RequestMapping(value="/boardAdd.do")
 	public String boardWrite(String writer_id,String category, String title, String contents, String anonymous, String closed){
@@ -190,6 +158,3 @@ public class BoardController {
 	
 
 }
-
-
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2

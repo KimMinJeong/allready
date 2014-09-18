@@ -1,6 +1,6 @@
 package kr.ac.apart.controller;
 
-<<<<<<< HEAD
+
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -11,15 +11,10 @@ import org.jsoup.nodes.Element;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
-=======
-import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 
 @Controller("taxController")
 public class TaxController {
 
-<<<<<<< HEAD
 	@RequestMapping(value="/user_tax.do")
 	public ModelAndView tax(){
 		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=user_tax");
@@ -41,10 +36,5 @@ public class TaxController {
 			e.printStackTrace();
 		}
 		return mav;
-=======
-	@RequestMapping(value="/tax.do")
-	public String tax(){
-		return "user_tax";
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 	}
 }

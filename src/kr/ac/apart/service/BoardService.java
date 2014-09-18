@@ -1,11 +1,7 @@
 package kr.ac.apart.service;
 
-<<<<<<< HEAD
-public interface BoardService {
 
-=======
 import java.util.List;
-
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
 
@@ -20,5 +16,4 @@ public interface BoardService {
 	public List<BoardVO> searchBoard(String condition, String str);
 	public CommentsVO addComments(CommentsVO comments);
 	public List<CommentsVO> getComments(int board_no);
->>>>>>> fd3712788e26ece27a4b50de01c30310b581baa2
 }
