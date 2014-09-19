@@ -152,6 +152,7 @@
 
 <script type="text/javascript">
 $("#addComments").click(function() {
+	alert("aa");
             $.ajax({
               url : "addComments.do",
               type : "get",

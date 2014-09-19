@@ -20,6 +20,7 @@
 <body>
 <%
 	List<ExpressVO> list = (List<ExpressVO>)request.getAttribute("list");
+	ExpressVO vo2 = (ExpressVO)request.getAttribute("vo");
 	
 %>
 
@@ -113,7 +114,7 @@
 		    	<td><%=vo.getUser_id() %></td>
 		    	<td><%=vo.getOrderer() %></td>
 		    	<td><%=vo.getExpress_company() %></td>
-		    	<td> <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2">확인</button>
+		    	<td> <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" onClick="getExpressOne.do?express_id=<%=vo.getExpress_id() %>">확인<%=vo.getExpress_id() %></a></button>
 		    	<%=vo.getReceiver() %></td>
 		    </tr>
 		  <%}} %>
@@ -121,7 +122,8 @@
 		</div>
 		
 		<!-- Modal -->
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+
+<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -131,14 +133,16 @@
       <div class="modal-body">
       
       <div align="left">
-      <form action="updateExpress.do">
+    <form action="updateExpress.do">
       	<input type="text" name="receiver" value="수령자">
-		<button type="submit" class="btn btn-default">수령확인</button>
-	</form>	
+      
+      	<input type="text" name="express_id"  >
+		<input type="submit" value="수령확인">
+</form>	
 </div>
 	<br>
 	<br>
-	</div></div></div></div>
+	</div></div></div></div>	
 		
 		<div align="center">
 	<ul class="pagination">
@@ -158,6 +162,7 @@
     </div><!--/.row-->
   </div><!--/.container-->
 
+</body>
 
 
 
@@ -168,7 +173,8 @@
   
 <script type="text/javascript">
 
+	 
 </script>
 
-</body>
+
 </html>

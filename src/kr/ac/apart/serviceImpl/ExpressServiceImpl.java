@@ -35,10 +35,15 @@ public class ExpressServiceImpl implements ExpressService {
 	}
 
 	@Override
-	public void updateExpress(int express_id) {
-		
-		
-		expressDAO.updateExpress(express_id);
+	public void updateExpress(ExpressVO vo) {	
+		expressDAO.updateExpress(vo);
+	
+	}
+
+	@Override
+	public ExpressVO getExpressOne(int express_id) {
+		ExpressVO vo = expressDAO.getExpressOne(express_id);
+		return vo;
 	}
 
 }

@@ -27,7 +27,13 @@
 	
 	</select>
 	
-	<update id="updateExpress" parameterClass="express">
+	<select id="getExpressOne" resultMap="expressMap" parameterClass="java.lang.Integer">
+		SELECT *
+		FROM EXPRESS
+		WHERE EXPRESS_ID = #express_id#
+	</select>
+	
+	<update id="updateExpress"  parameterClass="express">
 		UPDATE EXPRESS SET RECEIVER=#receiver# 
 		WHERE EXPRESS_ID = #express_id#
 	

@@ -39,15 +39,26 @@ public class ExpressController {
 			return mav;
 		
 	}
+
+	@RequestMapping("/getExpressOne.do")
+	public ModelAndView getExpressOne(int express_id){
+		ExpressVO vo = expressService.getExpressOne(express_id);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("vo",vo);
+		System.out.println(vo.getExpress_id());
+
+		return mav;
+	}
 	
 	@RequestMapping("/updateExpress.do")
-	public String updateExpress(int express_id){
+	public String updateExpress(ExpressVO vo){
 	
-		
-		expressService.updateExpress(express_id);
+		System.out.println("update"+vo);
+		expressService.updateExpress(vo);
 		
 		return "redirect:/expressList.do";
 	}
+	
 	
 
 }
