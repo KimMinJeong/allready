@@ -84,7 +84,6 @@
 						}%>
 					</tbody>
 				</table>
-				<br><br>
 
 				<div class="col-md-offset-10 col-md-2">
 					<button type="submit" class="btn btn-primary" id="modifyUser">Submit</button>
