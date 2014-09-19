@@ -5,10 +5,9 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
-<script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="static/js/bootstrap.js"></script>
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 
 </head>

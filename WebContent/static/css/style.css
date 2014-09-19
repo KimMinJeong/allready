@@ -16,3 +16,7 @@
 .active {
 	color: red;
 }
+
+#myModal .modal-body{
+	width : 80%;
+}

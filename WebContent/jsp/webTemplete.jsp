@@ -6,8 +6,6 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="static/css/bootstrap.min.css" rel="stylesheet"
-   media="screen">
 <title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">

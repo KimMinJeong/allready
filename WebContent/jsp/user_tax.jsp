@@ -5,45 +5,51 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link  href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-<% Element tax = (Element)request.getAttribute("TaxText"); %>
+<% Element korea_tax = (Element)request.getAttribute("korea_tax"); %>
+<% String dangi_tax = (String)request.getAttribute("dangi_tax");%>
+
 <div class="container">
 	<div>
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
-		
-		<div class="modal fade" id="myModal">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-		        <h4 class="modal-title">전국 평균 관리비</h4>
-		      </div>
-		      <div class="modal-body">
-		   		<div><%=tax%></div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-		      </div>
-		    </div><!-- /.modal-content -->
-		  </div><!-- /.modal-dialog -->
-		</div><!-- /.modal -->
-		
-	</div>
+
+			<div class="modal fade" id="myModal">
+				<div class="modal-dialog">
+					<div class="modal-content">
+						<div class="modal-header">
+							<button type="button" class="close" data-dismiss="modal">
+								<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+							</button>
+							<h4 class="modal-title">전국 평균 관리비</h4>
+						</div>
+						<div class="modal-body">
+							<div><%=korea_tax%></div>
+						</div>
+						<div class="modal-footer">
+							<button type="button" class="btn btn-default"
+								data-dismiss="modal">Close</button>
+						</div>
+					</div><!-- /.modal-content -->
+				</div><!-- /.modal-dialog -->
+			</div><!-- /.modal -->
+
+		</div>
     <br>
 	<div class="col-md-offset-2 col-md-10">
 <!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 <!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded"> -->
 	</div>
 	<br/>
+	<%=dangi_tax%>
 	<h2>관리비</h2>
 	<table class="table" id="table">
 		<tr>
@@ -116,6 +122,6 @@
 		</tr>
 	</table>
 </div>
-
+	
 </body>
 </html>

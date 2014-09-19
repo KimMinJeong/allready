@@ -27,14 +27,12 @@ public class BoardController {
 	
 	@RequestMapping(value="/noticeBoard.do")
 	public ModelAndView noticeList(){
-		
 		List<BoardVO> list = boardService.NoticeBoardList();
 
-			ModelAndView mav = new ModelAndView();
-			mav.addObject("list",list);
-			mav.setViewName("webTemplete.jsp?nextPage=notice_board_list");
-			return mav;
-		
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("list",list);
+		mav.setViewName("webTemplete.jsp?nextPage=notice_board_list");
+		return mav;
 	}
 	
 	@RequestMapping(value="/complainBoard.do")
@@ -45,7 +43,6 @@ public class BoardController {
 		mav.addObject("list",list);
 		mav.setViewName("webTemplete.jsp?nextPage=complain_board_list");	
 		return mav;
-	
 	}
 	
 	@RequestMapping(value="/freeBoard.do")
@@ -77,7 +74,6 @@ public class BoardController {
 		}
 		else
 			return "redirect:/freeBoard.do";
-	
 	}
 	
 	@RequestMapping(value="/boardDetail.do")
@@ -103,21 +99,15 @@ public class BoardController {
 	
 	@RequestMapping("/Delete.do")
 	public String guestbookdelete(int board_no){
-		
 		boardService.delete(board_no);
 		return "redirect:/noticeBoard.do";
-	
 	}
 	
 	
 	@RequestMapping("/updateBoard.do")
 	public String updateBoard(BoardVO board){
-	
 		boardService.updateBoard(board);
-		
-		
-			return "redirect:/noticeBoard.do";
-	
+		return "redirect:/noticeBoard.do";
 	}
 	
 	@RequestMapping("/search.do")
@@ -150,11 +140,8 @@ public class BoardController {
 	      CommentsVO vo = boardService.addComments(comments);
 	      obj.put("add", vo);
 	  
-	      	      
 	      System.out.println(obj.toString());
 	      
 	      return obj.toString();
 	   }
-	
-
 }
