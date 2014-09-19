@@ -14,6 +14,7 @@ public interface BoardService {
 	public BoardVO delete(int board_no);
 	public void updateBoard(BoardVO board);
 	public List<BoardVO> searchBoard(String condition, String str);
-	public CommentsVO addComments(CommentsVO comments);
-	public List<CommentsVO> getComments(int board_no);
+	public void addGood(int board_no);
+	public void addBad(int board_no);
+
 }
