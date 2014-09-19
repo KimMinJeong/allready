@@ -39,7 +39,7 @@ public class ExpressController {
 			return mav;
 		
 	}
-
+	
 	@RequestMapping("/getExpressOne.do")
 	public ModelAndView getExpressOne(int express_id){
 		ExpressVO vo = expressService.getExpressOne(express_id);
@@ -49,7 +49,7 @@ public class ExpressController {
 
 		return mav;
 	}
-	
+
 	@RequestMapping("/updateExpress.do")
 	public String updateExpress(ExpressVO vo){
 	

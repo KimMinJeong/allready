@@ -24,10 +24,9 @@
 	<select id="getExpress" resultClass="express">
 		SELECT *
 		FROM EXPRESS
-	
 	</select>
 	
-	<select id="getExpressOne" resultMap="expressMap" parameterClass="java.lang.Integer">
+	<select id="getExpressOne" resultClass="express" parameterClass="java.lang.Integer">
 		SELECT *
 		FROM EXPRESS
 		WHERE EXPRESS_ID = #express_id#

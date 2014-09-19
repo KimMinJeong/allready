@@ -36,7 +36,6 @@ public class ExpressDAOImpl implements ExpressDAO{
 
 	@Override
 	public ExpressVO getExpressOne(int express_id) {
-
 		return (ExpressVO)sqlMapClientTemplate.queryForObject("getExpressOne", express_id);
 	}
 

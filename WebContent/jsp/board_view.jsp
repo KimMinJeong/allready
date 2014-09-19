@@ -201,7 +201,7 @@ $(document).on('click','.deleteComments', function(){         //삭제버튼 클릭시
      }); 
 });
 
-document.
+
 
 </script>
 

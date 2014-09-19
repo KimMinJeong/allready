@@ -21,6 +21,7 @@
 <%
 	List<ExpressVO> list = (List<ExpressVO>)request.getAttribute("list");
 	ExpressVO vo2 = (ExpressVO)request.getAttribute("vo");
+
 	
 %>
 
@@ -114,35 +115,25 @@
 		    	<td><%=vo.getUser_id() %></td>
 		    	<td><%=vo.getOrderer() %></td>
 		    	<td><%=vo.getExpress_company() %></td>
-		    	<td> <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal2" onClick="getExpressOne.do?express_id=<%=vo.getExpress_id() %>">확인<%=vo.getExpress_id() %></a></button>
+		    	<td><input type="button" onClick="location.href='getExpressOne.do?express_id=<%=vo.getExpress_id() %>'">확인<%=vo.getExpress_id() %>
+		    	 <form action="updateExpress.do">
+      	<input type="text" name="receiver" value="수령자">
+      
+      	<input type="text" name="express_id" >
+		<input type="submit" value="수령확인">
+
+		    	</form>	
 		    	<%=vo.getReceiver() %></td>
 		    </tr>
 		  <%}} %>
 		  </table>
 		</div>
-		
-		<!-- Modal -->
 
-<div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"  >
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">택배 수령자 입력</h4>
-      </div>
-      <div class="modal-body">
-      
-      <div align="left">
-    <form action="updateExpress.do">
-      	<input type="text" name="receiver" value="수령자">
-      
-      	<input type="text" name="express_id"  >
-		<input type="submit" value="수령확인">
-</form>	
+
 </div>
 	<br>
 	<br>
-	</div></div></div></div>	
+	</div></div>
 		
 		<div align="center">
 	<ul class="pagination">

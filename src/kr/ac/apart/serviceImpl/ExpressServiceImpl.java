@@ -43,6 +43,7 @@ public class ExpressServiceImpl implements ExpressService {
 	@Override
 	public ExpressVO getExpressOne(int express_id) {
 		ExpressVO vo = expressDAO.getExpressOne(express_id);
+		System.out.println(vo);
 		return vo;
 	}
 
