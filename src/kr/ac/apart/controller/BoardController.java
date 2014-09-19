@@ -4,12 +4,14 @@ import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 
 
 
 import kr.ac.apart.dao.BoardDAO;
 import kr.ac.apart.service.BoardService;
+import kr.ac.apart.service.CommentsService;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
 import kr.ac.apart.vo.VisitorVO;
@@ -28,6 +30,8 @@ public class BoardController {
 
 	@Autowired
 	private BoardService boardService;
+	@Autowired
+	private CommentsService commentsService;
 	
 	@RequestMapping(value="/#noticeBoard.do")
 	public ModelAndView noticeList(){
@@ -87,7 +91,8 @@ public class BoardController {
 	@RequestMapping(value="/boardDetail.do")
 	public ModelAndView boardDetail(int board_no){
 		BoardVO vo = boardService.getBoardDetail(board_no);
-		List<CommentsVO> commentsList=boardService.getComments(board_no);
+
+		List<CommentsVO> commentsList = commentsService.getComments(board_no);
 		ModelAndView mav = new ModelAndView();
 		mav.addObject("vo",vo);
 		mav.addObject("commentsList",commentsList);
@@ -137,28 +142,26 @@ public class BoardController {
 		return mav;
 	}
 	
-	@RequestMapping(value="/addComments.do")   //manager가 방문객 추가할 때 
-	   public @ResponseBody String addVisitorManager(int board_no, String writer_id, String contents, HttpServletResponse response,HttpServletRequest request) throws Exception {
-	      //String은 view를 뿌려주는? 가져다주는 애! 앞에 @ResponseBody 를 붙여주면 view를 넘겨주지않고 데이터만? 넘겨준다.
-	      System.out.println("addVisitorManager.do start!!!");
-	      
-	      request.setCharacterEncoding("utf-8");
-	      response.setContentType("application/json; charset=utf-8");
+	
+	@RequestMapping("/addGood.do")
+	public String addGood(int board_no){
+	
+		boardService.addGood(board_no);
+		
+		return "redirect:/boardDetail.do?board_no="+board_no;
+	
+	}
+	
+	@RequestMapping("/addBad.do")
+	public String addBad(int board_no){
+	
+		boardService.addBad(board_no);
+		
+		return "redirect:/boardDetail.do?board_no="+board_no;
+	
+	}
+	
 
-	      JSONObject obj = new JSONObject();
-	      
-	      CommentsVO comments=new CommentsVO();
-	      comments.setBoard_no(board_no);
-	      comments.setWriter_id(writer_id);
-	      comments.setContents(contents);
-	      CommentsVO vo = boardService.addComments(comments);
-	      obj.put("add", vo);
-	  
-	      	      
-	      System.out.println(obj.toString());
-	      
-	      return obj.toString();
-	   }
 	
 
 }

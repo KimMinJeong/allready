@@ -91,18 +91,22 @@ public class BoardServiceImpl implements BoardService{
 		List<BoardVO> list=boardDao.searchBoard(search);
 		return list;
 	}
-	
-	   @Override
-	public CommentsVO addComments(CommentsVO comments){
-	     CommentsVO vo = boardDao.addComments(comments);
-	     return vo;	
-  }
 
 	@Override
-	public List<CommentsVO> getComments(int board_no) {
-		return boardDao.getComments(board_no);
-	}
-	   
+	public void addGood(int board_no) {
+		
+		boardDao.addGood(board_no);
+		
 
-	
+	}
+
+	@Override
+	public void addBad(int board_no) {
+		boardDao.addBad(board_no);
+		
+	}
+
+
+
+
 }
