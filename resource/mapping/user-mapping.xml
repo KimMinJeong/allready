@@ -22,11 +22,19 @@
 	
 	<update id="modifyManager" parameterClass="user">
 		UPDATE USERS
-		SET USER_ID = #user_id#,
-			PASSWORD = #password#,
+		SET PASSWORD = #password#,
 			USER_NAME = #user_name#,
 			PHONE = #phone#
 		WHERE USER_ID = #user_id#	
+	</update>
+	
+	<update id="modifyUser" parameterClass="user">
+		UPDATE USERS
+		SET PASSWORD = #password#,
+			USER_NAME = #user_name#,
+			E_MAIL = #e_mail#,
+			PHONE = #phone#
+		WHERE USER_ID = #user_id#
 	</update>
 	
 </sqlMap>

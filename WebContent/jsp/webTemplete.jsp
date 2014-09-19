@@ -65,7 +65,7 @@
    <!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
    <script src="static/js/respond.js"></script>
 
-   <script type="text/javascript">
+   <!-- <script type="text/javascript">
      $(document).on('click', '.test', function(){
     	 alert("click");
     	 $('.test').each(function () {
@@ -73,6 +73,6 @@
          })
          $(this).closest('li').addClass('active');
      });
-   </script>
+   </script> -->
 </body>
 </html>

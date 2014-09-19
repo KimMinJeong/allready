@@ -37,14 +37,12 @@ public class VisitorServiceImpl implements VisitorService {
    }
    @Override
    public void addVisitormanagerOnly(){
-      visitorDao.addVisitorManager();
-         
+      visitorDao.addVisitorManager();  
    }
    
    @Override
    public VisitorVO insert(String user_id, String visitor_name, String business, String fixed){
       VisitorVO vo = new VisitorVO();
-      System.out.println("visitorService");
       
       vo.setUser_id(user_id);
       vo.setVisitor_name(visitor_name);
@@ -65,6 +63,7 @@ public class VisitorServiceImpl implements VisitorService {
    public List<VisitorVO> getVisitorList(String id){     //user id¸¦ ÀÌ¿ë ¹æ¹®°´ list
       List<VisitorVO> visitorList = visitorDao.getVisitorList(id);
       System.out.println(visitorList);
+      
       return visitorList;
    }
    

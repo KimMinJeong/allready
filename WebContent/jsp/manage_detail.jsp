@@ -1,3 +1,6 @@
+<%@page import="kr.ac.apart.vo.Manager_DongVO"%>
+<%@page import="kr.ac.apart.vo.UserVO"%>
+<%@page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -11,48 +14,57 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
+
 <body>
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1>
 			<br><br>
-
+<%
+	UserVO vo = (UserVO) session.getAttribute("UserFlag");
+	List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
+%>
 			<div class="form-group">
-				<label for="exampleInputEmail1">관리자 ID</label> <input type="email" class="form-control" id="userId" placeholder="관리자 ID">
+				<label for="exampleInputEmail1">관리자 ID</label> 
+				<input type="text" class="form-control" id="userId" value="<%=vo.getUser_id()%>" readonly/>
 			</div>
 
 			<div class="form-group">
 				<label for="exampleInputPassword1">관리자 이름</label> 
-				<input type="password" class="form-control" id="userName" placeholder="관리자 이름">
+				<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>"placeholder="관리자 이름">
 			</div>
 
 			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> 
-				<input type="password" class="form-control" id="userPassword" placeholder="Password">
+				<input type="text" class="form-control" id="userPassword" placeholder="Password">
 			</div>
 
 			<div class="form-group">
 				<label for="exampleInputPassword1">전화번호</label> 
-				<input type="password" class="form-control" id="userPhone" placeholder="전화번호">
+				<input type="text" class="form-control" id="userPhone" value="<%=vo.getPhone()%>" placeholder="전화번호">
 			</div>
-
-			<table class="table" id="visitorTable">
-				<thead>
-					<tr>
-						<th><center>관리동</center></th>
-						<th><center>추가</center></th>
-						<th><center>삭제</center></th>
-					</tr>
-				</thead>
-				
-				<tbody>
-					<tr id="dongRow">
-						<td><center><input type="text" class="form-control manageSelectDong" placeholder="동/호수" size="19"></center></td>
-						<td><center><button type="button" class="btn btn-default inline dongAddBtn">추가</button></center></td>
-						<td><center><button type="button" class="btn btn-default inline dongDeleteBtn">삭제</button></center></td>
-					</tr>
-				</tbody>
-			</table>
+			
+	<div class="form-group">
+      <label for="disabledSelect">관리하는 동 수</label>
+      <select id="selectDong" class="form-control">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>  
+      </select>
+    </div>
+    <div id="manageDong">
+    <%if(manageDongList != null){
+    	for(Manager_DongVO vo2 : manageDongList){%>
+    		<input type='text' class='form-control manageSelectDong' value="<%=vo2.getDong()%>" size='10'><br>
+    <%}} %>	
+    </div>
 
 			<div class="col-md-offset-10 col-md-2">
 				<button type="submit" class="btn btn-primary" id="modifyManager">Submit</button>
@@ -61,20 +73,26 @@
 </body>
 
 <script type="text/javascript">
-	$(document).on('click', '.dongAddBtn', function() { 
-		$("#dongRow").after(
-				"<tr><td><center><input type='text' class='form-control manageSelectDong' placeholder='동/호수' size='19'></center></td>"
-				+"<td><center><button type='button' class='btn btn-default inline dongAddBtn'>추가</button></center></td>"
-				+"<td><center><button type='button' class='btn btn-default inline dongDeleteBtn'>삭제</button></center></td></tr>");
-	});
+var i = 0;
+
+$("#selectDong").on('change', function(){
+	$("#manageDong *").remove();    //처음에 append한 것 모두 지워주기
+	var selectDong = $("#selectDong").val();    //select값
 	
-	$(document).on('click', '.dongDeleteBtn', function(){
-		 var clickedRow = $(this).closest('tr'); 
-		clickedRow.remove(); 
-	});
+	for(var i=0; i<selectDong; i++){
+		$("#manageDong").append(
+				"<input type='text' class='form-control manageSelectDong" + i + "' placeholder='관리동' size='10'><br>"
+		);
+	}
+});
 	
 	$("#modifyManager").on('click', function(){
-		alert("modify");
+		var selectDong = $("#selectDong").val();
+		arr = [];
+		for(var j=0; j<selectDong; j++){
+			arr[j] = $('.manageSelectDong'+j).val();
+		}
+		jQuery.ajaxSettings.traditional = true;
 		 $.ajax({
             url : "modifyManager.do",
             type : "get",
@@ -84,7 +102,7 @@
                userPassword : $("#userPassword").val(),
                userName : $("#userName").val(),
                userPhone : $("#userPhone").val(),
-               manageDone : $(".manageSelectDong").val()
+               manageDong : arr
             },
             contentType : "application/json; charset=utf-8",
             success : function(data) {
@@ -93,9 +111,7 @@
             error : function(e) {
                alert("error");
             }
-
          }); 
 	});
 </script>
-
 </html>

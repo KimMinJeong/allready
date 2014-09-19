@@ -1,5 +1,7 @@
 package kr.ac.apart.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.UserService;
@@ -48,26 +50,50 @@ public class UserController{
 	}
 	
 	@RequestMapping(value="/user_detail.do")
-	public ModelAndView user_detail(){
+	public ModelAndView user_detail(HttpSession session){
 		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=user_detail");
+		UserVO vo = (UserVO)session.getAttribute("UserFlag");
+		String userId = vo.getUser_id();
+		
+		mav.addObject("familyList", userService.getFamilyList(userId));
 		
 		return mav;
 	}
 	
 	@RequestMapping(value="/manage_detail.do")
-	public ModelAndView manager_detail(){
+	public ModelAndView manager_detail(HttpSession session){
 		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=manage_detail");
+		UserVO vo = (UserVO)session.getAttribute("UserFlag");
+		String userId = vo.getUser_id();
+		
+		mav.addObject("managerDongList", userService.getManagerDong(userId));
 		
 		return mav;
 	}
+	
 	@RequestMapping(value="modifyManager.do")
-	public @ResponseBody String modifyManager(String userId, String userPassword, String userName, String userPhone, String manageDone){
+	public @ResponseBody String modifyManager(String userId, String userPassword, String userName, String userPhone, String manageDong){
 		System.out.println("modifyManager.do start!");
 		System.out.println("userId : " + userId + ", userPassword : " + userPassword + ", userName : " + userName + ", userPhone : " + userPhone);
-		System.out.println("manageDone : " + manageDone);
+		System.out.println("manageDone : " + manageDong);
+		
+		userService.updateManager(userId, userPassword, userName, userPhone);
+		userService.updateManagerDong(manageDong, userId);
 		
 		JSONObject obj = new JSONObject();
 		
 		return obj.toString();
 	}
+	
+	@RequestMapping(value="modifyUser.do")
+	public @ResponseBody String modifyUser(String userId, String userName, String userPassword, String userEmail, String userPhone, String familyName, String familyPhone){
+		
+		userService.modifyUsers(userId, userName, userPassword, userEmail, userPhone);
+		userService.updateFamily(userId, familyName, familyPhone);
+		
+		JSONObject obj = new JSONObject();
+		
+		return obj.toString();
+	}
+	
 }
