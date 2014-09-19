@@ -23,14 +23,27 @@ public class TaxController {
 	@RequestMapping(value="/user_tax.do")
 	public ModelAndView tax(){
 		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=user_tax");
-
+		
+		URL url;
+		URL url2;
+		////  -- 傈眉 包府技 --
+		try {
+			url = new URL("http://www.k-apt.go.kr/user/mment/mment_main_list.mn");
+			Document doc = Jsoup.parse(url, 8000);
+			Element korea_tax = doc.select("table[class=board02]").first();
+			mav.addObject("korea_tax", korea_tax);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		////  -- 窜瘤喊 包府技 --
 		String targetURL = "http://www.k-apt.go.kr/user/mment/mment_list08.xmn";
 		String urlParameters ="DATE_KB=OCCU_DATE&S_YEAR1=2014&A1_NAME=&A1_NAME_HCODE=&A1_SIDO=%EA%B2%BD%EA%B8%B0&A1_GUGUN=%EA%B0%80%ED%8F%89%EA%B5%B0&A1_DONG=%EA%B0%80%ED%8F%89%EC%9D%8D&A1_CODE=A47770201&searchFlag=Y";
 		HttpURLConnection connection = null;
-		URL url = null;
+
 		try {
-			url = new URL(targetURL);
-			connection =(HttpURLConnection)url.openConnection();
+			url2 = new URL(targetURL);
+			connection =(HttpURLConnection)url2.openConnection();
 			connection.setRequestMethod("POST");
 			connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
 			connection.setRequestProperty("Content-Length", "" + Integer.toString(urlParameters.getBytes().length));
@@ -84,22 +97,4 @@ public class TaxController {
 		}
 		return mav;
 	}
-	
-	@RequestMapping(value="/korea_tax.do")
-	public ModelAndView korea_tax(){		
-		ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=user_tax");
-		URL url;
-		try {
-			url = new URL("http://www.k-apt.go.kr/user/mment/mment_main_list.mn");
-			Document doc = Jsoup.parse(url, 8088);
-			Element korea_tax = doc.select("table[class=board02]").first();
-			mav.addObject("korea_tax", korea_tax);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		return mav;	
-	}
-	
-
 }
