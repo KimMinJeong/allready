@@ -8,25 +8,11 @@
 		var ctx, canvas, img;
 		
 		$(document).ready(function(){
-			$('#btnStart').click(function() {
-				socket.emit('start', function(){
-				});
-			});
-			$('#btnStop').click(function(){
-				socket.emit('end', null);
-				// 여기서 화면 중지 시키고 싶을 때는
-				// 그냥 소켓 끊으면 계속 받아 올 수도 있어요..왜냐면 이미 받은 부분은 조금 늦게 처리할 수도 있기 때문에..
-				// 그래서.. 저는 canvas.width= 0 ; canvas.height = 0 이런식으로 하거나 dom을 지워버렸어요 ㅋㅋㅋ
-				// 그래서 스타트 누를 때 다시 dom을 생성하거나 사이즈를 변경해줬어요
-			});
-
-			img = new Image();
 			canvas = $("#mycanvas").get(0);		
 			ctx = canvas.getContext('2d');	
 			canvas.width = 400;
 			canvas.height = 300;
-			// 만약에 버튼 눌렀을 때 이미지를 보이고 싶으면..
-			// 아래 소스를 스트링으로 만들었다가 버튼 눌렀을 때 추가해주면 되요($('#id').append(...); 이런식으로)
+
 			socket.on('sendImg', function(data){	
 				img.src = 'data:image/gif;base64,' + data;
 				img.onload = function (ev) {
