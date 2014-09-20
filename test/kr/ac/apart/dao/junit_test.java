@@ -41,28 +41,34 @@ public class junit_test {
 	@Test
 	public void updateParking() throws IOException {
 		ParkingVO pv=new ParkingVO();
+		pv.setFloor("B1 ");
+		pv.setSection("A ");
+		pv.setParking_lot("1 ");
+		pv.setIsfull("EMPTY");
 		pv.setParking_no(1);
-		FileReader fr = null;
-		BufferedReader br = null;
-		String s =null;
-		try{
-			fr = new FileReader("../Apart/WebContent/parking_info/data.txt");
-			br = new BufferedReader(fr);
-			s = null;
-			while((s=br.readLine())!=null)
-			{
-				System.out.println(s);
-				pv.setIsfull(s);
-				parkingDao.updateIsFull(pv);
-			}
-		}
-		catch(Exception e)
-		{
-			e.printStackTrace();
-		}finally{
-			br.close();
-			fr.close();
-		}
+		parkingDao.updateIsFull(pv);
+//		pv.setParking_no(1);
+//		FileReader fr = null;
+//		BufferedReader br = null;
+//		String s =null;
+//		try{
+//			fr = new FileReader("../Apart/WebContent/parking_info/data.txt");
+//			br = new BufferedReader(fr);
+//			s = null;
+//			while((s=br.readLine())!=null)
+//			{
+//				System.out.println(s);
+//				pv.setIsfull(s);
+//				parkingDao.updateIsFull(pv);
+//			}
+//		}
+//		catch(Exception e)
+//		{
+//			e.printStackTrace();
+//		}finally{
+//			br.close();
+//			fr.close();
+//		}
 	}
 	
 	@Test

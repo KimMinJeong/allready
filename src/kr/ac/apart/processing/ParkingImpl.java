@@ -17,4 +17,5 @@ public class ParkingImpl extends Frame implements Parking{
 	         add(embed, BorderLayout.CENTER);
 	         embed.init();
 	     }
+//	     public String finish(){return "ok";}
 }

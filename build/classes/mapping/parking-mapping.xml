@@ -27,7 +27,7 @@
 	</select>
 	<select id="getFloorCount" resultClass="Integer" parameterClass="String">
 	<![CDATA[
-		SELECT COUNT(*) 
+		SELECT COUNT(*)
 		FROM PARKING 
 		WHERE ISFULL='EMPTY' AND FLOOR=#floor#
 	]]>
@@ -40,7 +40,7 @@
 	<update id="updateIsFull" parameterClass="parking">
 		UPDATE PARKING
 		SET ISFULL=#isfull#
-		WHERE PARKING_NO=#parking_no#
+		WHERE FLOOR=#floor# AND SECTION=#section# AND PARKING_LOT=#parking_lot#
 	</update>
 
 <!-- 	<insert id="addUser" parameterClass="user"> -->

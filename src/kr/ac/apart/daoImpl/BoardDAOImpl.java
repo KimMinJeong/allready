@@ -26,9 +26,7 @@ public class BoardDAOImpl implements BoardDAO{
 	
 	@Override
 	public List<BoardVO> BoardList(String category) {
-
 		return (List<BoardVO>)sqlMapClientTemplate.queryForList("BoardList", category);
-	
 	}
 	
 	@Override
