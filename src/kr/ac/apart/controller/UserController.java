@@ -87,7 +87,7 @@ public class UserController{
 	
 	@RequestMapping(value="modifyUser.do")
 	public @ResponseBody String modifyUser(String userId, String userName, String userPassword, String userEmail, String userPhone, String familyName, String familyPhone){
-		
+		System.out.println("controller");
 		userService.modifyUsers(userId, userName, userPassword, userEmail, userPhone);
 		userService.updateFamily(userId, familyName, familyPhone);
 		

@@ -7,19 +7,17 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>설정페이지</title>
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 </head>
-
 <body>
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1>
 			<br><br>
-			
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
 				List<FamilyVO> familyList = (List<FamilyVO>) request.getAttribute("familyList");
@@ -32,13 +30,13 @@
 				</div>
 				
 				<div class="form-group">
-					<label for="exampleInputPassword1">세대주 이름</label> 
-					<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name() %>">
+					<label for="exampleInputPassword1">Password(필수입력)</label> 
+					<input type="password" class="form-control" id="userPassword">
 				</div>
 				
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password</label> 
-					<input type="password" class="form-control" id="userPassword">
+					<label for="exampleInputPassword1">세대주 이름</label> 
+					<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name() %>">
 				</div>
 				
 				<div class="form-group">
@@ -105,36 +103,41 @@ $("#selectFamily").on('change', function(){
 	}
 });
 
-$("#modifyUser").on('click', function(){
-	var selectFamily = $("#selectFamily").val();
-	arrName = [];
-	arrPhone = [];
-	for(var j=0; j<selectFamily; j++){
-		arrName[j] = $('.familyName'+j).val();
-		arrPhone[j] = $('.familyPhone'+j).val();
-	}
-	jQuery.ajaxSettings.traditional = true; 
-	 $.ajax({
-        url : "modifyUser.do",
-        type : "get",
-        dataType : "json",
-        data : {
-        	userId : $("#userId").val(),
-        	userName : $("#userName").val(),
-        	userPassword : $("#userPassword").val(),
-        	userEmail : $("#userEmail").val(),
-        	userPhone : $("#userPhone").val(),
-           familyName : arrName,
-           familyPhone : arrPhone
-        },
-        contentType : "application/json; charset=utf-8",
-        success : function(data) {
-     	   alert("정보가 수정되었습니다.");
-        },
-        error : function(e) {
-           alert("error");
-        }
-     }); 
-});
+
+	$("#modifyUser").on('click', function() {
+		if ($("#userPassword").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+		} else {
+			var selectFamily = $("#selectFamily").val();
+			arrName = [];
+			arrPhone = [];
+			for ( var j = 0; j < selectFamily; j++) {
+				arrName[j] = $('.familyName' + j).val();
+				arrPhone[j] = $('.familyPhone' + j).val();
+			}
+			jQuery.ajaxSettings.traditional = true;
+			$.ajax({
+				url : "modifyUser.do",
+				type : "get",
+				dataType : "json",
+				data : {
+					userId : $("#userId").val(),
+					userName : $("#userName").val(),
+					userPassword : $("#userPassword").val(),
+					userEmail : $("#userEmail").val(),
+					userPhone : $("#userPhone").val(),
+					familyName : arrName,
+					familyPhone : arrPhone
+				},
+				contentType : "application/json; charset=utf-8",
+				success : function(data) {
+					alert("정보가 수정되었습니다.");
+				},
+				error : function(e) {
+					alert("정보수정 실패!");
+				}
+			});
+		}
+	});
 </script>
 </html>

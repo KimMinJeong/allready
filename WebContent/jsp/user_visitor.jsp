@@ -43,12 +43,12 @@
 	<div class="table-responsive">
             <table class="table table-striped">
               <thead>
-                <tr>
-                  <th>동/호수</th>
-                  <th>방문객이름</th>
-                  <th>용무</th>
-                  <th>고정/일시</th>
-                  <th>삭제</th>
+                <tr><
+                  <th><center>동/호수</center></th>
+                  <th><center>방문객이름</center></th>
+                  <th><center>용무</center></th>
+                  <th><center>고정/일시</center></th>
+                  <th><center>삭제</center></th>
                 </tr>
               </thead>
               <tbody>
@@ -67,7 +67,7 @@
                   	<%}else if(vo.getFixed().equals("UNFIXED")){ %>
                   	<td><center>일시</center></td>
                   	<%} %>
-                  	 <td><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></td>
+                  	 <td><center><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></center></td>
                    </tr>
                 <%} 
                 }%>

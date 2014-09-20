@@ -30,13 +30,13 @@
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">관리자 이름</label> 
-				<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>"placeholder="관리자 이름">
-			</div>
-
-			<div class="form-group">
 				<label for="exampleInputPassword1">Password</label> 
 				<input type="text" class="form-control" id="userPassword" placeholder="Password">
+			</div>
+			
+			<div class="form-group">
+				<label for="exampleInputPassword1">관리자 이름</label> 
+				<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>"placeholder="관리자 이름">
 			</div>
 
 			<div class="form-group">
@@ -87,6 +87,9 @@ $("#selectDong").on('change', function(){
 });
 	
 	$("#modifyManager").on('click', function(){
+		if ($("#userPassword").val() == "") {
+			alert("비밀번호를 입력해주세요.");
+		} else{
 		var selectDong = $("#selectDong").val();
 		arr = [];
 		for(var j=0; j<selectDong; j++){
@@ -106,12 +109,13 @@ $("#selectDong").on('change', function(){
             },
             contentType : "application/json; charset=utf-8",
             success : function(data) {
-         	   alert("success");
+         	   alert("정보가 수정되었습니다.");
             },
             error : function(e) {
                alert("error");
             }
          }); 
+		}
 	});
 </script>
 </html>

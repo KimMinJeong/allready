@@ -20,8 +20,6 @@
 		<result property="file_name" column="FILE_NAME" nullValue="" />
 	</resultMap>
 	
-
-	
 	<insert id="BoardAdd" parameterClass="board">
 			INSERT INTO BOARD(BOARD_NO, WRITER_ID, CATEGORY, TITLE, CONTENTS, REG_DATE, VIEW_COUNT, GOOD, BAD, ANONYMOUS, CLOSED, FILE_NAME)
 			VALUES(SEQ_BOARD_NO.NEXTVAL,#writer_id#,#category#, #title#,#contents#,sysdate,#view_count#,#good#,#bad#,#anonymous#,#closed#,#file_name#)
@@ -71,7 +69,6 @@
 	</isEqual>
 		ORDER BY TITLE
 	</select>
-	
 
 	<update id="addGood" parameterClass="java.lang.Integer" >
 			UPDATE BOARD SET GOOD=GOOD+1 
@@ -82,8 +79,5 @@
 			UPDATE BOARD SET BAD=BAD+1 
 			WHERE BOARD_NO = #board_no#
 	</update>
-	
-	
 
 </sqlMap>
-
