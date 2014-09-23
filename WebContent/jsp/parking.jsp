@@ -77,5 +77,21 @@
 		$("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
 				"background-color", "blue");
 	}
+	
+	
+	
+	function start()
+	{	
+		setInterval("recall()", 10000);
+	}
+
+	function recall()
+	{
+		location.reload();
+		widow.status = " ";
+		return true;
+	}
+
+	start();
 </script>
 </html>
