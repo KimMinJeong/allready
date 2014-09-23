@@ -52,6 +52,7 @@
       ]]>
    </update>
    
+<<<<<<< HEAD
 
    <!-- <select id="getVisitor" resultMap="visitorResult" parameterClass="java.lang.String">
       <![CDATA[
@@ -61,4 +62,6 @@
       ]]>
    </select> -->
    
+=======
+>>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2
 </sqlMap>

@@ -13,6 +13,7 @@
 .inline {
 	display: inline;
 }
+
 .active {
 	color: red;
 }
@@ -20,3 +21,14 @@
 #myModal .modal-body{
 	width : 80%;
 }
+
+#table1 #table2 #full_color{
+	bgcolor : red;
+}
+
+#table1 #table2 #empty_color{
+	bgcolor : green;
+}
+#table1 #table2 tr > td{
+}
+

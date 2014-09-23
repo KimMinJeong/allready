@@ -1,9 +1,6 @@
 package kr.ac.apart.controller;
 
-import java.io.PrintWriter;
-import java.io.UnsupportedEncodingException;
 import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -19,7 +16,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
-
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -31,6 +27,7 @@ public class VisitorController {
 
     @RequestMapping(value = "/user_visitor.do") //유저의 방문페이지 
     public String user_visitor() {
+        /*return "webTemplete.jsp?nextPage=user_visitor";*/
         return "redirect:/getVisitorList.do";
     }
 
@@ -76,6 +73,7 @@ public class VisitorController {
         obj.put("recordNo", visitorService.getMaxVisitRecordNo());
 
         System.out.println(obj.toString());
+
         return obj.toString();
     }
 
@@ -97,6 +95,7 @@ public class VisitorController {
         obj.put("recordNo", visitorService.getMaxVisitRecordNo());
 
         System.out.println("obj.toString : " + obj.toString());
+
         return obj.toString();
     }
 
@@ -113,6 +112,7 @@ public class VisitorController {
             e.printStackTrace();
         }
         mav.addObject("VisitorFlag", visitorList);
+
         return mav;
     }
 
@@ -144,6 +144,7 @@ public class VisitorController {
         System.out.println("deleteVisitRecord!");
         JSONObject obj = new JSONObject();
         visitorService.deleteVisitRecord(visitRecordNo);
+
         return obj.toString();
     }
 }

@@ -4,11 +4,12 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>메인</title>
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -24,21 +25,21 @@
 						<input type="text" class="form-control" placeholder="아이디"
 							id="user_id" name="user_id">
 					</div>
+
 					<div class="input-group .col-lg-offset-4 .col-md-4">
 						<span class="input-group-addon">비밀번호</span> <input type="password"
 							class="form-control" placeholder="비밀번호" id="user_password"
 							name="user_password">
 					</div>
-
-					<br> <a href="">비밀번호 찾기</a>&nbsp;&nbsp;
+					<br> <a href="passwordForm.do">비밀번호 찾기</a>&nbsp;&nbsp;
 
 					<div class="btn-group">
 						<button type="submit" class="btn btn-default" placeholder="제목">로그인</button>
+
+					</div>
+				</div>
+			</div>
+		</div>
 	</form>
-	</div>
-	</div>
-	</div>
-	</div>
-	</div>
 </body>
 </html>

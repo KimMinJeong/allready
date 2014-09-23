@@ -1,184 +1,176 @@
+<%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.CommentsVO"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <%@page import="kr.ac.apart.vo.BoardVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
-
-
+<script src="static/js/bootstrap.min.js"></script>
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="static/js/jquery-1.11.1.js"></script>
+<title>Insert title here</title>
 <%
 	BoardVO vo = (BoardVO)request.getAttribute("vo");
-	int board_no = vo.getBoard_no();
+	UserVO vo2 = (UserVO)session.getAttribute("UserFlag");
 %>
-
 </head>
 <body>
-
-
 	<div class="container">
-
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
-				role="navigation">
-
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<font size="4">
-
 					<ul class="nav">
-						<li><a href="noticeBoard.do">ê³µì§€ì‚¬í•­ ê²Œì‹œíŒ</a></li>
-						<li><a href="complainBoard.do">ë¯¼ì› ê²Œì‹œíŒ</a></li>
-						<li><a href="freeBoard.do">ììœ  ê²Œì‹œíŒ</a></li>
-
+						<li><a href="noticeBoard.do">°øÁö»çÇ× °Ô½ÃÆÇ</a></li>
+						<li><a href="complainBoard.do">¹Î¿ø °Ô½ÃÆÇ</a></li>
+						<li><a href="freeBoard.do">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>
 					</ul>
-
 				</font>
 			</div>
 
-
 			<!-- main area -->
-
-			<div class="col-xs-12 col-sm-9">
-
-				<br>
-				<center>
-					<h1><%=vo.getTitle() %></h1>
-				</center>
-				<br>
-				<center>
-					<h1><%=vo.getWriter_id() %></h1>
-				</center>
-				<br>
-				<textarea rows="20" cols="135">
-			<%=vo.getContents() %>
-		</textarea>
-				<br>
+			<div class="col-xs-12 col-sm-9"> <br>
+				<center><h1><%=vo.getTitle() %></h1></center> <br>
+				<center><h1><%=vo.getWriter_id() %></h1></center> <br>
+				<textarea rows="20" cols="120"><%=vo.getContents() %></textarea> <br>
+				
+				<%if(vo2.getUser_id().equals(vo.getWriter_id())) {%>
 				<div align="right">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">ìˆ˜ì •</a>
+						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">¼öÁ¤</a>
 					</button>
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">ì‚­ì œ</a>
+						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">»èÁ¦</a>
 					</button>
 				</div>
-
-
+				<%} %>
+				<%
+			if("complain".equals(vo.getCategory())){%>
+				<center>
+					<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addGood.do?board_no=<%=vo.getBoard_no()%>'" onclick="event.cancelBubble = true">
+						<span class="glyphicon glyphicon-thumbs-up"></span>
+					</button>
+					
+					<%=vo.getGood() %>
+					
+					<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addBad.do?board_no=<%=vo.getBoard_no()%>'" onclick="event.cancelBubble = true">
+						<span class="glyphicon glyphicon-thumbs-down"></span>
+					</button>
+					<%=vo.getBad() %>
+				</center>
+				<%}%>
 
 				<!-- Default panel contents -->
 				<%
-			if("free".equals(vo.getCategory())){
-				
-			
-		%>
+			if("free".equals(vo.getCategory())){%>
 				<div class="container">
 					<!-- main area -->
 					<div class=" col-xs-3 col-sm-9">
 						<div class="navbar-form navbar-center" role="search">
 							<div class="form-group">
-								<input type="hidden" class="form-control" placeholder="ê²Œì‹œíŒë„˜ë²„"
-									size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; <input
-									type="text" class="form-control" placeholder="ì‘ì„±ì´" size="5"
-									id="writer_id" value="<%=vo.getWriter_id()%>">
-								&nbsp;&nbsp;&nbsp;&nbsp; <input type="text"
-									class="form-control inline" placeholder="ëŒ“ê¸€" size="88"
-									id="contents">
-								<button type="button" class="btn btn-default inline"
-									id="addComments" name="addComments">ì…ë ¥</button>
-								<br>
-								<br>
-
-
+								<input type="hidden" class="form-control" placeholder="°Ô½ÃÆÇ³Ñ¹ö" size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; 
+								<input type="text" class="form-control" placeholder="ÀÛ¼ºÀÌ" size="5" id="writer_id" value="<%=vo2.getUser_id()%>"> 
+								<input type="text" class="form-control inline" placeholder="´ñ±ÛÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä." size="80" id="contents">
+								<button type="button" class="btn btn-default inline" id="addComments" value=<%=vo.getBoard_no() %>>ÀÔ·Â</button>
+								<br><br>
+								
 								<!-- Table -->
 								<div>
 									<table class="table" id="visitRecordTable">
 										<tr>
-											<th><center>ë²ˆí˜¸</center></th>
-											<th><center>ì‘ì„±ì´</center></th>
-											<th><center>ëŒ“ê¸€</center></th>
-											<th><center>ë‚ ì§œ</center></th>
-											<th><center>ìˆ˜ì •/ì‚­ì œ</center></th>
+											<th><center>ÀÛ¼ºÀÌ</center></th>
+											<th><center>´ñ±Û</center></th>
+											<th><center>³¯Â¥</center></th>
+											<th><center>¼öÁ¤/»èÁ¦</center></th>
 										</tr>
-										<tr id="add">
+										<tr id="commentsTable">
+											<%
+												List<CommentsVO> comments = (List<CommentsVO>) request.getAttribute("commentsList");
 
-											<% List<CommentsVO> comments = (List<CommentsVO>)request.getAttribute("commentsList");             
-           
-                  if(comments != null){
-                  for(CommentsVO vc : comments){
-                 	if(vc.getBoard_no() == vo.getBoard_no()){
-                 		
-                 
-                 %>
+													if (comments != null) {
+														for (CommentsVO vc : comments) {
+															if (vc.getBoard_no() == vo.getBoard_no()) {
+											%>
 										</tr>
 										<tr>
-											<td><center><%=vc.getComments_no() %></center></td>
 											<td><center><%=vc.getWriter_id()%></center></td>
 											<td><center><%=vc.getContents() %></center></td>
 											<td><center><%=vc.getReg_date() %></center></td>
-											<td><center>
-													<button type="button"
-														class="btn btn-default deleteVisitRecord" value="">ì‚­ì œ</button>
-												</center></td>
+
+											<td><%
+												if(vo2.getUser_id().equals(vc.getWriter_id())) {
+											%>
+												<center>
+													<button type="button" class="btn btn-default deleteComments" value="<%=vc.getComments_no()%>">»èÁ¦</button>
+												</center> <%} %>
+											</td>
 										</tr>
-										<%}}} %>
+										<%}}}%>
 									</table>
 								</div>
-								<%} %>
+								<%}%>
 							</div>
 						</div>
 					</div>
+					<!-- /.col-xs-12 main -->
 				</div>
-
+				<!--/.row-->
 			</div>
-			<!-- /.col-xs-12 main -->
-		</div>
-		<!--/.row-->
-	</div>
-	<!--/.container-->
-
-
-
+			<!--/.container-->
+			<br><br>
 </body>
 
 <script type="text/javascript">
-$(document).ready(function(){
 $("#addComments").click(function() {
-		alert(board_no);
-           $.ajax({
+            $.ajax({
               url : "addComments.do",
               type : "get",
               dataType : "json",
               data : {
-            	  board_no : board_no,
+            	  board_no : $("#addComments").val(),
             	  writer_id : $("#writer_id").val(),
             	  contents : $("#contents").val()
               },
               contentType : "application/json; charset=utf-8",
               success : function(data) {
-           	   alert("success");
-             
-                 $("#add").after(
-                       //appendëŠ” ì„ íƒìì˜ ìì‹í•œí…Œ ë¶™ê³  afterëŠ” ê°™ì€ ë ˆë²¨ì˜ í˜•ì œ.
-                       "<tr><td><center>" + data.add.writer_id
-                             + "</center></td><td><center>"
-                             + data.add.contents
-                             + "</center></td><td><center>" + data.add.reg_date
-              //             + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + 'ìˆ˜ì •' + "</button>" + '  ' + "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>" + 'ì‚­ì œ' + "</button>
-                             +"</center></td></tr>");
+           	    $("#commentsTable").after(
+           			"<tr><td><center>" + data.writerId + "</center></td><td><center>" 
+           			+ data.contents + "</center></td><td><center>"
+           			/* + data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + '¼öÁ¤' + "</button></center></td></tr>" */
+           			+ data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default deleteComments'  value='" + data.maxCommentNo +"'>" + '»èÁ¦' + "</button></center></td></tr>"
+           	   ); 
+
               },
               error : function(e) {
                  alert("error");
         
               }
 
-           });
-        });
+           }); 
+        });  
+     
+$(document).on('click','.deleteComments', function(){         //»èÁ¦¹öÆ° Å¬¸¯½Ã
+    var clickedRow = $(this).closest('tr');              //Å¬¸¯ÇÑ tr °¡Á®¿À±â
+      $.ajax({
+          url : "deleteComments.do",
+          type : "get",
+          dataType : "json",
+          data : {
+             commentsNo : $(this).closest('button').attr('value'),
+          },
+          contentType : "application/json; charset=utf-8",
+          success : function(data) {
+             clickedRow.remove();
+          },
+          error : function(e) {
+             alert("error!");
+          }
+     }); 
 });
 </script>
-
 </html>

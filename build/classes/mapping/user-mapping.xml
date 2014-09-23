@@ -13,11 +13,16 @@
 		<result property="phone" column="PHONE" nullValue="" />
 		<result property="role" column="ROLE" />
 	</resultMap>
+<<<<<<< HEAD
+=======
+	
+>>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2
 	<select id="getUser" resultMap="userResult" parameterClass="java.lang.String">
  			SELECT *
  			FROM USERS
  			WHERE USER_ID=#user_id#
 	</select>
+<<<<<<< HEAD
 
 <!-- 	<insert id="addUser" parameterClass="user"> -->
 <!-- 		<![CDATA[ -->
@@ -34,3 +39,24 @@
 	
 </sqlMap>
 
+=======
+	
+	<update id="modifyManager" parameterClass="user">
+		UPDATE USERS
+		SET PASSWORD=#password#,
+			USER_NAME=#user_name#,
+			PHONE=#phone#
+		WHERE USER_ID=#user_id#	
+	</update>
+	
+	<update id="modifyUser" parameterClass="user">
+		UPDATE USERS
+		SET PASSWORD=#password#,
+			USER_NAME=#user_name#,
+			E_MAIL=#e_mail#,
+			PHONE=#phone#
+		WHERE USER_ID=#user_id#
+	</update>
+	
+</sqlMap>
+>>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2

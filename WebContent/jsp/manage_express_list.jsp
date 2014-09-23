@@ -1,3 +1,5 @@
+<%@page import="kr.ac.apart.vo.ExpressVO"%>
+<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,33 +9,23 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-
+<script src="static/js/jquery-1.11.1.js"></script>
+<title>Insert title here</title>
 </head>
 <body>
+	<%
+		List<ExpressVO> list = (List<ExpressVO>) request.getAttribute("list");
+	
+	%>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
-				role="navigation">
-
-				<font size="4">
-					<ul class="nav">
-						<li class="active"><a href="#">공지사항 게시판</a></li>
-						<li><a href="#">민원 게시판</a></li>
-						<li><a href="#">자유 게시판</a></li>
-						<li><a href="#">Link 3</a></li>
-					</ul>
-				</font>
-			</div>
-
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9">
-
+			<div class="col-xs-12 col-sm-12">
 				<br>
 				<div align="right">
-
 					<button class="btn btn-primary btn-lg" data-toggle="modal"
 						data-target="#myModal">등록</button>
 
@@ -59,53 +51,35 @@
 									</div>
 									<br> <br>
 
-									<div class="row">
-										<div class="col-xs-7">
-											<input type="text" class="form-control"
-												placeholder=".col-xs-2" value="호수를 입력하세요">
-										</div>
-									</div>
-									<br>
-
 
 									<div class="row">
 										<div class="col-xs-7">
-											<input type="text" class="form-control"
-												placeholder=".col-xs-2" value="이름을 입력하세요">
+											<form action="addExpress.do">
+												<input type="text" class="form-control"
+													placeholder=".col-xs-2" value="호수를 입력하세요" name="user_id">
+												<br> <input type="text" class="form-control"
+													placeholder=".col-xs-2" value="이름을 입력하세요" name="orderer">
+												<br> <br> <br> <select name="express_company">
+													<option value="cj">CJ</option>
+													<option value="hangin">한진</option>
+													<option value="lojen">로젠</option>
+													<option value="yellowCap">Yellow Cap</option>
+													<option value="post">우체국</option>
+													<option value="store">편의점</option>
+												</select>
+
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-default">Save
+													changes</button>
+											</form>
+
 										</div>
 									</div>
-
-									<br> <br> <br>
-
-									<div class="btn-group" id="location">
-										<button type="button" class="btn btn-default dropdown-toggle"
-											data-toggle="dropdown">
-											Action <span class="caret"></span>
-										</button>
-										<ul class="dropdown-menu" role="menu">
-											<li><a href="#">CJ</a></li>
-											<li><a href="#">한진</a></li>
-											<li><a href="#">로젠</a></li>
-											<li><a href="#">Yellow Cap</a></li>
-											<li><a href="#">우체국</a></li>
-											<li><a href="#">편의점</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										</ul>
-									</div>
-
-								</div>
-								<div class="modal-footer">
-									<button type="button" class="btn btn-default"
-										data-dismiss="modal">Close</button>
-									<button type="button" class="btn btn-primary">Save
-										changes</button>
 								</div>
 							</div>
 						</div>
 					</div>
-
-
 				</div>
 				<br>
 
@@ -125,29 +99,55 @@
 							<th>택배회사</th>
 							<th>수령확인</th>
 						</tr>
+						<%
+							if (list != null) {
+								for (ExpressVO vo : list) {
+						%>
 						<tr>
-							<td>2014-8-18</td>
-							<td>202동 2502호</td>
-							<td>김은지</td>
-							<td>한진</td>
-							<td><input type="checkbox"></td>
+							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getUser_id()%></td>
+							<td><%=vo.getOrderer()%></td>
+							<td><%=vo.getExpress_company()%></td>
+							<td>
+							<%if(vo.getReceiver()==null){%>
+								<button id="<%=vo.getExpress_id()%>" class="btn btn-primary btn-lg getButton" data-toggle="modal" data-target="#myModal2">
+									확인
+								</button>
+								<%}else if(vo.getReceiver()!=null){%>
+								<%=vo.getReceiver() %>
+							</td>
 						</tr>
-						<tr>
-							<td>2014-8-18</td>
-							<td>203동 2502호</td>
-							<td>한성구</td>
-							<td>우체국</td>
-							<td><input type="checkbox" align="middle"></td>
-						</tr>
-						<tr>
-							<td>2014-8-18</td>
-							<td>204동 2502호</td>
-							<td>김은지</td>
-							<td>편의점</td>
-							<td><input type="checkbox" align="middle"></td>
-						</tr>
+						<%
+								}
+							}
+						}
+						%>
 					</table>
 				</div>
+
+				<!-- Modal -->
+				<!-- 				<form action="updateExpress.do" id="updateExpress"> -->
+				<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">택배 수령자 입력</h4>
+							</div>
+							<div class="modal-body">
+								<div align="left">
+									<input type="text" id="receiver" name="receiver">
+									 <input type="button" id="submitBtn" value="수령확인">
+								</div>
+								<br> <br>
+							</div>
+						</div>
+					</div>
+				</div>
+
 
 				<div align="center">
 					<ul class="pagination">
@@ -160,33 +160,29 @@
 						<li><a href="#">&raquo;</a></li>
 					</ul>
 				</div>
-
-
-
-
 			</div>
 			<!-- /.col-xs-12 main -->
 		</div>
 		<!--/.row-->
 	</div>
 	<!--/.container-->
-	</div>
-	<!--/.page-container-->
+</body>
 
+<script type="text/javascript">
+	
+	var id;
+	var receiver;
+$(document).on("click", ".getButton", function () {
+	alert($(this).closest('button').attr('id'));
+	id = $(this).closest('button').attr('id');  
+});
 
-
-
-	</ul>
-	</div>
-	</div>
-	</div>
-
-
-
-
-	<script type="text/javascript">
+$("#submitBtn").on('click',function(){
+	receiver= $("#receiver").val();
+	window.location="updateExpress.do?express_id="+id+"&receiver="+receiver;
+	return false;
+});
 
 </script>
 
-</body>
 </html>

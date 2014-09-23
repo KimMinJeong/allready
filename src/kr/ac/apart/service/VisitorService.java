@@ -2,9 +2,6 @@ package kr.ac.apart.service;
 
 import java.util.List;
 
-import javax.servlet.http.HttpSession;
-
-import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.Visit_RecordVO;
 import kr.ac.apart.vo.VisitorVO;
 
