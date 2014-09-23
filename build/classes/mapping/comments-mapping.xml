@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 <?xml version="1.0" encoding="UTF-8"?>
-=======
-<?xml version="1.0" encoding="EUC-KR"?>
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
@@ -16,27 +12,17 @@
       <result property="contents" column="CONTENTS" nullValue=""/>
       <result property="reg_date" column="REG_DATE" nullValue=""/>
    </resultMap>
-<<<<<<< HEAD
 
    <update id="addComments" parameterClass="comments">
          INSERT INTO COMMENTS(COMMENTS_NO, BOARD_NO, WRITER_ID, CONTENTS)
          VALUES(seq_comments_no.nextval, #board_no#, #writer_id#, #contents#)
    </update>
-=======
-   
-
-   <insert id="addComments" parameterClass="comments">
-         INSERT INTO COMMENTS
-         VALUES(seq_comments_no.nextval, #board_no#,#writer_id#,#contents#,sysdate)
-   </insert>
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5
    
    <select id="getComments" parameterClass="java.lang.Integer" resultClass="comments">
    		SELECT *
    		FROM COMMENTS
    		WHERE BOARD_NO=#board_no#
    </select>
-<<<<<<< HEAD
    
    <select id="getCommentsRegDate" resultClass="java.lang.String">
    		SELECT MAX(REG_DATE)
@@ -55,41 +41,3 @@
    </delete>
 
 </sqlMap>
-=======
-
-<!--    <select id="getVisitorListManager" resultMap="visitResult" parameterClass="java.lang.String"> -->
-<!--    <![CDATA[ -->
-<!--       SELECT * -->
-<!--       FROM VISIT_RECORD    -->
-<!--       ORDER BY REG_DATE DESC -->
-<!--    ]]> -->
-<!--    </select> -->
-   
-<!--    <select id="getRegDate" resultClass="String"> -->
-<!--       <![CDATA[ -->
-<!--          SELECT MAX(REG_DATE) -->
-<!--          FROM VISIT_RECORD -->
-<!--       ]]> -->
-<!--    </select> -->
-   
-<!--    <delete id="deleteVisitRecord" parameterClass="java.lang.Integer"> -->
-<!--       <![CDATA[ -->
-<!--          DELETE -->
-<!--          FROM VISIT_RECORD -->
-<!--          WHERE VR_NO = #visit_record_no# -->
-<!--       ]]> -->
-      
-<!--    </delete> -->
-   
-<!--    <update id="addVisitRecord" parameterClass="java.lang.Integer"> -->
-<!--          INSERT INTO VISIT_RECORD(VR_NO, VISITOR_NO) -->
-<!--          VALUES(seq_visit_record.nextval, #visitor_no#) -->
-<!--    </update> -->
-   
-<!--    <select id="getMaxVisitRecordNo" resultClass="int"> -->
-<!--       SELECT MAX(VR_NO) -->
-<!--       FROM VISIT_RECORD -->
-<!--    </select> -->
-
-</sqlMap>
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5

@@ -52,17 +52,4 @@
       ]]>
    </update>
    
-<<<<<<< HEAD
 </sqlMap>
-=======
-
-   <!-- <select id="getVisitor" resultMap="visitorResult" parameterClass="java.lang.String">
-      <![CDATA[
-         SELECT *
-         FROM VISITOR
-         WHERE VIITOR_NAME = #visitor_name#
-      ]]>
-   </select> -->
-   
-</sqlMap>
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5

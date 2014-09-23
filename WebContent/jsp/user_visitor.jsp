@@ -61,8 +61,7 @@
 					<tbody>
 						<!-- <form action="deleteVisitor.do">    -->
 						<%
-							List<VisitorVO> visitorList = (List<VisitorVO>) request
-									.getAttribute("VisitorFlag");
+							List<VisitorVO> visitorList = (List<VisitorVO>) request.getAttribute("VisitorFlag");
 
 							for (VisitorVO vo : visitorList) {
 								if ("TRUE".equals(vo.getViewing())) {

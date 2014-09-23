@@ -13,32 +13,6 @@
 		<result property="parking_lot" column="PARKING_LOT" />
 		<result property="isfull" column="ISFULL" />
 	</resultMap>
-<<<<<<< HEAD
-	<select id="getIsFull" resultClass="String" parameterClass="Integer">
- 			SELECT ISFULL
- 			FROM PARKING
- 			WHERE PARKING_NO=#parking_no#
-	</select>
-	<update id="updateIsFull" parameterClass="parking">
-		UPDATE PARKING
-		SET ISFULL=#isfull#
-		WHERE PARKING_NO=#parking_no#
-	</update>
-
-<!-- 	<insert id="addUser" parameterClass="user"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			INSERT INTO USERS ( -->
-<!-- 				ID, PASSWORD, NAME, ROLE -->
-<!-- 			) VALUES ( -->
-<!-- 				#id#, -->
-<!-- 				#password#, -->
-<!-- 				#name#, -->
-<!-- 				#role# -->
-<!-- 			) -->
-<!-- 		]]> -->
-<!-- 	</insert> -->
-	
-=======
 
 	<select id="getIsFull" resultClass="String" parameterClass="parking">
  			SELECT ISFULL
@@ -72,6 +46,5 @@
 		SET ISFULL=#isfull#
 		WHERE FLOOR=#floor# AND SECTION=#section# AND PARKING_LOT=#parking_lot#
 	</update>
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5
 </sqlMap>
 

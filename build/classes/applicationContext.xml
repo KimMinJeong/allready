@@ -18,13 +18,8 @@ xmlns:tx="http://www.springframework.org/schema/tx"
 	<bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">       
 		<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"/>       
 		<property name="url" value="jdbc:oracle:thin:@localhost:1521:xe" />       
-<<<<<<< HEAD
-		<property name="username" value="allready" />       
-		<property name="password" value="love" />    
-=======
 		<property name="username" value="scott" />       
 		<property name="password" value="tiger" />    
->>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5
 	</bean>	
 
 	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
