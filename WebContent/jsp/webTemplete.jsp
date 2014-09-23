@@ -34,7 +34,7 @@
 							<!-- 로그인 사용자가 normal -->
 							<li><a href="main.do">Home</a></li>
 							<li><a href="#profile">CCTV</a></li>
-							<li><a href="#messages">주차장</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
 							<li><a href="#settings">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
@@ -45,7 +45,7 @@
 							<!-- 로그인 사용자가 manager -->
 							<li class="test active"><a href="main.do">Home</a></li>
 							<li class="test"><a href="#profile">CCTV</a></li>
-							<li class="test"><a href="parking.do">주차장</a></li>
+							<li class="test"><a href="user_parking.do">주차장</a></li>
 							<li class="test"><a href="noticeBoard.do">게시판</a></li>
 							<li class="test"><a href="manage_visitor.do">방문일지</a></li>
 							<li class="test"><a href="#settings">전체관리세</a></li>
