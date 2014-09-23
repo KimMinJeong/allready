@@ -19,12 +19,14 @@
  			FROM PARKING
  			WHERE FLOOR=#floor# AND SECTION=#section# AND PARKING_LOT=#parking_lot#
 	</select>
+	
 	<select id="getParkCount" resultClass="Integer">
 	<![CDATA[
 		SELECT COUNT(*)
 		FROM PARKING
 	]]>
 	</select>
+	
 	<select id="getFloorCount" resultClass="Integer" parameterClass="String">
 	<![CDATA[
 		SELECT COUNT(*)
@@ -32,29 +34,17 @@
 		WHERE ISFULL='EMPTY' AND FLOOR=#floor#
 	]]>
 	</select>
+	
 	<select id="getSectionCount" resultClass="Integer" parameterClass="parking">
 		SELECT COUNT(*)
 		FROM PARKING
 		WHERE ISFULL='EMPTY' AND FLOOR=#floor# AND SECTION=#section#
 	</select>
+	
 	<update id="updateIsFull" parameterClass="parking">
 		UPDATE PARKING
 		SET ISFULL=#isfull#
 		WHERE FLOOR=#floor# AND SECTION=#section# AND PARKING_LOT=#parking_lot#
 	</update>
-
-<!-- 	<insert id="addUser" parameterClass="user"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			INSERT INTO USERS ( -->
-<!-- 				ID, PASSWORD, NAME, ROLE -->
-<!-- 			) VALUES ( -->
-<!-- 				#id#, -->
-<!-- 				#password#, -->
-<!-- 				#name#, -->
-<!-- 				#role# -->
-<!-- 			) -->
-<!-- 		]]> -->
-<!-- 	</insert> -->
-	
 </sqlMap>
 

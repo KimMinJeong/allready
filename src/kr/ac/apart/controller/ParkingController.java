@@ -27,8 +27,12 @@ public class ParkingController {
 		System.out.println(floor+section);
 		frame.check();
 		while(ArduinoProcessing.isfull==null){}
+		ModelAndView mav=new ModelAndView();
+		if(ArduinoProcessing.isfull.equals("ERROR"))
+			mav.setViewName("NoPage");
+		else
+			mav.setViewName("webTemplete.jsp?nextPage=parking");
 		String isfull=ArduinoProcessing.isfull;
-		ModelAndView mav=new ModelAndView("webTemplete.jsp?nextPage=parking");
 		ParkingVO pv=new ParkingVO();
 		String parking_lot="1";
 		pv.setFloor(floor);
