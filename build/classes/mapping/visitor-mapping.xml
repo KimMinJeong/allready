@@ -51,17 +51,4 @@
          WHERE VISITOR_NO = #visitor_no#
       ]]>
    </update>
-   
-<<<<<<< HEAD
-
-   <!-- <select id="getVisitor" resultMap="visitorResult" parameterClass="java.lang.String">
-      <![CDATA[
-         SELECT *
-         FROM VISITOR
-         WHERE VIITOR_NAME = #visitor_name#
-      ]]>
-   </select> -->
-   
-=======
->>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2
 </sqlMap>

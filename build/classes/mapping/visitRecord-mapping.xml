@@ -41,10 +41,6 @@
          FROM VISIT_RECORD
          WHERE VR_NO = #visit_record_no#
       ]]>
-<<<<<<< HEAD
-      
-=======
->>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2
    </delete>
    
    <update id="addVisitRecord" parameterClass="java.lang.Integer">
@@ -57,23 +53,4 @@
       FROM VISIT_RECORD
    </select>
 
-<<<<<<< HEAD
-<!--    <select id="getVisitorList" resultMap="visitorResult" parameterClass="java.lang.String">
-      <![CDATA[
-         SELECT *
-         FROM VISITOR
-         WHERE USER_ID = #user_id#
-      ]]>
-   </select>
-   
-   <delete id="deleteVisitor">
-      <![CDATA[
-         DELETE
-         FROM VISITOR
-         WHERE VISITOR_NO = #visitor_no#
-      ]]>
-   </delete> -->
-
-=======
->>>>>>> e07e5f3308828334b00621af8a8e0cfbdb138ab2
 </sqlMap>
