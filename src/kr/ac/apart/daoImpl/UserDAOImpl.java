@@ -9,30 +9,23 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository("userDao")
-public class UserDAOImpl implements UserDAO{
-	@Autowired
-	private SqlMapClientTemplate sqlMapClientTemplate;
-	
-	public UserVO getUser(String userId){
-		return (UserVO) sqlMapClientTemplate.queryForObject("getUser", userId);
-	}
+@Repository("userDao") 
+public class UserDAOImpl implements UserDAO {
+    @Autowired 
+    private SqlMapClientTemplate sqlMapClientTemplate;
 
-	@Override
-	public List<UserVO> testList() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void add(UserVO vo) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public int delete(int no) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
+    public UserVO getUser(String userId) {
+        return (UserVO) sqlMapClientTemplate.queryForObject("getUser", userId);
+    }
+    @Override 
+    public List<UserVO> testList() {
+        return null;
+    }
+    @Override 
+    public void add(UserVO vo) {
+    }
+    @Override 
+    public int delete(int no) {
+        return 0;
+    }
 }

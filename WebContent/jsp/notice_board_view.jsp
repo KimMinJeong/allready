@@ -1,48 +1,41 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link  href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
 
-
-
 </head>
 <body>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<!-- sidebar -->
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
+				role="navigation">
+				<font size="4">
+					<ul class="nav">
+						<li class="active"><a href="#">ê³µì§€ì‚¬í•­ ê²Œì‹œíŒ</a></li>
+						<li><a href="#">ë¯¼ì› ê²Œì‹œíŒ</a></li>
+						<li><a href="#">ììœ  ê²Œì‹œíŒ</a></li>
+						<li><a href="#">Link 3</a></li>
+					</ul>
+				</font>
+			</div>
+			<!-- main area -->
 
-      
-    <div class="container">
-
-      <div class="row row-offcanvas row-offcanvas-left">
-        
-        <!-- sidebar -->
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-
-        	<font size="4">
-
-            <ul class="nav">
-              <li class="active"><a href="#">°øÁö»çÇ× °Ô½ÃÆÇ</a></li>
-              <li><a href="#">¹Î¿ø °Ô½ÃÆÇ</a></li>
-              <li><a href="#">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>
-              <li><a href="#">Link 3</a></li>              
-            </ul>
-
-            </font>
-        </div>
-  	
-
-        <!-- main area -->
-
-        <div class="col-xs-12 col-sm-9">
-        <br>
-        <center><h1>°øÁö»çÇ×1. ÀÎ»ç¸¦ ÇÏ¸ç Áö³À½Ã´Ù^-^</h1></center><br>
-        <textarea rows="20" cols="135">
+			<div class="col-xs-12 col-sm-9">
+				<br>
+				<center>
+					<h1>ê³µì§€ì‚¬í•­1. ì¸ì‚¬ë¥¼ í•˜ë©° ì§€ëƒ…ì‹œë‹¤^-^</h1>
+				</center>
+				<br>
+				<textarea rows="20" cols="135">
 			Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus in nisi eu arcu tempus vehicula. 
             Nulla faucibus cursus metus in sagittis. Nunc elit leo, imperdiet in ligula in, euismod varius est. 
             Aenean pellentesque lorem a porttitor placerat. Vestibulum placerat nunc ac rutrum fringilla. Donec 
@@ -53,15 +46,20 @@
             odio vitae, posuere volutpat magna. Nam pulvinar lacus in sapien feugiat, sit amet vestibulum enim 
             eleifend. Integer sit amet ante auctor, lacinia sem quis, consectetur nulla.
 		</textarea>
-		<br><div align="right">
-		<button type="button" class="btn btn-default navbar-btn" >¼öÁ¤</button>
-		<button type="button" class="btn btn-default navbar-btn" >»èÁ¦</button>
+				<br>
+				<div align="right">
+					<button type="button" class="btn btn-default navbar-btn">ìˆ˜ì •</button>
+					<button type="button" class="btn btn-default navbar-btn">ì‚­ì œ</button>
+				</div>
+
+			</div>
+			<!-- /.col-xs-12 main -->
 		</div>
-          
-        </div><!-- /.col-xs-12 main -->
-    </div><!--/.row-->
-  </div><!--/.container-->
-</div><!--/.page-container-->
+		<!--/.row-->
+	</div>
+	<!--/.container-->
+	</div>
+	<!--/.page-container-->
 
 
 </body>

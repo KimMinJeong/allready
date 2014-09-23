@@ -13,11 +13,9 @@ public class ParkingDAOImpl implements ParkingDAO{
 	private SqlMapClientTemplate sqlMapClientTemplate;
 	@Override
 	public String getParking_info(int parking_no) {
-		return (String) sqlMapClientTemplate.queryForObject("getIsFull",parking_no);
+		return (String) sqlMapClientTemplate.queryForObject("getIsFull", parking_no);
 	}
 	public void updateIsFull(ParkingVO pv) {
 		sqlMapClientTemplate.update("updateIsFull", pv);
 	}
-	
-	
 }

@@ -1,174 +1,190 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link  href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link  href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 
 </head>
 <body>
-    <div class="container">
-      <div class="row row-offcanvas row-offcanvas-left">
-        <!-- sidebar -->
-        <div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<!-- sidebar -->
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
+				role="navigation">
 
-        	<font size="4">
-            <ul class="nav">
-              <li class="active"><a href="#">°øÁö»çÇ× °Ô½ÃÆÇ</a></li>
-              <li><a href="#">¹Î¿ø °Ô½ÃÆÇ</a></li>
-              <li><a href="#">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>
-              <li><a href="#">Link 3</a></li>              
-            </ul>
-            </font>
-        </div>
-  	
-        <!-- main area -->
-        <div class="col-xs-12 col-sm-9">
+				<font size="4">
+					<ul class="nav">
+						<li class="active"><a href="#">ê³µì§€ì‚¬í•­ ê²Œì‹œíŒ</a></li>
+						<li><a href="#">ë¯¼ì› ê²Œì‹œíŒ</a></li>
+						<li><a href="#">ììœ  ê²Œì‹œíŒ</a></li>
+						<li><a href="#">Link 3</a></li>
+					</ul>
+				</font>
+			</div>
 
-        <br>
-   		 <div align="right">
-	
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  µî·Ï
-</button>
+			<!-- main area -->
+			<div class="col-xs-12 col-sm-9">
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-     
-     
-      <div align="left">
-		<button type="button" class="btn btn-default navbar-btn" >102µ¿</button>
-		
-	
-		<button type="button" class="btn btn-default navbar-btn" >202µ¿</button>
-</div>
-	<br>
-	<br>
-	
-  <div class="row">
-  <div class="col-xs-7">
-    <input type="text" class="form-control" placeholder=".col-xs-2" value="È£¼ö¸¦ ÀÔ·ÂÇÏ¼¼¿ä"> 
-  </div></div>
-   <br>
-   
-  
-   <div class="row">
-   <div class="col-xs-7">
-    <input type="text" class="form-control" placeholder=".col-xs-2" value="ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä">
-    </div></div>
+				<br>
+				<div align="right">
 
-    <br><br><br>
-    
- <div class="btn-group" id="location">
- <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-    Action <span class="caret"></span>
- </button>
- <ul class="dropdown-menu" role="menu">
-    <li><a href="#">CJ</a></li>
-    <li><a href="#">ÇÑÁø</a></li>
-    <li><a href="#">·ÎÁ¨</a></li>
-    <li><a href="#">Yellow Cap</a></li>
-    <li><a href="#">¿ìÃ¼±¹</a></li>
-    <li><a href="#">ÆíÀÇÁ¡</a></li>
-    <li class="divider"></li>
-    <li><a href="#">Separated link</a></li>
-</ul>
-</div>
-     
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
-	
+					<button class="btn btn-primary btn-lg" data-toggle="modal"
+						data-target="#myModal">ë“±ë¡</button>
 
-</div>
-<br>
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+								</div>
+								<div class="modal-body">
 
-		 <div class="panel panel-default">
-		 
-		  <!-- Default panel contents -->
-		  <div class="panel-heading"><center>Express List</center></div>
-		
-		  <!-- Table -->
-		  <table class="table">
-		    <tr>
-		    	<th>³¯Â¥</th>
-		       	<th>µ¿È£¼ö</th>
-		   	   	<th>ÀÌ¸§</th>
-		       	<th>ÅÃ¹èÈ¸»ç</th>
-		       	<th>¼ö·ÉÈ®ÀÎ</th>
-		    </tr>
-		    <tr>
-		    	<td>2014-8-18</td>
-		    	<td>202µ¿ 2502È£</td>
-		    	<td>±èÀºÁö</td>
-		    	<td>ÇÑÁø</td>
-		    	<td> <input type="checkbox"></td>
-		    </tr>
-		     <tr>
-		    	<td>2014-8-18</td>
-		    	<td>203µ¿ 2502È£</td>
-		    	<td>ÇÑ¼º±¸</td>
-		    	<td>¿ìÃ¼±¹</td>
-		    	<td> <input type="checkbox" align="middle"></td>
-		    </tr>
-		       <tr>
-		    	<td>2014-8-18</td>
-		    	<td>204µ¿ 2502È£</td>
-		    	<td>±èÀºÁö</td>
-		    	<td>ÆíÀÇÁ¡</td>
-		    	<td> <input type="checkbox" align="middle"></td>
-		    </tr>
-		  </table>
+
+									<div align="left">
+										<button type="button" class="btn btn-default navbar-btn">102ë™</button>
+
+
+										<button type="button" class="btn btn-default navbar-btn">202ë™</button>
+									</div>
+									<br> <br>
+
+									<div class="row">
+										<div class="col-xs-7">
+											<input type="text" class="form-control"
+												placeholder=".col-xs-2" value="í˜¸ìˆ˜ë¥¼ ì…ë ¥í•˜ì„¸ìš”">
+										</div>
+									</div>
+									<br>
+
+
+									<div class="row">
+										<div class="col-xs-7">
+											<input type="text" class="form-control"
+												placeholder=".col-xs-2" value="ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”">
+										</div>
+									</div>
+
+									<br> <br> <br>
+
+									<div class="btn-group" id="location">
+										<button type="button" class="btn btn-default dropdown-toggle"
+											data-toggle="dropdown">
+											Action <span class="caret"></span>
+										</button>
+										<ul class="dropdown-menu" role="menu">
+											<li><a href="#">CJ</a></li>
+											<li><a href="#">í•œì§„</a></li>
+											<li><a href="#">ë¡œì  </a></li>
+											<li><a href="#">Yellow Cap</a></li>
+											<li><a href="#">ìš°ì²´êµ­</a></li>
+											<li><a href="#">í¸ì˜ì </a></li>
+											<li class="divider"></li>
+											<li><a href="#">Separated link</a></li>
+										</ul>
+									</div>
+
+								</div>
+								<div class="modal-footer">
+									<button type="button" class="btn btn-default"
+										data-dismiss="modal">Close</button>
+									<button type="button" class="btn btn-primary">Save
+										changes</button>
+								</div>
+							</div>
+						</div>
+					</div>
+
+
+				</div>
+				<br>
+
+				<div class="panel panel-default">
+
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<center>Express List</center>
+					</div>
+
+					<!-- Table -->
+					<table class="table">
+						<tr>
+							<th>ë‚ ì§œ</th>
+							<th>ë™í˜¸ìˆ˜</th>
+							<th>ì´ë¦„</th>
+							<th>íƒë°°íšŒì‚¬</th>
+							<th>ìˆ˜ë ¹í™•ì¸</th>
+						</tr>
+						<tr>
+							<td>2014-8-18</td>
+							<td>202ë™ 2502í˜¸</td>
+							<td>ê¹€ì€ì§€</td>
+							<td>í•œì§„</td>
+							<td><input type="checkbox"></td>
+						</tr>
+						<tr>
+							<td>2014-8-18</td>
+							<td>203ë™ 2502í˜¸</td>
+							<td>í•œì„±êµ¬</td>
+							<td>ìš°ì²´êµ­</td>
+							<td><input type="checkbox" align="middle"></td>
+						</tr>
+						<tr>
+							<td>2014-8-18</td>
+							<td>204ë™ 2502í˜¸</td>
+							<td>ê¹€ì€ì§€</td>
+							<td>í¸ì˜ì </td>
+							<td><input type="checkbox" align="middle"></td>
+						</tr>
+					</table>
+				</div>
+
+				<div align="center">
+					<ul class="pagination">
+						<li><a href="#">&laquo;</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">&raquo;</a></li>
+					</ul>
+				</div>
+
+
+
+
+			</div>
+			<!-- /.col-xs-12 main -->
 		</div>
-		
-		<div align="center">
-	<ul class="pagination">
-  <li><a href="#">&laquo;</a></li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>
-</ul></div>
-
-	
-	
-          
-        </div><!-- /.col-xs-12 main -->
-    </div><!--/.row-->
-  </div><!--/.container-->
-</div><!--/.page-container-->
+		<!--/.row-->
+	</div>
+	<!--/.container-->
+	</div>
+	<!--/.page-container-->
 
 
 
- 
-</ul>  
-</div>  
-</div>  
-</div> 
+
+	</ul>
+	</div>
+	</div>
+	</div>
 
 
 
-  
-<script type="text/javascript">
+
+	<script type="text/javascript">
 
 </script>
 

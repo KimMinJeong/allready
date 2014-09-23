@@ -1,10 +1,10 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <!DOCTYPE>
-<html lang="en">
+<html >
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
@@ -28,23 +28,23 @@
             <font size="4">
                <div class="tabbable">
                   <ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
-                  <%if(vo.getRole().equals("NORMAL")) {%>     <!-- ∑Œ±◊¿Œ ªÁøÎ¿⁄∞° normal -->
+                  <%if(vo.getRole().equals("NORMAL")) {%>     <!-- Î°úÍ∑∏Ïù∏ ÏÇ¨Ïö©ÏûêÍ∞Ä normal -->
                      <li><a href="main.do">Home</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
-                     <li><a href="#messages">¡÷¬˜¿Â</a></li>
-                     <li><a href="user_tax.do">∞¸∏Æºº</a></li>
-                     <li><a href="noticeBoard.do">∞‘Ω√∆«</a></li>
-                     <li><a href="user_visitor.do">πÊπÆ∞¥</a></li>
-                     <li><a href="#settings">º“≈Î¿« ¿Â</a></li>
+                     <li><a href="#messages">Ï£ºÏ∞®Ïû•</a></li>
+                     <li><a href="user_tax.do">Í¥ÄÎ¶¨ÏÑ∏</a></li>
+                     <li><a href="noticeBoard.do">Í≤åÏãúÌåê</a></li>
+                     <li><a href="user_visitor.do">Î∞©Î¨∏Í∞ù</a></li>
+                     <li><a href="#settings">ÏÜåÌÜµÏùò Ïû•</a></li>
                      <%}
-                     else if(vo.getRole().equals("MANAGER")) {%>     <!-- ∑Œ±◊¿Œ ªÁøÎ¿⁄∞° manager -->
+                     else if(vo.getRole().equals("MANAGER")) {%>     <!-- Î°úÍ∑∏Ïù∏ ÏÇ¨Ïö©ÏûêÍ∞Ä manager -->
                      <li class="active"><a href="main.do">Home</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
-                     <li><a href="#">¡÷¬˜¿Â</a></li>
-                     <li><a href="noticeBoard.do">∞‘Ω√∆«</a></li>
-                     <li><a href="manage_visitor.do">πÊπÆ¿œ¡ˆ</a></li>
-                     <li><a href="user_tax.do">¿¸√º∞¸∏Æºº</a></li>
-                     <li><a href="#settings">≈√πË∞¸∏Æ</a></li>
+                     <li><a href="#">Ï£ºÏ∞®Ïû•</a></li>
+                     <li><a href="noticeBoard.do">Í≤åÏãúÌåê</a></li>
+                     <li><a href="manage_visitor.do">Î∞©Î¨∏ÏùºÏßÄ</a></li>
+                     <li><a href="user_tax.do">Ï†ÑÏ≤¥Í¥ÄÎ¶¨ÏÑ∏</a></li>
+                     <li><a href="#settings">ÌÉùÎ∞∞Í¥ÄÎ¶¨</a></li>
                      <%} %>
                   </ul>
             </font>
@@ -54,11 +54,11 @@
 
    <jsp:include page="${param.nextPage}"></jsp:include>
 
-   <!-- jQuery (∫Œ∆ÆΩ∫∆Æ∑¶¿« ¿⁄πŸΩ∫≈©∏≥∆Æ «√∑Ø±◊¿Œ¿ª ¿ß«ÿ « ø‰«—) -->
+   <!-- jQuery (Î∂ÄÌä∏Ïä§Ìä∏Îû©Ïùò ÏûêÎ∞îÏä§ÌÅ¨Î¶ΩÌä∏ ÌîåÎü¨Í∑∏Ïù∏ÏùÑ ÏúÑÌï¥ ÌïÑÏöîÌïú) -->
    <script src="//code.jquery.com/jquery.js"></script>
-   <!-- ∏µÁ «’√ƒ¡¯ «√∑Ø±◊¿Œ¿ª ∆˜«‘«œ∞≈≥™ (æ∆∑°) « ø‰«— ∞¢∞¢¿« ∆ƒ¿œµÈ¿ª ∆˜«‘«œººø‰ -->
+   <!-- Î™®Îì† Ìï©Ï≥êÏßÑ ÌîåÎü¨Í∑∏Ïù∏ÏùÑ Ìè¨Ìï®ÌïòÍ±∞ÎÇò (ÏïÑÎûò) ÌïÑÏöîÌïú Í∞ÅÍ∞ÅÏùò ÌååÏùºÎì§ÏùÑ Ìè¨Ìï®ÌïòÏÑ∏Ïöî -->
    <script src="static/js/bootstrap.min.js"></script>
-   <!-- Respond.js ¿∏∑Œ IE8 ø°º≠ π›¿¿«¸ ±‚¥…¿ª »∞º∫»≠«œººø‰ (https://github.com/scottjehl/Respond) -->
+   <!-- Respond.js ÏúºÎ°ú IE8 ÏóêÏÑú Î∞òÏùëÌòï Í∏∞Îä•ÏùÑ ÌôúÏÑ±ÌôîÌïòÏÑ∏Ïöî (https://github.com/scottjehl/Respond) -->
    <script src="static/js/respond.js"></script>
 
    <script type="text/javascript">
@@ -80,29 +80,5 @@
          });
       });
    </script>
-
-   <!-- <script type="text/javascript">
-   $(document).ready(function () {
-       $('a[href^="#"]').on('click', function (e) {
-           e.preventDefault();
-           
-           $('a').each(function () {
-               $('li').removeClass('active');    
-           })
-           $('li').addClass('active');
-         
-           var target = this.hash,
-               menu = target;
-           $target = $(target);
-           $('html, body').stop().animate({
-              
-           }, 500, 'swing', function () {
-           });
-       });
-   });
-</script>
- -->
-
-
 </body>
 </html>
