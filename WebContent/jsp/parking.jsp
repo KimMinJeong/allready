@@ -29,9 +29,7 @@
 
 			<div class="col-xs-12 col-sm-9">
 				<br>
-				<%
-					String isfull = (String) request.getAttribute("isfull");
-				%>
+					<%String isfull = (String)request.getAttribute("isfull"); %>
 				<input type="hidden" id="isfull" value="<%=isfull%>" />
 				<div class="table-responsive" id="table1">
 					<table class="table" id="table2" border="1" width="500">
