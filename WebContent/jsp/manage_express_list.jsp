@@ -1,171 +1,188 @@
 <%@page import="kr.ac.apart.vo.ExpressVO"%>
 <%@page import="java.util.List"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link  href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link  href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet"
+	type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
-
-
-
 </head>
 <body>
-<%
-	List<ExpressVO> list = (List<ExpressVO>)request.getAttribute("list");
-	ExpressVO vo2 = (ExpressVO)request.getAttribute("vo");
-
+	<%
+		List<ExpressVO> list = (List<ExpressVO>) request.getAttribute("list");
 	
-%>
+	%>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<!-- main area -->
+			<div class="col-xs-12 col-sm-12">
+				<br>
+				<div align="right">
+					<button class="btn btn-primary btn-lg" data-toggle="modal"
+						data-target="#myModal">Îì±Î°ù</button>
 
-     
-    <div class="container">
-    
-      <div class="row row-offcanvas row-offcanvas-left">
-        
-        	
-        <!-- main area -->
-        <div class="col-xs-12 col-sm-12">
+					<!-- Modal -->
+					<div class="modal fade" id="myModal" tabindex="-1" role="dialog"
+						aria-labelledby="myModalLabel" aria-hidden="true">
+						<div class="modal-dialog">
+							<div class="modal-content">
+								<div class="modal-header">
+									<button type="button" class="close" data-dismiss="modal">
+										<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+									</button>
+									<h4 class="modal-title" id="myModalLabel">Modal title</h4>
+								</div>
+								<div class="modal-body">
 
-        <br>
-   		 <div align="right">
-	
-<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-  µÓ∑œ
-</button>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-     
-     
-      <div align="left">
-		<button type="button" class="btn btn-default navbar-btn"  >102µø</button>
-		
-	
-		<button type="button" class="btn btn-default navbar-btn" >202µø</button>
-</div>
-	<br>
-	<br>
-	
+									<div align="left">
+										<button type="button" class="btn btn-default navbar-btn">102Îèô</button>
 
-	
-  <div class="row">
-  <div class="col-xs-7">
-  <form action="addExpress.do">
-    <input type="text" class="form-control" placeholder=".col-xs-2" value="»£ºˆ∏¶ ¿‘∑¬«œººø‰" name="user_id"> 
-      <br>
-     <input type="text" class="form-control" placeholder=".col-xs-2" value="¿Ã∏ß¿ª ¿‘∑¬«œººø‰" name="orderer">
-    <br><br><br>
- <select name="express_company">
- 	<option value="cj">CJ</option>
- 	<option value="hangin">«—¡¯</option>
- 	<option value="lojen">∑Œ¡®</option>
- 	<option value="yellowCap">Yellow Cap</option>
- 	<option value="post">øÏ√º±π</option>
- 	<option value="store">∆Ì¿«¡°</option>
- </select>
 
-      
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="submit" class="btn btn-default">Save changes</button>
-     </form>
+										<button type="button" class="btn btn-default navbar-btn">202Îèô</button>
+									</div>
+									<br> <br>
 
-    </div>
-  </div>
-</div>
-	</div></div></div>
-   
-</div>
-<br>
 
-		 <div class="panel panel-default">
-		 
-		  <!-- Default panel contents -->
-		  <div class="panel-heading"><center>Express List</center></div>
-		
-		  <!-- Table -->
-		  <table class="table">
-		    <tr>
-		    	<th>≥Ø¬•</th>
-		       	<th>µø»£ºˆ</th>
-		   	   	<th>¿Ã∏ß</th>
-		       	<th>≈√πË»∏ªÁ</th>
-		       	<th>ºˆ∑…»Æ¿Œ</th>
-		    </tr><%
-		    	if (list != null) {
-						for (ExpressVO vo : list) {
-							
-				%>
-		    <tr>
-		    	<td><%=vo.getReg_date() %></td>
-		    	<td><%=vo.getUser_id() %></td>
-		    	<td><%=vo.getOrderer() %></td>
-		    	<td><%=vo.getExpress_company() %></td>
-		    	<td><input type="button" onClick="location.href='getExpressOne.do?express_id=<%=vo.getExpress_id() %>'">»Æ¿Œ<%=vo.getExpress_id() %>
-		    	 <form action="updateExpress.do">
-      	<input type="text" name="receiver" value="ºˆ∑…¿⁄">
-      
-      	<input type="text" name="express_id" >
-		<input type="submit" value="ºˆ∑…»Æ¿Œ">
+									<div class="row">
+										<div class="col-xs-7">
+											<form action="addExpress.do">
+												<input type="text" class="form-control"
+													placeholder=".col-xs-2" value="Ìò∏ÏàòÎ•º ÏûÖÎ†•ÌïòÏÑ∏Ïöî" name="user_id">
+												<br> <input type="text" class="form-control"
+													placeholder=".col-xs-2" value="Ïù¥Î¶ÑÏùÑ ÏûÖÎ†•ÌïòÏÑ∏Ïöî" name="orderer">
+												<br> <br> <br> <select name="express_company">
+													<option value="cj">CJ</option>
+													<option value="hangin">ÌïúÏßÑ</option>
+													<option value="lojen">Î°úÏ††</option>
+													<option value="yellowCap">Yellow Cap</option>
+													<option value="post">Ïö∞Ï≤¥Íµ≠</option>
+													<option value="store">Ìé∏ÏùòÏ†ê</option>
+												</select>
 
-		    	</form>	
-		    	<%=vo.getReceiver() %></td>
-		    </tr>
-		  <%}} %>
-		  </table>
+												<button type="button" class="btn btn-default"
+													data-dismiss="modal">Close</button>
+												<button type="submit" class="btn btn-default">Save
+													changes</button>
+											</form>
+
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<br>
+
+				<div class="panel panel-default">
+
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<center>Express List</center>
+					</div>
+
+					<!-- Table -->
+					<table class="table">
+						<tr>
+							<th>ÎÇ†Ïßú</th>
+							<th>ÎèôÌò∏Ïàò</th>
+							<th>Ïù¥Î¶Ñ</th>
+							<th>ÌÉùÎ∞∞ÌöåÏÇ¨</th>
+							<th>ÏàòÎ†πÌôïÏù∏</th>
+						</tr>
+						<%
+							if (list != null) {
+								for (ExpressVO vo : list) {
+						%>
+						<tr>
+							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getUser_id()%></td>
+							<td><%=vo.getOrderer()%></td>
+							<td><%=vo.getExpress_company()%></td>
+							<td>
+							<%if(vo.getReceiver()==null){%>
+								<button id="<%=vo.getExpress_id()%>" class="btn btn-primary btn-lg getButton" data-toggle="modal" data-target="#myModal2">
+									ÌôïÏù∏
+								</button>
+								<%}else if(vo.getReceiver()!=null){%>
+								<%=vo.getReceiver() %>
+							</td>
+						</tr>
+						<%
+								}
+							}
+						}
+						%>
+					</table>
+				</div>
+
+				<!-- Modal -->
+				<!-- 				<form action="updateExpress.do" id="updateExpress"> -->
+				<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+					aria-labelledby="myModalLabel" aria-hidden="true">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">
+									<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+								</button>
+								<h4 class="modal-title" id="myModalLabel">ÌÉùÎ∞∞ ÏàòÎ†πÏûê ÏûÖÎ†•</h4>
+							</div>
+							<div class="modal-body">
+								<div align="left">
+									<input type="text" id="receiver" name="receiver">
+									 <input type="button" id="submitBtn" value="ÏàòÎ†πÌôïÏù∏">
+								</div>
+								<br> <br>
+							</div>
+						</div>
+					</div>
+				</div>
+
+
+				<div align="center">
+					<ul class="pagination">
+						<li><a href="#">&laquo;</a></li>
+						<li><a href="#">1</a></li>
+						<li><a href="#">2</a></li>
+						<li><a href="#">3</a></li>
+						<li><a href="#">4</a></li>
+						<li><a href="#">5</a></li>
+						<li><a href="#">&raquo;</a></li>
+					</ul>
+				</div>
+			</div>
+			<!-- /.col-xs-12 main -->
 		</div>
-
-
-</div>
-	<br>
-	<br>
-	</div></div>
-		
-		<div align="center">
-	<ul class="pagination">
-  <li><a href="#">&laquo;</a></li>
-  <li><a href="#">1</a></li>
-  <li><a href="#">2</a></li>
-  <li><a href="#">3</a></li>
-  <li><a href="#">4</a></li>
-  <li><a href="#">5</a></li>
-  <li><a href="#">&raquo;</a></li>
-</ul></div>
-
-	
-	
-          
-        </div><!-- /.col-xs-12 main -->
-    </div><!--/.row-->
-  </div><!--/.container-->
-
+		<!--/.row-->
+	</div>
+	<!--/.container-->
 </body>
 
-
-
- 
-
-
-
-  
 <script type="text/javascript">
+	
+	var id;
+	var receiver;
+$(document).on("click", ".getButton", function () {
+	alert($(this).closest('button').attr('id'));
+	id = $(this).closest('button').attr('id');  
+});
 
-	 
+$("#submitBtn").on('click',function(){
+	receiver= $("#receiver").val();
+	window.location="updateExpress.do?express_id="+id+"&receiver="+receiver;
+	return false;
+});
+
 </script>
-
 
 </html>
