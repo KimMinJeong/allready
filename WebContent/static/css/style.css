@@ -17,9 +17,12 @@
 	display: inline;
 }
 
-.active {
-   
-    color: red;
-  
+#table1 #table2 #full_color{
+	bgcolor : red;
 }
 
+#table1 #table2 #empty_color{
+	bgcolor : green;
+}
+#table1 #table2 tr > td{
+}

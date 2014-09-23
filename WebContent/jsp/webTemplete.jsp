@@ -1,112 +1,81 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-   pageEncoding="EUC-KR"%>
+	pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html lang="en">
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link href="static/css/bootstrap.min.css" rel="stylesheet"
-   media="screen">
+	media="screen">
 <title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="justified-nav.css" rel="stylesheet">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
       <script src="../../assets/js/html5shiv.js"></script>
       <script src="../../assets/js/respond.min.js"></script>
     <![endif]-->
 </head>
+
 <body>
-<%
+	<%
    UserVO vo = (UserVO)session.getAttribute("UserFlag");
 %>
-   <div class="container">
-      <div class="masthead">
-         <h3 class="text-muted">
-            <font size="4">
-               <div class="tabbable">
-                  <ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
-                  <%if(vo.getRole().equals("NORMAL")) {%>     <!-- ∑Œ±◊¿Œ ªÁøÎ¿⁄∞° normal -->
-                     <li><a href="main.do">Home</a></li>
-                     <li><a href="#profile">CCTV</a></li>
-                     <li><a href="#messages">¡÷¬˜¿Â</a></li>
-                     <li><a href="#settings">∞¸∏Æºº</a></li>
-                     <li><a href="noticeBoard.do">∞‘Ω√∆«</a></li>
-                     <li><a href="user_visitor.do">πÊπÆ∞¥</a></li>
-                     <li><a href="#settings">º“≈Î¿« ¿Â</a></li>
-                     <li><a href="#settings">º≥¡§</a></li>
-                     <%}
-                     else if(vo.getRole().equals("MANAGER")) {%>     <!-- ∑Œ±◊¿Œ ªÁøÎ¿⁄∞° manager -->
-                     <li class="active"><a href="main.do">Home</a></li>
-                     <li><a href="#profile">CCTV</a></li>
-                     <li><a href="#">¡÷¬˜¿Â</a></li>
-                     <li><a href="noticeBoard.do">∞‘Ω√∆«</a></li>
-                     <li><a href="manage_visitor.do">πÊπÆ¿œ¡ˆ</a></li>
-                     <li><a href="#settings">¿¸√º∞¸∏Æºº</a></li>
-                     <li><a href="expressList.do">≈√πË∞¸∏Æ</a></li>
-                     <li><a href="#settings">º≥¡§</a></li>
-                     <%} %>
-                  </ul>
-            </font>
-         </h3>
-      </div>
-   </div>
+	<div class="container">
+		<div class="masthead">
+			<h3 class="text-muted">
+				<font size="4">
+					<div class="tabbable">
+						<ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
+							<%if(vo.getRole().equals("NORMAL")) {%>
+							<!-- Î°úÍ∑∏Ïù∏ ÏÇ¨Ïö©ÏûêÍ∞Ä normal -->
+							<li><a href="main.do">Home</a></li>
+							<li><a href="#profile">CCTV</a></li>
+							<li><a href="user_parking.do">Ï£ºÏ∞®Ïû•</a></li>
+							<li><a href="#settings">Í¥ÄÎ¶¨ÏÑ∏</a></li>
+							<li><a href="noticeBoard.do">Í≤åÏãúÌåê</a></li>
+							<li><a href="user_visitor.do">Î∞©Î¨∏Í∞ù</a></li>
+							<li><a href="#settings">ÏÜåÌÜµÏùò Ïû•</a></li>
+							<li><a href="user_detail.do">ÏÑ§Ï†ï</a></li>
+							<%}
+                     else if(vo.getRole().equals("MANAGER")) {%>
+							<!-- Î°úÍ∑∏Ïù∏ ÏÇ¨Ïö©ÏûêÍ∞Ä manager -->
+							<li class="test active"><a href="main.do">Home</a></li>
+							<li class="test"><a href="#profile">CCTV</a></li>
+							<li class="test"><a href="user_parking.do">Ï£ºÏ∞®Ïû•</a></li>
+							<li class="test"><a href="noticeBoard.do">Í≤åÏãúÌåê</a></li>
+							<li class="test"><a href="manage_visitor.do">Î∞©Î¨∏ÏùºÏßÄ</a></li>
+							<li class="test"><a href="#settings">Ï†ÑÏ≤¥Í¥ÄÎ¶¨ÏÑ∏</a></li>
+							<li class="test"><a href="#settings">ÌÉùÎ∞∞Í¥ÄÎ¶¨</a></li>
+							<li class="test"><a href="manage_detail.do">ÏÑ§Ï†ï</a></li>
+							<%}%>
+						</ul>
+				</font>
+			</h3>
+		</div>
+	</div>
 
-   <jsp:include page="${param.nextPage}"></jsp:include>
+	<jsp:include page="${param.nextPage}"></jsp:include>
 
-   <!-- jQuery (∫Œ∆ÆΩ∫∆Æ∑¶¿« ¿⁄πŸΩ∫≈©∏≥∆Æ «√∑Ø±◊¿Œ¿ª ¿ß«ÿ « ø‰«—) -->
-   <script src="//code.jquery.com/jquery.js"></script>
-   <!-- ∏µÁ «’√ƒ¡¯ «√∑Ø±◊¿Œ¿ª ∆˜«‘«œ∞≈≥™ (æ∆∑°) « ø‰«— ∞¢∞¢¿« ∆ƒ¿œµÈ¿ª ∆˜«‘«œººø‰ -->
-   <script src="static/js/bootstrap.min.js"></script>
-   <!-- Respond.js ¿∏∑Œ IE8 ø°º≠ π›¿¿«¸ ±‚¥…¿ª »∞º∫»≠«œººø‰ (https://github.com/scottjehl/Respond) -->
-   <script src="static/js/respond.js"></script>
+	<!-- jQuery (Î∂ÄÌä∏Ïä§Ìä∏Îû©Ïùò ÏûêÎ∞îÏä§ÌÅ¨Î¶ΩÌä∏ ÌîåÎü¨Í∑∏Ïù∏ÏùÑ ÏúÑÌï¥ ÌïÑÏöîÌïú) -->
+	<script src="//code.jquery.com/jquery.js"></script>
+	<!-- Î™®Îì† Ìï©Ï≥êÏßÑ ÌîåÎü¨Í∑∏Ïù∏ÏùÑ Ìè¨Ìï®ÌïòÍ±∞ÎÇò (ÏïÑÎûò) ÌïÑÏöîÌïú Í∞ÅÍ∞ÅÏùò ÌååÏùºÎì§ÏùÑ Ìè¨Ìï®ÌïòÏÑ∏Ïöî -->
+	<script src="static/js/bootstrap.min.js"></script>
+	<!-- Respond.js ÏúºÎ°ú IE8 ÏóêÏÑú Î∞òÏùëÌòï Í∏∞Îä•ÏùÑ ÌôúÏÑ±ÌôîÌïòÏÑ∏Ïöî (https://github.com/scottjehl/Respond) -->
+	<script src="static/js/respond.js"></script>
 
-   <script type="text/javascript">
-      $(document).ready(function() {
-         $(".container .tabbale #tabs li a").on('click', function(e) {
-            e.preventDefault();
-
-            $('a').each(function() {
-               $('li').removeClass('active');
-            });
-            $('li').addClass('active');
-
-            var target = this.hash, menu = target;
-            $target = $(target);
-            $('html, body').stop().animate({
-
-            }, 500, 'swing', function() {
-            });
-         });
-      });
-   </script>
-
-   <!-- <script type="text/javascript">
-   $(document).ready(function () {
-       $('a[href^="#"]').on('click', function (e) {
-           e.preventDefault();
-           
-           $('a').each(function () {
-               $('li').removeClass('active');    
-           })
-           $('li').addClass('active');
-         
-           var target = this.hash,
-               menu = target;
-           $target = $(target);
-           $('html, body').stop().animate({
-              
-           }, 500, 'swing', function () {
-           });
-       });
-   });
-</script>
- -->
-
-
+	<!--   <script type="text/javascript">
+  
+     $(document).on('click', '.test', function(){
+    	 alert("click");
+    	 $('.test').each(function () {
+             $('li').removeClass('active');    
+         }) 
+         $(this).closest('li').addClass('active');
+     });
+   </script>  -->
 </body>
 </html>

@@ -10,6 +10,8 @@
 	<sqlMap resource="mapping/visitRecord-mapping.xml"/>
 	<sqlMap resource="mapping/board-mapping.xml"/>
 	<sqlMap resource="mapping/comments-mapping.xml"/>
+	<sqlMap resource="mapping/managerDong-mapping.xml"/>
+	<sqlMap resource="mapping/family-mapping.xml"/>
 	<sqlMap resource="mapping/express-mapping.xml"/>
 </sqlMapConfig>
 

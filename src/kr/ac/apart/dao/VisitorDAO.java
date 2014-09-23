@@ -17,6 +17,4 @@ public interface VisitorDAO {
    public int deleteVisitRecord(int id);
    public int addVisitRecord(int visitorNo);
    public int getMaxVisitRecordNo();
-
-
 }

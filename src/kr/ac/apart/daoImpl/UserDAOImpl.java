@@ -3,6 +3,8 @@ package kr.ac.apart.daoImpl;
 import java.util.List;
 
 import kr.ac.apart.dao.UserDAO;
+import kr.ac.apart.vo.FamilyVO;
+import kr.ac.apart.vo.Manager_DongVO;
 import kr.ac.apart.vo.UserVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,22 +19,30 @@ public class UserDAOImpl implements UserDAO{
 	public UserVO getUser(String userId){
 		return (UserVO) sqlMapClientTemplate.queryForObject("getUser", userId);
 	}
-
-	@Override
-	public List<UserVO> testList() {
-		// TODO Auto-generated method stub
-		return null;
+	
+	public int modifyManager(UserVO vo){
+		return (Integer) sqlMapClientTemplate.update("modifyManager", vo);
 	}
-
-	@Override
-	public void add(UserVO vo) {
-		// TODO Auto-generated method stub
-		
+	
+	public int updateManagerDong(Manager_DongVO vo){
+		return (Integer) sqlMapClientTemplate.update("updateDong", vo);
 	}
-
-	@Override
-	public int delete(int no) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int deleteManageDong(String userId){
+		return (Integer) sqlMapClientTemplate.delete("deleteDong", userId);
+	}
+	public List<Manager_DongVO> getManagerDong(String userId){
+		return (List<Manager_DongVO>) sqlMapClientTemplate.queryForList("getManagerDong", userId);
+	}
+	public int modifyUser(UserVO vo){
+		return (Integer) sqlMapClientTemplate.update("modifyUser", vo);
+	}
+	public int updateFamily(FamilyVO vo){
+		return (Integer) sqlMapClientTemplate.update("modifyFamily", vo);
+	}
+	public int deleteFamily(String userId){
+		return (Integer) sqlMapClientTemplate.delete("deleteFamily", userId);
+	}
+	public List<FamilyVO> getFamilyList(String userId){
+		return (List<FamilyVO>) sqlMapClientTemplate.queryForList("getFamilyList", userId);
 	}
 }

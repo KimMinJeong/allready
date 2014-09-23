@@ -1,13 +1,10 @@
 package kr.ac.apart.daoImpl;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
-
-import com.ibatis.sqlmap.client.SqlMapClient;
 
 import kr.ac.apart.dao.CommentsDAO;
 import kr.ac.apart.vo.CommentsVO;
