@@ -2,27 +2,14 @@ package kr.ac.apart.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
-
-
-
-
-import kr.ac.apart.dao.BoardDAO;
 import kr.ac.apart.service.BoardService;
 import kr.ac.apart.service.CommentsService;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
-import kr.ac.apart.vo.VisitorVO;
-
-
-import net.sf.json.JSONObject;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller("boardController")
@@ -158,12 +145,5 @@ public class BoardController {
 		boardService.addBad(board_no);
 		
 		return "redirect:/boardDetail.do?board_no="+board_no;
-	
 	}
-	
-
-	
-
 }
-
-

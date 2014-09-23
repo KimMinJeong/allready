@@ -16,16 +16,13 @@
 .inline{
 	display: inline;
 }
-/* #manageSelectDong{
-	margin-left : -4%;
-	display: inline;
-}
-#dongAddBtn{
-	margin-left : -10%;
-	display: inline;
-}
-#dongDeleteBtn{
-	margin-left : -60%;
-	display: inline;
-} */
 
+#table1 #table2 #full_color{
+	bgcolor : red;
+}
+
+#table1 #table2 #empty_color{
+	bgcolor : green;
+}
+#table1 #table2 tr > td{
+}

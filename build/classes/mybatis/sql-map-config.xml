@@ -10,9 +10,12 @@
 	<sqlMap resource="mapping/visitRecord-mapping.xml"/>
 	<sqlMap resource="mapping/board-mapping.xml"/>
 	<sqlMap resource="mapping/comments-mapping.xml"/>
+<<<<<<< HEAD
 	<sqlMap resource="mapping/managerDong-mapping.xml"/>
 	<sqlMap resource="mapping/family-mapping.xml"/>
 	<sqlMap resource="mapping/express-mapping.xml"/>
+=======
+>>>>>>> de7609a6d74f8244a124049943c8c336b410f5b5
 </sqlMapConfig>
 
 
