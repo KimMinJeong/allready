@@ -13,24 +13,28 @@
 		<result property="phone" column="PHONE" nullValue="" />
 		<result property="role" column="ROLE" />
 	</resultMap>
+	
 	<select id="getUser" resultMap="userResult" parameterClass="java.lang.String">
  			SELECT *
  			FROM USERS
  			WHERE USER_ID=#user_id#
 	</select>
-
-<!-- 	<insert id="addUser" parameterClass="user"> -->
-<!-- 		<![CDATA[ -->
-<!-- 			INSERT INTO USERS ( -->
-<!-- 				ID, PASSWORD, NAME, ROLE -->
-<!-- 			) VALUES ( -->
-<!-- 				#id#, -->
-<!-- 				#password#, -->
-<!-- 				#name#, -->
-<!-- 				#role# -->
-<!-- 			) -->
-<!-- 		]]> -->
-<!-- 	</insert> -->
+	
+	<update id="modifyManager" parameterClass="user">
+		UPDATE USERS
+		SET PASSWORD=#password#,
+			USER_NAME=#user_name#,
+			PHONE=#phone#
+		WHERE USER_ID=#user_id#	
+	</update>
+	
+	<update id="modifyUser" parameterClass="user">
+		UPDATE USERS
+		SET PASSWORD=#password#,
+			USER_NAME=#user_name#,
+			E_MAIL=#e_mail#,
+			PHONE=#phone#
+		WHERE USER_ID=#user_id#
+	</update>
 	
 </sqlMap>
-

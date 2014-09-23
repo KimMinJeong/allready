@@ -17,10 +17,6 @@
 	display: inline;
 }
 
-.active {
-    color: red;
-}
-
 #table1 #table2 #full_color{
 	bgcolor : red;
 }
