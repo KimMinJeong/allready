@@ -30,21 +30,15 @@
 
 			<!-- main area -->
 			<div class="col-sm-9">
-				<form action="updateBoard.do">
-					<br> 
-					<input type="text" name="category" value="<%=vo.getCategory()%>">
-					<br> 
-					<input
-						type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
-					<input type="text" class="form-control title" name="title" value="<%=vo.getTitle()%>"> 
-					<br>
+				<form action="updateBoard.do"> <br> 
+					<input type="text" name="category" value="<%=vo.getCategory()%>"> <br> 
+					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
+					<input type="text" class="form-control title" name="title" value="<%=vo.getTitle()%>"> <br>
 					<textarea name="contents" rows="20" cols="135">
 	        	<%=vo.getContents()%>
-	      		</textarea>
-					<br> 
-					<br> 
-					<input type="file" class="file" /> 
-					<br>
+	      		</textarea> <br><br> 
+					
+					<input type="file" class="file" /> <br>
 					
 					<div class="col-md-3 col-md-offset-9 ">
 						<input type="checkbox" name="anonymous" class="checkbox inline" />

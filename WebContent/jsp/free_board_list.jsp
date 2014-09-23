@@ -13,6 +13,7 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>자유게시판</title>
 </head>
+
 <body>
 	<div class="page-container">
 		<!-- top navbar -->
@@ -34,19 +35,17 @@
 					</ul>
 				</font>
 			</div>
-
 			<%
 				UserVO userVO = (UserVO) session.getAttribute("UserFlag");
 			%>
+			
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9">
-				<br>
+			<div class="col-xs-12 col-sm-9"> <br>
 				<%
-					if ("NORMAL".equals(userVO.getRole())) {
+					if ("NORMAL".equals(userVO.getRole())){
 				%>
 				<div align="right">
-					<button type="button" class="btn btn-default navbar-btn"
-						onClick="top.location.href='boardWriteForm.do'">글작성</button>
+					<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
 				</div>
 				<%
 					}
@@ -66,25 +65,24 @@
 							<th>작성자</th>
 							<th>날짜</th>
 						</tr>
-
 						<%
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("list");
 							UserVO user_id = (UserVO) session.getAttribute("UserFlag");
-							for (BoardVO vo : BoardList) {
+							for (BoardVO vo : BoardList){
 								int board_no = vo.getBoard_no();
 						%>
 						<%
-							if ("CLOSED".equals(vo.getClosed())) {
+							if ("CLOSED".equals(vo.getClosed())){
 						%>
 						<%
-							if (user_id.getUser_id().equals(vo.getWriter_id())) {
+							if (user_id.getUser_id().equals(vo.getWriter_id())){
 						%>
 						<tr>
 							<td><%=vo.getBoard_no()%></td>
-							<td><span class="glyphicon glyphicon-lock"></span><a
-								href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<td><span class="glyphicon glyphicon-lock"></span>
+							<a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
 							<%
-								if ("ANONYMOUS".equals(vo.getAnonymous())) {
+								if ("ANONYMOUS".equals(vo.getAnonymous())){
 							%>
 							<td>익명</td>
 							<%
@@ -95,7 +93,6 @@
 								}
 							%>
 							<td><%=vo.getReg_date()%></td>
-
 						</tr>
 						<%
 							} else {
@@ -105,7 +102,6 @@
 						</tr>
 						<%
 							}
-
 								} else {
 						%>
 						<tr>
@@ -151,9 +147,11 @@
 							<option value="writer_id">글쓴이</option>
 						</select>
 					</div>
+					
 					<div class="col-sm-8">
 						<input type="text" class="form-control" name="str">
 					</div>
+					
 					<button type="submit" class="btn btn-default">검색</button>
 				</form>
 			</div>
@@ -162,7 +160,5 @@
 		<!--/.row-->
 	</div>
 	<!--/.container-->
-	</div>
-	<!--/.page-container-->
 </body>
 </html>

@@ -8,6 +8,7 @@ import kr.ac.apart.dao.CCTVDAO;
 
 @Repository("CCTVDao") 
 public class CCTVDAOImpl implements CCTVDAO {
+	
     @Autowired 
     private SqlMapClientTemplate sqlMapClientTemplate;
 }

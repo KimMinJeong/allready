@@ -1,8 +1,7 @@
 <%@page import="kr.ac.apart.vo.Manager_DongVO"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="java.util.*"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -11,47 +10,41 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
-			<h1 align="center">상세정보 기입란</h1>
-			<br> <br>
+			<h1 align="center">상세정보 기입란</h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
 				List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
 			%>
 			<div class="form-group">
-				<label for="exampleInputEmail1">관리자 ID</label> <input type="text"
-					class="form-control" id="userId" value="<%=vo.getUser_id()%>"
-					readonly />
+				<label for="exampleInputEmail1">관리자 ID</label> 
+				<input type="text" class="form-control" id="userId" value="<%=vo.getUser_id()%>" readonly />
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label> <input
-					type="text" class="form-control" id="userPassword"
-					placeholder="Password">
+				<label for="exampleInputPassword1">Password</label> 
+				<input type="text" class="form-control" id="userPassword" placeholder="Password">
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">관리자 이름</label> <input type="text"
-					class="form-control" id="userName" value="<%=vo.getUser_name()%>"
-					placeholder="관리자 이름">
+				<label for="exampleInputPassword1">관리자 이름</label> 
+				<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>" placeholder="관리자 이름">
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">전화번호</label> <input type="text"
-					class="form-control" id="userPhone" value="<%=vo.getPhone()%>"
-					placeholder="전화번호">
+				<label for="exampleInputPassword1">전화번호</label> 
+				<input type="text" class="form-control" id="userPhone" value="<%=vo.getPhone()%>" placeholder="전화번호">
 			</div>
 
 			<div class="form-group">
-				<label for="disabledSelect">관리하는 동 수</label> <select id="selectDong"
-					class="form-control">
+				<label for="disabledSelect">관리하는 동 수</label> 
+				<select id="selectDong" class="form-control">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -71,8 +64,7 @@
 				    	if(manageDongList != null){
 				    	for(Manager_DongVO vo2 : manageDongList){
 				%>
-				<input type="text" class="form-control manageSelectDong<%=i%>"
-					value="<%=vo2.getDong()%>" size='10' name="test"><br>
+				<input type="text" class="form-control manageSelectDong<%=i%>" value="<%=vo2.getDong()%>" size='10' name="test"><br>
 				<%
 					i++;
 				    }}
@@ -81,38 +73,37 @@
 
 			<div class="col-md-offset-10 col-md-2">
 				<button type="submit" class="btn btn-primary" id="modifyManager">Submit</button>
-			</div>
-			<br> <br>
+			</div> <br><br>
 		</div>
 	</div>
-
 </body>
 
 <script type="text/javascript">
-	$("#selectDong")
-			.on(
-					'change',
-					function() {
-						$("#manageDong *").remove(); //처음에 append한 것 모두 지워주기
-						var selectDong = $("#selectDong").val(); //select 값
+	$("#selectDong").on('change', function(){
+		$("#manageDong *").remove(); //처음에 append한 것 모두 지워주기
+		
+		var selectDong = $("#selectDong").val(); //select 값
 
-						for ( var i = 0; i < selectDong; i++) {
-							$("#manageDong")
-									.append(
-											"<input type='text' class='form-control manageSelectDong" + i + "' placeholder='관리동' size='10' name='test'><br>");
-						}
-					});
+		for(var i = 0; i < selectDong; i++){
+			$("#manageDong").append(
+				"<input type='text' class='form-control manageSelectDong" + i + "' placeholder='관리동' size='10' name='test'><br>");
+		}
+	});
 
-	$("#modifyManager").on('click', function() {
+	$("#modifyManager").on('click', function(){
+		
 		if ($("#userPassword").val() == "") {
 			alert("비밀번호를 입력해주세요.");
-		} else {
+		} else{
 			var selectDong = $("#selectDong").val();
 			arr = [];
+			
 			for ( var j = 0; j < selectDong; j++) {
 				arr[j] = $('.manageSelectDong' + j).val();
 			}
+			
 			jQuery.ajaxSettings.traditional = true; //배열을 넘겨주려면 꼭 필요
+			
 			$.ajax({
 				url : "modifyManager.do",
 				type : "get",
