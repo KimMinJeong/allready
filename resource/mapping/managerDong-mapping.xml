@@ -17,12 +17,13 @@
    <delete id="deleteDong" parameterClass="java.lang.String">
    		DELETE
    		FROM MANAGER_DONG
-   		WHERE USER_ID = #user_id#
+   		WHERE USER_ID=#user_id#
    </delete>
    
    <select id="getManagerDong" resultMap="managerDong" parameterClass="java.lang.String">
    		SELECT *
    		FROM MANAGER_DONG
-   		WHERE USER_ID = #user_id#
+   		WHERE USER_ID=#user_id#
    </select>
+   
 </sqlMap>

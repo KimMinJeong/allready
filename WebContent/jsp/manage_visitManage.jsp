@@ -1,7 +1,8 @@
 <%@page import="kr.ac.apart.vo.Visit_RecordVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -10,64 +11,70 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet"
-   type="text/css">
+	type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
-<title>°ü¸®ÀÚ_¹æ¹®ÀÏÁö</title>
+<script
+	src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<title>ê´€ë¦¬ì_ë°©ë¬¸ì¼ì§€</title>
 </head>
 <body>
-   <div class="container">
-      <!-- main area -->
-      <!--  <div class=" col-xs-3 col-sm-9">-->
-         <div class="navbar-form navbar-center" role="search">
-            <div class="form-group">
-               <input type="text" class="form-control" placeholder="µ¿/È£¼ö" size="19" id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
-               <input type="text" class="form-control" placeholder="¹æ¹®ÀÚ ½ÅºĞ" size="19" id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
-               <input type="text" class="form-control inline" placeholder="¿ë¹«" size="48" id="business">&nbsp;
-               <button type="button" class="btn btn-default inline" id="addVisitorManagerButton">ÀÔ·Â</button>
-            </div>
-         </div>
-     <!-- </div>-->
-      <br> <br> <br>
+	<div class="container">
+		<!-- main area -->
+		<!--  <div class=" col-xs-3 col-sm-9">-->
+		<div class="navbar-form navbar-center" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="ë™/í˜¸ìˆ˜" size="19"
+					id="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; <input type="text"
+					class="form-control" placeholder="ë°©ë¬¸ì ì‹ ë¶„" size="19"
+					id="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; <input
+					type="text" class="form-control inline" placeholder="ìš©ë¬´" size="48"
+					id="business">&nbsp;
+				<button type="button" class="btn btn-default inline"
+					id="addVisitorManagerButton">ì…ë ¥</button>
+			</div>
+		</div>
+		<!-- </div>-->
+		<br> <br> <br>
 
-      <form class="navbar-form navbar-right" role="search">
-         <div class="form-group">
-            <input type="text" class="form-control" placeholder="¹æ¹®ÀÚ ½ÅºĞ" size="20%" align="center" name="user_id" id="searchUserId">
-         </div>
-         <button type="button" class="btn btn-default" id="searching">°Ë»ö</button>
-      </form>
-      <br> <br>
+		<form class="navbar-form navbar-right" role="search">
+			<div class="form-group">
+				<input type="text" class="form-control" placeholder="ë°©ë¬¸ì ì‹ ë¶„"
+					size="20%" align="center" name="user_id" id="searchUserId">
+			</div>
+			<button type="button" class="btn btn-default" id="searching">ê²€ìƒ‰</button>
+		</form>
+		<br> <br>
 
-      <div class="col-sm-12 col-xs-12">
-         <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-               <center>¼¼´ëÁÖ ¹æ¹®°´ ¸®½ºÆ®</center>
-            </div>
+		<div class="col-sm-12 col-xs-12">
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<center>ì„¸ëŒ€ì£¼ ë°©ë¬¸ê° ë¦¬ìŠ¤íŠ¸</center>
+				</div>
 
-            <!-- Table -->
-            <table class="table" id="visitorTable">
-               <thead>
-                  <tr>
-                     <th><center>µ¿/È£¼ö</center></th>
-                     <th><center>¹æ¹®ÀÚ½ÅºĞ</center></th>
-                     <th><center>¿ë¹«</center></th>
-                     <th><center>°íÁ¤/ÀÏ½Ã</center></th>
-                     <th><center>ÀÔ·Â</center></th>
-                  </tr>
-               </thead>
+				<!-- Table -->
+				<table class="table" id="visitorTable">
+					<thead>
+						<tr>
+							<th><center>ë™/í˜¸ìˆ˜</center></th>
+							<th><center>ë°©ë¬¸ìì‹ ë¶„</center></th>
+							<th><center>ìš©ë¬´</center></th>
+							<th><center>ê³ ì •/ì¼ì‹œ</center></th>
+							<th><center>ì…ë ¥</center></th>
+						</tr>
+					</thead>
 
-               <tbody id = "searchVisitor">
-               
-                  <%-- <%
-                     int i=0;    //¹öÆ°°ú td¸¶´Ù ´Ù¸¥ class¸íÀ» ÁÖ±âÀ§ÇØ +i¸¦ ÇØÁÙ ¿¹Á¤
+					<tbody id="searchVisitor">
+
+						<%-- <%
+                     int i=0;    //ë²„íŠ¼ê³¼ tdë§ˆë‹¤ ë‹¤ë¥¸ classëª…ì„ ì£¼ê¸°ìœ„í•´ +ië¥¼ í•´ì¤„ ì˜ˆì •
                         List<VisitorVO> visitorList = (List<VisitorVO>) request.getAttribute("VisitorManagerFlag");
                         if (visitorList != null) {
                            if (visitorList.size() == 0) {
                   %>
                   <tr>
-                     <td colspan="5"><center>ÀÏÄ¡ÇÏ´Â °Ë»ö°á°ú°¡ ¾ø½À´Ï´Ù.</center></td>
+                     <td colspan="5"><center>ì¼ì¹˜í•˜ëŠ” ê²€ìƒ‰ê²°ê³¼ê°€ ì—†ìŠµë‹ˆë‹¤.</center></td>
                   </tr>
                   <%
                   }
@@ -83,17 +90,17 @@
                      <%
                            if (vo.getFixed().equals("FIXED")) {
                      %>
-                     <td><center>°íÁ¤</center></td>
+                     <td><center>ê³ ì •</center></td>
                      <%
                            } else if (vo.getFixed().equals("UNFIXED")) {
                      %>
-                     <td><center>ÀÏ½Ã</center></td>
+                     <td><center>ì¼ì‹œ</center></td>
                      <%
                            }
                      %>
                      <td><center>
                            <button type="button"
-                              class="btn btn-default insertVisitButton[<%=i%>]">ÀÔ·Â</button>
+                              class="btn btn-default insertVisitButton[<%=i%>]">ì…ë ¥</button>
                         </center></td>
                   </tr>
                   <%
@@ -103,206 +110,261 @@
                          else if (visitorList == null) {
                   %>
                   <tr>
-                     <td colspan="5"><center>°Ë»ö¾î¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.</center></td>
+                     <td colspan="5"><center>ê²€ìƒ‰ì–´ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.</center></td>
                   </tr>
                   <%
                         }
                   %>
                </tbody> --%>
+				</table>
+			</div>
+			<br>
 
-            </table>
-         </div>
-         <br>
+			<!-- ë°©ë¬¸ ê¸°ë¡ ë¦¬ìŠ¤íŠ¸ í…Œì´ë¸” -->
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">
+					<center>ë°©ë¬¸ ê¸°ë¡ ë¦¬ìŠ¤íŠ¸</center>
+				</div>
 
-         <!-- ¹æ¹® ±â·Ï ¸®½ºÆ® Å×ÀÌºí -->
-         <div class="panel panel-default">
-            <!-- Default panel contents -->
-            <div class="panel-heading">
-               <center>¹æ¹® ±â·Ï ¸®½ºÆ®</center>
-            </div>
+				<!-- Table -->
+				<table class="table" id="visitRecordTable">
+					<tr>
+						<th><center>ë™/í˜¸ìˆ˜</center></th>
+						<th><center>ë°©ë¬¸ìì‹ ë¶„</center></th>
+						<th><center>ìš©ë¬´</center></th>
+						<th><center>ë‚ ì§œ</center></th>
+						<th><center>ìˆ˜ì •/ì‚­ì œ</center></th>
+					</tr>
+					<tr id="add">
+						<%
+							List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
+						                     List<VisitorVO> visitorListAll = (List<VisitorVO>)request.getAttribute("visitorList");
+						               
+						                  if(visitorListAll != null){
+						                  for(Visit_RecordVO vr : visitRecord){
+						                     for(VisitorVO v : visitorListAll ){
+						                        if(v.getVisitor_no() == vr.getVisitor_no()){
+						%>
+					
+					<tr>
+						<td><center><%=v.getUser_id()%></center></td>
+						<td><center><%=v.getVisitor_name()%></center></td>
+						<td><center><%=v.getBusiness()%></center></td>
+						<td><center><%=vr.getReg_date()%></center></td>
+						<td><center>
+								<button type="button" class="btn btn-default" id="#"
+									value="<%=vr.getVisit_record_no()%>">ìˆ˜ì •</button>
+								<button type="button" class="btn btn-default deleteVisitRecord"
+									value="<%=vr.getVisit_record_no()%>">ì‚­ì œ</button>
+							</center></td>
+					</tr>
+					<%
+						}}}}
+					%>
+				</table>
+			</div>
 
-            <!-- Table -->
-            <table class="table" id="visitRecordTable">
-               <tr>
-                  <th><center>µ¿/È£¼ö</center></th>
-                  <th><center>¹æ¹®ÀÚ½ÅºĞ</center></th>
-                  <th><center>¿ë¹«</center></th>
-                  <th><center>³¯Â¥</center></th>
-                  <th><center>¼öÁ¤/»èÁ¦</center></th>
-               </tr>
-               <tr id="add">
+			<div align="center">
+				<ul class="pagination">
+					<li><a href="#">&laquo;</a></li>
+					<li><a href="#">1</a></li>
+					<li><a href="#">2</a></li>
+					<li><a href="#">3</a></li>
+					<li><a href="#">4</a></li>
+					<li><a href="#">5</a></li>
+					<li><a href="#">&raquo;</a></li>
+				</ul>
+			</div>
+		</div>
+		<!-- /.col-xs-12 main -->
+	</div>
+	<!--/.row-->
+	</div>
+	<!--/.container-->
+	</div>
 
-                  <% 
-                  	 List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
-                     List<VisitorVO> visitorListAll = (List<VisitorVO>)request.getAttribute("visitorList");
-               
-                  if(visitorListAll != null){
-                  for(Visit_RecordVO vr : visitRecord){
-                     for(VisitorVO v : visitorListAll ){
-                        if(v.getVisitor_no() == vr.getVisitor_no()){%>
-               
-               <tr>
-                  <td><center><%=v.getUser_id() %></center></td>
-                  <td><center><%=v.getVisitor_name() %></center></td>
-                  <td><center><%=v.getBusiness() %></center></td>
-                  <td><center><%=vr.getReg_date() %></center></td>
-                  <td><center><button type="button" class="btn btn-default" id="#" value="<%=vr.getVisit_record_no()%>">¼öÁ¤</button>  <button type="button" class="btn btn-default deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">»èÁ¦</button></center></td>
-               </tr>
-               <%}}}} %>
-            </table>
-         </div>
-
-         <div align="center">
-            <ul class="pagination">
-               <li><a href="#">&laquo;</a></li>
-               <li><a href="#">1</a></li>
-               <li><a href="#">2</a></li>
-               <li><a href="#">3</a></li>
-               <li><a href="#">4</a></li>
-               <li><a href="#">5</a></li>
-               <li><a href="#">&raquo;</a></li>
-            </ul>
-         </div>
-      </div>
-      <!-- /.col-xs-12 main -->
-   </div>
-   <!--/.row-->
-   </div>
-   <!--/.container-->
-   </div>
-
-   <!--/.page-container-->
+	<!--/.page-container-->
 </body>
 
 <script type="text/javascript">
-   
-$("#addVisitorManagerButton").on('click',    //µ¿,È£¼ö , ÀÌ¸§, ¿ë¹« ÀÔ·Â ÈÄ Ãß°¡ ¹öÆ° Å¬¸¯½Ã
-         function() { //Á÷Á¢ ÀÔ·Â
-            $.ajax({
-               url : "addVisitorManager.do",
-               type : "get",
-               dataType : "json",
-               data : {
-                  user_id : $("#user_id").val(),
-                  visitor_name : $("#visitor_name").val(),
-                  business : $("#business").val()
-               },
-               contentType : "application/json; charset=utf-8",
-               success : function(data) {
-            	   alert("success");
-                  var reg = data.add2;
-                  $("#add").after(
-                        //append´Â ¼±ÅÃÀÚÀÇ ÀÚ½ÄÇÑÅ× ºÙ°í after´Â °°Àº ·¹º§ÀÇ ÇüÁ¦.
-                        "<tr><td><center>" + data.add.user_id
-                              + "</center></td><td><center>"
-                              + data.add.visitor_name
-                              + "</center></td><td><center>"
-                              + data.add.business
-                              + "</center></td><td><center>" + reg
-                              + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + '¼öÁ¤' + "</button>" + '  ' + "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>" + '»èÁ¦' + "</button></center></td></tr>");
-               },
-               error : function(e) {
-                  alert("error");
-         
-               }
+	$("#addVisitorManagerButton")
+			.on(
+					'click', //ë™,í˜¸ìˆ˜ , ì´ë¦„, ìš©ë¬´ ì…ë ¥ í›„ ì¶”ê°€ ë²„íŠ¼ í´ë¦­ì‹œ
+					function() { //ì§ì ‘ ì…ë ¥
+						$
+								.ajax({
+									url : "addVisitorManager.do",
+									type : "get",
+									dataType : "json",
+									data : {
+										user_id : $("#user_id").val(),
+										visitor_name : $("#visitor_name").val(),
+										business : $("#business").val()
+									},
+									contentType : "application/json; charset=utf-8",
+									success : function(data) {
+										alert("success");
+										var reg = data.add2;
+										$("#add")
+												.after(
+														//appendëŠ” ì„ íƒìì˜ ìì‹í•œí…Œ ë¶™ê³  afterëŠ” ê°™ì€ ë ˆë²¨ì˜ í˜•ì œ.
+														"<tr><td><center>"
+																+ data.add.user_id
+																+ "</center></td><td><center>"
+																+ data.add.visitor_name
+																+ "</center></td><td><center>"
+																+ data.add.business
+																+ "</center></td><td><center>"
+																+ reg
+																+ "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>"
+																+ 'ìˆ˜ì •'
+																+ "</button>"
+																+ '  '
+																+ "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>"
+																+ 'ì‚­ì œ'
+																+ "</button></center></td></tr>");
+									},
+									error : function(e) {
+										alert("error");
+									}
+								});
+					});
 
-            });
-         });
-         
-   var rowCount;  //µ¿ÀûÀ¸·Î »ı¼ºµÈ table row °¹¼ö ¼±¾ğ
+	var rowCount; //ë™ì ìœ¼ë¡œ ìƒì„±ëœ table row ê°¯ìˆ˜ ì„ ì–¸
 
-   $("#searching").on('click', function() {
-      $("#visitorTable tr:not(:first)").remove();   //Å×ÀÌºíÀÇ Ã¹Çà»©°í ¸ğµÎ »èÁ¦
-      $.ajax({
-         url : "getVisitor.do",
-         type : "get",
-         dataType : "json",
-         data : {
-            userId3 : $("#searchUserId").val(),
-         },
-         contentType : "application/json; charset=utf-8",
-         success : function(data) {
-         var content = "";      
-         var i=0;
-         rowCount = 0;
-            $.each(data.visitorListModel, function(key,visitor) {         
-                  i++;
-                  rowCount++;
-                  content += "<tr id='"+ rowCount +"' class='"+ visitor.visitor_no+ "'>";
-                  //content += "<td id='rowCount" + rowCount + "'><center>"+ rowCount + "</center></td>";
-                  content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
-                  content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
-                  content += "<td id='business" + i + "'><center>" +visitor.business + "</center></td>";
-                  if(visitor.fixed == "UNFIXED"){
-                     content += "<td id='fixed" + i + "'><center>" + 'ÀÏ½Ã' + "</center></td>";
-                  }
-                  else if(visitor.fixed == "FIXED"){
-                     content += "<td id='fixed" + i + "'><center>" + '°íÁ¤' + "</center></td>";
-                  }
-                  content += "<td><center><button type='button' class='btn btn-default' id='insertButton" + i + "' >" + 'ÀÔ·Â' + "</button></center></td></tr>";
-            });
-            $("#searchVisitor").append(content);
-         },
-         error:function(request,status,error){
-                alert("code:"+request.status+"\n"+"message:"+request.responseText+"\n"+"error:"+error);
-         }
-      });
-   });
+	$("#searching")
+			.on(
+					'click',
+					function() {
+						$("#visitorTable tr:not(:first)").remove(); //í…Œì´ë¸”ì˜ ì²«í–‰(ì—¬ê¸°ì„œëŠ” head)ë¹¼ê³  ëª¨ë‘ ì‚­ì œ
+						$
+								.ajax({
+									url : "getVisitor.do",
+									type : "get",
+									dataType : "json",
+									data : {
+										userId3 : $("#searchUserId").val(),
+									},
+									contentType : "application/json; charset=utf-8",
+									success : function(data) {
+										var content = "";
+										var i = 0;
+										rowCount = 0;
+										$
+												.each(
+														data.visitorListModel,
+														function(key, visitor) {
+															i++;
+															rowCount++;
+															content += "<tr id='"+ rowCount +"' class='"+ visitor.visitor_no+ "'>";
+															//content += "<td id='rowCount" + rowCount + "'><center>"+ rowCount + "</center></td>";
+															content += "<td id='userId" + i + "'><center>"
+																	+ visitor.user_id
+																	+ "</center></td>";
+															content += "<td id='visitorName" + i + "'><center>"
+																	+ visitor.visitor_name
+																	+ "</center></td>";
+															content += "<td id='business" + i + "'><center>"
+																	+ visitor.business
+																	+ "</center></td>";
+															if (visitor.fixed == "UNFIXED") {
+																content += "<td id='fixed" + i + "'><center>"
+																		+ 'ì¼ì‹œ'
+																		+ "</center></td>";
+															} else if (visitor.fixed == "FIXED") {
+																content += "<td id='fixed" + i + "'><center>"
+																		+ 'ê³ ì •'
+																		+ "</center></td>";
+															}
+															content += "<td><center><button type='button' class='btn btn-default' id='insertButton" + i + "' >"
+																	+ 'ì…ë ¥'
+																	+ "</button></center></td></tr>";
+														});
+										$("#searchVisitor").append(content);
+									},
+									error : function(request, status, error) {
+										alert("code:" + request.status + "\n"
+												+ "message:"
+												+ request.responseText + "\n"
+												+ "error:" + error);
+									}
+								});
+					});
 
-   for(var i=1; i<5; i++){
-   $(document).on('click','#insertButton'+i, function(){  //°Ë»öµÈ ¹æ¹®°´ ¹æ¹®°´¸®½ºÆ®¿¡ Ãß°¡
-      var trid=$(this).closest('tr').attr('id');    //Å¬¸¯ÇÑ Çà trÀÇ id
-      alert(typeof rowCount);
-      alert("trid : " + trid);
-       $.ajax({
-            url : "insertVisit.do",
-            type : "get",
-            dataType : "json",
-            data : {
-               insertUserNo : $(this).closest('tr').attr('class'),
-               insertUserId : $("#visitorTable #userId"+trid).text(),
-               insertVisitorName : $("#visitorTable #visitorName"+trid).text(),
-               insertBusiness :  $("#visitorTable #business"+trid).text()
-            },
-            contentType : "application/json; charset=utf-8",
-            success : function(data) {
-               alert("success");
-               $("#add").after(
-                     //append´Â ¼±ÅÃÀÚÀÇ ÀÚ½ÄÇÑÅ× ºÙ°í after´Â °°Àº ·¹º§ÀÇ ÇüÁ¦.
-                     "<tr><td><center>" + data.user_id
-                           + "</center></td><td><center>"
-                           + data.visitor_name
-                           + "</center></td><td><center>"
-                           + data.business
-                           + "</center></td><td><center>" + data.regdate
-                           + "</center></td><td><center><button type='button' class='btn btn-default' value='" + data.recordNo +"'>" + '¼öÁ¤' + "</button>" + '  ' + "<button type='button' class='btn btn-default deleteVisitRecord' value='" + data.recordNo +"'>" + '»èÁ¦' + "</button></center></td></tr>");    
-            },
-            error : function(e) {
-               alert(e.responseText);
-            }
-         }); 
-   });
-   }
+	for ( var i = 1; i < 5; i++) {
+		$(document)
+				.on(
+						'click',
+						'#insertButton' + i,
+						function() { //ê²€ìƒ‰ëœ ë°©ë¬¸ê° ë°©ë¬¸ê°ë¦¬ìŠ¤íŠ¸ì— ì¶”ê°€
+							var trid = $(this).closest('tr').attr('id'); //í´ë¦­í•œ í–‰ trì˜ id
+							$
+									.ajax({
+										url : "insertVisit.do",
+										type : "get",
+										dataType : "json",
+										data : {
+											insertUserNo : $(this)
+													.closest('tr')
+													.attr('class'),
+											insertUserId : $(
+													"#visitorTable #userId"
+															+ trid).text(),
+											insertVisitorName : $(
+													"#visitorTable #visitorName"
+															+ trid).text(),
+											insertBusiness : $(
+													"#visitorTable #business"
+															+ trid).text()
+										},
+										contentType : "application/json; charset=utf-8",
+										success : function(data) {
+											alert("success");
+											$("#add")
+													.after(
+															//appendëŠ” ì„ íƒìì˜ ìì‹í•œí…Œ ë¶™ê³  afterëŠ” ê°™ì€ ë ˆë²¨ì˜ í˜•ì œ.
+															"<tr><td><center>"
+																	+ data.user_id
+																	+ "</center></td><td><center>"
+																	+ data.visitor_name
+																	+ "</center></td><td><center>"
+																	+ data.business
+																	+ "</center></td><td><center>"
+																	+ data.regdate
+																	+ "</center></td><td><center><button type='button' class='btn btn-default' value='" + data.recordNo +"'>"
+																	+ 'ìˆ˜ì •'
+																	+ "</button>"
+																	+ '  '
+																	+ "<button type='button' class='btn btn-default deleteVisitRecord' value='" + data.recordNo +"'>"
+																	+ 'ì‚­ì œ'
+																	+ "</button></center></td></tr>");
+										},
+										error : function(e) {
+											alert(e.responseText);
+										}
+									});
+						});
+	}
 
-   $(document).on('click','.deleteVisitRecord', function(){         //»èÁ¦¹öÆ° Å¬¸¯½Ã
-            alert($(this).closest('button').attr('value'));
-            var clickedRow = $(this).closest('tr');              //Å¬¸¯ÇÑ tr °¡Á®¿À±â
-             $.ajax({
-                  url : "deleteVisitRecord.do",
-                  type : "get",
-                  dataType : "json",
-                  data : {
-                     visitRecordNo : $(this).closest('button').attr('value'),
-                  },
-                  contentType : "application/json; charset=utf-8",
-                  success : function(data) {
-                     alert("success!");
-                     clickedRow.remove();
-                  },
-                  error : function(e) {
-                     alert("error!");
-                  }
-             });
-   });
+	$(document).on('click', '.deleteVisitRecord', function() { //ì‚­ì œë²„íŠ¼ í´ë¦­ì‹œ
+		var clickedRow = $(this).closest('tr'); //í´ë¦­í•œ tr ê°€ì ¸ì˜¤ê¸°
+		$.ajax({
+			url : "deleteVisitRecord.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				visitRecordNo : $(this).closest('button').attr('value'),
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				alert("success!");
+				clickedRow.remove();
+			},
+			error : function(e) {
+				alert("error!");
+			}
+		});
+	});
 </script>
 </html>
