@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import processing.core.PApplet;
 
+@SuppressWarnings("serial")
 @Service("frame")
 public class ParkingImpl extends Frame implements Parking{
 	     public void check(){
