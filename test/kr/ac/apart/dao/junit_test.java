@@ -47,7 +47,7 @@ public class junit_test {
 	@Test
 	public void getSectionCount(){
 		ParkingVO parking=new ParkingVO();
-		parking.setFloor("B1 ");
+		parking.setFloor("B1");
 		parking.setSection("A ");
 		int sectionCount=parkingDao.getSectionCount(parking);
 		System.out.println("sectionCount="+sectionCount);
