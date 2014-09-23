@@ -1,5 +1,5 @@
 <%@page import="kr.ac.apart.vo.Visit_RecordVO"%>
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>

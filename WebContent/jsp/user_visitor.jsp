@@ -1,4 +1,4 @@
-<%@page import="java.util.List"%>
+<%@page import="java.util.*"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"

@@ -9,7 +9,7 @@
       <result property="express_id" column="EXPRESS_ID"/>
       <result property="user_id" column="USER_ID"  />
       <result property="orderer" column="ORDERER" />
-      <result property="receiver" column="RECEIVER" nullValue=""/>
+      <result property="receiver" column="RECEIVER" nullValue="NO"/>
       <result property="express_company" column="EXPRESS_COMPANY" nullValue=""/>
       <result property="checked" column="CHECKED" nullValue=""/>
       <result property="reg_date" column="REG_DATE" />
@@ -17,17 +17,15 @@
    
 	<insert id="addExpress" parameterClass="express">
 		INSERT INTO EXPRESS(EXPRESS_ID,USER_ID,ORDERER,EXPRESS_COMPANY,REG_DATE)
-		VALUES(seq_express_no.nextval, #user_id#, #orderer#, #express_company#, sysdate)
-	
+		VALUES(seq_express_no.nextval, #user_id#, #orderer#, #express_company#, sysdate)	
 	</insert>
 	
 	<select id="getExpress" resultClass="express">
 		SELECT *
 		FROM EXPRESS
-	
 	</select>
 	
-	<select id="getExpressOne" resultMap="expressMap" parameterClass="java.lang.Integer">
+	<select id="getExpressOne" resultClass="express" parameterClass="java.lang.Integer">
 		SELECT *
 		FROM EXPRESS
 		WHERE EXPRESS_ID = #express_id#
@@ -35,11 +33,7 @@
 	
 	<update id="updateExpress"  parameterClass="express">
 		UPDATE EXPRESS SET RECEIVER=#receiver# 
-		WHERE EXPRESS_ID = #express_id#
-	
+		WHERE EXPRESS_ID = #express_id#	
 	</update>
-
-  
-
 
 </sqlMap>
