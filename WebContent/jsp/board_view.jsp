@@ -2,7 +2,7 @@
 <%@page import="kr.ac.apart.vo.CommentsVO"%>
 <%@page import="java.util.*"%>
 <%@page import="kr.ac.apart.vo.BoardVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
+<%@page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -18,6 +18,7 @@
 	UserVO vo2 = (UserVO)session.getAttribute("UserFlag");
 %>
 </head>
+
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
@@ -26,9 +27,9 @@
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<font size="4">
 					<ul class="nav">
-						<li><a href="noticeBoard.do">°øÁö»çÇ× °Ô½ÃÆÇ</a></li>
-						<li><a href="complainBoard.do">¹Î¿ø °Ô½ÃÆÇ</a></li>
-						<li><a href="freeBoard.do">ÀÚÀ¯ °Ô½ÃÆÇ</a></li>
+						<li><a href="noticeBoard.do">ê³µì§€ì‚¬í•­ ê²Œì‹œíŒ</a></li>
+						<li><a href="complainBoard.do">ë¯¼ì› ê²Œì‹œíŒ</a></li>
+						<li><a href="freeBoard.do">ììœ  ê²Œì‹œíŒ</a></li>
 					</ul>
 				</font>
 			</div>
@@ -42,10 +43,11 @@
 				<%if(vo2.getUser_id().equals(vo.getWriter_id())) {%>
 				<div align="right">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">¼öÁ¤</a>
+						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">ìˆ˜ì •</a>
 					</button>
+					
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">»èÁ¦</a>
+						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">ì‚­ì œ</a>
 					</button>
 				</div>
 				<%} %>
@@ -73,20 +75,19 @@
 					<div class=" col-xs-3 col-sm-9">
 						<div class="navbar-form navbar-center" role="search">
 							<div class="form-group">
-								<input type="hidden" class="form-control" placeholder="°Ô½ÃÆÇ³Ñ¹ö" size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; 
-								<input type="text" class="form-control" placeholder="ÀÛ¼ºÀÌ" size="5" id="writer_id" value="<%=vo2.getUser_id()%>"> 
-								<input type="text" class="form-control inline" placeholder="´ñ±ÛÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä." size="80" id="contents">
-								<button type="button" class="btn btn-default inline" id="addComments" value=<%=vo.getBoard_no() %>>ÀÔ·Â</button>
-								<br><br>
+								<input type="hidden" class="form-control" placeholder="ê²Œì‹œíŒë„˜ë²„" size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; 
+								<input type="text" class="form-control" placeholder="ì‘ì„±ì´" size="5" id="writer_id" value="<%=vo2.getUser_id()%>"> 
+								<input type="text" class="form-control inline" placeholder="ëŒ“ê¸€ì„ ì…ë ¥í•´ì£¼ì„¸ìš”." size="80" id="contents">
+								<button type="button" class="btn btn-default inline" id="addComments" value=<%=vo.getBoard_no() %>>ì…ë ¥</button> <br><br>
 								
 								<!-- Table -->
 								<div>
 									<table class="table" id="visitRecordTable">
 										<tr>
-											<th><center>ÀÛ¼ºÀÌ</center></th>
-											<th><center>´ñ±Û</center></th>
-											<th><center>³¯Â¥</center></th>
-											<th><center>¼öÁ¤/»èÁ¦</center></th>
+											<th><center>ì‘ì„±ì´</center></th>
+											<th><center>ëŒ“ê¸€</center></th>
+											<th><center>ë‚ ì§œ</center></th>
+											<th><center>ìˆ˜ì •/ì‚­ì œ</center></th>
 										</tr>
 										<tr id="commentsTable">
 											<%
@@ -106,7 +107,7 @@
 												if(vo2.getUser_id().equals(vc.getWriter_id())) {
 											%>
 												<center>
-													<button type="button" class="btn btn-default deleteComments" value="<%=vc.getComments_no()%>">»èÁ¦</button>
+													<button type="button" class="btn btn-default deleteComments" value="<%=vc.getComments_no()%>">ì‚­ì œ</button>
 												</center> <%} %>
 											</td>
 										</tr>
@@ -141,8 +142,8 @@ $("#addComments").click(function() {
            	    $("#commentsTable").after(
            			"<tr><td><center>" + data.writerId + "</center></td><td><center>" 
            			+ data.contents + "</center></td><td><center>"
-           			/* + data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + '¼öÁ¤' + "</button></center></td></tr>" */
-           			+ data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default deleteComments'  value='" + data.maxCommentNo +"'>" + '»èÁ¦' + "</button></center></td></tr>"
+           			/* + data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + 'ìˆ˜ì •' + "</button></center></td></tr>" */
+           			+ data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default deleteComments'  value='" + data.maxCommentNo +"'>" + 'ì‚­ì œ' + "</button></center></td></tr>"
            	   ); 
 
               },
@@ -154,8 +155,8 @@ $("#addComments").click(function() {
            }); 
         });  
      
-$(document).on('click','.deleteComments', function(){         //»èÁ¦¹öÆ° Å¬¸¯½Ã
-    var clickedRow = $(this).closest('tr');              //Å¬¸¯ÇÑ tr °¡Á®¿À±â
+$(document).on('click','.deleteComments', function(){         //ì‚­ì œë²„íŠ¼ í´ë¦­ì‹œ
+    var clickedRow = $(this).closest('tr');              //í´ë¦­í•œ tr ê°€ì ¸ì˜¤ê¸°
       $.ajax({
           url : "deleteComments.do",
           type : "get",

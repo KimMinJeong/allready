@@ -1,6 +1,5 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE>
 <html >
 <head>
@@ -20,7 +19,7 @@
 </head>
 
 <body>
-	<%
+<%
    UserVO vo = (UserVO)session.getAttribute("UserFlag");
 %>
 	<div class="container">
@@ -29,8 +28,9 @@
 				<font size="4">
 					<div class="tabbable">
 						<ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
-							<%if(vo.getRole().equals("NORMAL")) {%>
-							<!-- 로그인 사용자가 normal -->
+							<%
+								if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
+							%> 
 							<li><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
 							<li><a href="user_parking.do">주차장</a></li>
@@ -39,9 +39,9 @@
 							<li><a href="user_visitor.do">방문객</a></li>
 							<li><a href="#settings">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
-							<%}
-                     else if(vo.getRole().equals("MANAGER")) {%>
-							<!-- 로그인 사용자가 manager -->
+							<%
+								} else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
+							%>
 							<li class="test active"><a href="main.do">Home</a></li>
 							<li class="test"><a href="cctv_client.do">CCTV</a></li>
 							<li class="test"><a href="user_parking.do">주차장</a></li>
@@ -50,7 +50,9 @@
 							<li class="test"><a href="user_tax.do">전체관리세</a></li>
 							<li class="test"><a href="expressList.do">택배관리</a></li>
 							<li class="test"><a href="manage_detail.do">설정</a></li>
-							<%}%>
+							<%
+								}
+							%>
 						</ul>
 				</font>
 			</h3>

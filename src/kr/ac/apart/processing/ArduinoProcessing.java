@@ -13,7 +13,9 @@ public class ArduinoProcessing extends PApplet{
 	public void setup()
 	{
 	  System.out.println("setup start!");
+	  
 	  String portName = Serial.list()[0];
+	  
 	  myPort = new Serial(this, portName, 8088);
 	}
 	

@@ -1,4 +1,5 @@
 package kr.ac.apart.serviceImpl;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,6 +37,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public void addVisitormanagerOnly(){
+	   
       visitorDao.addVisitorManager();  
    }
    
@@ -77,6 +79,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public void updateVisitor(String no){
+	   
       visitorDao.updateVisitor(no);
    }
    
