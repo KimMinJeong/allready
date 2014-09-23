@@ -16,7 +16,8 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar"
+				role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="#">입구</a></li>
 					<li><a href="#">놀이터</a></li>
@@ -24,7 +25,7 @@
 					<li><a href="#">후문</a></li>
 				</ul>
 			</div>
-			
+
 			<!--  <ul class="nav nav-pills nav-stacked" style="max-width: 260px;">
 			<li class="active"><a href="#"> 입구 </a></li>
 			<li><a href="#">놀이터</a></li>
@@ -34,17 +35,19 @@
 			<div class="col-xs-12 col-sm-8">
 				<br>
 				<div class="table-responsive">
-					<iframe src="http://localhost:8000/" scrolling="no" width="400" height="300"></iframe>
+					<iframe src="http://localhost:8000/" scrolling="no" width="400"
+						height="300"></iframe>
 					<table class="table table-striped" border="2">
 						<tr height="250px">
-							<td width="50%">
-							</td>
-							<td width="50%"><span class="glyphicon glyphicon-facetime-video"></span> 놀이터</td>
+							<td width="50%"></td>
+							<td width="50%"><span
+								class="glyphicon glyphicon-facetime-video"></span> 놀이터</td>
 						</tr>
 						<tr height="250px">
 							<td width="50%"><span
 								class="glyphicon glyphicon-facetime-video"></span>정문</td>
-							<td width="50%"><span class="glyphicon glyphicon-facetime-video"></span>후문</td>
+							<td width="50%"><span
+								class="glyphicon glyphicon-facetime-video"></span>후문</td>
 						</tr>
 					</table>
 				</div>
