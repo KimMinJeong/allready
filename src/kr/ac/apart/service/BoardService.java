@@ -1,7 +1,7 @@
 package kr.ac.apart.service;
 
-import java.util.List;
 
+import java.util.List;
 import kr.ac.apart.vo.BoardVO;
 
 public interface BoardService {

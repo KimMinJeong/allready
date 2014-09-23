@@ -1,13 +1,12 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+
 <!DOCTYPE>
-<html lang="en">
+<html >
 <head>
-<meta charset="utf-8">
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="static/css/bootstrap.min.css" rel="stylesheet"
-	media="screen">
+<link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
@@ -33,9 +32,9 @@
 							<%if(vo.getRole().equals("NORMAL")) {%>
 							<!-- 로그인 사용자가 normal -->
 							<li><a href="main.do">Home</a></li>
-							<li><a href="#profile">CCTV</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
 							<li><a href="user_parking.do">주차장</a></li>
-							<li><a href="#settings">관리세</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
 							<li><a href="#settings">소통의 장</a></li>
@@ -44,11 +43,11 @@
                      else if(vo.getRole().equals("MANAGER")) {%>
 							<!-- 로그인 사용자가 manager -->
 							<li class="test active"><a href="main.do">Home</a></li>
-							<li class="test"><a href="#profile">CCTV</a></li>
+							<li class="test"><a href="cctv_client.do">CCTV</a></li>
 							<li class="test"><a href="user_parking.do">주차장</a></li>
 							<li class="test"><a href="noticeBoard.do">게시판</a></li>
 							<li class="test"><a href="manage_visitor.do">방문일지</a></li>
-							<li class="test"><a href="#settings">전체관리세</a></li>
+							<li class="test"><a href="user_tax.do">전체관리세</a></li>
 							<li class="test"><a href="expressList.do">택배관리</a></li>
 							<li class="test"><a href="manage_detail.do">설정</a></li>
 							<%}%>

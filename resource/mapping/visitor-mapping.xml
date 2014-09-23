@@ -51,5 +51,4 @@
          WHERE VISITOR_NO = #visitor_no#
       ]]>
    </update>
-   
 </sqlMap>
