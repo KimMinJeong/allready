@@ -80,7 +80,15 @@
 						</tr>
 						<%}else{%>
 						<tr>
-							<td colspan="4"><center>비밀글 입니다^3^</center></td>
+							<td><%=vo.getBoard_no() %></td>
+							<td>비밀글 입니다^3^</td>
+							<%if("ANONYMOUS".equals(anonymous)){%>
+							<td>익명</td>
+							<%}else{ %>
+							<td><%=vo.getWriter_id() %></td>
+							<%}%>
+							<td><%=vo.getReg_date() %></td>
+					
 						</tr>
 						<%
 							}
