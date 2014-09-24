@@ -1,5 +1,5 @@
 <%@page import="kr.ac.apart.vo.Visit_RecordVO"%>
-<%@page import="java.util.*"%>
+<%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -59,13 +59,12 @@
 					</thead>
 
 					<tbody id="searchVisitor">
-					
+
 				</table>
 			</div> <br>
 
 			<!-- 방문 기록 리스트 테이블 -->
 			<div class="panel panel-default">
-			
 				<!-- Default panel contents -->
 				<div class="panel-heading">
 					<center>방문 기록 리스트</center>
@@ -80,32 +79,29 @@
 						<th><center>날짜</center></th>
 						<th><center>수정/삭제</center></th>
 					</tr>
-					
 					<tr id="add">
 						<%
-							List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>) request.getAttribute("visitRecord"); 
-						    List<VisitorVO> visitorListAll = (List<VisitorVO>) request.getAttribute("visitorList");
+							List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
+						    List<VisitorVO> visitorListAll = (List<VisitorVO>)request.getAttribute("visitorList");
 						               
 						    if(visitorListAll != null){
 						    	for(Visit_RecordVO vr : visitRecord){
 						        	for(VisitorVO v : visitorListAll ){
 						            	if(v.getVisitor_no() == vr.getVisitor_no()){
-						%>	
+						%>
 					<tr>
 						<td><center><%=v.getUser_id()%></center></td>
 						<td><center><%=v.getVisitor_name()%></center></td>
 						<td><center><%=v.getBusiness()%></center></td>
 						<td><center><%=vr.getReg_date()%></center></td>
 						<td><center>
-						<button type="button" class="btn btn-default" id="#" value="<%=vr.getVisit_record_no()%>">수정</button>
-						<button type="button" class="btn btn-default deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button>
-						</center></td>
+								<button type="button" class="btn btn-default" id="#" value="<%=vr.getVisit_record_no()%>">수정</button>
+								<button type="button" class="btn btn-default deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button>
+							</center>
+						</td>
 					</tr>
 					<%
-						}
-								}
-							}
-						}
+						}}}}
 					%>
 				</table>
 			</div>
@@ -128,11 +124,13 @@
 	</div>
 	<!--/.container-->
 	</div>
+
 	<!--/.page-container-->
 </body>
 
 <script type="text/javascript">
-	$("#addVisitorManagerButton").on('click', function(){ ///동,호수 , 이름, 용무 입력 후 추가 버튼 클릭시 직접 입력
+	$("#addVisitorManagerButton").on('click', //동,호수 , 이름, 용무 입력 후 추가 버튼 클릭시
+		function() { //직접 입력
 		$.ajax({
 			url : "addVisitorManager.do",
 			type : "get",
@@ -143,101 +141,115 @@
 				business : $("#business").val()
 			},
 			contentType : "application/json; charset=utf-8",
-			success : function(data){
+			success : function(data) {
 				alert("success");
-				var reg = data.add2;
 				
+				var reg = data.add2;
 				$("#add").after(//append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
-						"<tr><td><center>" 
-						+ data.add.user_id + "</center></td><td><center>" 
-						+ data.add.visitor_name + "</center></td><td><center>" 
-						+ data.add.business + "</center></td><td><center>"
-						+ reg + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + '수정' + "</button>"
-						+ '  ' + "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>" + '삭제' + "</button></center></td></tr>");
+					"<tr><td><center>"
+					+ data.add.user_id
+					+ "</center></td><td><center>"
+					+ data.add.visitor_name
+					+ "</center></td><td><center>"
+					+ data.add.business
+					+ "</center></td><td><center>"
+					+ reg
+					+ "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>"
+					+ '수정'
+					+ "</button>"
+					+ '  '
+					+ "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>"
+					+ '삭제'
+					+ "</button></center></td></tr>");
 			},
-			error : function(e){
+			error : function(e) {
 				alert("error");
 			}
+		});
 	});
 
 	var rowCount; //동적으로 생성된 table row 갯수 선언
 
-	$("#searching").on('click', function(){
+	$("#searching").on('click', function() {
 		$("#visitorTable tr:not(:first)").remove(); //테이블의 첫행(여기서는 head)빼고 모두 삭제
-			$.ajax({
-				url : "getVisitor.do",
-				type : "get",
-				dataType : "json",
-				data : {
-					userId3 : $("#searchUserId").val(),
-				},
-				contentType : "application/json; charset=utf-8",
-				success : function(data){
-					var content = "";
-					var i = 0;
-					rowCount = 0;
+		$.ajax({
+			url : "getVisitor.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				userId3 : $("#searchUserId").val(),
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				var content = "";
+				var i = 0;
+				rowCount = 0;
+				$.each(data.visitorListModel, function(key, visitor) {
+					i++;
+					rowCount++;
+					content += "<tr id='"+ rowCount +"' class='"+ visitor.visitor_no+ "'>";
+					//content += "<td id='rowCount" + rowCount + "'><center>"+ rowCount + "</center></td>";
+					content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
+					content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
+					content += "<td id='business" + i + "'><center>" + visitor.business + "</center></td>";
 					
-					$.each(data.visitorListModel, function(key, visitor){
-						i++;
-						rowCount++;
-						content += "<tr id='"+ rowCount +"' class='"+ visitor.visitor_no+ "'>";
-						//content += "<td id='rowCount" + rowCount + "'><center>"+ rowCount + "</center></td>";
-						content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
-						content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
-						content += "<td id='business" + i + "'><center>"+ visitor.business + "</center></td>";
-						
-						if (visitor.fixed == "UNFIXED"){
-							content += "<td id='fixed" + i + "'><center>" + '일시' + "</center></td>";
-						} else if (visitor.fixed == "FIXED"){
-							content += "<td id='fixed" + i + "'><center>"+ '고정' + "</center></td>";
-						}
-						
-						content += "<td><center><button type='button' class='btn btn-default' id='insertButton" + i + "' >" + '입력' + "</button></center></td></tr>";
-					});
-					
-					$("#searchVisitor").append(content);
-				},
-				error : function(request, status, error){
-					alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
-				}
-			});
+					if (visitor.fixed == "UNFIXED") {
+						content += "<td id='fixed" + i + "'><center>" + '일시' + "</center></td>";
+					} else if (visitor.fixed == "FIXED") {
+						content += "<td id='fixed" + i + "'><center>" + '고정' + "</center></td>";
+					}
+					content += "<td><center><button type='button' class='btn btn-default' id='insertButton" + i + "' >" + '입력' + "</button></center></td></tr>";
+				});
+				$("#searchVisitor").append(content);
+			},
+			error : function(request, status, error) {
+				alert("code:" + request.status + "\n" + "message:" + request.responseText + "\n" + "error:" + error);
+			}
+		});
 	});
 
-	for ( var i = 1; i < 5; i++){
+	for ( var i = 1; i < 10; i++) {
 		$(document).on('click', '#insertButton' + i, function() { //검색된 방문객 방문객리스트에 추가
 			var trid = $(this).closest('tr').attr('id'); //클릭한 행 tr의 id
-			
 			$.ajax({
 				url : "insertVisit.do",
 				type : "get",
 				dataType : "json",
 				data : {
 					insertUserNo : $(this).closest('tr').attr('class'),
-					insertUserId : $("#visitorTable #userId" + trid).text(),
+					insertUserId : $("#visitorTable #userId"+ trid).text(),
 					insertVisitorName : $("#visitorTable #visitorName" + trid).text(),
 					insertBusiness : $("#visitorTable #business" + trid).text()
 				},
 				contentType : "application/json; charset=utf-8",
-				success : function(data){
+				success : function(data) {
 					alert("success");
-					$("#add").after(     //append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
+					$("#add").after(  //append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
 						"<tr><td><center>"
-						+ data.user_id + "</center></td><td><center>"
-						+ data.visitor_name + "</center></td><td><center>"
-						+ data.business + "</center></td><td><center>"
-						+ data.regdate + "</center></td><td><center><button type='button' class='btn btn-default' value='" + data.recordNo +"'>" + '수정' + "</button>"
-						+ '  ' + "<button type='button' class='btn btn-default deleteVisitRecord' value='" + data.recordNo +"'>" + '삭제' + "</button></center></td></tr>");
+						+ data.user_id
+						+ "</center></td><td><center>"
+						+ data.visitor_name
+						+ "</center></td><td><center>"
+						+ data.business
+						+ "</center></td><td><center>"
+						+ data.regdate
+						+ "</center></td><td><center><button type='button' class='btn btn-default' value='" + data.recordNo +"'>"
+						+ '수정'
+						+ "</button>"
+						+ '  '
+						+ "<button type='button' class='btn btn-default deleteVisitRecord' value='" + data.recordNo +"'>"
+						+ '삭제'
+						+ "</button></center></td></tr>");
 				},
-				error : function(e){
+				error : function(e) {
 					alert(e.responseText);
 				}
 			});
 		});
 	}
 
-	$(document).on('click', '.deleteVisitRecord', function(){ //삭제버튼 클릭시
+	$(document).on('click', '.deleteVisitRecord', function() { //삭제버튼 클릭시
 		var clickedRow = $(this).closest('tr'); //클릭한 tr 가져오기
-		
 		$.ajax({
 			url : "deleteVisitRecord.do",
 			type : "get",
@@ -248,7 +260,6 @@
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				alert("success!");
-				
 				clickedRow.remove();
 			},
 			error : function(e) {
