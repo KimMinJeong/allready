@@ -31,4 +31,8 @@
 }
 #table1 #table2 tr > td{
 }
-
+.cctv_frame{
+	width :400px;
+	height :300px;
+	display: inline;
+}
