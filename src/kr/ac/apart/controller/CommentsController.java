@@ -32,7 +32,8 @@ public class CommentsController{
         return obj.toString();
     }
     
-    @RequestMapping(value="/deleteComments.do") public @ResponseBody String deleteComments(int commentsNo){
+    @RequestMapping(value="/deleteComments.do") 
+    public @ResponseBody String deleteComments(int commentsNo){
         System.out.println("deleteComments.do start!");
 
         commentsService.deleteComments(commentsNo);

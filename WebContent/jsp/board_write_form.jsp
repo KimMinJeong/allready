@@ -1,6 +1,6 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.BoardVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -14,9 +14,11 @@
 	UserVO LoginInfo = (UserVO) session.getAttribute("UserFlag");
 %>
 </head>
+
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
+		
 			<!-- sidebar -->
 			<div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<font size="4">
@@ -29,35 +31,36 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-sm-9">
-				<br>
+			<div class="col-sm-9"> <br>
 				<form action="boardAdd.do">
 					<select name="category">
 						<%
-							if ("MANAGER".equals(LoginInfo.getRole())) {
+							if ("MANAGER".equals(LoginInfo.getRole())){
 						%>
 							<option name="notice" value="notice">공지사항</option>
 						<%
-							} else if ("NORMAL".equals(LoginInfo.getRole())) {
+							} else if ("NORMAL".equals(LoginInfo.getRole())){
 						%>
 							<option name="complain" value="complain">민원</option>
 							<option name="free" value="free">자유</option>
 						<%
 							}
 						%>
-					</select> 
+					</select>
+					 
 					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br><br> 
 					<input type="text" class="form-control title" name="title"> <br>
-					<textarea rows="20" cols="135" name="contents">
-					</textarea>
-					<br><br> 
+					<textarea rows="20" cols="135" name="contents"> </textarea> <br><br> 
+					
 					<input type="file" class="file" /> <br>
 
 					<div class="col-md-3 col-md-offset-9 ">
 						<input type="checkbox" name="anonymous" class="checkbox inline" value="ANONYMOUS" /> 
 						<span class="text inline">익명</span> 
+						
 						<input type="checkbox" name="closed" class="checkbox inline" value="CLOSED" /> 
 						<span class="text inline">비밀글</span>
+						
 						<button type="submit" class="btn btn-default inline">등록</button>
 				</form>
 			</div>

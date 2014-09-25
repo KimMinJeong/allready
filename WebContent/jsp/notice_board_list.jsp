@@ -14,6 +14,7 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>공지사항</title>
 </head>
+
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
@@ -27,17 +28,20 @@
 						<li><a href="freeBoard.do">자유 게시판</a></li>
 					</ul>
 				</font>
-			</div>
+			</div> <br><br>
 			<%
 				UserVO userVO = (UserVO) session.getAttribute("UserFlag");
 			%>
+			
 			<!-- main area -->
-			<br><br>
-
 			<div align="right">
-				<%if("MANAGER".equals(userVO.getRole())){ %>
+				<%
+					if ("MANAGER".equals(userVO.getRole())){
+				%>
 				<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
-				<%} %>
+				<%
+					}
+				%>
 			</div>
 
 			<div class="col-xs-12 col-sm-9">
@@ -69,8 +73,7 @@
 						<% if(user_id.getUser_id().equals(vo.getWriter_id())){ %>
 						<tr>
 							<td><%=vo.getBoard_no() %></td>
-							<td><span class="glyphicon glyphicon-lock"></span><a
-								href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
+							<td><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
 							<%if("ANONYMOUS".equals(anonymous)){%>
 							<td>익명</td>
 							<%}else{ %>

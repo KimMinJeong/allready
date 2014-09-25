@@ -44,6 +44,7 @@ public class CommentsServiceImpl implements CommentsService {
 	
 	@Override
 	public void deleteComments(int commentsNo){
+		
 		commentsDao.deleteComments(commentsNo);
 	}
 	

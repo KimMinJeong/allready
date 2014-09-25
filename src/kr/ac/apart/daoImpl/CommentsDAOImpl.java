@@ -34,5 +34,4 @@ public class CommentsDAOImpl implements CommentsDAO{
 	public List<CommentsVO> getComments(int board_no){
 		return (List<CommentsVO>) sqlMapClientTemplate.queryForList("getComments", board_no);
 	}
-
 }
