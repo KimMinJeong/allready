@@ -9,17 +9,19 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.orm.ibatis.SqlMapClientTemplate;
 import org.springframework.stereotype.Repository;
 
-@Repository("boardDao") public class BoardDAOImpl implements BoardDAO {
+@Repository("boardDao") 
+public class BoardDAOImpl implements BoardDAO {
+	
     @Autowired 
     private SqlMapClientTemplate sqlMapClientTemplate;
 
     @Override 
-    public void add(BoardVO vo) {
+    public void add(BoardVO vo){
         sqlMapClientTemplate.insert("BoardAdd",vo);
     }
     
     @Override 
-    public List<BoardVO> BoardList(String category) {
+    public List<BoardVO> BoardList(String category){
         return (List<BoardVO>)sqlMapClientTemplate.queryForList("BoardList", category);
     }
     
@@ -34,24 +36,24 @@ import org.springframework.stereotype.Repository;
     }
     
     @Override 
-    public void updateBoard(BoardVO vo) {
+    public void updateBoard(BoardVO vo){
         sqlMapClientTemplate.update("boardUpdate", vo);
     }
     
     @Override 
-    public List<BoardVO> searchBoard(BoardVO search) {
-        List<BoardVO> list=sqlMapClientTemplate.queryForList("searchBoard", search);
+    public List<BoardVO> searchBoard(BoardVO search){
+        List<BoardVO> list = sqlMapClientTemplate.queryForList("searchBoard", search);
+        
         return list;
     }
     
     @Override 
-    public void addGood(int board_no) {
+    public void addGood(int board_no){
         sqlMapClientTemplate.update("addGood", board_no);
     }
     
     @Override 
-    public void addBad(int board_no) {
+    public void addBad(int board_no){
         sqlMapClientTemplate.update("addBad", board_no);
     }
-    
 }

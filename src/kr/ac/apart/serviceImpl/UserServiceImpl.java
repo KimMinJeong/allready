@@ -13,12 +13,14 @@ import org.springframework.stereotype.Service;
 
 @Service("userService")
 public class UserServiceImpl implements UserService{
+	
 	@Autowired
 	private UserDAO userDao;
 	
-	public UserVO getUser(String userId,String password){
-		UserVO user=userDao.getUser(userId);
-		String pwd=user.getPassword();
+	public UserVO getUser(String userId, String password){
+		UserVO user = userDao.getUser(userId);
+		String pwd = user.getPassword();
+		
 		if(password.equals(pwd)){
 			return user;
 		}

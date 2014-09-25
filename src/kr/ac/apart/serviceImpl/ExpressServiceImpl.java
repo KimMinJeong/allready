@@ -16,7 +16,7 @@ public class ExpressServiceImpl implements ExpressService {
     private ExpressDAO expressDAO;
 
     @Override 
-    public ExpressVO addExpress(String user_id, String orderer, String express_company) {
+    public ExpressVO addExpress(String user_id, String orderer, String express_company){
         ExpressVO vo = new ExpressVO();
     
         vo.setUser_id(user_id);
@@ -24,23 +24,28 @@ public class ExpressServiceImpl implements ExpressService {
         vo.setExpress_company(express_company);
         
         expressDAO.addExpress(vo);
+        
         return vo;
     }
 
     @Override 
-    public List<ExpressVO> getExpressList() {
+    public List<ExpressVO> getExpressList(){
         List<ExpressVO> list = expressDAO.getExpressList();
+        
         return list;
     }
     
     @Override 
-    public void updateExpress(ExpressVO vo) {
+    public void updateExpress(ExpressVO vo){
+    	
         expressDAO.updateExpress(vo);
     }
     
     @Override
-    public ExpressVO getExpressOne(int express_id) {
+    public ExpressVO getExpressOne(int express_id){
+    	
         ExpressVO vo = expressDAO.getExpressOne(express_id);
+        
         return vo;
     }
 }

@@ -30,9 +30,9 @@ public class TaxController {
             url = new URL("http://www.k-apt.go.kr/user/mment/mment_main_list.mn");
             Document doc = Jsoup.parse(url, 8000);
             Element korea_tax = doc.select("table[class=board02]").first();
+            
             mav.addObject("korea_tax", korea_tax);
         } catch (IOException e) {
-            // TODO Auto-generated catch block
             e.printStackTrace();
         }
 
@@ -42,8 +42,10 @@ public class TaxController {
         HttpURLConnection connection = null;
         DataOutputStream wr = null;
         BufferedReader rd = null;
+        
         try {
             url2 = new URL(targetURL);
+            
             connection = (HttpURLConnection) url2.openConnection();
             connection.setRequestMethod("POST");
             connection.setRequestProperty("Content-Type", "application/x-www-form-urlencoded");
@@ -56,6 +58,7 @@ public class TaxController {
             connection.setDoOutput(true);
 
             wr = new DataOutputStream (connection.getOutputStream ());
+            
             wr.writeBytes (urlParameters);
             wr.flush ();
 
@@ -65,6 +68,7 @@ public class TaxController {
             StringBuffer response = new StringBuffer();
             boolean startOk = false;
             boolean endOk = false;
+            
             while ((line = rd.readLine()) != null) {
                 if (line.indexOf("<table class=\"board02\">") > 0) 
                     startOk = true;

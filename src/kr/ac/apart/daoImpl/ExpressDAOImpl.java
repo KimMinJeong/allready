@@ -16,22 +16,22 @@ public class ExpressDAOImpl implements ExpressDAO{
 	SqlMapClientTemplate sqlMapClientTemplate;
 	
 	@Override
-	public void addExpress(ExpressVO vo) {
+	public void addExpress(ExpressVO vo){
 		sqlMapClientTemplate.insert("addExpress", vo);
 	}
 
 	@Override
-	public List<ExpressVO> getExpressList() {
+	public List<ExpressVO> getExpressList(){
 		return sqlMapClientTemplate.queryForList("getExpress");
 	}
 
 	@Override
-	public void updateExpress(ExpressVO vo) {
+	public void updateExpress(ExpressVO vo){
 		sqlMapClientTemplate.update("updateExpress", vo);
 	}
 
 	@Override
-	public ExpressVO getExpressOne(int express_id) {
-		return (ExpressVO)sqlMapClientTemplate.queryForObject("getExpressOne", express_id);
+	public ExpressVO getExpressOne(int express_id){
+		return (ExpressVO) sqlMapClientTemplate.queryForObject("getExpressOne", express_id);
 	}
 }
