@@ -69,7 +69,8 @@ import org.springframework.web.servlet.ModelAndView;
         else if(category.equals("complain")){
             return "redirect:/complainBoard.do";
         }
-        else return "redirect:/freeBoard.do";
+        else 
+        	return "redirect:/freeBoard.do";
     }
     
     @RequestMapping(value="/boardDetail.do") 

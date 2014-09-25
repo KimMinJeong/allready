@@ -37,7 +37,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							<%
 								} else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
