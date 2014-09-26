@@ -2,7 +2,7 @@ package kr.ac.apart.processing;
 
 import org.springframework.stereotype.Service;
 import processing.core.PApplet;
-import processing.serial.Serial;
+import processing.serial.*;
 
 @Service("processing")
 public class ArduinoProcessing extends PApplet{

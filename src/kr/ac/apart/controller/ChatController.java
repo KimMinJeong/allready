@@ -8,6 +8,7 @@ import kr.ac.apart.vo.UserVO;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
 import com.github.nkzawa.socketio.client.IO;
 import com.github.nkzawa.socketio.client.Socket;
@@ -20,17 +21,18 @@ public class ChatController {
     	String socketIoUrl = "http://localhost";
     	Integer socketIoPort = 3000;
     	Socket socketIO = null;
-    	
+  
     	UserVO user_id = (UserVO) session.getAttribute("UserFlag");
+    	
     	try {
 			socketIO = IO.socket(socketIoUrl + ":" + socketIoPort.toString());
 		} catch (URISyntaxException e2) {
 			e2.printStackTrace();
 		}
-    	
+    
     	socketIO.connect();
-    	socketIO.emit("user_id", user_id); 
-    	
+    	socketIO.emit("user_id", user_id.getUser_id());
+ 	
     	return "webTemplete.jsp?nextPage=chatting_room";
     }
 }

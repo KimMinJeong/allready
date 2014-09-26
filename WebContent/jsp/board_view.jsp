@@ -36,19 +36,23 @@
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9"> <br>
-				<center><h1><%=vo.getTitle() %></h1></center> <br>
-				<center><h1><%=vo.getWriter_id() %></h1></center> <br>
-				<textarea rows="20" cols="120"><%=vo.getContents() %></textarea> <br>
+				<center><h1><%=vo.getTitle() %></h1></center><br>
+				<center><h1><%=vo.getWriter_id() %></h1></center><br>
+				<div class="col-xs-12 col-sm-12"><%=vo.getContents() %></div><br>
 				
 				<%if(vo2.getUser_id().equals(vo.getWriter_id())) {%>
 				<div align="right">
+					<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">수정</a>
+						수정
 					</button>
+					</a>
 					
+					<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">삭제</a>
+						삭제
 					</button>
+					</a>
 				</div>
 				<%} %>
 				<%
