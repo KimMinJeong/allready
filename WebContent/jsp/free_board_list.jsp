@@ -64,6 +64,7 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
+							<th>조회수</th>
 						</tr>
 						<%
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("list");
@@ -93,6 +94,7 @@
 								}
 							%>
 							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							} else {
@@ -106,6 +108,7 @@
 							<td><%=vo.getWriter_id() %></td>
 							<%}%>
 							<td><%=vo.getReg_date() %></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							}
@@ -113,7 +116,7 @@
 						%>
 						<tr>
 							<td><%=vo.getBoard_no()%></td>
-							<td></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<td><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
 							%>
@@ -126,6 +129,7 @@
 								}
 							%>
 							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							}

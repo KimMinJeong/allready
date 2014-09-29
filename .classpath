@@ -19,7 +19,5 @@
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/core.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/serial.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/jssc.jar"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/engine.io.java"/>
-	<classpathentry combineaccessrules="false" kind="src" path="/socket.io.Client.java"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>

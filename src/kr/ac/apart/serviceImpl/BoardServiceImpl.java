@@ -14,7 +14,7 @@ public class BoardServiceImpl implements BoardService {
 	
     @Autowired 
     private BoardDAO boardDao;
-
+ 
     @Override
     public BoardVO addBoard(String writer_id, String category, String title, String contents, String anonymous, String closed){
         BoardVO vo = new BoardVO();
@@ -104,4 +104,13 @@ public class BoardServiceImpl implements BoardService {
     	
         boardDao.addBad(board_no);
     }
+
+	@Override
+	public void updateClicks(int board_no) {
+		
+		boardDao.updateClicks(board_no);
+		
+		
+	}
+
 }

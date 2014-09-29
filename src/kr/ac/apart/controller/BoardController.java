@@ -4,8 +4,10 @@ import java.util.List;
 
 import kr.ac.apart.service.BoardService;
 import kr.ac.apart.service.CommentsService;
+import kr.ac.apart.service.FlagService;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
+import kr.ac.apart.vo.FlagVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +21,9 @@ import org.springframework.web.servlet.ModelAndView;
     
     @Autowired 
     private CommentsService commentsService;
+    
+    @Autowired
+    private FlagService flagService;
 
     @RequestMapping(value="/noticeBoard.do") 
     public ModelAndView noticeList(){
@@ -76,13 +81,16 @@ import org.springframework.web.servlet.ModelAndView;
     public ModelAndView boardDetail(int board_no){
         ModelAndView mav = new ModelAndView();
     
+        boardService.updateClicks(board_no);
         BoardVO vo = boardService.getBoardDetail(board_no);
         List<CommentsVO> commentsList = commentsService.getComments(board_no);
 
+                   
+   
         mav.addObject("vo",vo);
         mav.addObject("commentsList",commentsList);
         mav.setViewName("webTemplete.jsp?nextPage=board_view");
-
+    
         return mav;
     }
     
@@ -132,18 +140,33 @@ import org.springframework.web.servlet.ModelAndView;
     }
     
     @RequestMapping("/addGood.do") 
-    public String addGood(int board_no){
-
-        boardService.addGood(board_no);
-        
-        return "redirect:/boardDetail.do?board_no="+board_no;
+    public String addGood(int board_no,String good_id){
+    	System.out.println("addGoodController");
+    	System.out.println("board_no : " + board_no + ", good_id : " + good_id);
+    	flagService.getFlag(board_no, good_id);
+             
+       
+       return "redirect:/boardDetail.do?board_no="+board_no;
     }
     
     @RequestMapping("/addBad.do") 
     public String addBad(int board_no){
-
-        boardService.addBad(board_no);
+    	
+       boardService.addBad(board_no);
         
         return "redirect:/boardDetail.do?board_no="+board_no;
     }
+    
+
+//    @RequestMapping("/getFlag.do")
+//    public ModelAndView getFlag(int board_no){
+//    	ModelAndView mav = new ModelAndView("redirect:/boardDetail.do?board_no="+board_no);
+//        FlagVO flagvo = flagService.getFlag(board_no);
+//        mav.addObject("flagvo", flagvo);
+//        System.out.println(flagvo);
+//        
+//        return mav;
+//    }
+//    
+    
 }

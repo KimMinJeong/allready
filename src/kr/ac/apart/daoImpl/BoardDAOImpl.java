@@ -56,4 +56,11 @@ public class BoardDAOImpl implements BoardDAO {
     public void addBad(int board_no){
         sqlMapClientTemplate.update("addBad", board_no);
     }
+
+	@Override
+	public void updateClicks(int board_no) {
+		
+		sqlMapClientTemplate.update("updateClicks",board_no);
+	}
+
 }
