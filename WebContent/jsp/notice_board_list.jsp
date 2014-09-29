@@ -76,7 +76,7 @@
 						<% if(user_id.getUser_id().equals(vo.getWriter_id())){ %>
 						<tr>
 							<td><%=vo.getBoard_no() %></td>
-							<td><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
+							<td><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=board_no%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle() %></a></td>
 							<%if("ANONYMOUS".equals(anonymous)){%>
 							<td>익명</td>
 							<%}else{ %>
@@ -104,7 +104,7 @@
 						%>
 						<tr>
 							<td><%=vo.getBoard_no() %></td>
-							<td><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle() %></a></td>
+							<td><a href="boardDetail.do?board_no=<%=board_no%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle() %></a></td>
 							<%if("ANONYMOUS".equals(anonymous)){%>
 							<td>익명</td>
 							<%}else{ %>

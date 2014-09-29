@@ -106,4 +106,14 @@ public class UserController {
         
         return obj.toString();
     }
+    
+    @RequestMapping(value="passwordFind.do")
+    public ModelAndView passwordFind(String user_id, String user_name, String e_mail){
+    	String pwd = userService.getUser_passwordFind(user_id, user_name, e_mail);
+    	ModelAndView mav = new ModelAndView("myPassword");
+    	mav.addObject("password", pwd);
+    	System.out.println("controller"+pwd);
+    	
+    	return mav;
+    }
 }

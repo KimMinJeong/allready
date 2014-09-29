@@ -33,6 +33,18 @@ public class FlagDAOImpl implements FlagDAO {
 		return (FlagVO)sqlMapClientTemplate.queryForObject("flagGetBad", flagvo);
 	}
 
+	@Override
+	public void addCountId(FlagVO flagvo) {
+		sqlMapClientTemplate.insert("countIdAdd",flagvo);
+		
+		
+	}
+
+	@Override
+	public FlagVO getflagCountId(FlagVO flagvo) {
+		return (FlagVO)sqlMapClientTemplate.queryForObject("flagGetCountId", flagvo);
+	}
+
 
 
 

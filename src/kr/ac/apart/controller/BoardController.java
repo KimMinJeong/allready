@@ -1,5 +1,6 @@
 package kr.ac.apart.controller;
 
+import java.net.InetAddress;
 import java.util.List;
 
 import kr.ac.apart.service.BoardService;
@@ -78,14 +79,14 @@ import org.springframework.web.servlet.ModelAndView;
     }
     
     @RequestMapping(value="/boardDetail.do") 
-    public ModelAndView boardDetail(int board_no){
+    public ModelAndView boardDetail(int board_no,String count_id){
         ModelAndView mav = new ModelAndView();
     
-        boardService.updateClicks(board_no);
+       // boardService.updateClicks(board_no);
+        flagService.getFlagCount(board_no, count_id);
         BoardVO vo = boardService.getBoardDetail(board_no);
         List<CommentsVO> commentsList = commentsService.getComments(board_no);
-
-                   
+                    
    
         mav.addObject("vo",vo);
         mav.addObject("commentsList",commentsList);
@@ -152,21 +153,10 @@ import org.springframework.web.servlet.ModelAndView;
     @RequestMapping("/addBad.do") 
     public String addBad(int board_no,String bad_id){
     	
-      flagService.getFlagBad(board_no, bad_id);
+    	flagService.getFlagBad(board_no, bad_id);
         
         return "redirect:/boardDetail.do?board_no="+board_no;
     }
-    
-
-//    @RequestMapping("/getFlag.do")
-//    public ModelAndView getFlag(int board_no){
-//    	ModelAndView mav = new ModelAndView("redirect:/boardDetail.do?board_no="+board_no);
-//        FlagVO flagvo = flagService.getFlag(board_no);
-//        mav.addObject("flagvo", flagvo);
-//        System.out.println(flagvo);
-//        
-//        return mav;
-//    }
-//    
+ 
     
 }

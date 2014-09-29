@@ -28,6 +28,23 @@ public class UserServiceImpl implements UserService{
 			return null;
 	}
 	
+	public String getUser_passwordFind(String user_id, String user_name,String e_mail){
+		UserVO user = userDao.getUser(user_id);
+		String pwd = user.getPassword();
+		
+		if(user.getUser_id().equals(user_id) && user.getUser_name().equals(user_name) && user.getE_mail().equals(e_mail) ){
+								
+				System.out.println(pwd);
+				return pwd;
+			
+		}
+		else
+			System.out.println("틀렷어 병시나");
+			return "ㅠㅠ";
+	
+		
+	}
+	
 	@Override
 	public void updateManager(String userId, String userPassword, String userName, String userPhone){
 		UserVO vo = new UserVO();

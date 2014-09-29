@@ -37,6 +37,20 @@
 			WHERE BOARD_NO=#board_no# AND BAD_ID=#bad_id#
 		]]>
 	</select>
+	
+	<insert id="countIdAdd" parameterClass="flag">
+			INSERT INTO FLAG(COUNT_ID,BOARD_NO)
+			VALUES(#count_id#,#board_no#)
+	</insert>
+	
+	<select id="flagGetCountId" parameterClass="flag" resultMap="flagMap" >
+		<![CDATA[
+			SELECT *
+			FROM FLAG
+			WHERE BOARD_NO=#board_no# AND COUNT_ID=#count_id#
+		]]>
+	</select>
+	
 
 
 </sqlMap>

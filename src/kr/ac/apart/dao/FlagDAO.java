@@ -7,4 +7,6 @@ public interface FlagDAO {
 	public FlagVO getflag(FlagVO flagvo);
 	public void addBadId(FlagVO flagvo);
 	public FlagVO getflagBad(FlagVO flagvo);
+	public void addCountId(FlagVO flagvo);
+	public FlagVO getflagCountId(FlagVO flagvo);
 }

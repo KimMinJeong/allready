@@ -70,25 +70,30 @@
 				<%} %>
 				<%
 			if("complain".equals(vo.getCategory())){%>
-					
-				<center>
-					
+				
+					<div align="center">
+					<div class="col-xs-12 col-sm-4">			
+					<div class="col-xs-2 col-sm-2">
 					<form action="addGood.do?board_no=<%=vo.getBoard_no()%>" >				
 					<input type="hidden" name="good_id" value=<%=vo2.getUser_id() %>>
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
 					<input type="submit"  class="btn btn-default " value="<%=vo.getGood() %>">
 					<span class="glyphicon glyphicon-thumbs-up"></span>
-					</form>			
-									
+					</form>
+					</div>
+					
+				
+					
+					<div class="col-xs-2 col-sm-2">							
 					<form action="addBad.do?board_no=<%=vo.getBoard_no()%>" >				
 					<input type="hidden" name="bad_id" value=<%=vo2.getUser_id() %>>
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
 					<input type="submit"  class="btn btn-default " value="<%=vo.getBad() %>">
 					<span class="glyphicon glyphicon-thumbs-down"></span>
 					</form>		
+					</div></div></div>
 				
 				
-				</center>
 		
 				<%}%>
 
