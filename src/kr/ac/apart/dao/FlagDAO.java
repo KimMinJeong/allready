@@ -5,4 +5,6 @@ import kr.ac.apart.vo.FlagVO;
 public interface FlagDAO {
 	public void addGoodId(FlagVO flagvo);
 	public FlagVO getflag(FlagVO flagvo);
+	public void addBadId(FlagVO flagvo);
+	public FlagVO getflagBad(FlagVO flagvo);
 }

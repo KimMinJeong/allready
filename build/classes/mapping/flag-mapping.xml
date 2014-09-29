@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="EUC-KR"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
@@ -22,6 +22,19 @@
 			SELECT *
 			FROM FLAG
 			WHERE BOARD_NO=#board_no# AND GOOD_ID=#good_id#
+		]]>
+	</select>
+	
+	<insert id="badIdAdd" parameterClass="flag">
+			INSERT INTO FLAG(BAD_ID,BOARD_NO)
+			VALUES(#bad_id#,#board_no#)
+	</insert>
+	
+	<select id="flagGetBad" parameterClass="flag" resultMap="flagMap" >
+		<![CDATA[
+			SELECT *
+			FROM FLAG
+			WHERE BOARD_NO=#board_no# AND BAD_ID=#bad_id#
 		]]>
 	</select>
 

@@ -70,24 +70,24 @@
 				<%} %>
 				<%
 			if("complain".equals(vo.getCategory())){%>
-				<input type="button" onClick="getFlag.do?board_no=<%=vo.getBoard_no()%>">
-				
+					
 				<center>
 					
-					<form action="addGood.do?board_no=<%=vo.getBoard_no()%>" >
-				
-					<input type="hidden" name="good_id" value=<%=vo2.getUser_id() %>><span class="glyphicon glyphicon-thumbs-up"></span>
+					<form action="addGood.do?board_no=<%=vo.getBoard_no()%>" >				
+					<input type="hidden" name="good_id" value=<%=vo2.getUser_id() %>>
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
-					<input type="submit"  class="btn btn-default " >
-					</form>
-			
-					<%=vo.getGood() %>
-					
-					
-					<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addBad.do?board_no=<%=vo.getBoard_no()%>'" onclick="event.cancelBubble = true">
-						<span class="glyphicon glyphicon-thumbs-down"></span>
-					</button>
-					<%=vo.getBad() %>
+					<input type="submit"  class="btn btn-default " value="<%=vo.getGood() %>">
+					<span class="glyphicon glyphicon-thumbs-up"></span>
+					</form>			
+									
+					<form action="addBad.do?board_no=<%=vo.getBoard_no()%>" >				
+					<input type="hidden" name="bad_id" value=<%=vo2.getUser_id() %>>
+					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
+					<input type="submit"  class="btn btn-default " value="<%=vo.getBad() %>">
+					<span class="glyphicon glyphicon-thumbs-down"></span>
+					</form>		
+				
+				
 				</center>
 		
 				<%}%>

@@ -150,9 +150,9 @@ import org.springframework.web.servlet.ModelAndView;
     }
     
     @RequestMapping("/addBad.do") 
-    public String addBad(int board_no){
+    public String addBad(int board_no,String bad_id){
     	
-       boardService.addBad(board_no);
+      flagService.getFlagBad(board_no, bad_id);
         
         return "redirect:/boardDetail.do?board_no="+board_no;
     }
