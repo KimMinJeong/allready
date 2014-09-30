@@ -20,7 +20,11 @@
 
 <body>
 <%
-   UserVO vo = (UserVO)session.getAttribute("UserFlag");
+	UserVO vo = (UserVO)session.getAttribute("UserFlag");
+
+ 	 /* if(vo == null){
+		response.sendRedirect("loginForm.do");
+	}  */
 %>
 	<div class="container">
 		<div class="masthead">
@@ -29,7 +33,8 @@
 					<div class="tabbable">
 						<ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
 							<%
-								if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
+								if(vo != null){
+									if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
 							%> 
 							<li><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
@@ -42,7 +47,7 @@
 							<%
 								} else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
 							%>
-							<li class="test active"><a href="main.do">Home</a></li>
+							<li class="test"><a href="main.do">Home</a></li>
 							<li class="test"><a href="cctv_client.do">CCTV</a></li>
 							<li class="test"><a href="user_parking.do">주차장</a></li>
 							<li class="test"><a href="noticeBoard.do">게시판</a></li>
@@ -52,6 +57,7 @@
 							<li class="test"><a href="manage_detail.do">설정</a></li>
 							<%
 								}
+							}
 							%>
 						</ul>
 				</font>
@@ -67,16 +73,17 @@
 	<script src="static/js/bootstrap.min.js"></script>
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="static/js/respond.js"></script>
-
-	<!--   <script type="text/javascript">
-  
-     $(document).on('click', '.test', function(){
-    	 alert("click");
-    	 $('.test').each(function () {
-             $('li').removeClass('active');    
-         }) 
-         $(this).closest('li').addClass('active');
-     });
-   </script>  -->
 </body>
+
+<script type="text/javascript">
+
+	 /* $(document).on('click', '.test', function(){
+	 alert("click");
+	 $('.test').each(function () {
+        $('li').removeClass('active');    
+    }) 
+    $(this).closest('li').addClass('active'); */
+
+
+</script>    
 </html>

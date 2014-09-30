@@ -44,11 +44,21 @@
       ]]>
    </delete>
    
-   <update id="updateVisitor">
+   <update id="updateVisitor" parameterClass="java.lang.Integer">
       <![CDATA[
          UPDATE VISITOR
          SET VIEWING = 'FALSE'
          WHERE VISITOR_NO = #visitor_no#
       ]]>
+   </update>
+   
+   <update id="modifyVisitor" parameterClass="visitor">
+   		<![CDATA[
+   			UPDATE VISITOR
+   			SET USER_ID = #user_id#,
+   				VISITOR_NAME = #visitor_name#,
+   				BUSINESS = #business#
+   			WHERE VISITOR_NO = #visitor_no#
+   		]]>
    </update>
 </sqlMap>

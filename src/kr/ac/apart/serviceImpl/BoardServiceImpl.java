@@ -104,4 +104,11 @@ public class BoardServiceImpl implements BoardService {
     	
         boardDao.addBad(board_no);
     }
+    
+    @Override
+    public List<BoardVO> getNoticeList(){
+    	List<BoardVO> list = boardDao.getNoticeList();
+    	
+    	return list;
+    }
 }
