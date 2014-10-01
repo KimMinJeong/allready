@@ -9,13 +9,13 @@ public class ArduinoProcessing extends PApplet{
 	private static final long serialVersionUID = 1L;
 	private Serial myPort;
 	public static String isfull=null;
-	
+	static{
+		System.load("D:\\LSG\\processing-2.2.1-windows32\\processing-2.2.1\\modes\\java\\libraries\\serial\\library\\windows32\\jSSC-2.8.dll");
+	}
 	public void setup()
 	{
 	  System.out.println("setup start!");
-	  
-	  String portName = Serial.list()[0];
-	  
+	  String portName=Serial.list()[0];
 	  myPort = new Serial(this, portName, 8088);
 	}
 	
@@ -30,7 +30,7 @@ public class ArduinoProcessing extends PApplet{
 	    	isfull="FULL";
 	    else
 	    	isfull="ERROR";
-		  myPort.stop();
+	    myPort.stop();
 	  }
 	}
 }

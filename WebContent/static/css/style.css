@@ -4,12 +4,15 @@
 	width: 350px;
 	height: 200px;
 }
+
 #location {
 	left: -86%
 }
+
 .size {
 	font-size: 10;
 }
+
 .inline {
 	display: inline;
 }
@@ -39,4 +42,3 @@
 
 .textarea{
 	width: 100%;
-}

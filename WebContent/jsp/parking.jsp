@@ -63,16 +63,29 @@
 		</div>
 	</div>
 </body>
-
 <script type="text/javascript">
-	var isfull = $("#isfull").val();
+   var isfull = $("#isfull").val();
 
-	if(isfull == "FULL"){
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-				"background-color", "pink");
-	} else if(isfull == "EMPTY"){
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-				"background-color", "blue");
+   if(isfull == "FULL"){
+      $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
+            "background-color", "red");
+   } else if(isfull == "EMPTY"){
+      $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
+            "background-color", "blue");
+   }
+   
+   function start()
+	{	
+		setInterval("recall()", 5000);
 	}
+
+	function recall()
+	{
+		location.reload();
+		widow.status = " ";
+		return true;
+	}
+
+	start();
 </script>
 </html>

@@ -32,12 +32,13 @@ public class VisitorDAOImpl implements VisitorDAO{
       return (Integer) sqlMapClientTemplate.insert("addVisitorManager", new Visit_RecordVO());
    }
    
-   public int updateVisitor(String visitor_no){
+   public int updateVisitor(int visitor_no){
       return (Integer) sqlMapClientTemplate.update("updateVisitor", visitor_no);
    }
    
-   public List<Visit_RecordVO> getVisitorListManager(){
-      return (List<Visit_RecordVO>) sqlMapClientTemplate.queryForList("getVisitorListManager");
+   public List<Visit_RecordVO> getVisitorListManager(int page){
+      return (List<Visit_RecordVO>) sqlMapClientTemplate.queryForList("getVisitorListManager", null, page, 5);
+      //앞의 두개의 파라미터는 동일, 세번째 파라미터는 가져올 페이지번호, 네번째 파라미터는 가져올 데이터 로우의 갯수
    }
    
    public List<VisitorVO> getVisitorListAll(){
@@ -58,5 +59,17 @@ public class VisitorDAOImpl implements VisitorDAO{
    
    public int getMaxVisitRecordNo(){
       return (Integer) sqlMapClientTemplate.queryForObject("getMaxVisitRecordNo");
+   }
+   
+   public int modifyVisitRecord(Visit_RecordVO vo){
+	   return (Integer) sqlMapClientTemplate.update("modifyVisitRecord", vo);
+   }
+   
+   public int modifyVisitor(VisitorVO vo){
+	   return (Integer) sqlMapClientTemplate.update("modifyVisitor", vo);
+   }
+   
+   public int countVisitRecord(){
+	   return (Integer) sqlMapClientTemplate.queryForObject("countVisitRecord");
    }
 }

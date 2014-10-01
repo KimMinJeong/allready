@@ -22,7 +22,7 @@ public class userDAOTest {
 	private UserDAO userDao;
 	
 	@Test
-	public void modiryManager(){
+	public void modifyManager(){
 		UserVO vo = new UserVO();
 		
 		vo.setUser_id("m1");
@@ -97,8 +97,24 @@ public class userDAOTest {
 	@Test
 	public void getFamilyList(){
 		List<FamilyVO> list = userDao.getFamilyList("1");
-		System.out.println(list);
 		
+		System.out.println(list);
+	}
+	
+	@Test
+	public void getUser(){
+		UserVO vo = new UserVO();
+		
+		vo = userDao.getUser("1");
+		
+		System.out.println(vo);
 	}
 
+	@Test
+	public void modifyExpressTest(){
+		UserVO user=new UserVO();
+		user.setExpress("FALSE");
+		user.setUser_id("1");
+		userDao.expressModify(user);
+	}
 }

@@ -7,6 +7,7 @@ import kr.ac.apart.vo.Manager_DongVO;
 import kr.ac.apart.vo.UserVO;
 
 public interface UserService {
+	public UserVO getOne(String user_id);
 	public UserVO getUser(String userId,String password);
 	public void updateManager(String userId, String userPassword, String userName, String userPhone);
 	public void updateManagerDong(String manageDong, String userId);
@@ -14,4 +15,6 @@ public interface UserService {
 	public void modifyUsers(String userId, String userName, String userPassword, String userEmail, String userPhone);
 	public void updateFamily(String userId, String familyName, String familyPhone);
 	public List<FamilyVO> getFamilyList(String userId);
+	public String getUser_passwordFind(String userId, String user_name,String e_mail);
+	public boolean findPassword(String userId, String userName, String userEmail);
 }

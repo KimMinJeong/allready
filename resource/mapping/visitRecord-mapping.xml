@@ -52,5 +52,19 @@
       SELECT MAX(VR_NO)
       FROM VISIT_RECORD
    </select>
+   
+   <update id="modifyVisitRecord" parameterClass="visit_record">
+   		<![CDATA[
+   			UPDATE VISIT_RECORD
+   			SET VISITOR_NO = #visitor_no#,
+   				REG_DATE = #reg_date#
+   			WHERE VR_NO = #visit_record_no#
+   		]]>	
+   </update>
+   
+   <select id="countVisitRecord" resultClass="int">
+  		SELECT COUNT(*)
+  		FROM VISIT_RECORD
+   </select>
 
 </sqlMap>

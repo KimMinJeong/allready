@@ -1,6 +1,8 @@
 package kr.ac.apart.dao;
 
 import java.io.IOException;
+
+import kr.ac.apart.vo.FlagVO;
 import kr.ac.apart.vo.ParkingVO;
 //import kr.ac.apart.vo.UserVO;
 import org.junit.Test;
@@ -16,6 +18,7 @@ public class junit_test {
 //	private UserDAO userDao;
 	@Autowired
 	private ParkingDAO parkingDao;
+	private FlagDAO flagdao;
 
 //	@Test
 //	public void getUser() {
@@ -47,7 +50,7 @@ public class junit_test {
 	@Test
 	public void getSectionCount(){
 		ParkingVO parking=new ParkingVO();
-		parking.setFloor("B1 ");
+		parking.setFloor("B1");
 		parking.setSection("A ");
 		int sectionCount=parkingDao.getSectionCount(parking);
 		System.out.println("sectionCount="+sectionCount);

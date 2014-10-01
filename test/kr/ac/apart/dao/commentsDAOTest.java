@@ -18,6 +18,8 @@ public class commentsDAOTest {
 	
 	@Autowired
 	private CommentsDAO commentsDAO;
+	@Autowired
+	private BoardDAO boardDAO;
 	
 	@Test
 	public void addComments(){
@@ -59,6 +61,7 @@ public class commentsDAOTest {
 		System.out.println(vo);
 	}
 	
+
 	
 
 }
