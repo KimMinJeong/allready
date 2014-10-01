@@ -103,7 +103,7 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	@Override
-	public boolean findPassword(String userId, String userName, String userEmail){
+	public boolean findPassword(String userId, String userName, String userEmail, String userPhone){
 		UserVO vo = userDao.getUser(userId);
 		
 		if(userName.equals(vo.getUser_name())){
@@ -115,6 +115,11 @@ public class UserServiceImpl implements UserService{
 		}
 		else
 			return false;
+	}
+	
+	@Override
+	public UserVO getUserVO(String userId){
+		return userDao.getUser(userId); 
 	}
 	
 }

@@ -2,12 +2,8 @@ package kr.ac.apart.serviceImpl;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.apart.dao.VisitorDAO;
 import kr.ac.apart.service.VisitorService;

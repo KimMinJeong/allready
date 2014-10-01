@@ -30,8 +30,16 @@
 				<div class="input-group .col-lg-offset-4 .col-lg-4">
 					<span class="input-group-addon">이메일</span>
 					<input type="text" class="form-control" placeholder="이메일" id="user_email">
+				</div> 
+				
+				<div class="input-group .col-lg-offset-4 .col-lg-4">
+					<span class="input-group-addon">전화번호</span>
+					<input type="text" class="form-control" placeholder="전화번호" id="user_phone">
 				</div> <br>
-
+				
+				<div class="col-lg-offset-4 .col-lg-4" id="passwordHere" align="left">
+				</div>
+				
 				<div class="btn-group">
 					<button type="button" class="btn btn-default dropdown-toggle" id="submitButton">확인</button>
 				</div>
@@ -41,9 +49,7 @@
 </body>
 
 <script type="text/javascript">
-	$("#submitButton").on('click', function(){
-		alert("버튼이 눌렸습니다.");
-		
+	$("#submitButton").on('click', function(){		
 		$.ajax({
 			url : "findPassword.do",
 			type : "get",
@@ -52,6 +58,7 @@
 				userId : $("#user_id").val(),
 				userName : $("#user_name").val(),
 				userEmail : $("#user_email").val(),
+				userPhone : $("#user_phone").val(),
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
@@ -60,6 +67,11 @@
 				}
 				else if(data.userCheck){
 					alert("정보가 일치합니다.");
+					if(data.getUser.role == "MANAGER"){
+						$("#passwordHere").append(
+							"비밀번호는 " + data.getUser.password + "입니다."	
+						);
+					}
 				}
 			},
 			error : function(e) {

@@ -134,14 +134,17 @@ public class UserController {
     }
     
     @RequestMapping(value = "findPassword.do")
-    public @ResponseBody String findPassword(String userId, String userName, String userEmail){
+    public @ResponseBody String findPassword(String userId, String userName, String userEmail, String userPhone){
     	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userPassword : " + userName + ", userName : " + userEmail );
+    	System.out.println("userId : " + userId + ", userPassword : " + userName + ", userName : " + userEmail + ", userPhone : " + userPhone );
     	
-    	boolean userCheck = userService.findPassword(userId, userName, userEmail);
+    	boolean userCheck = userService.findPassword(userId, userName, userEmail, userPhone);
+    	UserVO vo = userService.getUserVO(userId);
     	
     	JSONObject obj = new JSONObject();
+    	
     	obj.put("userCheck", userCheck);
+    	obj.put("getUser", vo);
     	
     	return obj.toString();
     }
