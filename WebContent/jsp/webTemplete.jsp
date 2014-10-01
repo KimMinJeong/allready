@@ -206,15 +206,4 @@
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="static/js/respond.js"></script>
 </body>
-
-<script type="text/javascript">
-
-	 /* $(document).on('click', '.test', function(){
-	 alert("click");
-	 $('.test').each(function () {
-        $('li').removeClass('active');    
-    }) 
-    $(this).closest('li').addClass('active'); */
-
-</script>    
 </html>

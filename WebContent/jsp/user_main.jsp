@@ -58,14 +58,14 @@
                <div class="row">
                   <div class="col-xs-6 col-md-3">
                      <div style="position:relative">
-									<img src="images/profile.jpg" data-src="holder.js/100%x180" alt="...">
-									<div style="position: absolute">
-									<%if(user.getExpress().equals("FALSE")){%>
-									<img src="images/MessageOff.jpg" width="50" height="50" alt="...">
-									<%}else if(user.getExpress().equals("TRUE")){ %>
-									<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img src="images/MessageOn.jpg" width="50" height="50" alt="..."></a>
-									<%} %>
-									</div>
+						<img src="images/profile.jpg" data-src="holder.js/100%x180" alt="...">
+						<div style="position: absolute">
+						<%if(("FALSE").equals(user.getExpress())){%>
+						<img src="images/MessageOff.jpg" width="50" height="50" alt="...">
+						<%}else if(("TRUE").equals(user.getExpress())){ %>
+						<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img src="images/MessageOn.jpg" width="50" height="50" alt="..."></a>
+						<%} %>
+						</div>
 					</div>
                   </div>
 					<span class="glyphicon glyphicon-off"><a href="logout.do">로그아웃</a></span>
