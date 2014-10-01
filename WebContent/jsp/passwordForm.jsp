@@ -32,7 +32,7 @@
 
 				<div class="input-group .col-lg-offset-4 .col-lg-4">
 					<span class="input-group-addon">이메일</span>
-					<input type="text" class="form-control" placeholder="이메일" name="e_mail" id="e_mail">
+					<input type="text" class="form-control" placeholder="이메일" name="user_email" id="user_email">
 				</div> <br>
 
 				<div class="btn-group">
