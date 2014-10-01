@@ -149,6 +149,16 @@
 				var content = "";
 				var i = 0;
 				rowCount = 0;
+				var key, count = 0;
+				for(key in data.visitorListModel) {    //get size of json object
+				  if(data.visitorListModel.hasOwnProperty(key)) {
+				    count++;
+				  }
+				}
+				if(count == 0){
+					content += "<tr><td colspan='5'><center>일치하는 검색결과가 없습니다.</center></td></tr>";
+				}
+
 				$.each(data.visitorListModel, function(key, visitor) {
 					i++;
 					rowCount++;
@@ -157,7 +167,7 @@
 					content += "<td id='userId" + i + "'><center>" + visitor.user_id + "</center></td>";
 					content += "<td id='visitorName" + i + "'><center>" + visitor.visitor_name + "</center></td>";
 					content += "<td id='business" + i + "'><center>" + visitor.business + "</center></td>";
-					
+						
 					if (visitor.fixed == "UNFIXED") {
 						content += "<td id='fixed" + i + "'><center>" + '일시' + "</center></td>";
 					} else if (visitor.fixed == "FIXED") {

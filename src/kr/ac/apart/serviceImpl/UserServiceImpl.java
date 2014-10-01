@@ -101,4 +101,20 @@ public class UserServiceImpl implements UserService{
 		
 		return list;
 	}
+	
+	@Override
+	public boolean findPassword(String userId, String userName, String userEmail){
+		UserVO vo = userDao.getUser(userId);
+		
+		if(userName.equals(vo.getUser_name())){
+			if(userEmail.equals(vo.getE_mail())){
+				return true;
+			}
+			else 
+				return false;
+		}
+		else
+			return false;
+	}
+	
 }

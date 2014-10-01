@@ -111,10 +111,6 @@ public class UserController {
     @RequestMapping(value = "modifyManager.do")
     public @ResponseBody String modifyManager(String userId, String userPassword, String userName, String userPhone, String manageDong){
         
-    	System.out.println("modifyManager.do start!");
-        System.out.println("userId : " + userId + ", userPassword : " + userPassword + ", userName : " + userName + ", userPhone : " + userPhone);
-        System.out.println("manageDone : " + manageDong);
-        
         userService.updateManager(userId, userPassword, userName, userPhone);
         userService.updateManagerDong(manageDong, userId);
         
@@ -135,5 +131,18 @@ public class UserController {
         JSONObject obj = new JSONObject();
         
         return obj.toString();
+    }
+    
+    @RequestMapping(value = "findPassword.do")
+    public @ResponseBody String findPassword(String userId, String userName, String userEmail){
+    	System.out.println("findPasswordController.do");
+    	System.out.println("userId : " + userId + ", userPassword : " + userName + ", userName : " + userEmail );
+    	
+    	boolean userCheck = userService.findPassword(userId, userName, userEmail);
+    	
+    	JSONObject obj = new JSONObject();
+    	obj.put("userCheck", userCheck);
+    	
+    	return obj.toString();
     }
 }

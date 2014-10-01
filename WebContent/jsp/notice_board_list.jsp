@@ -36,9 +36,10 @@
 			</div> <br><br>
 			<%
 				UserVO userVO = (UserVO) session.getAttribute("UserFlag");
-			if(userVO == null){
-				response.sendRedirect("loginForm.do");
-			}
+			
+				if(userVO == null){
+					response.sendRedirect("loginForm.do");
+				}
 			%>
 			
 			<!-- main area -->

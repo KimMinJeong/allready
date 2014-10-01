@@ -1,5 +1,6 @@
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE>
 <html >
 <head>
@@ -21,22 +22,19 @@
 <body>
 <%
 	UserVO vo = (UserVO)session.getAttribute("UserFlag");
-
- 	 /* if(vo == null){
-		response.sendRedirect("loginForm.do");
-	}  */
 %>
 	<div class="container">
 		<div class="masthead">
 			<h3 class="text-muted">
 				<font size="4">
 					<div class="tabbable">
-						<ul class="nav nav-tabs nav-justified" role="tablist" id="tabs">
+						<ul class="nav nav-tabs nav-justified" id="tabs">
 							<%
 								if(vo != null){
 									if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
 							%> 
-							<li><a href="main.do">Home</a></li>
+							<c:if test="${param.nextPage=='user_main.jsp'}">
+							<li class="active"><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
 							<li><a href="user_parking.do">주차장</a></li>
 							<li><a href="user_tax.do">관리세</a></li>
@@ -44,27 +42,161 @@
 							<li><a href="user_visitor.do">방문객</a></li>
 							<li><a href="#settings">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='CCTV.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li class="active"><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_parking.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li class="active"><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_tax.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li class="active"><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='notice_board_list.jsp' || param.nextPage=='complain_board_list.jsp' || param.nextPage=='free_board_list.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li class="active"><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_visitor.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li class="active"><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_detail.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="#settings">소통의 장</a></li>
+							<li class="active"><a href="user_detail.do">설정</a></li>
+							</c:if>
 							<%
 								} else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
 							%>
-							<li class="test"><a href="main.do">Home</a></li>
-							<li class="test"><a href="cctv_client.do">CCTV</a></li>
-							<li class="test"><a href="user_parking.do">주차장</a></li>
-							<li class="test"><a href="noticeBoard.do">게시판</a></li>
-							<li class="test"><a href="manage_visitor.do">방문일지</a></li>
-							<li class="test"><a href="user_tax.do">전체관리세</a></li>
-							<li class="test"><a href="expressList.do">택배관리</a></li>
-							<li class="test"><a href="manage_detail.do">설정</a></li>
+							<c:if test="${param.nextPage=='user_main.jsp'}">
+							<li class="active"><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='CCTV.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li class="active"><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_parking.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li class="active"><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='notice_board_list.jsp' || param.nextPage=='complain_board_list.jsp' || param.nextPage=='free_board_list.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li class="active"><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='manage_visitManage.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li class="active"><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='user_tax.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li class="active"><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='manage_express_list.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li class="active"><a href="expressList.do">택배관리</a></li>
+							<li><a href="manage_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='manage_detail.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="manage_visitor.do">방문일지</a></li>
+							<li><a href="user_tax.do">전체관리세</a></li>
+							<li><a href="expressList.do">택배관리</a></li>
+							<li class="active"><a href="manage_detail.do">설정</a></li>
+							</c:if>
 							<%
 								}
 							}
 							%>
 						</ul>
+					</div>
 				</font>
 			</h3>
 		</div>
 	</div>
-
+	
 	<jsp:include page="${param.nextPage}"></jsp:include>
 
 	<!-- jQuery (부트스트랩의 자바스크립트 플러그인을 위해 필요한) -->
@@ -83,7 +215,6 @@
         $('li').removeClass('active');    
     }) 
     $(this).closest('li').addClass('active'); */
-
 
 </script>    
 </html>

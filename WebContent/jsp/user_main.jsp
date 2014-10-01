@@ -42,7 +42,7 @@
 								for(BoardVO vo : noticeList){%>
 									<tr>
 										<td><center><%=vo.getBoard_no()%></center></td>
-										<td><center><%=vo.getTitle()%></center></td>
+										<td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
 										<td><center><%=vo.getWriter_id()%></center></td>
 										<td><center><%=vo.getReg_date()%></center></td>
 									</tr>
