@@ -34,12 +34,10 @@
 					<span class="input-group-addon">이메일</span>
 					<input type="text" class="form-control" placeholder="이메일" name="e_mail" id="e_mail">
 				</div> <br>
-<%-- 						<button id="<%=vo.getExpress_id()%>" class="btn btn-primary btn-lg getButton" data-toggle="modal" data-target="#myModal2">확인</button> --%>
-					<button class = "btn btn-primary btn-lg getButton">입력</button>
-					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal" >확인</button>
-				
-				
-	
+
+				<div class="btn-group">
+					<button type="button" class="btn btn-default dropdown-toggle" id="submitButton">확인</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -72,19 +70,31 @@
 </body>
 
 <script type="text/javascript">
-	var user_id;
-	var user_name;
-	var e_mail;
-	
-	$(document).on("click", ".getButton", function(){
-		user_id = $("#user_id").val();
-		user_name = $("#user_name").val();
-		e_mail = $("#e_mail").val();
+	$("#submitButton").on('click', function(){
+		alert("버튼이 눌렸습니다.");
 		
-		window.location = "passwordFind.do?user_id=" + user_id + "&user_name=" + user_name+"&e_mail=" + e_mail;
-
-	});		
-	
-
+		$.ajax({
+			url : "findPassword.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				userId : $("#user_id").val(),
+				userName : $("#user_name").val(),
+				userEmail : $("#user_email").val(),
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				if(!data.userCheck){
+					alert("정보가 일치하지 않습니다.");
+				}
+				else if(data.userCheck){
+					alert("정보가 일치합니다.");
+				}
+			},
+			error : function(e) {
+				alert("error!");
+			}
+		});
+	});
 </script>
 </html>

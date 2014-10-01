@@ -84,4 +84,11 @@
 			WHERE BOARD_NO = #board_no#
 	</update>
 
+	<select id="getNoticeList" resultMap="BoardResult">
+			SELECT *
+			FROM BOARD
+			WHERE ROWNUM <= 3 AND CATEGORY='notice'
+			ORDER BY BOARD_NO DESC
+	</select>
+
 </sqlMap>

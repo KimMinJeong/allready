@@ -4,12 +4,15 @@
 	width: 350px;
 	height: 200px;
 }
+
 #location {
 	left: -86%
 }
+
 .size {
 	font-size: 10;
 }
+
 .inline {
 	display: inline;
 }
@@ -29,6 +32,6 @@
 #table1 #table2 #empty_color{
 	bgcolor : green;
 }
+
 #table1 #table2 tr > td{
 }
-

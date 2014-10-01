@@ -2,8 +2,12 @@ package kr.ac.apart.serviceImpl;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.apart.dao.VisitorDAO;
 import kr.ac.apart.service.VisitorService;
@@ -78,14 +82,15 @@ public class VisitorServiceImpl implements VisitorService {
    }
    
    @Override
-   public void updateVisitor(String no){
+   public void updateVisitor(int visitorNo){
 	   
-      visitorDao.updateVisitor(no);
+      visitorDao.updateVisitor(visitorNo);
    }
    
    @Override
-   public List<Visit_RecordVO> getVisitorListManager(){
-      List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager();
+   public List<Visit_RecordVO> getVisitorListManager(int page){
+	   
+	   List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager(page);
       
       return visitList;
    }
@@ -123,5 +128,33 @@ public class VisitorServiceImpl implements VisitorService {
       int no = visitorDao.getMaxVisitRecordNo();
       
       return no;
+   }
+   
+   @Override
+   public void modifyVisitor(int visitorNo, String userId, String visitorName, String business){
+	   VisitorVO vo = new VisitorVO();
+	   
+	   vo.setVisitor_no(visitorNo);
+	   vo.setUser_id(userId);
+	   vo.setVisitor_name(visitorName);
+	   vo.setBusiness(business);
+	   
+	   visitorDao.modifyVisitor(vo);
+   }
+   
+   @Override
+   public void modifyVisitRecord(int visitRecordNo, int visitorNo, String regDate){
+	   Visit_RecordVO vo = new Visit_RecordVO();
+	   
+	   vo.setVisit_record_no(visitRecordNo);
+	   vo.setVisitor_no(visitorNo);
+	   vo.setReg_date(regDate);
+	   
+	   visitorDao.modifyVisitRecord(vo);   
+   }
+   
+   @Override
+   public int countVisitRecord(){
+	   return visitorDao.countVisitRecord();
    }
 }

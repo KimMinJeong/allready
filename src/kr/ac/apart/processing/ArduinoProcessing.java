@@ -9,7 +9,9 @@ public class ArduinoProcessing extends PApplet{
 	private static final long serialVersionUID = 1L;
 	private Serial myPort;
 	public static String isfull=null;
-	
+	static{
+		System.load("C:\\sk\\jSSC-2.8.dll");
+	}
 	public void setup()
 	{
 	  System.out.println("setup start!");

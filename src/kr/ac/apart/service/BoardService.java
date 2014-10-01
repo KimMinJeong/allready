@@ -16,4 +16,5 @@ public interface BoardService {
 	public void addGood(int board_no);
 	public void addBad(int board_no);
 	public void updateClicks(int board_no);
+	public List<BoardVO> getNoticeList();
 }

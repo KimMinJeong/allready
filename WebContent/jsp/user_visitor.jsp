@@ -39,7 +39,6 @@
 			<button type="submit" class="btn btn-primary" id="visitor_submit_btn">등록</button>
 		</div> <br>
 
-		<form action="updateVisitor.do">
 			<div class="table-responsive">
 				<table class="table table-striped">
 					<thead>
@@ -59,7 +58,7 @@
 							for (VisitorVO vo : visitorList) {
 								if ("TRUE".equals(vo.getViewing())) {
 						%>
-						<tr>
+						<tr class="<%=vo.getVisitor_no()%>">
 							<td><center><%=vo.getUser_id()%></center></td>
 							<td><center><%=vo.getVisitor_name()%></center></td>
 							<td><center><%=vo.getBusiness()%></center></td>
@@ -74,7 +73,7 @@
 							<%
 								}
 							%>
-							<td><center><button type="submit" class="btn btn-primary" name="name" value="<%=vo.getVisitor_no()%>">삭제</button></center></td>
+							<td><center><button type="button" class="btn btn-primary deleteVisitor" value="<%=vo.getVisitor_no()%>">삭제</button></center></td>
 						</tr>
 						<%
 							}
@@ -83,7 +82,30 @@
 					</tbody>
 				</table>
 			</div>
-		</form>
 	</div>
 </body>
+
+<script type="text/javascript">
+	$(document).on('click', '.deleteVisitor', function(){
+		alert("delete!");
+		var clickedRow = $(this).closest('tr');
+		$.ajax({
+			url : "updateVisitor.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				visitordNo : $(this).closest('tr').attr('class')
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				alert("success!");
+				clickedRow.remove();
+			},
+			error : function(e) {
+				alert("error!");
+			}
+		}); 		
+	})
+</script>
+
 </html>

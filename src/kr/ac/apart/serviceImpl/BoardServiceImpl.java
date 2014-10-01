@@ -107,10 +107,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public void updateClicks(int board_no) {
-		
 		boardDao.updateClicks(board_no);
-		
-		
 	}
 
+    @Override
+    public List<BoardVO> getNoticeList(){
+    	List<BoardVO> list = boardDao.getNoticeList();
+    	
+    	return list;
+    }
 }
