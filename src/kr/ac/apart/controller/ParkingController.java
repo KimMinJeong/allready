@@ -1,9 +1,12 @@
 package kr.ac.apart.controller;
 
+import javax.servlet.http.HttpSession;
+
 import kr.ac.apart.processing.ArduinoProcessing;
 import kr.ac.apart.processing.ParkingImpl;
 import kr.ac.apart.service.ParkingService;
 import kr.ac.apart.vo.ParkingVO;
+import kr.ac.apart.vo.UserVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -20,8 +23,15 @@ public class ParkingController {
 	private ParkingImpl frame;
 	
 	@RequestMapping(value="/user_parking.do")
-	public String user_parking(){
-		return "webTemplete.jsp?nextPage=user_parking";
+	public String user_parking(HttpSession session){
+		UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		return "emptyLoginSession";
+    	}
+    	else{
+    		return "webTemplete.jsp?nextPage=user_parking";
+    	}
 	}
 	
 	@RequestMapping(value="/parking.do")

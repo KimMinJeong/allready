@@ -2,10 +2,13 @@ package kr.ac.apart.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import kr.ac.apart.service.BoardService;
 import kr.ac.apart.service.CommentsService;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.CommentsVO;
+import kr.ac.apart.vo.UserVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,34 +24,55 @@ import org.springframework.web.servlet.ModelAndView;
     private CommentsService commentsService;
 
     @RequestMapping(value="/noticeBoard.do") 
-    public ModelAndView noticeList(){
+    public ModelAndView noticeList(HttpSession session){
         List<BoardVO> list = boardService.NoticeBoardList();
         ModelAndView mav = new ModelAndView();
-
+        UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		mav.setViewName("emptyLoginSession");
+    	}
+    	else{
+    		mav.setViewName("webTemplete.jsp?nextPage=notice_board_list");
+    	}
+    	
         mav.addObject("list",list);
-        mav.setViewName("webTemplete.jsp?nextPage=notice_board_list");
 
         return mav;
     }
     
     @RequestMapping(value="/complainBoard.do") 
-    public ModelAndView minoneList(){
+    public ModelAndView minoneList(HttpSession session){
         List<BoardVO> list = boardService.ComplainBoardList();
         ModelAndView mav = new ModelAndView();
+        UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		mav.setViewName("emptyLoginSession");
+    	}
+    	else{
+    		mav.setViewName("webTemplete.jsp?nextPage=complain_board_list");
+    	}
 
         mav.addObject("list",list);
-        mav.setViewName("webTemplete.jsp?nextPage=complain_board_list");
 
         return mav;
     }
     
     @RequestMapping(value="/freeBoard.do") 
-    public ModelAndView freeList(){
+    public ModelAndView freeList(HttpSession session){
         List<BoardVO> list = boardService.FreeBoardList();
         ModelAndView mav = new ModelAndView();
+        UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		mav.setViewName("emptyLoginSession");
+    	}
+    	else{
+    		mav.setViewName("webTemplete.jsp?nextPage=free_board_list");
+    	}
 
         mav.addObject("list",list);
-        mav.setViewName("webTemplete.jsp?nextPage=free_board_list");
 
         return mav;
     }

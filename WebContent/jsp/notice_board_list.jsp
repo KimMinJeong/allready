@@ -14,13 +14,18 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>공지사항</title>
 </head>
-
+<%
+	UserVO userVo = (UserVO) session.getAttribute("UserFlag");
+	/* if(userVo == null){
+		response.sendRedirect("loginForm.do");
+	} */
+%>
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<font size="4">
 					<ul class="nav">
 						<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
@@ -31,6 +36,10 @@
 			</div> <br><br>
 			<%
 				UserVO userVO = (UserVO) session.getAttribute("UserFlag");
+			
+				if(userVO == null){
+					response.sendRedirect("loginForm.do");
+				}
 			%>
 			
 			<!-- main area -->

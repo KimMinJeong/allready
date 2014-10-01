@@ -1,3 +1,6 @@
+<%@page import="kr.ac.apart.vo.UserVO"%>
+<%@page import="kr.ac.apart.vo.BoardVO"%>
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -11,7 +14,10 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <title>메인</title>
 </head>
-
+<%
+	UserVO user = (UserVO) session.getAttribute("UserFlag");
+	List<BoardVO> noticeList = (List<BoardVO>) request.getAttribute("getNoticeList");
+%>
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
@@ -20,38 +26,29 @@
 					
 					<!-- Default panel contents -->
 					<div class="panel-heading">
-						<center>공지사항 게시판</center>
+						<center>공지사항</center>
 					</div>
 					
 					<!-- Table -->
 					<table class="table">
 						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
+							<th><center>번호</center></th>
+							<th><center>제목</center></th>
+							<th><center>작성자</center></th>
+							<th><center>날짜</center></th>
 						</tr>
-						
-						<tr>
-							<td>1</td>
-							<td>윗층이 너무 시끄럽습니다</td>
-							<td>김은지</td>
-							<td>2014-8-18</td>
-						</tr>
-						
-						<tr>
-							<td>2</td>
-							<td>윗층이 너무 시끄럽습니다</td>
-							<td>김은지</td>
-							<td>2014-8-18</td>
-						</tr>
-						
-						<tr>
-							<td>3</td>
-							<td>윗층이 너무 시끄럽습니다</td>
-							<td>김은지</td>
-							<td>2014-8-18</td>
-						</tr>
+						<%
+							if(noticeList != null){
+								for(BoardVO vo : noticeList){%>
+									<tr>
+										<td><center><%=vo.getBoard_no()%></center></td>
+										<td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
+										<td><center><%=vo.getWriter_id()%></center></td>
+										<td><center><%=vo.getReg_date()%></center></td>
+									</tr>
+								<%}
+							}
+						%>
 					</table>
 				</div>
 			</div>
@@ -70,19 +67,19 @@
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1">
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
 					<span class="glyphicon glyphicon-facetime-video"></span> CCTV
 				</button> <br>
 			</div>
 
 			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1">
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
 					<span class="glyphicon glyphicon-star"></span> 주차장
 				</button>
 			</div>
 
 			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1">
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
 					<span class="glyphicon glyphicon-usd"></span> 관리세
 				</button>
 			</div>
@@ -94,15 +91,31 @@
 			</div>
 
 			<div class="col-xs-12 col-sm-4"> <br>
+				<% if(user != null){
+					if("NORMAL".equals(user.getRole())){%>
 				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
 					<span class="glyphicon glyphicon-user"></span> 방문객
 				</button>
+				<%} else if("MANAGER".equals(user.getRole())){ %>
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='manage_visitor.do'">
+					<span class="glyphicon glyphicon-user"></span> 방문객
+				</button>
+				<%}
+				}%>
 			</div>
 
 			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1">
+				<% if(user != null){
+					if("NORMAL".equals(user.getRole())){%>
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
 					<span class="glyphicon glyphicon-heart-empty"></span> 소통의 장
 				</button>
+				<%}else if("MANAGER".equals(user.getRole())){ %>
+				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='expressList.do'">
+					<span class="glyphicon glyphicon-heart-empty"></span> 택배관리
+				</button>
+				<%}
+				} %>
 			</div>
 		</div>
 		<!-- /.col-xs-12 main -->
@@ -112,6 +125,6 @@
 </body>
 
 <script type="text/javascript">
-	$('#tabs .tab4 a[href="noticeBoard.do"]').tab('show'); // Select tab by nam
+	//$('#tabs .tab4 a[href="noticeBoard.do"]').tab('show'); // Select tab by nam
 </script>
 </html>

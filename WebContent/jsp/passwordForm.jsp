@@ -33,10 +33,39 @@
 				</div> <br>
 
 				<div class="btn-group">
-					<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">확인</button>
+					<button type="button" class="btn btn-default dropdown-toggle" id="submitButton">확인</button>
 				</div>
 			</div>
 		</div>
 	</div>
 </body>
+
+<script type="text/javascript">
+	$("#submitButton").on('click', function(){
+		alert("버튼이 눌렸습니다.");
+		
+		$.ajax({
+			url : "findPassword.do",
+			type : "get",
+			dataType : "json",
+			data : {
+				userId : $("#user_id").val(),
+				userName : $("#user_name").val(),
+				userEmail : $("#user_email").val(),
+			},
+			contentType : "application/json; charset=utf-8",
+			success : function(data) {
+				if(!data.userCheck){
+					alert("정보가 일치하지 않습니다.");
+				}
+				else if(data.userCheck){
+					alert("정보가 일치합니다.");
+				}
+			},
+			error : function(e) {
+				alert("error!");
+			}
+		});
+	});
+</script>
 </html>
