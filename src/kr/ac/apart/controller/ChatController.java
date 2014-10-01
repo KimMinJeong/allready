@@ -29,7 +29,7 @@ public class ChatController {
 		} catch (URISyntaxException e2) {
 			e2.printStackTrace();
 		}
-    
+    	
     	socketIO.connect();
     	socketIO.emit("user_id", user_id.getUser_id());
  	
