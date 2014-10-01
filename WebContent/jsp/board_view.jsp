@@ -60,12 +60,14 @@
 					<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
 						수정
-					</button></a>
+					</button>
+					</a>
 					
 					<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
 						삭제
-					</button></a>
+					</button>
+					</a>
 				</div>
 				<%} %>
 				<%

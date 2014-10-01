@@ -10,7 +10,7 @@ public class ArduinoProcessing extends PApplet{
 	private Serial myPort;
 	public static String isfull=null;
 	static{
-		System.load("D:\\LSG\\processing-2.2.1-windows32\\processing-2.2.1\\modes\\java\\libraries\\serial\\library\\windows32\\jSSC-2.8.dll");
+		System.load("C://SK//jSSC-2.8.dll");
 	}
 	public void setup()
 	{

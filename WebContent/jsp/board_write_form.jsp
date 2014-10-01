@@ -8,8 +8,10 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+
 <%
 	UserVO LoginInfo = (UserVO) session.getAttribute("UserFlag");
 %>
@@ -50,9 +52,12 @@
 					 
 					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br><br> 
 					<input type="text" class="form-control title" name="title"> <br>
-					<textarea rows="20" cols="135" name="contents"> </textarea> <br><br> 
-					
-					<input type="file" class="file" /> <br>
+					 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+					//<![CDATA[
+					        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+					  //]]>
+					  </script>
+					<textarea class="textarea" name="contents"> </textarea> <br><br> 
 
 					<div class="col-md-3 col-md-offset-9 ">
 						<input type="checkbox" name="anonymous" class="checkbox inline" value="ANONYMOUS" /> 
@@ -70,4 +75,5 @@
 	</div>
 	<!--/.container-->
 </body>
+
 </html>

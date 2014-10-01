@@ -32,6 +32,13 @@
 #table1 #table2 #empty_color{
 	bgcolor : green;
 }
-
 #table1 #table2 tr > td{
 }
+.cctv_frame{
+	width :400px;
+	height :300px;
+	display: inline;
+}
+
+.textarea{
+	width: 100%;
