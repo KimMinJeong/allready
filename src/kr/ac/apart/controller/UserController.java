@@ -136,7 +136,7 @@ public class UserController {
     @RequestMapping(value = "findPassword.do")
     public @ResponseBody String findPassword(String userId, String userName, String userEmail){
     	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userPassword : " + userName + ", userName : " + userEmail );
+    	System.out.println("userId : " + userId + ", userName : " + userName + ", userEmail : " + userEmail );
     	
     	boolean userCheck = userService.findPassword(userId, userName, userEmail);
     	

@@ -64,6 +64,7 @@
 							<th>제목</th>
 							<th>작성자</th>
 							<th>날짜</th>
+							<th>조회수</th>
 						</tr>
 						<%
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("list");
@@ -80,7 +81,7 @@
 						<tr>
 							<td><%=vo.getBoard_no()%></td>
 							<td><span class="glyphicon glyphicon-lock"></span>
-							<a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<a href="boardDetail.do?board_no=<%=board_no%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle()%></a></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())){
 							%>
@@ -93,12 +94,21 @@
 								}
 							%>
 							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							} else {
 						%>
 						<tr>
-							<td colspan="4"><center>비밀글 입니다^3^</center></td>
+							<td><%=vo.getBoard_no() %></td>
+							<td>비밀글 입니다^3^</td>
+							<%if("ANONYMOUS".equals(vo.getAnonymous())){%>
+							<td>익명</td>
+							<%}else{ %>
+							<td><%=vo.getWriter_id() %></td>
+							<%}%>
+							<td><%=vo.getReg_date() %></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							}
@@ -106,7 +116,7 @@
 						%>
 						<tr>
 							<td><%=vo.getBoard_no()%></td>
-							<td></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<td><a href="boardDetail.do?board_no=<%=board_no%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle()%></a></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
 							%>
@@ -119,6 +129,7 @@
 								}
 							%>
 							<td><%=vo.getReg_date()%></td>
+							<td><%=vo.getView_count() %></td>
 						</tr>
 						<%
 							}

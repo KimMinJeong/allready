@@ -1,3 +1,4 @@
+<%@page import="kr.ac.apart.vo.FlagVO"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.CommentsVO"%>
 <%@page import="java.util.*"%>
@@ -16,6 +17,8 @@
 <%
 	BoardVO vo = (BoardVO)request.getAttribute("vo");
 	UserVO vo2 = (UserVO)session.getAttribute("UserFlag");
+ 
+	
 %>
 </head>
 
@@ -37,34 +40,61 @@
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9"> <br>
 				<center><h1><%=vo.getTitle() %></h1></center> <br>
-				<center><h1><%=vo.getWriter_id() %></h1></center> <br>
+				<center><h1>글쓴이:<%=vo.getWriter_id() %></h1></center> <br>
+				<% if("notice".equals(vo.getCategory())){%>
+				<div align="right">
+					<input type="button" class="btn btn-default navbar-btn" value="글목록" onClick="location.href='noticeBoard.do'">
+				</div>
+				<%}else if("complain".equals(vo.getCategory())){ %>
+				<div align="right">
+					<input type="button" class="btn btn-default navbar-btn" value="글목록" onClick="location.href='complainBoard.do'">
+				</div>
+				<%}else if("free".equals(vo.getCategory())){  %>
+				<div align="right">
+					<input type="button" class="btn btn-default navbar-btn" value="글목록" onClick="location.href='freeBoard.do'">
+				</div><%} %>
 				<textarea rows="20" cols="120"><%=vo.getContents() %></textarea> <br>
-				
+						
 				<%if(vo2.getUser_id().equals(vo.getWriter_id())) {%>
 				<div align="right">
+					<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="UpdateForm.do?board_no=<%=vo.getBoard_no()%>">수정</a>
-					</button>
+						수정
+					</button></a>
 					
+					<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">
 					<button type="submit" class="btn btn-default navbar-btn">
-						<a href="Delete.do?board_no=<%=vo.getBoard_no()%>">삭제</a>
-					</button>
+						삭제
+					</button></a>
 				</div>
 				<%} %>
 				<%
 			if("complain".equals(vo.getCategory())){%>
-				<center>
-					<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addGood.do?board_no=<%=vo.getBoard_no()%>'" onclick="event.cancelBubble = true">
-						<span class="glyphicon glyphicon-thumbs-up"></span>
-					</button>
+				
+					<div align="center">
+					<div class="col-xs-12 col-sm-4">			
+					<div class="col-xs-2 col-sm-2">
+					<form action="addGood.do?board_no=<%=vo.getBoard_no()%>" >				
+					<input type="hidden" name="good_id" value=<%=vo2.getUser_id() %>>
+					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
+					<input type="submit"  class="btn btn-default " value="<%=vo.getGood() %>">
+					<span class="glyphicon glyphicon-thumbs-up"></span>
+					</form>
+					</div>
 					
-					<%=vo.getGood() %>
+				
 					
-					<button type="button" name="button" class="btn btn-default btn-lg" onClick="location.href='addBad.do?board_no=<%=vo.getBoard_no()%>'" onclick="event.cancelBubble = true">
-						<span class="glyphicon glyphicon-thumbs-down"></span>
-					</button>
-					<%=vo.getBad() %>
-				</center>
+					<div class="col-xs-2 col-sm-2">							
+					<form action="addBad.do?board_no=<%=vo.getBoard_no()%>" >				
+					<input type="hidden" name="bad_id" value=<%=vo2.getUser_id() %>>
+					<input type="hidden" name="board_no" value=<%=vo.getBoard_no() %>>
+					<input type="submit"  class="btn btn-default " value="<%=vo.getBad() %>">
+					<span class="glyphicon glyphicon-thumbs-down"></span>
+					</form>		
+					</div></div></div>
+				
+				
+		
 				<%}%>
 
 				<!-- Default panel contents -->
@@ -173,5 +203,7 @@ $(document).on('click','.deleteComments', function(){         //삭제버튼 클
           }
      }); 
 });
+
+
 </script>
 </html>
