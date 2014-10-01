@@ -101,4 +101,11 @@ public class userDAOTest {
 		
 	}
 
+	@Test
+	public void modifyExpressTest(){
+		UserVO user=new UserVO();
+		user.setExpress("FALSE");
+		user.setUser_id("1");
+		userDao.expressModify(user);
+	}
 }

@@ -1,5 +1,7 @@
 package kr.ac.apart.controller;
 
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.UserService;
@@ -26,18 +28,25 @@ public class UserController {
 
     @RequestMapping("/login.do")
     public String join(String user_id, String user_password, HttpSession session){
-    	
         UserVO vo = userService.getUser(user_id, user_password);
-        
         if (vo != null) {
             session.setAttribute("UserFlag", vo);
-            return "redirect:/main.do";
-        } else 
-            return "redirect:/loginForm.do";
+        	return "redirect:/main.do";
+        }else
+        	return "redirect:/loginForm.do";
     }
 
     @RequestMapping(value = "/main.do")
-    public String main(){
+    public String main(HttpSession session, String name){
+    	System.out.println(name);
+    	if(session.getAttribute("UserFlag")!=null){
+    		UserVO user=(UserVO) session.getAttribute("UserFlag");
+    		String user_id=user.getUser_id();
+    		UserVO update_user=userService.getOne(user_id);
+    		session.setAttribute("UserFlag", update_user);
+    	}
+    	else
+    		return "redirect:/loginForm.do";
         return "webTemplete.jsp?nextPage=user_main";
     }
 
