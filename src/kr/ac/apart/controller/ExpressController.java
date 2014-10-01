@@ -5,6 +5,7 @@ import java.util.List;
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.ExpressService;
+import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.ExpressVO;
 import kr.ac.apart.vo.UserVO;
 
@@ -18,11 +19,23 @@ public class ExpressController {
 	
 	@Autowired
 	private ExpressService expressService;
+	@Autowired
+	private UserService userService;
+	
+	@RequestMapping(value="/checkExpress.do")
+	public String checkExpress(String user_id){
+		UserVO user= userService.getOne(user_id);
+		expressService.ExpressCheck(user);
+		return "redirect:/main.do";
+	}
 	
 	@RequestMapping(value="/addExpress.do")
 	public String addExpress(String user_id,String orderer, String express_company){
 
 		expressService.addExpress(user_id, orderer, express_company);
+		UserVO user=new UserVO();
+		user.setUser_id(user_id);
+		expressService.ExpressArrive(user);
 		
 		return "redirect:/expressList.do";
 	}

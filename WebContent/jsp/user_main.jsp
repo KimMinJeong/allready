@@ -53,78 +53,82 @@
 				</div>
 			</div>
 
-			<div class="container"> <br>
-				<div class="row row-offcanvas row-offcanvas-right">
-					<div class="row">
-						<div class="col-xs-6 col-md-3">
-							<a href="#" class="thumbnail"> 
-							<img data-src="holder.js/100%x180" alt="..."></a>
-							<center><span class="glyphicon glyphicon-off"><a href="logout.do">로그아웃</a></span></center>
-						</div>
+         <div class="container"> <br>
+            <div class="row row-offcanvas row-offcanvas-right">
+               <div class="row">
+                  <div class="col-xs-6 col-md-3">
+                     <div style="position:relative">
+									<img src="images/profile.jpg" data-src="holder.js/100%x180" alt="...">
+									<div style="position: absolute">
+									<%if(user.getExpress().equals("FALSE")){%>
+									<img src="images/MessageOff.jpg" width="50" height="50" alt="...">
+									<%}else if(user.getExpress().equals("TRUE")){ %>
+									<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img src="images/MessageOn.jpg" width="50" height="50" alt="..."></a>
+									<%} %>
+									</div>
 					</div>
-				</div>
-			</div>
+                  </div>
+					<span class="glyphicon glyphicon-off"><a href="logout.do">로그아웃</a></span>
+               </div>
+            </div>
+         </div>
 
-			<!-- main area -->
-			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
-					<span class="glyphicon glyphicon-facetime-video"></span> CCTV
-				</button> <br>
-			</div>
-
-			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
-					<span class="glyphicon glyphicon-star"></span> 주차장
-				</button>
-			</div>
-
-			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
-					<span class="glyphicon glyphicon-usd"></span> 관리세
-				</button>
-			</div>
-
-			<div class="col-xs-12 col-sm-4"> <br>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
-					<span class="glyphicon glyphicon-align-justify"></span> 게시판
-				</button>
-			</div>
-
-			<div class="col-xs-12 col-sm-4"> <br>
-				<% if(user != null){
-					if("NORMAL".equals(user.getRole())){%>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
-					<span class="glyphicon glyphicon-user"></span> 방문객
-				</button>
-				<%} else if("MANAGER".equals(user.getRole())){ %>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='manage_visitor.do'">
-					<span class="glyphicon glyphicon-user"></span> 방문객
-				</button>
-				<%}
-				}%>
-			</div>
-
-			<div class="col-xs-12 col-sm-4"> <br>
-				<% if(user != null){
-					if("NORMAL".equals(user.getRole())){%>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
-					<span class="glyphicon glyphicon-heart-empty"></span> 소통의 장
-				</button>
-				<%}else if("MANAGER".equals(user.getRole())){ %>
-				<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='expressList.do'">
-					<span class="glyphicon glyphicon-heart-empty"></span> 택배관리
-				</button>
-				<%}
-				} %>
-			</div>
+		<!-- main area -->
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
+				<span class="glyphicon glyphicon-facetime-video"></span> CCTV
+			</button> <br>
 		</div>
-		<!-- /.col-xs-12 main -->
-	</div>
-	<!--/.row-->
-	<br>
-</body>
 
-<script type="text/javascript">
-	//$('#tabs .tab4 a[href="noticeBoard.do"]').tab('show'); // Select tab by nam
-</script>
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
+				<span class="glyphicon glyphicon-star"></span> 주차장
+			</button>
+		</div>
+
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
+				<span class="glyphicon glyphicon-usd"></span> 관리세
+			</button>
+		</div>
+			
+         <div class="col-xs-12 col-sm-4"> <br>
+            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
+               <span class="glyphicon glyphicon-align-justify"></span> 게시판
+            </button>
+         </div>
+
+         <div class="col-xs-12 col-sm-4"> <br>
+            <% if(user != null){
+               if("NORMAL".equals(user.getRole())){%>
+            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
+               <span class="glyphicon glyphicon-user"></span> 방문객
+            </button>
+            <%} else if("MANAGER".equals(user.getRole())){ %>
+            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='manage_visitor.do'">
+               <span class="glyphicon glyphicon-user"></span> 방문객
+            </button>
+            <%}
+            }%>
+         </div>
+
+         <div class="col-xs-12 col-sm-4"> <br>
+            <% if(user != null){
+               if("NORMAL".equals(user.getRole())){%>
+            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
+               <span class="glyphicon glyphicon-heart-empty"></span> 소통의 장
+            </button>
+            <%}else if("MANAGER".equals(user.getRole())){ %>
+            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='expressList.do'">
+               <span class="glyphicon glyphicon-heart-empty"></span> 택배관리
+            </button>
+            <%}
+            } %>
+         </div>
+      </div>
+      <!-- /.col-xs-12 main -->
+   </div>
+   <!--/.row-->
+   <br>
+</body>
 </html>

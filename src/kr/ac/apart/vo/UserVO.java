@@ -7,6 +7,7 @@ public class UserVO {
 	private String e_mail;
 	private String phone;
 	private String role;
+	private String express;
 	@Override
 	public String toString() {
 		return "UserVO [user_id=" + user_id + ", password=" + password
@@ -49,5 +50,10 @@ public class UserVO {
 	public void setRole(String role) {
 		this.role = role;
 	}
-	
+	public String getExpress() {
+		return express;
+	}
+	public void setExpress(String express) {
+		this.express = express;
+	}
 }

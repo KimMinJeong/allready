@@ -16,6 +16,12 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserDAO userDao;
+
+	@Override
+	public UserVO getOne(String user_id) {
+		UserVO user=userDao.getUser(user_id);
+		return user;
+	}
 	
 	public UserVO getUser(String userId, String password){
 		UserVO user = userDao.getUser(userId);
