@@ -110,7 +110,7 @@ public class UserController {
     @RequestMapping(value="passwordFind.do")
     public ModelAndView passwordFind(String user_id, String user_name, String e_mail){
     	String pwd = userService.getUser_passwordFind(user_id, user_name, e_mail);
-    	ModelAndView mav = new ModelAndView("myPassword");
+    	ModelAndView mav = new ModelAndView("passwordForm");
     	mav.addObject("password", pwd);
     	System.out.println("controller"+pwd);
     	
