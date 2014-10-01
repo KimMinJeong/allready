@@ -10,5 +10,4 @@ app.get('/', function(req, res){
 	});
 });
 http.listen(8000);
-
 require('./socket_test')(io);  //파일 불러오기

@@ -8,8 +8,9 @@
 		var ctx, canvas, img;
 		
 		$(document).ready(function(){
+			img = new Image();
 			canvas = $("#mycanvas").get(0);		
-			ctx = canvas.getContext('2d');	
+			ctx = canvas.getContext('2d');
 			canvas.width = 400;
 			canvas.height = 300;
 
@@ -18,11 +19,11 @@
 				img.onload = function (ev) {
 					ctx.drawImage(img, 0, 0,400, 300);
 				}
-
 			});
 		});
 		</script>
 	</head>
+	
 	<body>
 		<canvas id='mycanvas'></canvas>
 	</body>
