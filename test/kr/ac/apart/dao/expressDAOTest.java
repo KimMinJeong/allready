@@ -19,6 +19,8 @@ public class expressDAOTest {
 
 	@Autowired 
 	private ExpressDAO expressDao;
+	@Autowired
+	private BoardDAO boardDAO;
 	
 	@Test
 	public void test() {
@@ -30,5 +32,8 @@ public class expressDAOTest {
 		assertEquals(vo.getReceiver(), "aaa");
 		
 	}
+	
+
+	
 
 }

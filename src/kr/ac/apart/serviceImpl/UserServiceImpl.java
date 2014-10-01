@@ -34,6 +34,32 @@ public class UserServiceImpl implements UserService{
 			return null;
 	}
 	
+	public String getUser_passwordFind(String user_id, String user_name,String e_mail){
+		UserVO user = userDao.getUser(user_id);
+		String pwd = user.getPassword();
+		System.out.println("e_mail : "+e_mail);
+		System.out.println(user.getUser_id());
+		System.out.println(user.getUser_name());
+		System.out.println(user.getE_mail());
+		if(user_id.equals(user.getUser_id()) ){
+			System.out.println("id ok");
+				if(user_name.equals(user.getUser_name())){
+					System.out.println("name ok");
+					if(e_mail.equals(user.getE_mail())){
+						System.out.println("email ok");
+						System.out.println(pwd);
+						return pwd;
+					}
+				
+				}
+		}
+		else
+			System.out.println("틀렷어 병시나");
+			return "회원정보가 일치하지 않습니다.ㅠㅠ";
+	
+		
+	}
+	
 	@Override
 	public void updateManager(String userId, String userPassword, String userName, String userPhone){
 		UserVO vo = new UserVO();
@@ -107,4 +133,20 @@ public class UserServiceImpl implements UserService{
 		
 		return list;
 	}
+	
+	@Override
+	public boolean findPassword(String userId, String userName, String userEmail){
+		UserVO vo = userDao.getUser(userId);
+		
+		if(userName.equals(vo.getUser_name())){
+			if(userEmail.equals(vo.getE_mail())){
+				return true;
+			}
+			else 
+				return false;
+		}
+		else
+			return false;
+	}
+	
 }

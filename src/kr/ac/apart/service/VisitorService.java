@@ -11,12 +11,15 @@ public interface VisitorService {
    public VisitorVO insert(String user_id, String visitor_name, String business, String fixed);
    public List<VisitorVO> getVisitorList(String id);
    public void deleteVisitor(String no);
-   public void updateVisitor(String no);
-   public List<Visit_RecordVO> getVisitorListManager();
+   public void updateVisitor(int visitorNo);
+   public List<Visit_RecordVO> getVisitorListManager(int page);
    public List<VisitorVO> getVisitorListAll();
    public String getRegDate();
    public void addVisitormanagerOnly();
    public int deleteVisitRecord(int no);
    public int addVisitRecord(int visitorNo);
    public int getMaxVisitRecordNo();
+   public void modifyVisitor(int visitorNo, String userId, String visitorName, String business);
+   public void modifyVisitRecord(int visitRecordNo, int visitorNo, String regDate);
+   public int countVisitRecord();
 }

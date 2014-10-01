@@ -7,6 +7,10 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
+import javax.servlet.http.HttpSession;
+
+import kr.ac.apart.vo.UserVO;
+
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -20,9 +24,17 @@ public class TaxController {
     @SuppressWarnings("deprecation")
 
     @RequestMapping(value="/user_tax.do")
-    public ModelAndView tax() {
-        ModelAndView mav = new ModelAndView("webTemplete.jsp?nextPage=user_tax");
-
+    public ModelAndView tax(HttpSession session) {
+        ModelAndView mav = new ModelAndView();
+        UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		mav.setViewName("emptyLoginSession");
+    	}
+    	else{
+    		mav.setViewName("webTemplete.jsp?nextPage=user_tax");
+    	}
+    	
         URL url;
         URL url2;
         ////  -- 전체 관리세 --

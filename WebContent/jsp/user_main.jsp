@@ -15,43 +15,43 @@
 <title>메인</title>
 </head>
 <%
-   UserVO user = (UserVO) session.getAttribute("UserFlag");
-   List<BoardVO> noticeList = (List<BoardVO>) request.getAttribute("getNoticeList");
+	UserVO user = (UserVO) session.getAttribute("UserFlag");
+	List<BoardVO> noticeList = (List<BoardVO>) request.getAttribute("getNoticeList");
 %>
 <body>
-   <div class="container">
-      <div class="row row-offcanvas row-offcanvas-left">
-         <div class="col-xs-10 col-sm-7"> <br>
-            <div class="panel panel-default">
-               
-               <!-- Default panel contents -->
-               <div class="panel-heading">
-                  <center>공지사항</center>
-               </div>
-               
-               <!-- Table -->
-               <table class="table">
-                  <tr>
-                     <th><center>번호</center></th>
-                     <th><center>제목</center></th>
-                     <th><center>작성자</center></th>
-                     <th><center>날짜</center></th>
-                  </tr>
-                  <%
-                     if(noticeList != null){
-                        for(BoardVO vo : noticeList){%>
-                           <tr>
-                              <td><center><%=vo.getBoard_no()%></center></td>
-                              <td><center><%=vo.getTitle()%></center></td>
-                              <td><center><%=vo.getWriter_id()%></center></td>
-                              <td><center><%=vo.getReg_date()%></center></td>
-                           </tr>
-                        <%}
-                     }
-                  %>
-               </table>
-            </div>
-         </div>
+	<div class="container">
+		<div class="row row-offcanvas row-offcanvas-left">
+			<div class="col-xs-10 col-sm-7"> <br>
+				<div class="panel panel-default">
+					
+					<!-- Default panel contents -->
+					<div class="panel-heading">
+						<center>공지사항</center>
+					</div>
+					
+					<!-- Table -->
+					<table class="table">
+						<tr>
+							<th><center>번호</center></th>
+							<th><center>제목</center></th>
+							<th><center>작성자</center></th>
+							<th><center>날짜</center></th>
+						</tr>
+						<%
+							if(noticeList != null){
+								for(BoardVO vo : noticeList){%>
+									<tr>
+										<td><center><%=vo.getBoard_no()%></center></td>
+										<td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
+										<td><center><%=vo.getWriter_id()%></center></td>
+										<td><center><%=vo.getReg_date()%></center></td>
+									</tr>
+								<%}
+							}
+						%>
+					</table>
+				</div>
+			</div>
 
          <div class="container"> <br>
             <div class="row row-offcanvas row-offcanvas-right">
@@ -73,25 +73,25 @@
             </div>
          </div>
 
-         <!-- main area -->
-         <div class="col-xs-12 col-sm-4"> <br>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
-               <span class="glyphicon glyphicon-facetime-video"></span> CCTV
-            </button> <br>
-         </div>
+		<!-- main area -->
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
+				<span class="glyphicon glyphicon-facetime-video"></span> CCTV
+			</button> <br>
+		</div>
 
-         <div class="col-xs-12 col-sm-4"> <br>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
-               <span class="glyphicon glyphicon-star"></span> 주차장
-            </button>
-         </div>
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
+				<span class="glyphicon glyphicon-star"></span> 주차장
+			</button>
+		</div>
 
-         <div class="col-xs-12 col-sm-4"> <br>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
-               <span class="glyphicon glyphicon-usd"></span> 관리세
-            </button>
-         </div>
-
+		<div class="col-xs-12 col-sm-4"> <br>
+			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
+				<span class="glyphicon glyphicon-usd"></span> 관리세
+			</button>
+		</div>
+			
          <div class="col-xs-12 col-sm-4"> <br>
             <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
                <span class="glyphicon glyphicon-align-justify"></span> 게시판
@@ -131,8 +131,4 @@
    <!--/.row-->
    <br>
 </body>
-
-<script type="text/javascript">
-   //$('#tabs .tab4 a[href="noticeBoard.do"]').tab('show'); // Select tab by nam
-</script>
 </html>

@@ -2,6 +2,8 @@ package kr.ac.apart.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpSession;
+
 import kr.ac.apart.service.ExpressService;
 import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.ExpressVO;
@@ -39,12 +41,18 @@ public class ExpressController {
 	}
 	
 	@RequestMapping(value="/expressList.do")
-	public ModelAndView getExpressList(){
+	public ModelAndView getExpressList(HttpSession session){
 		List<ExpressVO> list = expressService.getExpressList();
 		ModelAndView mav = new ModelAndView();
-		
+		UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        
+    	if(vo == null){
+    		mav.setViewName("emptyLoginSession");
+    	}
+    	else{
+    		mav.setViewName("webTemplete.jsp?nextPage=manage_express_list");
+    	}
 		mav.addObject("list",list);
-		mav.setViewName("webTemplete.jsp?nextPage=manage_express_list");
 		
 		return mav;
 	}
