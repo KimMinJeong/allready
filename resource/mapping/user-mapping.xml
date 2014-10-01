@@ -12,7 +12,6 @@
 		<result property="e_mail" column="E_MAIL" nullValue="" />
 		<result property="phone" column="PHONE" nullValue="" />
 		<result property="role" column="ROLE" />
-        <result property="express" column="EXPRESS" nullValue="FALSE"/>
 	</resultMap>
 	
 	<select id="getUser" resultMap="userResult" parameterClass="java.lang.String">
@@ -38,9 +37,4 @@
 		WHERE USER_ID=#user_id#
 	</update>
 	
-	<update id="ExpressModify" parameterClass="user">
-		UPDATE USERS
-		SET EXPRESS=#express#
-		WHERE USER_ID=#user_id#
-	</update>
 </sqlMap>
