@@ -40,7 +40,6 @@
 				if(userVO == null){
 					response.sendRedirect("loginForm.do");
 				}
-
 			%>
 			
 			<!-- main area -->
