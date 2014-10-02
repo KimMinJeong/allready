@@ -157,7 +157,6 @@
 	var receiver;
 	
 	$(document).on("click", ".getButton", function(){
-		alert($(this).closest('button').attr('id'));
 		id = $(this).closest('button').attr('id');
 	});
 

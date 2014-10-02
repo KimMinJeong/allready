@@ -32,25 +32,10 @@
 			<li><a href="#"> 후문 </a></li>
 		</ul>  -->
 		
-			<div class="col-xs-12 col-sm-8"> <br>
-				<div class="table-responsive">
-					<iframe src="http://localhost:8000/" scrolling="no" width="400" height="300"></iframe>
-					<table class="table table-striped" border="2">
-						<tr height="250px">
-							<td width="50%"></td>
-							<td width="50%">
-							<span class="glyphicon glyphicon-facetime-video"></span> 놀이터</td>
-						</tr>
-						
-						<tr height="250px">
-							<td width="50%">
-							<span class="glyphicon glyphicon-facetime-video"></span>정문</td>
-							
-							<td width="50%">
-							<span class="glyphicon glyphicon-facetime-video"></span>후문</td>
-						</tr>
-					</table>
-				</div>
+			<div class="col-xs-12 col-sm-8"> 
+			<br>
+				<iframe class="cctv_frame" src="http://localhost:8000/" scrolling="no"></iframe>
+				<iframe class="cctv_frame"></iframe>
 			</div>
 		</div>
 	</div>

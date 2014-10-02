@@ -7,6 +7,7 @@ import kr.ac.apart.vo.Manager_DongVO;
 import kr.ac.apart.vo.UserVO;
 
 public interface UserService {
+	public UserVO getOne(String user_id);
 	public UserVO getUser(String userId,String password);
 	public void updateManager(String userId, String userPassword, String userName, String userPhone);
 	public void updateManagerDong(String manageDong, String userId);

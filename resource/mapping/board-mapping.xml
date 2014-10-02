@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="EUC-KR"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
 "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
@@ -19,7 +19,7 @@
 		<result property="closed" column="CLOSED" nullValue="OPEN" />
 		<result property="file_name" column="FILE_NAME" nullValue="" />
 	</resultMap>
-	
+
 	<insert id="BoardAdd" parameterClass="board">
 			INSERT INTO BOARD(BOARD_NO, WRITER_ID, CATEGORY, TITLE, CONTENTS, REG_DATE, VIEW_COUNT, GOOD, BAD, ANONYMOUS, CLOSED, FILE_NAME)
 			VALUES(SEQ_BOARD_NO.NEXTVAL,#writer_id#,#category#, #title#,#contents#,sysdate,#view_count#,#good#,#bad#,#anonymous#,#closed#,#file_name#)
@@ -27,7 +27,7 @@
 	
 	<select id="BoardList" resultClass="board" parameterClass="java.lang.String">
 		<![CDATA[
-			SELECT BOARD_NO,TITLE,WRITER_ID,REG_DATE,CATEGORY,ANONYMOUS,CLOSED
+			SELECT *
 			FROM BOARD
 			WHERE CATEGORY=#category#
 		]]>
@@ -76,9 +76,14 @@
 		
 	<update id="addBad" parameterClass="java.lang.Integer" >
 			UPDATE BOARD SET BAD=BAD+1 
-			WHERE BOARD_NO= #board_no#
+			WHERE BOARD_NO = #board_no#
 	</update>
 	
+	<update id="updateClicks" parameterClass="java.lang.Integer">
+			UPDATE BOARD SET VIEW_COUNT=VIEW_COUNT+1
+			WHERE BOARD_NO = #board_no#
+	</update>
+
 	<select id="getNoticeList" resultMap="BoardResult">
 		<![CDATA[
 			SELECT *
@@ -87,4 +92,5 @@
 			ORDER BY BOARD_NO DESC
 		]]>
 	</select>
+
 </sqlMap>

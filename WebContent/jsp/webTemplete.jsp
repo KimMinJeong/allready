@@ -40,7 +40,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='CCTV.jsp'}">
@@ -206,15 +206,4 @@
 	<!-- Respond.js 으로 IE8 에서 반응형 기능을 활성화하세요 (https://github.com/scottjehl/Respond) -->
 	<script src="static/js/respond.js"></script>
 </body>
-
-<script type="text/javascript">
-
-	 /* $(document).on('click', '.test', function(){
-	 alert("click");
-	 $('.test').each(function () {
-        $('li').removeClass('active');    
-    }) 
-    $(this).closest('li').addClass('active'); */
-
-</script>    
 </html>
