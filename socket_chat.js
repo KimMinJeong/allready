@@ -1,15 +1,27 @@
 module.exports = function(io)//외부에서 접근 가능
 {
-	io.on('connection', function(socket){
+	var sessionusername;
+    var usernames = {};
+    var numUser=0;
+    var user;
+    
+    io.sockets.on('connection', function(socket){
+    	socket.on('user_id', function(username){
+    		console.log("ID :"+username);
+    		sessionusername = username;
+    		socket.emit('userId', username);
+    		});
 		
-		socket.on('user_id', function(data){
-			console.log(data+'connected');
-			socket.broadcast.emit('userId', data);
+		socket.on('chat message', function(data){
+			console.log("MEssaging ID"+sessionusername);
+			io.sockets.emit('chat message',{
+				username: sessionusername,
+				message: data
+			});
 		});
 		
-		socket.on('chat message', function(msg){
-			console.log(msg);
-			socket.broadcast.emit('chat message', msg);
-		});	
+		socket.on('disconnect', function(){
+			socket.broadcast.emit('close', socket.id);
+		});
 	});
 };

@@ -2,6 +2,11 @@
   "name": "Chat",
   "version": "0.1.0",
   "description": "Chat",
+  "dependencies": {
+      "express": "",
+      "socket.io": ""
+   },
+   
   "main": "chat-server.njs",
   "scripts": {
     "test": "echo \"Error: no test specified! Configure in package.json\" && exit 1"

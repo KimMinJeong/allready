@@ -15,7 +15,7 @@
   </head>
   <body>
     <div id="messages"></div>
-    
+  
     <form action="">
       	<input id="m" autocomplete="off" /><button>Send</button>
     </form>
@@ -24,16 +24,36 @@
     
     <script type="text/javascript">
       var socket = io();
-      $('form').submit(function(){
-        socket.emit('chat message', $('#m').val());
-        $('#m').val('');
-        return false;
+      var name = "none";
+      
+// 	  socket.on('userId', function(username){
+// 		  name=username;
+// 	  });
+
+//       $('form').submit(function(){
+// 	      socket.emit('chat message',{
+// 	    	 message : $('#m').val(),
+// 	    	 username : 'userId'
+// 	      });
+// 	      $('#m').val('');
+// 	      return false;
+//       });
+
+	  $('form').submit(function(){
+// 		  socket.emit('user_id',name);
+		  socket.emit('chat message',$('#m').val());
+	      $('#m').val('');
+	      return false;
       });
 	  socket.on('userId', function(data){
-		  $('#messages').append("<li>"+data+"</li>");
+		  name=data;
+		  console.log("Connecting");
+		  $('#messages').append("<li>"+data+"님이 접속하였습니다.</li>");
 	  });
-	  socket.on('chat message', function(msg){
-	       $('#messages').append("<li>"+msg+"</li>");
+	  
+	  socket.on('chat message', function(data){
+		  console.log("Chatting");
+	       $('#messages').append("<li>"+name+":"+data.message+"</li>");
 	  });
     
     </script>
