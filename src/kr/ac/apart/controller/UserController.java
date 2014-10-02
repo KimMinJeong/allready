@@ -42,18 +42,21 @@ public class UserController {
     	return "redirect:/main.do";
     }
     
-    @RequestMapping(value = "/main.do")
+    @SuppressWarnings("unused")
+	@RequestMapping(value = "/main.do")
     public ModelAndView main(HttpSession session){
     	ModelAndView mav = new ModelAndView();
     	List<BoardVO> list =  boardService.getNoticeList();
     	UserVO vo = (UserVO) session.getAttribute("UserFlag");
+    	String user_id=vo.getUser_id();
         
-    	if(vo == null){
-    		mav.setViewName("emptyLoginSession");
-    	}
-    	else{
+    	if(vo != null){
+    		UserVO user=userService.getOne(user_id);
+    		session.setAttribute("UserFlag", user);
     		mav.setViewName("webTemplete.jsp?nextPage=user_main");
     	}
+    	else
+    		mav.setViewName("emptyLoginSession");
     	
     	mav.addObject("getNoticeList", list);
     	
