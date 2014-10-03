@@ -1,27 +1,30 @@
+var sessionUserName = [];
+
 module.exports = function(io)//외부에서 접근 가능
 {
-	var sessionusername;
-    var usernames = {};
-    var numUser=0;
-    var user;
-    
     io.sockets.on('connection', function(socket){
-    	socket.on('user_id', function(username){
-    		console.log("ID :"+username);
-    		sessionusername = username;
-    		socket.emit('userId', username);
-    		});
-		
+    	socket.on('setMyUserId', function(data){
+    		sessionUserName.push({
+        		sid : socket.id, 
+        		userId : data
+        	});
+    	});
+ 
 		socket.on('chat message', function(data){
-			console.log("MEssaging ID"+sessionusername);
+			console.log(sessionUserName);
 			io.sockets.emit('chat message',{
-				username: sessionusername,
-				message: data
+				username: data.userId,
+				message: data.msg
 			});
 		});
 		
-		socket.on('disconnect', function(){
-			socket.broadcast.emit('close', socket.id);
-		});
+		socket.on('disconnect', function(data){
+			for(var i = 0 ; i < sessionUserName.length ; i++) {
+				if(sessionUserName[i].sid === socket.id) {
+					console.log(sessionUserName[i]);
+					sessionUserName.slice(i);
+				}
+			}
+		 });
 	});
 };

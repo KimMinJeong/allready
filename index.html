@@ -24,36 +24,22 @@
     
     <script type="text/javascript">
       var socket = io();
-      var name = "none";
-      
-// 	  socket.on('userId', function(username){
-// 		  name=username;
-// 	  });
-
-//       $('form').submit(function(){
-// 	      socket.emit('chat message',{
-// 	    	 message : $('#m').val(),
-// 	    	 username : 'userId'
-// 	      });
-// 	      $('#m').val('');
-// 	      return false;
-//       });
+      var myUserId = window.location.search.split('=')[1];
+      socket.emit('setMyUserId', myUserId);
 
 	  $('form').submit(function(){
-// 		  socket.emit('user_id',name);
-		  socket.emit('chat message',$('#m').val());
+		  socket.emit('chat message', {
+			  userId: myUserId, 
+			  msg : $('#m').val()
+			});
 	      $('#m').val('');
 	      return false;
       });
-	  socket.on('userId', function(data){
-		  name=data;
-		  console.log("Connecting");
-		  $('#messages').append("<li>"+data+"님이 접속하였습니다.</li>");
-	  });
+	
+	$('#messages').append("<li>"+myUserId+"님이 접속하였습니다.</li>");
 	  
 	  socket.on('chat message', function(data){
-		  console.log("Chatting");
-	       $('#messages').append("<li>"+name+":"+data.message+"</li>");
+	       $('#messages').append("<li>"+data.username+":"+data.message+"</li>");
 	  });
     
     </script>
