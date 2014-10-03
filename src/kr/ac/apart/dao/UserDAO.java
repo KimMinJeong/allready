@@ -8,6 +8,7 @@ import kr.ac.apart.vo.UserVO;
 
 public interface UserDAO {
 	public UserVO getUser(String userId);
+	public List<UserVO> getUserList();
 	public int modifyManager(UserVO vo);
 	public int updateManagerDong(Manager_DongVO vo);
 	public int deleteManageDong(String userId);

@@ -24,11 +24,11 @@ public class UserServiceImpl implements UserService{
 	}
 	
 	public UserVO getUser(String userId, String password){
-		UserVO user = userDao.getUser(userId);
-		String pwd = user.getPassword();
+		UserVO userVo = userDao.getUser(userId);
+		String pwd = userVo.getPassword();
 		
 		if(password.equals(pwd)){
-			return user;
+			return userVo;
 		}
 		else
 			return null;
@@ -147,6 +147,10 @@ public class UserServiceImpl implements UserService{
 		}
 		else
 			return false;
+	}
+	public List<UserVO> getUserList(){
+		List<UserVO> user_id = userDao.getUserList();
+		return user_id;
 	}
 	
 }

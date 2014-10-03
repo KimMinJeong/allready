@@ -24,11 +24,9 @@
 #myModal .modal-body{
 	width : 80%;
 }
-
 #table1 #table2 #full_color{
 	bgcolor : red;
 }
-
 #table1 #table2 #empty_color{
 	bgcolor : green;
 }
@@ -39,6 +37,54 @@
 	height :300px;
 	display: inline;
 }
-
-.textarea{
-	width: 100%;
+#board_modify_title{
+	width:85%;
+}
+#board_modify_textarea{
+	width:85%;
+	heigth : 300px;
+}
+#board_modify_btn{
+	display: block;
+    margin-left: 60%;
+}
+#anonymous_select{
+	margin: 0 auto;
+	font-size: 11px;
+}
+#secret_select{
+	margin: 0 auto;
+	font-size: 11px;
+}
+#sidebar{
+	width: 15%;
+}
+#board_title{
+	font-size: 30px;
+}
+#hr_1{
+	border:0;
+	border-bottom:1px dashed #ccc;
+	background: #999;
+	margin-top: 6px;
+	margin-bottom: 0px;
+}
+#hr_2{
+	border:0;
+	border-bottom:1px dashed #ccc;
+	background: #999;
+	margin-top: -8px;
+	margin-bottom: 3px;
+}
+#board_span{
+	margin-right: 2%;
+}
+#board{
+	border-style: dotted;
+    border-width: 1.5px;
+    border-width: 100%;
+    height: 50%;
+}
+#board_list_btn{
+	margin-left: 80%;
+}
