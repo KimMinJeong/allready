@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="visit_record">
+   <typeAlias alias="visit_record" type="kr.ac.apart.vo.Visit_RecordVO"/>
+   
+   <resultMap id="visitResult" class="visit_record">
+      <result property="visit_record_no" column="VR_NO"/>
+      <result property="visitor_no" column="VISITOR_NO" nullValue="" />
+      <result property="reg_date" column="REG_DATE" nullValue=""/>
+   </resultMap>
+
+   <insert id="addVisitorManager" parameterClass="visit_record">
+      <selectKey keyProperty="visitor_no" resultClass="int">
+         SELECT MAX(VISITOR_NO) VISITOR_NO
+         FROM VISITOR
+      </selectKey>
+         INSERT INTO VISIT_RECORD(vr_no,visitor_no)
+         VALUES(seq_visit_record.nextval, #visitor_no#)
+   </insert>
+
+   <select id="getVisitorListManager" resultMap="visitResult" parameterClass="java.lang.String">
+   <![CDATA[
+      SELECT *
+      FROM VISIT_RECORD   
+      ORDER BY REG_DATE DESC
+   ]]>
+   </select>
+   
+   <select id="getRegDate" resultClass="String">
+      <![CDATA[
+         SELECT MAX(REG_DATE)
+         FROM VISIT_RECORD
+      ]]>
+   </select>
+   
+   <delete id="deleteVisitRecord" parameterClass="java.lang.Integer">
+      <![CDATA[
+         DELETE
+         FROM VISIT_RECORD
+         WHERE VR_NO = #visit_record_no#
+      ]]>
+   </delete>
+   
+   <update id="addVisitRecord" parameterClass="java.lang.Integer">
+         INSERT INTO VISIT_RECORD(VR_NO, VISITOR_NO)
+         VALUES(seq_visit_record.nextval, #visitor_no#)
+   </update>
+   
+   <select id="getMaxVisitRecordNo" resultClass="int">
+      SELECT MAX(VR_NO)
+      FROM VISIT_RECORD
+   </select>
+   
+   <update id="modifyVisitRecord" parameterClass="visit_record">
+   		<![CDATA[
+   			UPDATE VISIT_RECORD
+   			SET VISITOR_NO = #visitor_no#,
+   				REG_DATE = #reg_date#
+   			WHERE VR_NO = #visit_record_no#
+   		]]>	
+   </update>
+   
+   <select id="countVisitRecord" resultClass="int">
+  		SELECT COUNT(*)
+  		FROM VISIT_RECORD
+   </select>
+
+</sqlMap>
