@@ -37,12 +37,12 @@
 	height :300px;
 	display: inline;
 }
-#board_modify_title{
+#board_title{
 	width:85%;
 }
-#board_modify_textarea{
+#board_textarea{
 	width:85%;
-	heigth : 300px;
+	height:300px;
 }
 #board_modify_btn{
 	display: block;

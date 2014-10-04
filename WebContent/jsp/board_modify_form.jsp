@@ -35,7 +35,7 @@
 					<select disabled>
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
 					</select> <br> <br> <input type="text" class="form-control title"
-						id="board_modify_title" name="title" value="<%=vo.getTitle()%>">
+						id="board_title" name="title" value="<%=vo.getTitle()%>">
 					<br>
 					<script type="text/javascript"
 						src="http://js.nicedit.com/nicEdit-latest.js"></script>
@@ -46,7 +46,7 @@
 						});
 						//]]>
 					</script>
-					<textarea name="contents" rows="15%" id="board_modify_textarea"><%=vo.getContents()%></textarea>
+					<textarea name="contents" rows="15%" id="board_textarea"><%=vo.getContents()%></textarea>
 					<br> <br>
 
 					<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
