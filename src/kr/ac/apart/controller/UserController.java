@@ -29,12 +29,17 @@ public class UserController {
     private BoardService boardService;
 
     @RequestMapping(value = "/loginForm.do")
-    public String index(){
-        return "loginForm";
+    public ModelAndView index(){
+    	List<UserVO> user_id = userService.getUserList();
+    	ModelAndView mav = new ModelAndView("loginForm");
+    	
+    	mav.addObject("user_id", user_id);
+    	
+        return mav;
     }
 
     @RequestMapping("/login.do")
-    public String join(String user_id, String user_password, HttpSession session){
+    public String login(String user_id, String user_password, HttpSession session){
     	UserVO vo = userService.getUser(user_id, user_password);
     	
     	session.setAttribute("UserFlag", vo);
@@ -139,17 +144,14 @@ public class UserController {
     }
     
     @RequestMapping(value = "findPassword.do")
-    public @ResponseBody String findPassword(String userId, String userName, String userEmail, String userPhone){
+    public @ResponseBody String findPassword(String userId, String userName, String userEmail){
     	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userPassword : " + userName + ", userName : " + userEmail + ", userPhone : " + userPhone );
+    	System.out.println("userId : " + userId + ", userName : " + userName + ", userEmail : " + userEmail );
     	
-    	boolean userCheck = userService.findPassword(userId, userName, userEmail, userPhone);
-    	UserVO vo = userService.getUserVO(userId);
+    	boolean userCheck = userService.findPassword(userId, userName, userEmail);
     	
     	JSONObject obj = new JSONObject();
-    	
     	obj.put("userCheck", userCheck);
-    	obj.put("getUser", vo);
     	
     	return obj.toString();
     }

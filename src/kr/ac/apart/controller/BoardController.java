@@ -22,7 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
     @Autowired 
     private BoardService boardService;
     
-    @Autowired 
+    @Autowired
     private CommentsService commentsService;
     
     @Autowired
@@ -111,7 +111,6 @@ import org.springframework.web.servlet.ModelAndView;
         BoardVO vo = boardService.getBoardDetail(board_no);
         List<CommentsVO> commentsList = commentsService.getComments(board_no);
                     
-   
         mav.addObject("vo",vo);
         mav.addObject("commentsList",commentsList);
         mav.setViewName("webTemplete.jsp?nextPage=board_view");

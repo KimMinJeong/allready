@@ -12,7 +12,8 @@
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
+<% UserVO user_vo = (UserVO)session.getAttribute("UserFlag"); %>
 <body>
-	<iframe src="http://localhost:3000/" width="1000" height="500"></iframe>
+	<iframe src="http://localhost:3000/?userId=<%=user_vo.getUser_id()%>" width="1000" height="500"></iframe>
 </body>
 </html>

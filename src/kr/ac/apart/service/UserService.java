@@ -15,6 +15,7 @@ public interface UserService {
 	public void modifyUsers(String userId, String userName, String userPassword, String userEmail, String userPhone);
 	public void updateFamily(String userId, String familyName, String familyPhone);
 	public List<FamilyVO> getFamilyList(String userId);
-	public boolean findPassword(String userId, String userName, String userEmail, String userPhone);
-	public UserVO getUserVO(String userId);
+	public String getUser_passwordFind(String userId, String user_name,String e_mail);
+	public boolean findPassword(String userId, String userName, String userEmail);
+	public List<UserVO> getUserList();
 }

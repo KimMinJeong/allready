@@ -23,13 +23,11 @@
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-				<font size="4">
-					<ul class="nav">
-						<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
-						<li><a href="complainBoard.do">민원 게시판</a></li>
-						<li><a href="freeBoard.do">자유 게시판</a></li>
-					</ul>
-				</font>
+				<ul class="nav">
+					<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
+					<li><a href="complainBoard.do">민원 게시판</a></li>
+					<li><a href="freeBoard.do">자유 게시판</a></li>
+				</ul>
 			</div> <br><br>
 
 			<!-- main area -->
