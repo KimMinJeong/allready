@@ -30,6 +30,7 @@
 			SELECT *
 			FROM BOARD
 			WHERE CATEGORY=#category#
+			ORDER BY BOARD_NO DESC
 		]]>
 	</select>
 	

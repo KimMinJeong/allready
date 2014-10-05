@@ -56,4 +56,8 @@ public class UserDAOImpl implements UserDAO{
 	public void expressModify(UserVO user) {
 		sqlMapClientTemplate.update("ExpressModify", user);
 	}
+	
+	public List<UserVO> getUserList() {
+		return (List<UserVO>) sqlMapClientTemplate.queryForList("getUserList");
+	}
 }
