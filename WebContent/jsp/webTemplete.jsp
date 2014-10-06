@@ -53,7 +53,7 @@
 							<li><a href="#settings">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
-							<c:if test="${param.nextPage=='user_parking.jsp'}">
+							<c:if test="${param.nextPage=='user_parking.jsp' || param.nextPage=='parking.jsp'}">
 							<li><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
 							<li class="active"><a href="user_parking.do">주차장</a></li>

@@ -21,13 +21,11 @@
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-				<font size="4">
-					<ul class="nav">
-						<li><a href="noticeBoard.do">공지사항 게시판</a></li>
-						<li class="active"><a href="complainBoard.do">민원 게시판</a></li>
-						<li><a href="freeBoard.do">자유 게시판</a></li>
-					</ul>
-				</font>
+				<ul class="nav">
+					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
+					<li><a href="complainBoard.do">민원 게시판</a></li>
+					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
+				</ul>
 			</div> <br><br>
 
 			<!-- main area -->
@@ -102,16 +100,24 @@
 						%>
 					</table>
 				</div>
+				
+				<%
+					int currentPage = (Integer) request.getAttribute("page");
+				%>
 
 				<div align="center">
 					<ul class="pagination">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&raquo;</a></li>
+						<li><a href="search.do">&laquo;</a></li>
+						<%
+						int j=1;  //페이지수
+						int a=0;  //마지막페이지
+						for(int i=0; i<BoardList.size(); i+=10){%>
+							<li><a href="noticeBoard.do?page=<%=i%>"><%=j%></a></li>
+						<%
+							j++;
+							a=i;
+						}%>
+						<li><a href="search.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
 				<%
@@ -128,7 +134,7 @@
 
 					<div class="col-sm-8">
 						<input type="text" class="form-control" name="str">
-						<input type="text" class="form-control" name="category" value="<%=category%>">
+						<input type="hidden" class="form-control" name="category" value="<%=category%>">
 					</div>
 
 					<button type="submit" class="btn btn-default">검색</button>

@@ -10,7 +10,7 @@ public interface BoardDAO {
     public BoardVO getOne(int board_no);
     public int delete(int board_no);
     public void updateBoard(BoardVO vo);
-    public List<BoardVO> searchBoard(BoardVO search);
+    public List<BoardVO> searchBoard(BoardVO search, int page);
     public void addGood(int board_no);
     public void addBad(int board_no);
     public void updateClicks(int board_no);

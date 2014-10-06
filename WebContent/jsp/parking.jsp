@@ -76,7 +76,7 @@
    
    function start()
 	{	
-		setInterval("recall()", 5000);
+		setInterval("recall()", 3000);
 	}
 
 	function recall()

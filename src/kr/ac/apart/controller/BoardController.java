@@ -181,16 +181,24 @@ import org.springframework.web.servlet.ModelAndView;
         List<BoardVO> searchList=null;
         String category = request.getParameter("category");
         System.out.println("category : " + category);
+        
+        int page = 0;    //기본 페이지 번호를 0으로 설정
+    	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
+  		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
+  	   }
 
         try {
-            searchList=boardService.searchBoard(condition, str, category);
+            searchList=boardService.searchBoard(condition, str, category, page);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
         
+        
+        
         mav.addObject("searchList", searchList);
         mav.addObject("currentCategory", category);
+        mav.addObject("page", page);
 
         return mav;
     }

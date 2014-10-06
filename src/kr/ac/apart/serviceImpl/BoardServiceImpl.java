@@ -82,14 +82,14 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List < BoardVO > searchBoard(String condition, String str, String category){
+    public List < BoardVO > searchBoard(String condition, String str, String category, int page){
         BoardVO search = new BoardVO();
         
         search.setCategory(category);
         search.setSearchKind(condition);
         search.setSearchStr(str);
         
-        List < BoardVO > list = boardDao.searchBoard(search);
+        List < BoardVO > list = boardDao.searchBoard(search, page);
         
         return list;
     }
