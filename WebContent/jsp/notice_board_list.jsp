@@ -59,17 +59,20 @@
 							<th><center>조회수</center></th>
 						</tr>
 						<%
+							int currentPage = (Integer) request.getAttribute("page");
+							int countNoticeBoard = (Integer) request.getAttribute("rowNum");
+				
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("list");
-							int i = 0;
+							int rowNum = (Integer) request.getAttribute("rowNum") + 1 - currentPage;
 
 							if (BoardList != null) {
 								for (BoardVO vo : BoardList) {
-									i++;
+									rowNum--;
 									if ("CLOSED".equals(vo.getClosed())) {
 										if (userVO.getUser_id().equals(vo.getWriter_id())) {				
 						%>
 						<tr> <!-- 게시글이 비공개이고 글쓴이가 로그인한 유저와 같으면 -->
-							<td><center><%=i%></center></td>
+							<td><center><%=rowNum%></center></td>
 							<td><center><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle()%></a></center></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
@@ -89,7 +92,7 @@
 							} else { //게시글이 비공개인데 글쓴이와 로그인한 user가 다를 때 
 						%>
 						<tr>
-							<td><center><%=i%></center></td>
+							<td><center><%=rowNum%></center></td>
 							<td><center>비밀글 입니다^3^</center></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
@@ -110,7 +113,7 @@
 						} else { //게시글이 비공개가 아닐 때
 						%>
 						<tr>
-							<td><center><%=i%></center></td>
+							<td><center><%=rowNum%></center></td>
 							<td><center><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle()%></a></center></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
@@ -134,15 +137,20 @@
 					</table>
 				</div>
 
+				
 				<div align="center">
 					<ul class="pagination">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&raquo;</a></li>
+						<li><a href="noticeBoard.do">&laquo;</a></li>
+						<%
+						int j=1;  //페이지수
+						int a=0;  //마지막페이지
+						for(int i=0; i<countNoticeBoard; i+=10){%>
+							<li><a href="noticeBoard.do?page=<%=i%>"><%=j%></a></li>
+						<%
+							j++;
+							a=i;
+						}%>
+						<li><a href="noticeBoard.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
 
@@ -157,6 +165,7 @@
 					
 					<div class="col-sm-8">
 						<input type="text" class="form-control" name="str">
+						<input type="hidden" class="form-control" name="category" value="notice">
 					</div>
 					
 					<button type="submit" class="btn btn-default">검색</button>

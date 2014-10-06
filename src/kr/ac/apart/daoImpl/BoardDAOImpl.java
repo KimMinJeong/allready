@@ -21,8 +21,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
     
     @Override 
-    public List<BoardVO> BoardList(String category){
-        return (List<BoardVO>) sqlMapClientTemplate.queryForList("BoardList", category);
+    public List<BoardVO> BoardList(String category, int page){
+        return (List<BoardVO>) sqlMapClientTemplate.queryForList("BoardList", category, page, 10);
     }
     
     @Override 
@@ -65,6 +65,11 @@ public class BoardDAOImpl implements BoardDAO {
     @Override
     public List<BoardVO> getNoticeList(){
     	return (List<BoardVO>) sqlMapClientTemplate.queryForList("getNoticeList");
+    }
+    
+    @Override
+    public int getRowNum(String category){
+    	return (Integer) sqlMapClientTemplate.queryForObject("getRowNum", category);
     }
 
 }

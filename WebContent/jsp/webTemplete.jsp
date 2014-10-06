@@ -73,7 +73,7 @@
 							<li><a href="#settings">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
-							<c:if test="${param.nextPage=='notice_board_list.jsp' || param.nextPage=='complain_board_list.jsp' || param.nextPage=='free_board_list.jsp'}">
+							<c:if test="${param.nextPage=='notice_board_list.jsp' || param.nextPage=='complain_board_list.jsp' || param.nextPage=='free_board_list.jsp' || param.nextPage=='board_write_form.jsp' || param.nextPage=='board_modify_form.jsp' || param.nextPage=='board_view.jsp' || param.nextPage=='searchPage.jsp'}">
 							<li><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
 							<li><a href="user_parking.do">주차장</a></li>
@@ -94,38 +94,6 @@
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='user_detail.jsp'}">
-							<li><a href="main.do">Home</a></li>
-							<li><a href="cctv_client.do">CCTV</a></li>
-							<li><a href="user_parking.do">주차장</a></li>
-							<li><a href="user_tax.do">관리세</a></li>
-							<li><a href="noticeBoard.do">게시판</a></li>
-							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
-							<li class="active"><a href="user_detail.do">설정</a></li>
-							</c:if>
-							
-							<c:if test="${param.nextPage=='board_write_form.jsp'}">
-							<li><a href="main.do">Home</a></li>
-							<li><a href="cctv_client.do">CCTV</a></li>
-							<li><a href="user_parking.do">주차장</a></li>
-							<li><a href="user_tax.do">관리세</a></li>
-							<li><a href="noticeBoard.do">게시판</a></li>
-							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
-							<li class="active"><a href="user_detail.do">설정</a></li>
-							</c:if>
-							
-							<c:if test="${param.nextPage=='board_modify_form.jsp'}">
-							<li><a href="main.do">Home</a></li>
-							<li><a href="cctv_client.do">CCTV</a></li>
-							<li><a href="user_parking.do">주차장</a></li>
-							<li><a href="user_tax.do">관리세</a></li>
-							<li><a href="noticeBoard.do">게시판</a></li>
-							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
-							<li class="active"><a href="user_detail.do">설정</a></li>
-							</c:if>
-							<c:if test="${param.nextPage=='board_view.jsp'}">
 							<li><a href="main.do">Home</a></li>
 							<li><a href="cctv_client.do">CCTV</a></li>
 							<li><a href="user_parking.do">주차장</a></li>

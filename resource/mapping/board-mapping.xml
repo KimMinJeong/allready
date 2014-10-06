@@ -55,17 +55,17 @@
  		]]> 
 	</update>
 	
-	<select id="searchBoard" parameterClass="board" resultClass="board">
+	<select id="searchBoard" parameterClass="board" resultMap="BoardResult">
 		SELECT *
 		FROM BOARD
 	<isEqual property="searchKind" compareValue="title">
-		WHERE TITLE like '%'||#searchStr#||'%'
+		WHERE TITLE like '%'||#searchStr#||'%' AND CATEGORY = #category#
 	</isEqual>
 	<isEqual property="searchKind" compareValue="contents">
-		WHERE CONTENTS like '%'||#searchStr#||'%'
+		WHERE CONTENTS like '%'||#searchStr#||'%' AND CATEGORY = #category#
 	</isEqual>
 	<isEqual property="searchKind" compareValue="writer_id">
-		WHERE WRITER_ID like '%'||#searchStr#||'%'
+		WHERE WRITER_ID like '%'||#searchStr#||'%' AND CATEGORY = #category#
 	</isEqual>
 		ORDER BY TITLE
 	</select>
@@ -91,6 +91,14 @@
 			FROM BOARD
 			WHERE ROWNUM <= 3 AND CATEGORY='notice'
 			ORDER BY BOARD_NO DESC
+		]]>
+	</select>
+	
+	<select id="getRowNum" resultClass="int" parameterClass="java.lang.String">
+		<![CDATA[
+			SELECT MAX(ROWNUM)
+			FROM BOARD
+			WHERE CATEGORY=#category#
 		]]>
 	</select>
 

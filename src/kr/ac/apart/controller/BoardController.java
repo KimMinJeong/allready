@@ -2,6 +2,8 @@ package kr.ac.apart.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.BoardService;
@@ -29,8 +31,7 @@ import org.springframework.web.servlet.ModelAndView;
     private FlagService flagService;
 
     @RequestMapping(value="/noticeBoard.do") 
-    public ModelAndView noticeList(HttpSession session){
-        List<BoardVO> list = boardService.NoticeBoardList();
+    public ModelAndView noticeList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
@@ -41,14 +42,23 @@ import org.springframework.web.servlet.ModelAndView;
     		mav.setViewName("webTemplete.jsp?nextPage=notice_board_list");
     	}
     	
+    	int page = 0;    //기본 페이지 번호를 0으로 설정
+    	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
+  		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
+  	   }
+    	
+    	List<BoardVO> list = boardService.NoticeBoardList(page);
+    	int rowNum = boardService.getRowNum("notice");
+    	
         mav.addObject("list",list);
+        mav.addObject("rowNum", rowNum);
+        mav.addObject("page", page);
 
         return mav;
     }
     
     @RequestMapping(value="/complainBoard.do") 
-    public ModelAndView minoneList(HttpSession session){
-        List<BoardVO> list = boardService.ComplainBoardList();
+    public ModelAndView minoneList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
@@ -58,15 +68,24 @@ import org.springframework.web.servlet.ModelAndView;
     	else{
     		mav.setViewName("webTemplete.jsp?nextPage=complain_board_list");
     	}
-
+    	
+    	int page = 0;    //기본 페이지 번호를 0으로 설정
+    	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
+  		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
+  	   }
+    	
+    	List<BoardVO> list = boardService.ComplainBoardList(page);
+    	int rowNum = boardService.getRowNum("complain");
+    	
         mav.addObject("list",list);
+        mav.addObject("rowNum", rowNum);
+        mav.addObject("page", page);
 
         return mav;
     }
     
     @RequestMapping(value="/freeBoard.do") 
-    public ModelAndView freeList(HttpSession session){
-        List<BoardVO> list = boardService.FreeBoardList();
+    public ModelAndView freeList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
@@ -76,8 +95,18 @@ import org.springframework.web.servlet.ModelAndView;
     	else{
     		mav.setViewName("webTemplete.jsp?nextPage=free_board_list");
     	}
+    	
+    	int page = 0;    //기본 페이지 번호를 0으로 설정
+    	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
+  		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
+  	   }
+    	
+    	List<BoardVO> list = boardService.FreeBoardList(page);
+    	int rowNum = boardService.getRowNum("free");
 
         mav.addObject("list",list);
+        mav.addObject("rowNum", rowNum);
+        mav.addObject("page", page);
 
         return mav;
     }
@@ -147,18 +176,21 @@ import org.springframework.web.servlet.ModelAndView;
     }
     
     @RequestMapping("/search.do") 
-    public ModelAndView search(String condition, String str){
+    public ModelAndView search(String condition, String str, HttpServletRequest request){
         ModelAndView mav=new ModelAndView("webTemplete.jsp?nextPage=searchPage");
         List<BoardVO> searchList=null;
+        String category = request.getParameter("category");
+        System.out.println("category : " + category);
 
         try {
-            searchList=boardService.searchBoard(condition, str);
+            searchList=boardService.searchBoard(condition, str, category);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
         
         mav.addObject("searchList", searchList);
+        mav.addObject("currentCategory", category);
 
         return mav;
     }

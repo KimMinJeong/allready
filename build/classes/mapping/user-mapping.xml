@@ -49,9 +49,5 @@
        WHERE USER_ID=#user_id# 
     </update> 
     
-    <select id="getUserList" resultClass="string" >
-      SELECT USER_ID
-      FROM USERS
-   </select>
 	
 </sqlMap>
