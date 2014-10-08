@@ -28,10 +28,11 @@
 					<li><a href="complainBoard.do">민원 게시판</a></li>
 					<li><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
-			</div> <br><br>
+			</div>
 
 			<!-- main area -->
-			<div align="right">
+			<div class="col-xs-12 col-sm-9"> <br>
+				<div align="right">
 				<%
 					if ("MANAGER".equals(userVO.getRole())) {    //로그인한 user의 role이 MANAGER이면 글작성 버튼 생성
 				%>
@@ -41,7 +42,6 @@
 				%>
 			</div>
 
-			<div class="col-xs-12 col-sm-9">
 				<div class="panel panel-default">
 
 					<!-- Default panel contents -->
@@ -142,10 +142,13 @@
 					<ul class="pagination">
 						<li><a href="noticeBoard.do">&laquo;</a></li>
 						<%
+							System.out.println("countNoticeBoard : " + countNoticeBoard);
+						%>
+						<%
 						int j=1;  //페이지수
 						int a=0;  //마지막페이지
 						for(int i=0; i<countNoticeBoard; i+=10){%>
-							<li><a href="noticeBoard.do?page=<%=i%>"><%=j%></a></li>
+							<li class="page"><a href="noticeBoard.do?page=<%=i%>"><%=j%></a></li>
 						<%
 							j++;
 							a=i;
@@ -173,5 +176,12 @@
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript">
+		$(document).on('click', '.page', function(){
+			var clickedRow = $(this).closest('li');
+			clickedRow.addClass('strong');
+		});	
+	</script>
 </body>
 </html>

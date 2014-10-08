@@ -67,7 +67,7 @@
 	<isEqual property="searchKind" compareValue="writer_id">
 		WHERE WRITER_ID like '%'||#searchStr#||'%' AND CATEGORY = #category#
 	</isEqual>
-		ORDER BY TITLE
+		ORDER BY BOARD_NO DESC
 	</select>
 
 	<update id="addGood" parameterClass="java.lang.Integer" >

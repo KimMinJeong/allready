@@ -13,6 +13,7 @@ public interface BoardService {
 	public BoardVO delete(int board_no);
 	public void updateBoard(BoardVO board);
 	public List<BoardVO> searchBoard(String condition, String str, String category, int page);
+	public List < BoardVO > allSearchBoard(String condition, String str, String category);
 	public void addGood(int board_no);
 	public void addBad(int board_no);
 	public void updateClicks(int board_no);

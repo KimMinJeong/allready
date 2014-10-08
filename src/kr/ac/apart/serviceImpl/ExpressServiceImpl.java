@@ -33,8 +33,8 @@ public class ExpressServiceImpl implements ExpressService {
     }
 
     @Override 
-    public List<ExpressVO> getExpressList(){
-        List<ExpressVO> list = expressDAO.getExpressList();
+    public List<ExpressVO> getExpressList(int page){
+        List<ExpressVO> list = expressDAO.getExpressList(page);
         
         return list;
     }
@@ -63,5 +63,12 @@ public class ExpressServiceImpl implements ExpressService {
 	public void ExpressCheck(UserVO user) {
 		user.setExpress("FALSE");
 		userDAO.expressModify(user);
+	}
+	
+	@Override
+	public int getExpressRowNum(){
+		int count = expressDAO.getExpressRowNum();
+		
+		return count;
 	}
 }

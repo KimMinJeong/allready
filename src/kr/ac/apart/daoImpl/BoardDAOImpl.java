@@ -48,6 +48,13 @@ public class BoardDAOImpl implements BoardDAO {
     }
     
     @Override 
+    public List<BoardVO> allSearchBoard(BoardVO search){
+        List<BoardVO> list = sqlMapClientTemplate.queryForList("searchBoard", search);
+        
+        return list;
+    }
+    
+    @Override 
     public void addGood(int board_no){
         sqlMapClientTemplate.update("addGood", board_no);
     }

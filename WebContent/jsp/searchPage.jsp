@@ -27,14 +27,25 @@
 					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
 			</div> <br><br>
-
+			
+			<%
+				String condition = (String) request.getAttribute("condition");
+				String str = (String) request.getAttribute("str");
+				String category = (String) request.getAttribute("category");
+			%>
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9">
 				<div class="panel panel-default">
 
 					<!-- Default panel contents -->
 					<div class="panel-heading">
-						<center>공지사항 게시판</center>
+						<% if("notice".equals(category)){ %>
+								<center>공지사항 게시판</center>
+						<%} else if("complain".equals(category)){ %>
+								<center>민원 게시판</center>
+						<%} else if("free".equals(category)){ %>
+								<center>자유 게시판</center>
+						<%} %>
 					</div>
 
 					<!-- Table -->
@@ -103,16 +114,16 @@
 				
 				<%
 					int currentPage = (Integer) request.getAttribute("page");
+					List<BoardVO> allSearchList = (List<BoardVO>) request.getAttribute("allSearchList");
 				%>
-
 				<div align="center">
 					<ul class="pagination">
 						<li><a href="search.do">&laquo;</a></li>
 						<%
 						int j=1;  //페이지수
 						int a=0;  //마지막페이지
-						for(int i=0; i<BoardList.size(); i+=10){%>
-							<li><a href="noticeBoard.do?page=<%=i%>"><%=j%></a></li>
+						for(int i=0; i<allSearchList.size(); i+=10){%>
+							<li><a href="search.do?page=<%=i%>&condition=<%=condition%>&str=<%=str%>&category=<%=category%>"><%=j%></a></li>
 						<%
 							j++;
 							a=i;
@@ -120,9 +131,7 @@
 						<li><a href="search.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
-				<%
-					String category = (String)request.getAttribute("currentCategory");	
-				%>
+				
 				<form action="search.do">
 					<div class="form-group col-sm-2">
 						<select class="form-control" name="condition">

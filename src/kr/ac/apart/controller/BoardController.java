@@ -178,7 +178,8 @@ import org.springframework.web.servlet.ModelAndView;
     @RequestMapping("/search.do") 
     public ModelAndView search(String condition, String str, HttpServletRequest request){
         ModelAndView mav=new ModelAndView("webTemplete.jsp?nextPage=searchPage");
-        List<BoardVO> searchList=null;
+        List<BoardVO> searchList = null;
+        List<BoardVO> allSearchList = null;
         String category = request.getParameter("category");
         System.out.println("category : " + category);
         
@@ -189,16 +190,19 @@ import org.springframework.web.servlet.ModelAndView;
 
         try {
             searchList=boardService.searchBoard(condition, str, category, page);
+            allSearchList = boardService.allSearchBoard(condition, str, category);
         }
         catch (Exception e) {
             e.printStackTrace();
         }
         
-        
-        
         mav.addObject("searchList", searchList);
+        mav.addObject("allSearchList", allSearchList);
         mav.addObject("currentCategory", category);
         mav.addObject("page", page);
+        mav.addObject("condition", condition);
+        mav.addObject("str", str);
+        mav.addObject("category", category);
 
         return mav;
     }

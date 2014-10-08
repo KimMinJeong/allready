@@ -93,6 +93,19 @@ public class BoardServiceImpl implements BoardService {
         
         return list;
     }
+    
+    @Override
+    public List < BoardVO > allSearchBoard(String condition, String str, String category){
+        BoardVO search = new BoardVO();
+        
+        search.setCategory(category);
+        search.setSearchKind(condition);
+        search.setSearchStr(str);
+        
+        List < BoardVO > list = boardDao.allSearchBoard(search);
+        
+        return list;
+    }
 
     @Override
     public void addGood(int board_no){
