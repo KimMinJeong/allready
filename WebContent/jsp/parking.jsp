@@ -24,9 +24,11 @@
 
 			<div class="col-xs-12 col-sm-9"> <br>
 				<%
-					String isfull = (String) request.getAttribute("isfull");
+					String isfull1 = (String) request.getAttribute("isfull1");
+					String isfull2 = (String) request.getAttribute("isfull2");
 				%>
-				<input type="hidden" id="isfull" value="<%=isfull%>" />
+				<input type="hidden" id="isfull1" value="<%=isfull1%>" />
+				<input type="hidden" id="isfull2" value="<%=isfull2%>" />
 				
 				<div class="table-responsive" id="table1">
 					<table class="table" id="table2" border="1" width="500">
@@ -64,23 +66,30 @@
 	</div>
 </body>
 <script type="text/javascript">
-   var isfull = $("#isfull").val();
+   var isfull1 = $("#isfull1").val();
+   var isfull2 = $("#isfull2").val();
 
-   if(isfull == "FULL"){
+   if(isfull1 == "FULL"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
             "background-color", "red");
-   } else if(isfull == "EMPTY"){
+   } else if(isfull1 == "EMPTY"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
             "background-color", "blue");
    }
    
-   function start()
-	{	
+	if (isfull2 == "FULL") {
+		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
+				"background-color", "red");
+	} else if (isfull2 == "EMPTY") {
+		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
+				"background-color", "blue");
+	}
+
+	function start() {
 		setInterval("recall()", 5000);
 	}
 
-	function recall()
-	{
+	function recall() {
 		location.reload();
 		widow.status = " ";
 		return true;

@@ -36,5 +36,10 @@
 			PHONE=#phone#
 		WHERE USER_ID=#user_id#
 	</update>
+	<update id="ExpressModify" parameterClass="user"> 
+	UPDATE USERS
+	SET EXPRESS=#express#
+	WHERE USER_ID=#user_id# 
+</update> 
 	
 </sqlMap>
