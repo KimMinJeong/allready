@@ -76,6 +76,7 @@
 			</div> <br><br>
 		</div>
 	</div>
+	<hr>
 </body>
 
 <script type="text/javascript">

@@ -48,6 +48,7 @@
 			</div>
 		</div>
 	</form>
+	<hr>
 </body>
 
 <script type="text/javascript">
@@ -57,7 +58,7 @@ $(document).ready(function(){
 function UserIdCheck(){
 	var i=0;
 	var user_id = parseInt($('#user_id').val());
-	alert(user_id);
+	//alert(user_id);
 	var db_user_id = <%=user_id%>;
 	db_user_id.toString();
 	alert(db_user_id);

@@ -62,6 +62,7 @@
 			</div>
 		</div>
 	</div>
+	<hr>
 </body>
 <script type="text/javascript">
    var isfull = $("#isfull").val();
@@ -76,7 +77,7 @@
    
    function start()
 	{	
-		setInterval("recall()", 5000);
+		setInterval("recall()", 3000);
 	}
 
 	function recall()

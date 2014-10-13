@@ -124,5 +124,6 @@
 		</tr>
 	</table>
 </div>
+<hr>
 </body>
 </html>

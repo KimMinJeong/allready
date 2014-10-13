@@ -59,8 +59,6 @@ public class ParkingController {
 		pv.setParking_lot(parking_lot);
 		pv.setIsfull(isfull);
 		
-		System.out.println("ParkingVO.isfull : "+pv.getIsfull());
-		
 		try {
 			parkingService.updateParking(pv);
 		

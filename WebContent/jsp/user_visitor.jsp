@@ -83,6 +83,7 @@
 				</table>
 			</div>
 	</div>
+	<hr>
 </body>
 
 <script type="text/javascript">
