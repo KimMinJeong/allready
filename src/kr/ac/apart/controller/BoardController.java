@@ -181,7 +181,6 @@ import org.springframework.web.servlet.ModelAndView;
         List<BoardVO> searchList = null;
         List<BoardVO> allSearchList = null;
         String category = request.getParameter("category");
-        System.out.println("category : " + category);
         
         int page = 0;    //기본 페이지 번호를 0으로 설정
     	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
@@ -224,6 +223,4 @@ import org.springframework.web.servlet.ModelAndView;
         
         return "redirect:/boardDetail.do?board_no="+board_no;
     }
- 
-    
 }

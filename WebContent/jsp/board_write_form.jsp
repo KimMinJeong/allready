@@ -71,6 +71,7 @@
 	</div>
 	<!--/.row-->
 	</div>
+	<hr>
 	<!--/.container-->
 </body>
 <script type="text/javascript">

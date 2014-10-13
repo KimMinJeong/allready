@@ -61,5 +61,6 @@
 			<!--/.row-->
 		</div>
 		<!--/.container-->
+		<hr>
 </body>
 </html>

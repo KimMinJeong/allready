@@ -48,6 +48,7 @@
 			</div>
 		</div>
 	</form>
+	<hr>
 </body>
 
 <script type="text/javascript">

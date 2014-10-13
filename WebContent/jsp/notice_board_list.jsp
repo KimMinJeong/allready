@@ -142,9 +142,6 @@
 					<ul class="pagination">
 						<li><a href="noticeBoard.do">&laquo;</a></li>
 						<%
-							System.out.println("countNoticeBoard : " + countNoticeBoard);
-						%>
-						<%
 						int j=1;  //페이지수
 						int a=0;  //마지막페이지
 						for(int i=0; i<countNoticeBoard; i+=10){%>
@@ -176,6 +173,7 @@
 			</div>
 		</div>
 	</div>
+	<hr>
 	
 	<script type="text/javascript">
 		$(document).on('click', '.page', function(){

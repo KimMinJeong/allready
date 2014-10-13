@@ -39,22 +39,22 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public List < BoardVO > NoticeBoardList(int page){
-        List < BoardVO > list = boardDao.BoardList("notice", page);
+    public List <BoardVO> NoticeBoardList(int page){
+        List <BoardVO> list = boardDao.BoardList("notice", page);
         
         return list;
     }
 
     @Override
-    public List < BoardVO > ComplainBoardList(int page){
-        List < BoardVO > list = boardDao.BoardList("complain", page);
+    public List <BoardVO> ComplainBoardList(int page){
+        List <BoardVO> list = boardDao.BoardList("complain", page);
         
         return list;
     }
     
     @Override
-    public List < BoardVO > FreeBoardList(int page){
-        List < BoardVO > list = boardDao.BoardList("free", page);
+    public List <BoardVO> FreeBoardList(int page){
+        List <BoardVO> list = boardDao.BoardList("free", page);
         
         return list;
     }
@@ -89,20 +89,20 @@ public class BoardServiceImpl implements BoardService {
         search.setSearchKind(condition);
         search.setSearchStr(str);
         
-        List < BoardVO > list = boardDao.searchBoard(search, page);
+        List <BoardVO> list = boardDao.searchBoard(search, page);
         
         return list;
     }
     
     @Override
-    public List < BoardVO > allSearchBoard(String condition, String str, String category){
+    public List <BoardVO> allSearchBoard(String condition, String str, String category){
         BoardVO search = new BoardVO();
         
         search.setCategory(category);
         search.setSearchKind(condition);
         search.setSearchStr(str);
         
-        List < BoardVO > list = boardDao.allSearchBoard(search);
+        List <BoardVO> list = boardDao.allSearchBoard(search);
         
         return list;
     }

@@ -178,5 +178,6 @@
 	<!--/.container-->
 	</div>
 	<!--/.page-container-->
+	<hr>
 </body>
 </html>

@@ -95,6 +95,7 @@
 			</form>
 		</div>
 	</div>		
+	<hr>
 </body>
 
 <script type="text/javaScript">

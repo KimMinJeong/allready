@@ -152,5 +152,6 @@
 			<!-- /.col-xs-12 main -->
 		</div>
 		<!--/.row-->
+		<hr>
 </body>
 </html>

@@ -65,14 +65,11 @@ public class VisitorServiceImpl implements VisitorService {
    public List<VisitorVO> getVisitorList(String id){
       List<VisitorVO> visitorList = visitorDao.getVisitorList(id);
       
-      System.out.println(visitorList);
-      
       return visitorList;
    }
    
    @Override
    public void deleteVisitor(String no){
-      System.out.println("deleteService");
       
       visitorDao.deleteVisitor(no);
    }
@@ -84,15 +81,16 @@ public class VisitorServiceImpl implements VisitorService {
    }
    
    @Override
-   public List<Visit_RecordVO> getVisitorListManager(int page){
+   public List<Visit_RecordVO> getVisitorListManager(int page){ 
 	   
-	   List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager(page);
+	  List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager(page);
       
       return visitList;
    }
    
    @Override
-   public List<VisitorVO> getVisitorListAll(){
+   public List<VisitorVO> getVisitorListAll(){   
+	   
       List<VisitorVO> visitorListAll = visitorDao.getVisitorListAll();
       
       return visitorListAll;
@@ -100,6 +98,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public String getRegDate(){
+	   
       String regDate = visitorDao.getRegDate();
       
       return regDate;
@@ -107,6 +106,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int deleteVisitRecord(int no){
+	   
       int count  = visitorDao.deleteVisitRecord(no);
       
       return count;
@@ -114,6 +114,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int addVisitRecord(int visitorNo){
+	   
       int count = visitorDao.addVisitRecord(visitorNo);
       
       return count;
@@ -121,6 +122,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int getMaxVisitRecordNo(){
+	   
       int no = visitorDao.getMaxVisitRecordNo();
       
       return no;

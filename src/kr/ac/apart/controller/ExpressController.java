@@ -26,8 +26,9 @@ public class ExpressController {
 	
 	@RequestMapping(value="/checkExpress.do")
 	public String checkExpress(String user_id){
-		UserVO user= userService.getOne(user_id);
+		UserVO user = userService.getOne(user_id);
 		expressService.ExpressCheck(user);
+		
 		return "redirect:/main.do";
 	}
 	

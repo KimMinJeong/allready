@@ -18,8 +18,6 @@ public class CommentsController{
     @RequestMapping(value="/addComments.do") 
     public @ResponseBody String addComments(int board_no, String writer_id, String contents){
 
-        System.out.println("addComments.do Start!!");
-
         commentsService.addComments(board_no, writer_id, contents);
 
         JSONObject obj = new JSONObject();
@@ -34,7 +32,6 @@ public class CommentsController{
     
     @RequestMapping(value="/deleteComments.do") 
     public @ResponseBody String deleteComments(int commentsNo){
-        System.out.println("deleteComments.do start!");
 
         commentsService.deleteComments(commentsNo);
 

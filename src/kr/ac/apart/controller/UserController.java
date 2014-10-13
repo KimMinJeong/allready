@@ -44,15 +44,14 @@ public class UserController {
     	return "redirect:/main.do";
     }
     
-    @SuppressWarnings("unused")
 	@RequestMapping(value = "/main.do")
     public ModelAndView main(HttpSession session){
     	ModelAndView mav = new ModelAndView();
     	List<BoardVO> list =  boardService.getNoticeList();
     	UserVO vo = (UserVO) session.getAttribute("UserFlag");
-    	String user_id=vo.getUser_id();
         
     	if(vo != null){
+    		String user_id = vo.getUser_id();
     		UserVO user=userService.getOne(user_id);
     		session.setAttribute("UserFlag", user);
     		mav.setViewName("webTemplete.jsp?nextPage=user_main");
@@ -129,9 +128,6 @@ public class UserController {
     @RequestMapping(value = "modifyUser.do")
     public @ResponseBody String modifyUser(String userId, String userName, String userPassword, String userEmail, String userPhone, String familyName, String familyPhone){
         
-    	System.out.println("controller");
-        System.out.println("familyName : " + familyName + ", familyPhone : " + familyPhone);
-        
         userService.modifyUsers(userId, userName, userPassword, userEmail, userPhone);
         userService.updateFamily(userId, familyName, familyPhone);
         
@@ -142,8 +138,6 @@ public class UserController {
     
     @RequestMapping(value = "findPassword.do")
     public @ResponseBody String findPassword(String userId, String userName, String userEmail){
-    	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userName : " + userName + ", userEmail : " + userEmail );
     	
     	boolean userCheck = userService.findPassword(userId, userName, userEmail);
     	
