@@ -117,5 +117,4 @@ public class FlagServiceImpl implements FlagService {
 		
 		return flagvo;
 	}
-
 }

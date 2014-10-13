@@ -33,7 +33,10 @@ public class expressDAOTest {
 		
 	}
 	
-
-	
+	@Test
+	public void getExpressRowNumTest(){
+		int count = expressDao.getExpressRowNum();
+		System.out.println(count);
+	}
 
 }

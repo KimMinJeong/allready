@@ -62,10 +62,10 @@ public class ParkingController {
 		ParkingVO pv2=new ParkingVO();
 		parking_lot="2";
 		
-		pv1.setFloor(floor);
-		pv1.setSection(section);
-		pv1.setParking_lot(parking_lot);
-		pv1.setIsfull(full1);
+		pv2.setFloor(floor);
+		pv2.setSection(section);
+		pv2.setParking_lot(parking_lot);
+		pv2.setIsfull(full1);
 		
 		try {
 			parkingService.updateParking(pv1);

@@ -117,4 +117,12 @@ public class userDAOTest {
 		user.setUser_id("1");
 		userDao.expressModify(user);
 	}
+	
+	@Test
+	public void getUserListTest(){
+		List<UserVO> list = userDao.getUserList();
+		
+		System.out.println(list);
+
+	}
 }

@@ -124,8 +124,6 @@ public class VisitorController {
     @RequestMapping(value = "/updateVisitor.do") //noramal이 방문객 삭제를 눌렀을 때
     public @ResponseBody String updateVisitor(int visitordNo){
     	
-    	System.out.println("updateVisitor.do start!!");
-    	
     	visitorService.updateVisitor(visitordNo);
     	
         JSONObject obj = new JSONObject();
@@ -135,8 +133,6 @@ public class VisitorController {
 
     @RequestMapping(value = "/getVisitor.do") //고정방문객 검색
     public @ResponseBody String getVisitor(ModelMap model, String userId3) throws Throwable{
-    	
-        System.out.println("getVisitor");
         
         List < VisitorVO > visitorList = null;
         
@@ -157,8 +153,6 @@ public class VisitorController {
 
     @RequestMapping(value = "/deleteVisitRecord.do") //방문객리스트 삭제
     public @ResponseBody String deleteVisitRecord(int visitRecordNo){
-    	
-        System.out.println("deleteVisitRecord!");
         
         JSONObject obj = new JSONObject();
         
@@ -169,9 +163,7 @@ public class VisitorController {
     
     @RequestMapping(value = "/visitorModify.do")
     public @ResponseBody String visitorModify(int visitRecordNo, int visitorNo, String visitorId, String visitorName, String visitorBusiness, String visitorRegDate){
-    	System.out.println("visitorModify.do start!");
-    	System.out.println("visitorNo : " + visitorNo + ", visitorId : " + visitorId + ", visitorName : " + visitorName + ", visitorBusiness : " + visitorBusiness + ", visitorRegDate : " + visitorRegDate);
-    	
+    
     	visitorService.modifyVisitor(visitorNo, visitorId, visitorName, visitorBusiness);
     	visitorService.modifyVisitRecord(visitRecordNo, visitorNo, visitorRegDate);
     	

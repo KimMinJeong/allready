@@ -17,4 +17,5 @@ public interface UserService {
 	public List<FamilyVO> getFamilyList(String userId);
 	public String getUser_passwordFind(String userId, String user_name,String e_mail);
 	public boolean findPassword(String userId, String userName, String userEmail);
+	public List<UserVO> getUserList();
 }

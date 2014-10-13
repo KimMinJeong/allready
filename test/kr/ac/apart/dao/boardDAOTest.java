@@ -24,4 +24,9 @@ public class boardDAOTest {
 		System.out.println(list);
 	}
 
+	@Test
+	public void getRowNum(){
+		int count = boardDao.getRowNum("notice");
+		System.out.println(count);
+	}
 }

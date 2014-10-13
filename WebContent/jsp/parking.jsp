@@ -64,6 +64,7 @@
 			</div>
 		</div>
 	</div>
+	<hr>
 </body>
 <script type="text/javascript">
    var isfull1 = $("#isfull1").val();

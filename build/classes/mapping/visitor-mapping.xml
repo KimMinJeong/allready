@@ -26,6 +26,7 @@
          SELECT *
          FROM VISITOR
          WHERE USER_ID = #user_id#
+         ORDER BY VISITOR_NAME ASC
       ]]>
    </select>
    

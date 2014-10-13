@@ -18,21 +18,6 @@ public class ChatController {
     
     @RequestMapping(value="/chat_server.do")
     public String chat_server(HttpSession session){
-    	String socketIoUrl = "http://localhost";
-    	Integer socketIoPort = 3000;
-    	Socket socketIO = null;
-  
-    	UserVO user_id = (UserVO) session.getAttribute("UserFlag");
-    	
-    	try {
-			socketIO = IO.socket(socketIoUrl + ":" + socketIoPort.toString());
-		} catch (URISyntaxException e2) {
-			e2.printStackTrace();
-		}
-    	
-    	socketIO.connect();
-    	socketIO.emit("user_id", user_id.getUser_id());
- 	
     	return "webTemplete.jsp?nextPage=chatting_room";
     }
 }
