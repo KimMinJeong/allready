@@ -113,7 +113,14 @@
 	$("#modifyUser").on('click', function() {
 		if ($("#userPassword").val() == "") {
 			alert("비밀번호를 입력해주세요.");
+			$("#userPassword").focus();
+			return false;
 		} else {
+			if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
+				alert("E-mail 형식으로 입력해주세요.");
+				$("#userEmail").focus();
+				return false;
+			}
 			var selectFamily = $("#selectFamily").val();
 			arrName = [];
 			arrPhone = [];
@@ -147,6 +154,7 @@
 				}
 			});
 		}
+		
 	});
 	
 	var table = document.getElementById('userFamily');
