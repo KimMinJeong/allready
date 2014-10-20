@@ -18,3 +18,8 @@ public interface BoardService {
 	public void updateClicks(int board_no);
 	public List<BoardVO> getNoticeList();
 }
+
+
+
+
+
