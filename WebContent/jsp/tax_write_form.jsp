@@ -14,10 +14,11 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
-<body>
+	<body>
+	<div class="container">
 	<form action="TaxWriteForm.do" method="post">
 		<p>세대주</p>
-		<input type="text" name="user_id">
+		<input type="text" class="form-control" name="user_id">
 		<p>년도</p>
 		<select name="year">
 			<option value="2014">2014</option>
@@ -27,6 +28,16 @@
 		<select name="month">
 			<option value="1">1</option>
 			<option value="2">2</option>
+			<option value="3">3</option>
+			<option value="4">4</option>
+			<option value="5">5</option>
+			<option value="6">6</option>
+			<option value="7">7</option>
+			<option value="8">8</option>
+			<option value="9">9</option>
+			<option value="10">10</option>
+			<option value="11">11</option>
+			<option value="12">12</option>
 		</select>
 		<p>기본관리비</p>
 		<input type="text" class="form-control" id="basic_tax" name="basic_tax">
@@ -41,6 +52,7 @@
 		
 		<input type="submit" value="확인">
 	</form>
+	</div>
 </body>
 
 

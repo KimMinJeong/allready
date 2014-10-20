@@ -135,11 +135,8 @@ public class VisitorController {
 
     @RequestMapping(value = "/getVisitor.do") //고정방문객 검색
     public @ResponseBody String getVisitor(ModelMap model, String userId3) throws Throwable{
-    	
-        System.out.println("getVisitor");
-        
         List < VisitorVO > visitorList = null;
-        
+ 
         try {
             visitorList = visitorService.getVisitorList(userId3);
         } catch (Exception e) {
@@ -147,10 +144,7 @@ public class VisitorController {
         }
         
         JSONObject obj = new JSONObject();
-        
         obj.put("visitorListModel", visitorList);
-
-        System.out.println(obj.toString());
         
         return obj.toString();
     }

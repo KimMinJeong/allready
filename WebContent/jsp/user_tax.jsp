@@ -15,23 +15,22 @@
 <link  href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
-
-<body>
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
 		String dangi_tax = (String) request.getAttribute("dangi_tax");
 		List<TaxVO> OneTax = (List<TaxVO>)request.getAttribute("OneTax");
 		UserVO user = (UserVO)session.getAttribute("UserFlag");
 	%>
+<body>
+	<input type="hidden" id="userId" value="<%=user.getUser_id()%>">
 	<div class="container">
-	<div>
+	<div class="col-md-12">
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
 		<a class="btn btn-default btn-sm" href="AddTaxForm.do">
 			관리비 설정
 		</a>
-
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog">
 					<div class="modal-content">
@@ -53,16 +52,11 @@
 					</div><!-- /.modal-content -->
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
-		</div> <br>
-	<div class="col-md-offset-2 col-md-10">
-<!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
-<!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded"> -->
-	</div> 
-	<br/>
-	<%=dangi_tax%>
+			<%=dangi_tax%>
+		</div><br><br><br>
 	
 	<% if(user.getRole().equals("NORMAL")){ %>
-	<h2>관리비</h2>
+	
 	<table class="table" id="table">
 		<tr>
 			<th>년도</th>
@@ -88,42 +82,38 @@
 		<%}%>
 	</table>
 	<% }%>
-	
-	<!-- <h2>월별 통계</h2>
-	<table class="table">
-		<tr>
-			<th align="center">분류</th>
-			<th align="center">1월</th>
-			<th align="center">2월</th>
-			<th align="center">3월</th>
-			<th align="center">4월</th>
-			<th align="center">5월</th>
-			<th align="center">6월</th>
-			<th align="center">7월</th>
-			<th align="center">8월</th>
-			<th align="center">9월</th>
-			<th align="center">10월</th>
-			<th align="center">11월</th>
-			<th align="center">12월</th>
-		</tr>
-		<tr>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-			<td>X</td>
-		</tr>
-	</table> -->
 </div>
+
+<div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
 </body>
 
+<script>
 
+google.load("visualization", "1", {packages:["corechart"]});
+google.setOnLoadCallback(drawChart);
+function drawChart() {
+	var data = google.visualization.arrayToDataTable([                                       
+	  ['Genre', '기본료', '전기세', '수도세', '난방비',
+	   '인터넷 사용료', { role: 'annotation' } ],
+	   <%for (TaxVO vo : OneTax){
+			%>
+			['<%=vo.getYear()%>년<%=vo.getMonth()%>월',<%=vo.getBasic_tax()%>, <%=vo.getElectric_tax()%>, <%=vo.getWater_tax()%>, <%=vo.getHeating_tax()%>
+			, <%=vo.getInternet_tax()%>, ''],
+			<%
+		}
+		%>
+	]);
+	
+	var options = {
+	  width: 800,
+	  height: 200,
+	  legend: { position: 'top', maxLines: 3 },
+	  bar: { groupWidth: '75%' },
+	  isStacked: true,
+	};
+	var chart = new google.visualization.ColumnChart(document.getElementById('chart_div'));
+	chart.draw(data, options);
+}
+	  
+</script>
 </html>

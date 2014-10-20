@@ -15,13 +15,18 @@ import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.BoardVO;
 import kr.ac.apart.vo.TaxVO;
 import kr.ac.apart.vo.UserVO;
+import kr.ac.apart.vo.VisitorVO;
+
+import net.sf.json.JSONObject;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller("taxController")
@@ -157,5 +162,21 @@ public class TaxController {
     	mav.setViewName("webTemplete.jsp?nextPage=tax_view");
 
     	return mav;
+    }
+    
+    @RequestMapping(value = "/getTaxOneList.do")
+    public @ResponseBody String getVisitor(String user_id) throws Throwable{
+        List<TaxVO> taxOneList = null;
+ 
+        try {
+        	taxOneList = taxService.getOneTax(user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        JSONObject obj = new JSONObject();
+        obj.put("taxOneList", taxOneList);
+        
+        return obj.toString();
     }
 }
