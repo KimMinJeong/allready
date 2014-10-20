@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.ac.apart.service.UserService;
 import kr.ac.apart.service.VisitorService;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
@@ -24,6 +25,9 @@ public class VisitorController {
 
     @Autowired 
     private VisitorService visitorService;
+    
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/user_visitor.do") //유저의 방문페이지 
     public String user_visitor(HttpSession session){
@@ -52,6 +56,8 @@ public class VisitorController {
     	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
   		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
   	   }
+    	System.out.println("aa123 : " + request.getParameter("checkUser"));
+    	mav.addObject("getUserId", request.getParameter("checkUser"));
         mav.addObject("visitRecord", visitorService.getVisitorListManager(page)); //방문기록리스트가져오기
         mav.addObject("visitorList", visitorService.getVisitorListAll()); //등록방문객리스트가져오기
         mav.addObject("page", page);   //페이지번호
@@ -81,9 +87,18 @@ public class VisitorController {
     public ModelAndView addVisitorManager(String user_id, String visitor_name, String business){
     	ModelAndView mav = new ModelAndView("redirect:/manage_visitor.do");
     	
-    	VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
-        visitorService.addVisitorManager(visitorVO);
-    	
+    	UserVO vo = userService.getOne(user_id);
+    	System.out.println("vo : " + vo);
+    	if(vo == null){
+    		System.out.println("null 입니다.");
+    		mav.addObject("checkUser", true);
+    	}
+    	else if(vo != null){
+    		mav.addObject("checkUser", vo);
+    		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
+            visitorService.addVisitorManager(visitorVO);
+    	}
+
     	return mav;
     }
     
