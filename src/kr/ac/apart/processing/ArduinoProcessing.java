@@ -11,7 +11,7 @@ public class ArduinoProcessing extends PApplet{
 	public static String isfull1=null;
 	public static String isfull2=null;
 	static{
-		System.load("C:\\sk\\jSSC-2.8.dll");
+		System.load("D:\\LSG\\jSSC-2.8.dll");
 	}
 	public void setup()
 	{
@@ -24,7 +24,11 @@ public class ArduinoProcessing extends PApplet{
 	{
 	  if(myPort.available() > 0)
 	  {
-	    String value = myPort.readString();
+	    String value = " ";
+	    
+	    while(value.length()!=4)
+	    	value=myPort.readString();
+	    
 	    System.out.println(value);
 	    char is1='N';
 	    char is2='N';

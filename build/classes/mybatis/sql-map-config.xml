@@ -14,6 +14,7 @@
 	<sqlMap resource="mapping/family-mapping.xml"/>
 	<sqlMap resource="mapping/express-mapping.xml"/>
 	<sqlMap resource="mapping/flag-mapping.xml"/>
+	<sqlMap resource="mapping/tax-mapping.xml"/>
 </sqlMapConfig>
 
 
