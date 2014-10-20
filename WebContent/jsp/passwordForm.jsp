@@ -58,7 +58,7 @@
 		if($("#user_email").val()==""){
 			alert("E-mail을 입력해주세요");
 			$("#user_email").focus();
-			return false;
+			return false; 
 		}else if($("#user_email").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
 			alert("E-mail 형식으로 입력해주세요.");
 			$("#user_email").focus();

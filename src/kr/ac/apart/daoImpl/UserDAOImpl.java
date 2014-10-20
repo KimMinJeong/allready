@@ -60,4 +60,8 @@ public class UserDAOImpl implements UserDAO{
 	public List<UserVO> getUserList() {
 		return (List<UserVO>)sqlMapClientTemplate.queryForList("getUserList");
 	}
+	
+	public List<UserVO> getNormalUserList(){
+		return (List<UserVO>)sqlMapClientTemplate.queryForList("getNormalUserList");
+	}
 }

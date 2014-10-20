@@ -140,6 +140,7 @@ public class UserServiceImpl implements UserService{
 		else
 			return false;
 	}
+	
 	public List<UserVO> getUserList(){
 		List<UserVO> user_id = userDao.getUserList();
 		
