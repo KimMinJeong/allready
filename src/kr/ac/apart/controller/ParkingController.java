@@ -36,40 +36,48 @@ public class ParkingController {
 	
 	@RequestMapping(value="/parking.do")
 	public ModelAndView parking(String floor, String section){
-		
-		System.out.println(floor+section);
-		
 		frame.check();
 		
-		while(ArduinoProcessing.isfull==null){}
+		while(ArduinoProcessing.isfull1==null){}
+		while(ArduinoProcessing.isfull2==null){}
 		
 		ModelAndView mav=new ModelAndView();
 		
-		if(ArduinoProcessing.isfull.equals("ERROR"))
+		if(ArduinoProcessing.isfull1.equals("ERROR"))
+			mav.setViewName("NoPage");
+		else if(ArduinoProcessing.isfull2.equals("ERROR"))
 			mav.setViewName("NoPage");
 		else
 			mav.setViewName("webTemplete.jsp?nextPage=parking");
-		
-		String isfull=ArduinoProcessing.isfull;
-		ParkingVO pv=new ParkingVO();
+		String full1=ArduinoProcessing.isfull1;
+		ParkingVO pv1=new ParkingVO();
 		String parking_lot="1";
 		
-		pv.setFloor(floor);
-		pv.setSection(section);
-		pv.setParking_lot(parking_lot);
-		pv.setIsfull(isfull);
+		pv1.setFloor(floor);
+		pv1.setSection(section);
+		pv1.setParking_lot(parking_lot);
+		pv1.setIsfull(full1);
 		
-		System.out.println("ParkingVO.isfull : "+pv.getIsfull());
+		String full2=ArduinoProcessing.isfull2;
+		ParkingVO pv2=new ParkingVO();
+		parking_lot="2";
+		
+		pv2.setFloor(floor);
+		pv2.setSection(section);
+		pv2.setParking_lot(parking_lot);
+		pv2.setIsfull(full1);
 		
 		try {
-			parkingService.updateParking(pv);
-		
-			ArduinoProcessing.isfull=null;
+			parkingService.updateParking(pv1);
+			parkingService.updateParking(pv2);
+			ArduinoProcessing.isfull1=null;
+			ArduinoProcessing.isfull2=null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		mav.addObject("isfull", isfull);
+		mav.addObject("isfull1", full1);
+		mav.addObject("isfull2", full2);
 		
 		return mav;
 	}

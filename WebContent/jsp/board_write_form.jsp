@@ -11,7 +11,6 @@
 <script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-
 <%
 	UserVO LoginInfo = (UserVO) session.getAttribute("UserFlag");
 %>
@@ -50,7 +49,8 @@
 					 
 					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br><br> 
 					<input type="text" id="board_title" class="form-control title" name="title"> <br>
-					 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script> <script type="text/javascript">
+					 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+					 <script type="text/javascript">
 					//<![CDATA[
 					        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
 					  //]]>
@@ -71,11 +71,11 @@
 	</div>
 	<!--/.row-->
 	</div>
+	<hr>
 	<!--/.container-->
 </body>
 
 <script type="text/javascript">
-
 if($('ul li:nth-child(3)').find('ative')){
 	("#select option:nth-child(3) option:selected");
 }

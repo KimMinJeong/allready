@@ -2,12 +2,8 @@ package kr.ac.apart.serviceImpl;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import kr.ac.apart.dao.VisitorDAO;
 import kr.ac.apart.service.VisitorService;
@@ -69,14 +65,11 @@ public class VisitorServiceImpl implements VisitorService {
    public List<VisitorVO> getVisitorList(String id){
       List<VisitorVO> visitorList = visitorDao.getVisitorList(id);
       
-      System.out.println(visitorList);
-      
       return visitorList;
    }
    
    @Override
    public void deleteVisitor(String no){
-      System.out.println("deleteService");
       
       visitorDao.deleteVisitor(no);
    }
@@ -88,15 +81,16 @@ public class VisitorServiceImpl implements VisitorService {
    }
    
    @Override
-   public List<Visit_RecordVO> getVisitorListManager(int page){
+   public List<Visit_RecordVO> getVisitorListManager(int page){ 
 	   
-	   List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager(page);
+	  List<Visit_RecordVO> visitList = visitorDao.getVisitorListManager(page);
       
       return visitList;
    }
    
    @Override
-   public List<VisitorVO> getVisitorListAll(){
+   public List<VisitorVO> getVisitorListAll(){   
+	   
       List<VisitorVO> visitorListAll = visitorDao.getVisitorListAll();
       
       return visitorListAll;
@@ -104,6 +98,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public String getRegDate(){
+	   
       String regDate = visitorDao.getRegDate();
       
       return regDate;
@@ -111,6 +106,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int deleteVisitRecord(int no){
+	   
       int count  = visitorDao.deleteVisitRecord(no);
       
       return count;
@@ -118,6 +114,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int addVisitRecord(int visitorNo){
+	   
       int count = visitorDao.addVisitRecord(visitorNo);
       
       return count;
@@ -125,6 +122,7 @@ public class VisitorServiceImpl implements VisitorService {
    
    @Override
    public int getMaxVisitRecordNo(){
+	   
       int no = visitorDao.getMaxVisitRecordNo();
       
       return no;

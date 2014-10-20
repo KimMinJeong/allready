@@ -60,6 +60,7 @@
 			<!--/.row-->
 		</div>
 		<!--/.container-->
+		<hr>
 </body>
 
 <script type="text/javascript">

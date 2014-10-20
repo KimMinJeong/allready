@@ -1,8 +1,5 @@
 package kr.ac.apart.controller;
 
-
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 import javax.servlet.http.HttpSession;
 
@@ -47,18 +44,20 @@ public class UserController {
     	return "redirect:/main.do";
     }
     
-    @RequestMapping(value = "/main.do")
+	@RequestMapping(value = "/main.do")
     public ModelAndView main(HttpSession session){
     	ModelAndView mav = new ModelAndView();
     	List<BoardVO> list =  boardService.getNoticeList();
     	UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
-    	if(vo == null){
-    		mav.setViewName("emptyLoginSession");
-    	}
-    	else{
+    	if(vo != null){
+    		String user_id = vo.getUser_id();
+    		UserVO user=userService.getOne(user_id);
+    		session.setAttribute("UserFlag", user);
     		mav.setViewName("webTemplete.jsp?nextPage=user_main");
     	}
+    	else
+    		mav.setViewName("emptyLoginSession");
     	
     	mav.addObject("getNoticeList", list);
     	
@@ -129,9 +128,6 @@ public class UserController {
     @RequestMapping(value = "modifyUser.do")
     public @ResponseBody String modifyUser(String userId, String userName, String userPassword, String userEmail, String userPhone, String familyName, String familyPhone){
         
-    	System.out.println("controller");
-        System.out.println("familyName : " + familyName + ", familyPhone : " + familyPhone);
-        
         userService.modifyUsers(userId, userName, userPassword, userEmail, userPhone);
         userService.updateFamily(userId, familyName, familyPhone);
         
@@ -142,8 +138,6 @@ public class UserController {
     
     @RequestMapping(value = "findPassword.do")
     public @ResponseBody String findPassword(String userId, String userName, String userEmail){
-    	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userName : " + userName + ", userEmail : " + userEmail );
     	
     	boolean userCheck = userService.findPassword(userId, userName, userEmail);
     	

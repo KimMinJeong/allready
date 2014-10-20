@@ -21,31 +21,39 @@
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-				<font size="4">
-					<ul class="nav">
-						<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
-						<li><a href="complainBoard.do">민원 게시판</a></li>
-						<li><a href="freeBoard.do">자유 게시판</a></li>
-					</ul>
-				</font>
+				<ul class="nav">
+					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
+					<li><a href="complainBoard.do">민원 게시판</a></li>
+					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
+				</ul>
 			</div> <br><br>
-
+			
+			<%
+				String condition = (String) request.getAttribute("condition");
+				String str = (String) request.getAttribute("str");
+				String category = (String) request.getAttribute("category");
+			%>
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9">
 				<div class="panel panel-default">
 
 					<!-- Default panel contents -->
 					<div class="panel-heading">
-						<center>공지사항 게시판</center>
+						<% if("notice".equals(category)){ %>
+								<center>공지사항 게시판</center>
+						<%} else if("complain".equals(category)){ %>
+								<center>민원 게시판</center>
+						<%} else if("free".equals(category)){ %>
+								<center>자유 게시판</center>
+						<%} %>
 					</div>
 
 					<!-- Table -->
 					<table class="table">
 						<tr>
-							<th>번호</th>
-							<th>제목</th>
-							<th>작성자</th>
-							<th>날짜</th>
+							<th><center>제목</center></th>
+							<th><center>작성자</center></th>
+							<th><center>날짜</center></th>
 						</tr>
 						<%
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("searchList");
@@ -53,58 +61,48 @@
 
 							if (BoardList != null) {
 								for (BoardVO vo : BoardList) {
-									String anonymous = vo.getAnonymous();
-
-									int board_no = vo.getBoard_no();
-						%>
-						<%
-							if ("CLOSED".equals(vo.getClosed())) {
-						%>
-						<%
-							if (user_id.getUser_id().equals(vo.getWriter_id())) {
+									if ("CLOSED".equals(vo.getClosed())) {
+										if (user_id.getUser_id().equals(vo.getWriter_id())) {
 						%>
 						<tr>
-							<td><%=vo.getBoard_no()%></td>
-							<td><span class="glyphicon glyphicon-lock"></span><a
-								href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<td><center><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><%=vo.getTitle()%></a></center></td>
 							<%
-								if ("ANONYMOUS".equals(anonymous)) {
+								if ("ANONYMOUS".equals(vo.getAnonymous())) {
 							%>
-							<td>익명</td>
+							<td><center>익명<center></td>
 							<%
 								} else {
 							%>
-							<td><%=vo.getWriter_id()%></td>
+							<td><center><%=vo.getWriter_id()%></center></td>
 							<%
 								}
 							%>
-							<td><%=vo.getReg_date()%></td>
+							<td><center><%=vo.getReg_date()%></center></td>
 						</tr>
 						<%
 							} else {
 						%>
 						<tr>
-							<td colspan="4"><center>비밀글 입니다^3^</center></td>
+							<td colspan="3"><center>비밀글 입니다^3^</center></td>
 						</tr>
 						<%
 							}
 						} else {
 						%>
 						<tr>
-							<td><%=vo.getBoard_no()%></td>
-							<td></span><a href="boardDetail.do?board_no=<%=board_no%>"><%=vo.getTitle()%></a></td>
+							<td><center><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><%=vo.getTitle()%></a></center></td>
 							<%
-								if ("ANONYMOUS".equals(anonymous)) {
+								if ("ANONYMOUS".equals(vo.getAnonymous())) {
 							%>
-							<td>익명</td>
+							<td><center>익명</center></td>
 							<%
 								} else {
 							%>
-							<td><%=vo.getWriter_id()%></td>
+							<td><center><%=vo.getWriter_id()%></center></td>
 							<%
 								}
 							%>
-							<td><%=vo.getReg_date()%></td>
+							<td><center><%=vo.getReg_date()%></center></td>
 						</tr>
 						<%
 							}
@@ -113,36 +111,47 @@
 						%>
 					</table>
 				</div>
-
+				
+				<%
+					int currentPage = (Integer) request.getAttribute("page");
+					List<BoardVO> allSearchList = (List<BoardVO>) request.getAttribute("allSearchList");
+				%>
 				<div align="center">
 					<ul class="pagination">
-						<li><a href="#">&laquo;</a></li>
-						<li><a href="#">1</a></li>
-						<li><a href="#">2</a></li>
-						<li><a href="#">3</a></li>
-						<li><a href="#">4</a></li>
-						<li><a href="#">5</a></li>
-						<li><a href="#">&raquo;</a></li>
+						<li><a href="search.do">&laquo;</a></li>
+						<%
+						int j=1;  //페이지수
+						int a=0;  //마지막페이지
+						for(int i=0; i<allSearchList.size(); i+=10){%>
+							<li><a href="search.do?page=<%=i%>&condition=<%=condition%>&str=<%=str%>&category=<%=category%>"><%=j%></a></li>
+						<%
+							j++;
+							a=i;
+						}%>
+						<li><a href="search.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
 				
-				<div align="center">
-					<form action="search.do">
-						<div class="form-group">
-							<select name="condition">
-								<option value="title">title</option>
-								<option value="contents">contents</option>
-								<option value="writer_id">글쓴이</option>
-							</select> 
-							<input type="text" class="form-control" size="100%" align="center" name="str">
-						</div>
-						
-						<button type="submit" class="btn btn-default">검색</button>
-					</form>
-				</div>
+				<form action="search.do">
+					<div class="form-group col-sm-2">
+						<select class="form-control" name="condition">
+							<option value="title">제목</option>
+							<option value="contents">내용</option>
+							<option value="writer_id">글쓴이</option>
+						</select>
+					</div>
+
+					<div class="col-sm-8">
+						<input type="text" class="form-control" name="str">
+						<input type="hidden" class="form-control" name="category" value="<%=category%>">
+					</div>
+
+					<button type="submit" class="btn btn-default">검색</button>
+				</form>	
 			</div>
 			<!-- /.col-xs-12 main -->
 		</div>
 		<!--/.row-->
+		<hr>
 </body>
 </html>

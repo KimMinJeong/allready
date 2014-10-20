@@ -1,3 +1,4 @@
+<%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.Visit_RecordVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.VisitorVO"%>
@@ -31,7 +32,13 @@
 			</div>
 			</form>
 		</div> <br><br><br>
-
+		<%
+			/* boolean getUserId = (boolean)request.getAttribute("getUserId");
+			if(getUserId){
+				System.out.println("세대주가엄서효");
+			}  */
+		%>
+		
 		<form class="navbar-form navbar-right">
 			<div class="form-group">
 				<input type="text" class="form-control" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
@@ -110,8 +117,6 @@
 			<%
 				int currentPage = (Integer) request.getAttribute("page");
 				int countVisitRecord = (Integer) request.getAttribute("countVisitRecord");
-				System.out.println("currentPage : " + currentPage);
-				System.out.println("countVisitRecord : " + countVisitRecord);
 			%>
 			<div align="center">
 				<ul class="pagination">
@@ -132,6 +137,7 @@
 			</div>
 		</div>
 	</div>
+	<hr>
 
 <script type="text/javascript">
 
@@ -268,6 +274,11 @@
 		});
 
 	});
+	
+	function notUserId(){
+		alert("일치하는 세대주가 없습니다.");
+		location.replace("manage_visitor.do"); 
+	}
 	
 	//==================================================================================
 	//var rowCount; //동적으로 생성된 table row 갯수 선언

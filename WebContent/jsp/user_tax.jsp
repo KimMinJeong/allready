@@ -83,8 +83,8 @@
 	</table>
 	<% }%>
 </div>
-
 <div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
+<hr>
 </body>
 
 <script>
