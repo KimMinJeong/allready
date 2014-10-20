@@ -37,6 +37,10 @@ public class ExpressDAOImpl implements ExpressDAO{
 	
 	@Override
 	public int getExpressRowNum(){
-		return (Integer) sqlMapClientTemplate.queryForObject("getExpressRowNum");
-	}
+         if(sqlMapClientTemplate.queryForObject("getExpressRowNum") != null){
+            return (Integer) sqlMapClientTemplate.queryForObject("getExpressRowNum");
+         }
+         else
+            return 0;
+   }
 }
