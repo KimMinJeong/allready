@@ -1,7 +1,6 @@
 package kr.ac.apart.controller;
 
 import java.util.List;
-
 import javax.servlet.http.HttpSession;
 
 import kr.ac.apart.service.BoardService;
@@ -27,12 +26,17 @@ public class UserController {
     private BoardService boardService;
 
     @RequestMapping(value = "/loginForm.do")
-    public String index(){
-        return "loginForm";
+    public ModelAndView index(){
+    	List<UserVO> user_id = userService.getUserList();
+    	ModelAndView mav = new ModelAndView("loginForm");
+    	
+    	mav.addObject("user_id", user_id);
+    	
+        return mav;
     }
 
     @RequestMapping("/login.do")
-    public String join(String user_id, String user_password, HttpSession session){
+    public String login(String user_id, String user_password, HttpSession session){
     	UserVO vo = userService.getUser(user_id, user_password);
     	
     	session.setAttribute("UserFlag", vo);
@@ -40,18 +44,20 @@ public class UserController {
     	return "redirect:/main.do";
     }
     
-    @RequestMapping(value = "/main.do")
+	@RequestMapping(value = "/main.do")
     public ModelAndView main(HttpSession session){
     	ModelAndView mav = new ModelAndView();
     	List<BoardVO> list =  boardService.getNoticeList();
     	UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
-    	if(vo == null){
-    		mav.setViewName("emptyLoginSession");
-    	}
-    	else{
+    	if(vo != null){
+    		String user_id = vo.getUser_id();
+    		UserVO user=userService.getOne(user_id);
+    		session.setAttribute("UserFlag", user);
     		mav.setViewName("webTemplete.jsp?nextPage=user_main");
     	}
+    	else
+    		mav.setViewName("emptyLoginSession");
     	
     	mav.addObject("getNoticeList", list);
     	
@@ -122,9 +128,6 @@ public class UserController {
     @RequestMapping(value = "modifyUser.do")
     public @ResponseBody String modifyUser(String userId, String userName, String userPassword, String userEmail, String userPhone, String familyName, String familyPhone){
         
-    	System.out.println("controller");
-        System.out.println("familyName : " + familyName + ", familyPhone : " + familyPhone);
-        
         userService.modifyUsers(userId, userName, userPassword, userEmail, userPhone);
         userService.updateFamily(userId, familyName, familyPhone);
         
@@ -135,8 +138,6 @@ public class UserController {
     
     @RequestMapping(value = "findPassword.do")
     public @ResponseBody String findPassword(String userId, String userName, String userEmail){
-    	System.out.println("findPasswordController.do");
-    	System.out.println("userId : " + userId + ", userName : " + userName + ", userEmail : " + userEmail );
     	
     	boolean userCheck = userService.findPassword(userId, userName, userEmail);
     	

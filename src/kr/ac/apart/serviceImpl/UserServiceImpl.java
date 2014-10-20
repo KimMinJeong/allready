@@ -16,13 +16,20 @@ public class UserServiceImpl implements UserService{
 	
 	@Autowired
 	private UserDAO userDao;
+
+	@Override
+	public UserVO getOne(String user_id) {
+		UserVO user=userDao.getUser(user_id);
+		
+		return user;
+	}
 	
 	public UserVO getUser(String userId, String password){
-		UserVO user = userDao.getUser(userId);
-		String pwd = user.getPassword();
+		UserVO userVo = userDao.getUser(userId);
+		String pwd = userVo.getPassword();
 		
 		if(password.equals(pwd)){
-			return user;
+			return userVo;
 		}
 		else
 			return null;
@@ -31,27 +38,18 @@ public class UserServiceImpl implements UserService{
 	public String getUser_passwordFind(String user_id, String user_name,String e_mail){
 		UserVO user = userDao.getUser(user_id);
 		String pwd = user.getPassword();
-		System.out.println("e_mail : "+e_mail);
-		System.out.println(user.getUser_id());
-		System.out.println(user.getUser_name());
-		System.out.println(user.getE_mail());
-		if(user_id.equals(user.getUser_id()) ){
-			System.out.println("id ok");
+		
+		if(user_id.equals(user.getUser_id())){
 				if(user_name.equals(user.getUser_name())){
-					System.out.println("name ok");
 					if(e_mail.equals(user.getE_mail())){
-						System.out.println("email ok");
-						System.out.println(pwd);
 						return pwd;
-					}
-				
+					}	
 				}
 		}
 		else
 			System.out.println("틀렷어 병시나");
-			return "회원정보가 일치하지 않습니다.ㅠㅠ";
-	
 		
+			return "회원정보가 일치하지 않습니다.ㅠㅠ";
 	}
 	
 	@Override
@@ -143,4 +141,9 @@ public class UserServiceImpl implements UserService{
 			return false;
 	}
 	
+	public List<UserVO> getUserList(){
+		List<UserVO> user_id = userDao.getUserList();
+		
+		return user_id;
+	}
 }

@@ -110,4 +110,19 @@ public class userDAOTest {
 		System.out.println(vo);
 	}
 
+	@Test
+	public void modifyExpressTest(){
+		UserVO user=new UserVO();
+		user.setExpress("FALSE");
+		user.setUser_id("1");
+		userDao.expressModify(user);
+	}
+	
+	@Test
+	public void getUserListTest(){
+		List<UserVO> list = userDao.getUserList();
+		
+		System.out.println(list);
+
+	}
 }

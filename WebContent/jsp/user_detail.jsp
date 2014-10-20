@@ -14,6 +14,10 @@
 </head>
 
 <body>
+	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert">
+		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+	  	<strong>이메일 형식을 확인해 주세요!!</strong>
+	</div>
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>
@@ -95,6 +99,7 @@
 			</form>
 		</div>
 	</div>		
+	<hr>
 </body>
 
 <script type="text/javaScript">
@@ -113,7 +118,14 @@
 	$("#modifyUser").on('click', function() {
 		if ($("#userPassword").val() == "") {
 			alert("비밀번호를 입력해주세요.");
+			$("#userPassword").focus();
+			return false;
 		} else {
+			if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
+				alert("E-mail 형식으로 입력해주세요.");
+				$("#userEmail").focus();
+				return false;
+			}
 			var selectFamily = $("#selectFamily").val();
 			arrName = [];
 			arrPhone = [];
@@ -147,10 +159,20 @@
 				}
 			});
 		}
+		
 	});
 	
 	var table = document.getElementById('userFamily');
 	var tr = table.getElementsByTagName("tr").length; //table의 tr 갯수
 	$("#selectFamily").val(tr); //select 기본값 설정, 기본값=tr
+</script>
+
+<script type="text/javascript">
+	var regex=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/;
+	var user_email=$('#userEmail').val();
+	
+	if(regex.test(user_email)===false){
+		$("#id_alert").show();
+	}
 </script>
 </html>

@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import kr.ac.apart.service.UserService;
 import kr.ac.apart.service.VisitorService;
 import kr.ac.apart.vo.UserVO;
 import kr.ac.apart.vo.VisitorVO;
@@ -24,6 +25,9 @@ public class VisitorController {
 
     @Autowired 
     private VisitorService visitorService;
+    
+    @Autowired
+    private UserService userService;
 
     @RequestMapping(value = "/user_visitor.do") //유저의 방문페이지 
     public String user_visitor(HttpSession session){
@@ -52,6 +56,8 @@ public class VisitorController {
     	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
   		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
   	   }
+    	System.out.println("aa123 : " + request.getParameter("checkUser"));
+    	mav.addObject("getUserId", request.getParameter("checkUser"));
         mav.addObject("visitRecord", visitorService.getVisitorListManager(page)); //방문기록리스트가져오기
         mav.addObject("visitorList", visitorService.getVisitorListAll()); //등록방문객리스트가져오기
         mav.addObject("page", page);   //페이지번호
@@ -81,9 +87,18 @@ public class VisitorController {
     public ModelAndView addVisitorManager(String user_id, String visitor_name, String business){
     	ModelAndView mav = new ModelAndView("redirect:/manage_visitor.do");
     	
-    	VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
-        visitorService.addVisitorManager(visitorVO);
-    	
+    	UserVO vo = userService.getOne(user_id);
+    	System.out.println("vo : " + vo);
+    	if(vo == null){
+    		System.out.println("null 입니다.");
+    		mav.addObject("checkUser", true);
+    	}
+    	else if(vo != null){
+    		mav.addObject("checkUser", vo);
+    		VisitorVO visitorVO = visitorService.insert(user_id, visitor_name, business, null);
+            visitorService.addVisitorManager(visitorVO);
+    	}
+
     	return mav;
     }
     
@@ -124,8 +139,6 @@ public class VisitorController {
     @RequestMapping(value = "/updateVisitor.do") //noramal이 방문객 삭제를 눌렀을 때
     public @ResponseBody String updateVisitor(int visitordNo){
     	
-    	System.out.println("updateVisitor.do start!!");
-    	
     	visitorService.updateVisitor(visitordNo);
     	
         JSONObject obj = new JSONObject();
@@ -135,11 +148,7 @@ public class VisitorController {
 
     @RequestMapping(value = "/getVisitor.do") //고정방문객 검색
     public @ResponseBody String getVisitor(ModelMap model, String userId3) throws Throwable{
-    	
-        System.out.println("getVisitor");
-        
         List < VisitorVO > visitorList = null;
-        
         try {
             visitorList = visitorService.getVisitorList(userId3);
         } catch (Exception e) {
@@ -147,18 +156,13 @@ public class VisitorController {
         }
         
         JSONObject obj = new JSONObject();
-        
         obj.put("visitorListModel", visitorList);
-
-        System.out.println(obj.toString());
         
         return obj.toString();
     }
 
     @RequestMapping(value = "/deleteVisitRecord.do") //방문객리스트 삭제
     public @ResponseBody String deleteVisitRecord(int visitRecordNo){
-    	
-        System.out.println("deleteVisitRecord!");
         
         JSONObject obj = new JSONObject();
         
@@ -169,9 +173,7 @@ public class VisitorController {
     
     @RequestMapping(value = "/visitorModify.do")
     public @ResponseBody String visitorModify(int visitRecordNo, int visitorNo, String visitorId, String visitorName, String visitorBusiness, String visitorRegDate){
-    	System.out.println("visitorModify.do start!");
-    	System.out.println("visitorNo : " + visitorNo + ", visitorId : " + visitorId + ", visitorName : " + visitorName + ", visitorBusiness : " + visitorBusiness + ", visitorRegDate : " + visitorRegDate);
-    	
+    
     	visitorService.modifyVisitor(visitorNo, visitorId, visitorName, visitorBusiness);
     	visitorService.modifyVisitRecord(visitRecordNo, visitorNo, visitorRegDate);
     	

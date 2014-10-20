@@ -23,6 +23,7 @@
 	<select id="getExpress" resultClass="express">
 		SELECT *
 		FROM EXPRESS
+		ORDER BY REG_DATE DESC
 	</select>
 	
 	<select id="getExpressOne" resultClass="express" parameterClass="java.lang.Integer">
@@ -36,4 +37,10 @@
 		WHERE EXPRESS_ID = #express_id#	
 	</update>
 
+	<select id="getExpressRowNum" resultClass="int">
+		<![CDATA[
+			SELECT MAX(ROWNUM)
+			FROM EXPRESS
+		]]>
+	</select>
 </sqlMap>

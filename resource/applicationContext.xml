@@ -29,6 +29,6 @@ xmlns:tx="http://www.springframework.org/schema/tx"
 	
 	<bean id="sqlMapClientTemplate" class="org.springframework.orm.ibatis.SqlMapClientTemplate">
 		<property name="sqlMapClient" ref="sqlMapClient"/>
-	</bean> 
+	</bean>
 </beans>
 

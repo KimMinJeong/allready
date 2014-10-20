@@ -8,6 +8,7 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script src="http://js.nicedit.com/nicEdit-latest.js" type="text/javascript"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <%
@@ -21,38 +22,40 @@
 		
 			<!-- sidebar -->
 			<div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
-				<font size="4">
-					<ul class="nav">
-						<li><a href="noticeBoard.do">공지사항 게시판</a></li>
-						<li class="active"><a href="complainBoard.do">민원 게시판</a></li>
-						<li><a href="freeBoard.do">자유 게시판</a></li>
-					</ul>
-				</font>
+				<ul class="nav">
+					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
+					<li class="active"><a href="complainBoard.do">민원 게시판</a></li>
+					<li><a href="freeBoard.do">자유 게시판</a></li>
+				</ul>
 			</div>
 
 			<!-- main area -->
 			<div class="col-sm-9"> <br>
 				<form action="boardAdd.do">
-					<select name="category">
+					<select name="category" id="select" class="form-control">
 						<%
 							if ("MANAGER".equals(LoginInfo.getRole())){
 						%>
-							<option name="notice" value="notice">공지사항</option>
+							<option name="notice" value="notice" id="notice_option">공지사항</option>
 						<%
 							} else if ("NORMAL".equals(LoginInfo.getRole())){
 						%>
-							<option name="complain" value="complain">민원</option>
-							<option name="free" value="free">자유</option>
+							<option name="complain" value="complain" >민원</option>
+							<option name="free" value="free" >자유</option>
 						<%
 							}
 						%>
 					</select>
 					 
 					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br><br> 
-					<input type="text" class="form-control title" name="title"> <br>
-					<textarea rows="20" cols="135" name="contents"> </textarea> <br><br> 
-					
-					<input type="file" class="file" /> <br>
+					<input type="text" id="board_title" class="form-control title" name="title"> <br>
+					 <script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
+					 <script type="text/javascript">
+					//<![CDATA[
+					        bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+					  //]]>
+					  </script>
+					<textarea class="textarea" id="board_textarea" name="contents"> </textarea> <br><br> 
 
 					<div class="col-md-3 col-md-offset-9 ">
 						<input type="checkbox" name="anonymous" class="checkbox inline" value="ANONYMOUS" /> 
@@ -68,6 +71,13 @@
 	</div>
 	<!--/.row-->
 	</div>
+	<hr>
 	<!--/.container-->
 </body>
+
+<script type="text/javascript">
+if($('ul li:nth-child(3)').find('ative')){
+	("#select option:nth-child(3) option:selected");
+}
+</script>
 </html>

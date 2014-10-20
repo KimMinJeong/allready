@@ -6,20 +6,36 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import kr.ac.apart.service.TaxService;
+import kr.ac.apart.service.UserService;
+import kr.ac.apart.vo.BoardVO;
+import kr.ac.apart.vo.TaxVO;
 import kr.ac.apart.vo.UserVO;
+import kr.ac.apart.vo.VisitorVO;
+
+import net.sf.json.JSONObject;
 
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller("taxController")
 public class TaxController {
+	@Autowired
+	private TaxService taxService;
+	
+	@Autowired
+	private UserService userService;
 
     @SuppressWarnings("deprecation")
 
@@ -27,11 +43,13 @@ public class TaxController {
     public ModelAndView tax(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
+        List<TaxVO> OneTax = taxService.getOneTax(vo.getUser_id());
         
     	if(vo == null){
     		mav.setViewName("emptyLoginSession");
     	}
     	else{
+    		mav.addObject("OneTax", OneTax);
     		mav.setViewName("webTemplete.jsp?nextPage=user_tax");
     	}
     	
@@ -124,5 +142,41 @@ public class TaxController {
             }
         }
         return mav;
+    }
+    
+    @RequestMapping(value="/AddTaxForm.do")
+    public String AddTaxForm(){	
+    	return "webTemplete.jsp?nextPage=tax_write_form";
+    }
+    
+    @RequestMapping(value="/TaxWriteForm.do")
+    public ModelAndView TaxWrite(String user_id, int year, int month, int basic_tax,
+		int electric_tax, int water_tax, int heating_tax, int internet_tax){
+    	ModelAndView mav = new ModelAndView();
+    	TaxVO tax_vo = taxService.addTax(user_id, year, month, basic_tax, electric_tax, water_tax, heating_tax, internet_tax);
+    	List<TaxVO> taxList = taxService.getTaxList();
+    	
+    	mav.addObject("tax_vo", tax_vo);
+    	mav.addObject("taxList", taxList);
+    	
+    	mav.setViewName("webTemplete.jsp?nextPage=tax_view");
+
+    	return mav;
+    }
+    
+    @RequestMapping(value = "/getTaxOneList.do")
+    public @ResponseBody String getVisitor(String user_id) throws Throwable{
+        List<TaxVO> taxOneList = null;
+ 
+        try {
+        	taxOneList = taxService.getOneTax(user_id);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        JSONObject obj = new JSONObject();
+        obj.put("taxOneList", taxOneList);
+        
+        return obj.toString();
     }
 }

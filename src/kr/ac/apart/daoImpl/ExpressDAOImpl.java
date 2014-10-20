@@ -21,8 +21,8 @@ public class ExpressDAOImpl implements ExpressDAO{
 	}
 
 	@Override
-	public List<ExpressVO> getExpressList(){
-		return sqlMapClientTemplate.queryForList("getExpress");
+	public List<ExpressVO> getExpressList(int page){
+		return sqlMapClientTemplate.queryForList("getExpress", null, page, 10);
 	}
 
 	@Override
@@ -34,4 +34,13 @@ public class ExpressDAOImpl implements ExpressDAO{
 	public ExpressVO getExpressOne(int express_id){
 		return (ExpressVO) sqlMapClientTemplate.queryForObject("getExpressOne", express_id);
 	}
+	
+	@Override
+	public int getExpressRowNum(){
+         if(sqlMapClientTemplate.queryForObject("getExpressRowNum") != null){
+            return (Integer) sqlMapClientTemplate.queryForObject("getExpressRowNum");
+         }
+         else
+            return 0;
+   }
 }

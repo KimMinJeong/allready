@@ -24,6 +24,7 @@
    		SELECT *
    		FROM MANAGER_DONG
    		WHERE USER_ID=#user_id#
+   		ORDER BY DONG ASC
    </select>
    
 </sqlMap>

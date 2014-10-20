@@ -52,4 +52,16 @@ public class UserDAOImpl implements UserDAO{
 	public List<FamilyVO> getFamilyList(String userId){
 		return (List<FamilyVO>) sqlMapClientTemplate.queryForList("getFamilyList", userId);
 	}
+
+	public void expressModify(UserVO user) {
+		sqlMapClientTemplate.update("ExpressModify", user);
+	}
+	
+	public List<UserVO> getUserList() {
+		return (List<UserVO>)sqlMapClientTemplate.queryForList("getUserList");
+	}
+	
+	public List<UserVO> getNormalUserList(){
+		return (List<UserVO>)sqlMapClientTemplate.queryForList("getNormalUserList");
+	}
 }
