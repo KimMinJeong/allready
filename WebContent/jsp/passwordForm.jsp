@@ -51,7 +51,7 @@
 <script type="text/javascript">
 	$("#submitButton").on('click', function(){
 		alert("버튼이 눌렸습니다.");
-		if($("#user_id").val()==""){
+		/* if($("#user_id").val()==""){
 			alert("ID를 입력해주세요");
 			$("#user_id").focus();
 			return false;
@@ -64,12 +64,12 @@
 		if($("#user_email").val()==""){
 			alert("E-mail을 입력해주세요");
 			$("#user_email").focus();
-			return false;
+			return false; 
 		}else if($("#user_email").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
 			alert("E-mail 형식으로 입력해주세요.");
 			$("#user_email").focus();
 			return false;
-		}
+		} */
 		
 		
 		$.ajax({
@@ -90,6 +90,8 @@
 				else if(data.userCheck){
 					alert("정보가 일치합니다.");
 					if(data.getUser.role == "MANAGER"){
+						
+					alert("aa");
 						$("#passwordHere").append(
 							"비밀번호는 " + data.getUser.password + "입니다."	
 						);
