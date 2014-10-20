@@ -8,8 +8,7 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet"
-	type="text/css">
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <%
 	BoardVO vo = (BoardVO) request.getAttribute("vo");
@@ -32,9 +31,9 @@
 			<div class="col-sm-9">
 				<form action="updateBoard.do">
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
-					<select disabled>
+					<select disabled class="form-control">
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
-					</select> <br> <br> <input type="text" class="form-control title"
+					</select><br><br><input type="text" class="form-control title"
 						id="board_title" name="title" value="<%=vo.getTitle()%>">
 					<br>
 					<script type="text/javascript"
@@ -62,4 +61,12 @@
 		</div>
 		<!--/.container-->
 </body>
+
+<script type="text/javascript">
+	var select_var=$('select option').val();
+	if(select_var=='free'){
+		alert($('select option').val());
+		select_var ='자유';
+	}
+</script>
 </html>

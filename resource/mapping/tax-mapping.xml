@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" 
+"http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="TAX">
+	<typeAlias alias="tax" type="kr.ac.apart.vo.TaxVO"/>
+	<typeAlias alias="String" type="java.lang.String"/>
+	<typeAlias alias="Integer" type="java.lang.Integer"/>
+	
+	<resultMap id="taxResult" class="tax">
+		<result property="user_id" column="USER_ID" nullValue="" />
+		<result property="year" column="YEAR" nullValue="" />
+		<result property="month" column="MONTH" nullValue=""  />
+		<result property="basic_tax" column="BASIC_TAX" />
+		<result property="electric_tax" column="ELECTRIC_TAX" />
+		<result property="water_tax" column="WATER_TAX" />
+		<result property="heating_tax" column="HEATING_TAX" />
+		<result property="internet_tax" column="INTERNET_TAX" />
+	</resultMap>
+
+	<insert id="addTax" parameterClass="tax">
+ 			INSERT INTO TAX(USER_ID,YEAR,MONTH,BASIC_TAX,ELECTRIC_TAX,WATER_TAX,HEATING_TAX,INTERNET_TAX)
+ 			VALUES(#user_id#,#year#,#month#,#basic_tax#,
+ 			#electric_tax#,#water_tax#,#heating_tax#,#internet_tax#)
+	</insert>
+	
+	<select id="getTaxList" resultClass="tax">
+		SELECT *
+		FROM TAX
+	</select>
+
+	<select id="getOneTax" resultClass="tax" parameterClass="String">
+		SELECT *
+		FROM TAX
+		WHERE USER_ID=#user_id#
+		ORDER BY YEAR DESC, MONTH DESC
+	</select>
+	
+</sqlMap>
+

@@ -1,3 +1,6 @@
+<%@page import="java.util.List"%>
+<%@page import="kr.ac.apart.vo.UserVO"%>
+<%@page import="kr.ac.apart.vo.TaxVO"%>
 <%@page import="org.jsoup.nodes.Element"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -7,6 +10,8 @@
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+
 <link  href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
@@ -15,12 +20,17 @@
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
 		String dangi_tax = (String) request.getAttribute("dangi_tax");
+		List<TaxVO> OneTax = (List<TaxVO>)request.getAttribute("OneTax");
+		UserVO user = (UserVO)session.getAttribute("UserFlag");
 	%>
 	<div class="container">
 	<div>
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
+		<a class="btn btn-default btn-sm" href="AddTaxForm.do">
+			관리비 설정
+		</a>
 
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog">
@@ -47,49 +57,39 @@
 	<div class="col-md-offset-2 col-md-10">
 <!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; -->
 <!-- 		<img src="..." alt="그래프" height="200" width="300" class="img-rounded"> -->
-	</div> <br/>
-	
+	</div> 
+	<br/>
 	<%=dangi_tax%>
 	
+	<% if(user.getRole().equals("NORMAL")){ %>
 	<h2>관리비</h2>
-	
 	<table class="table" id="table">
 		<tr>
-			<th>시/도</th>
-			<th>단지 수</th>
-			<th>공용 관리비</th>
-			<th>공용 사용료</th>
-			<th>전용 사용료</th>
-			<th>장기수선 충당금</th>
-			<th>소계</th>
-			<th>상세보기</th>
+			<th>년도</th>
+			<th>월</th>
+			<th>일반 관리비</th>
+			<th>전기 사용료</th>
+			<th>수도 사용료</th>
+			<th>난방 사용료</th>
+			<th>인터넷 사용료</th>
 		</tr>
-		
-		<tr>
-			<td>서울 마포구 상암동 평균</td>
-			<td>13</td>
-			<td>587</td>
-			<td>126</td>
-			<td>595</td>
-			<td>47</td>
-			<td>1.355</td>
-			<td><button type="button" class="btn btn-default">상세보기</button></td>
-		</tr>
-		
-		<tr>
-			<td>상암 월드컵</td>
-			<td>1</td>
-			<td>527</td>
-			<td>82</td>
-			<td>816</td>
-			<td>0</td>
-			<td>1.425</td>
-			<td><button type="button" class="btn btn-default">상세보기</button></td>
-		</tr>
-	</table> <br/><br/><br/>
+		<br><br>
+		<%for (TaxVO vo : OneTax){
+			%>
+			<tr>
+ 				<td><%=vo.getYear()%></td> 
+ 				<td><%=vo.getMonth()%></td>
+ 				<td><%=vo.getBasic_tax()%></td>
+ 				<td><%=vo.getElectric_tax()%></td>
+ 				<td><%=vo.getWater_tax()%></td> 
+				<td><%=vo.getHeating_tax()%></td>
+ 				<td><%=vo.getInternet_tax()%></td>
+			</tr>
+		<%}%>
+	</table>
+	<% }%>
 	
-	<h2>월별 통계</h2>
-	
+	<!-- <h2>월별 통계</h2>
 	<table class="table">
 		<tr>
 			<th align="center">분류</th>
@@ -106,7 +106,6 @@
 			<th align="center">11월</th>
 			<th align="center">12월</th>
 		</tr>
-		
 		<tr>
 			<td>X</td>
 			<td>X</td>
@@ -122,7 +121,9 @@
 			<td>X</td>
 			<td>X</td>
 		</tr>
-	</table>
+	</table> -->
 </div>
 </body>
+
+
 </html>

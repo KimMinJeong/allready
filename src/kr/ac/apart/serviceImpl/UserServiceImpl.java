@@ -148,9 +148,14 @@ public class UserServiceImpl implements UserService{
 		else
 			return false;
 	}
+	
 	public List<UserVO> getUserList(){
 		List<UserVO> user_id = userDao.getUserList();
 		return user_id;
 	}
 	
+	public List<UserVO> getNormalUserList(){
+		List<UserVO> normalUserList = userDao.getNormalUserList();
+		return normalUserList;
+	}
 }

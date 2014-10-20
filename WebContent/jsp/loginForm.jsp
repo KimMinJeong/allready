@@ -18,10 +18,13 @@
 	List<UserVO> user_id = (List<UserVO>)request.getAttribute("user_id");
 %>
 <body>
+	<input type="hidden" id="List_user_id" value="<%=user_id%>"/>
+	
 	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert">
 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	  	<strong>아이디가 존재하지 않습니다.</strong>
+	  	<strong></strong>
 	</div>
+	
 	<form action="login.do" onsubmit="return UserIdCheck()" class="navbar-form navbar-left">
 		<div class="container" align="right">
 			<div class="center">
@@ -51,26 +54,33 @@
 </body>
 
 <script type="text/javascript">
-$(document).ready(function(){
-	$('#id_alert').hide();
-});
+
+$('#id_alert').hide();
+
 function UserIdCheck(){
-	var i=0;
-	var user_id = parseInt($('#user_id').val());
-	alert(user_id);
-	var db_user_id = <%=user_id%>;
-	db_user_id.toString();
-	alert(db_user_id);
-	for(i=0;i<db_user_id.length;i++){
-		alert(db_user_id[0]);
-		if(db_user_id[i]==user_id){
+	var User_Array = new Array();
+	var user_id = $('#user_id').val();
+	var db_user_id = $('#List_user_id').val();
+	
+	db_user_id = db_user_id.replace(/,/g, []);
+	db_user_id=db_user_id.replace("[","");
+	db_user_id=db_user_id.replace("]","");
+	
+	User_Array = db_user_id.split(' ');
+	
+	for(var i=0;i<=User_Array.length;i++){
+		
+		if(user_id===User_Array[i]){
 			return true;
 		}
-		else{
+		else if(user_id!=User_Array[i]){
+			$("strong").text("아이디가 존재하지 않습니다.");
 			$('#id_alert').show();
-			return false;	
 		}
-	}		
+	}
+	return false;
 };
+
 </script>
+
 </html>

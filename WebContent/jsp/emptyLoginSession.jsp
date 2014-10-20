@@ -13,7 +13,6 @@
 	function test(){
 		alert("로그인해주세요.");
 		location.replace("loginForm.do"); 
-		//response.sendRedirect("loginForm.do");
 	}
 </script>
 

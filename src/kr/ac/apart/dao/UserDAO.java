@@ -18,4 +18,5 @@ public interface UserDAO {
 	public int deleteFamily(String userId);
 	public List<FamilyVO> getFamilyList(String userId);
 	public void expressModify(UserVO user);
+	public List<UserVO> getNormalUserList();
 }

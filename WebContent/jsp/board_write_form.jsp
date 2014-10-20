@@ -33,7 +33,7 @@
 			<!-- main area -->
 			<div class="col-sm-9"> <br>
 				<form action="boardAdd.do">
-					<select name="category">
+					<select name="category" id="select" class="form-control">
 						<%
 							if ("MANAGER".equals(LoginInfo.getRole())){
 						%>
@@ -41,8 +41,8 @@
 						<%
 							} else if ("NORMAL".equals(LoginInfo.getRole())){
 						%>
-							<option name="complain" value="complain" id="complain_option">민원</option>
-							<option name="free" value="free" id="free_option">자유</option>
+							<option name="complain" value="complain" >민원</option>
+							<option name="free" value="free" >자유</option>
 						<%
 							}
 						%>
@@ -73,14 +73,11 @@
 	</div>
 	<!--/.container-->
 </body>
+
 <script type="text/javascript">
-alert($("li:nth-child(1).active").val());
-alert($("li:nth-child(2)").attr('class'));
-if($("ul li:first-child").attr('class')==="active"){
-	$('#complain_option').attr('selected','selected');
-}
-else if($("li:nth-child(2)").attr('class')==='active'){
-	$('#free_option').attr('selected','selected');
+
+if($('ul li:nth-child(3)').find('ative')){
+	("#select option:nth-child(3) option:selected");
 }
 </script>
 </html>
