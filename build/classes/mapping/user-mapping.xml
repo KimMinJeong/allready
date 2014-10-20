@@ -26,6 +26,12 @@
 		FROM USERS
 	</select>
 	
+	<select id="getNormalUserList" resultClass="user">
+		SELECT USER_ID
+		FROM USERS
+		WHERE ROLE='NORMAL'
+	</select>
+	
 	<update id="modifyManager" parameterClass="user">
 		UPDATE USERS
 		SET PASSWORD=#password#,

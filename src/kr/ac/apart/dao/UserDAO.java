@@ -19,3 +19,4 @@ public interface UserDAO {
 	public List<FamilyVO> getFamilyList(String userId);
 	public void expressModify(UserVO user);
 }
+

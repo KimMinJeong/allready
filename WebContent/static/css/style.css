@@ -88,6 +88,11 @@
 #board_list_btn{
 	margin-left: 80%;
 }
+.ui-datepicker-calendar {
+    display: none;
+ }
+
 .strong{
 	font-weight : bold;
 }
+

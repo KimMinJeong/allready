@@ -19,3 +19,4 @@ public interface UserService {
 	public boolean findPassword(String userId, String userName, String userEmail);
 	public List<UserVO> getUserList();
 }
+
