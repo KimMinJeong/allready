@@ -63,7 +63,7 @@ public class ExpressController {
 		if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
   		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
   	   	}
-		
+
 		List<ExpressVO> list = expressService.getExpressList(page);
 		
     	String userId = vo.getUser_id();
