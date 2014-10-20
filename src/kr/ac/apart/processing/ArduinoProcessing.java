@@ -24,7 +24,11 @@ public class ArduinoProcessing extends PApplet{
 	{
 	  if(myPort.available() > 0)
 	  {
-	    String value = myPort.readString();
+	    String value = " ";
+	    
+	    while(value.length()!=4)
+	    	value=myPort.readString();
+	    
 	    System.out.println(value);
 	    char is1='N';
 	    char is2='N';

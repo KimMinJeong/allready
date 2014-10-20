@@ -117,10 +117,12 @@
 			$("#userPassword").focus();
 			return false;
 		} else {
-			if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
-				alert("E-mail 형식으로 입력해주세요.");
-				$("#userEmail").focus();
-				return false;
+			if($("#userEmail").val()!=""){
+				if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
+					alert("E-mail 형식으로 입력해주세요.");
+					$("#userEmail").focus();
+					return false;
+				}
 			}
 			var selectFamily = $("#selectFamily").val();
 			arrName = [];

@@ -30,12 +30,7 @@
 				<div class="input-group .col-lg-offset-4 .col-lg-4">
 					<span class="input-group-addon">이메일</span>
 					<input type="text" class="form-control" placeholder="이메일" id="user_email">
-				</div> 
-				
-				<div class="input-group .col-lg-offset-4 .col-lg-4">
-					<span class="input-group-addon">전화번호</span>
-					<input type="text" class="form-control" placeholder="전화번호" id="user_phone">
-				</div> <br>
+				</div>  <br>
 				
 				<div class="col-lg-offset-4 .col-lg-4" id="passwordHere" align="left">
 				</div>
@@ -50,7 +45,6 @@
 
 <script type="text/javascript">
 	$("#submitButton").on('click', function(){
-		alert("버튼이 눌렸습니다.");
 		if($("#user_id").val()==""){
 			alert("ID를 입력해주세요");
 			$("#user_id").focus();
@@ -80,19 +74,22 @@
 				userId : $("#user_id").val(),
 				userName : $("#user_name").val(),
 				userEmail : $("#user_email").val(),
-				userPhone : $("#user_phone").val(),
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
 				if(!data.userCheck){
-					alert("정보가 일치하지 않습니다.");
+					alert("일치하는 정보가 없습니다.");
 				}
 				else if(data.userCheck){
-					alert("정보가 일치합니다.");
-					if(data.getUser.role == "MANAGER"){
+					if(data.getUser.role == "NORMAL"){
 						$("#passwordHere").append(
 							"비밀번호는 " + data.getUser.password + "입니다."	
 						);
+					}
+					else  if(data.getUser.role == "MANAGER"){
+						$("#passwordHere").append(
+								"관리자는 별도의 비밀번호 찾기 서비스를 제공하지 않습니다."	
+							);
 					}
 				}
 			},
