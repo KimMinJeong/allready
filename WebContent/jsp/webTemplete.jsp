@@ -4,8 +4,10 @@
 <!DOCTYPE>
 <html >
 <head>
-<meta charset="UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+
 <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
 <title>Between Apartment</title>
 <!-- Bootstrap core CSS -->
@@ -50,7 +52,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='user_parking.jsp' || param.nextPage=='parking.jsp'}">
@@ -60,7 +62,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='user_tax.jsp'}">
@@ -70,7 +72,7 @@
 							<li class="active"><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='notice_board_list.jsp' || param.nextPage=='complain_board_list.jsp' || param.nextPage=='free_board_list.jsp' || param.nextPage=='board_write_form.jsp' || param.nextPage=='board_modify_form.jsp' || param.nextPage=='board_view.jsp' || param.nextPage=='searchPage.jsp'}">
@@ -80,7 +82,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li class="active"><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='user_visitor.jsp'}">
@@ -90,7 +92,7 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li class="active"><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<c:if test="${param.nextPage=='user_detail.jsp'}">
@@ -100,8 +102,18 @@
 							<li><a href="user_tax.do">관리세</a></li>
 							<li><a href="noticeBoard.do">게시판</a></li>
 							<li><a href="user_visitor.do">방문객</a></li>
-							<li><a href="#settings">소통의 장</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
 							<li class="active"><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='chatting_room.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li class="active"><a href="chat_server.do">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
 							</c:if>
 							<%
 								} else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
