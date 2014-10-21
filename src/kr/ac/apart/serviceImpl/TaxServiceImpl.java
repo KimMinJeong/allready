@@ -7,6 +7,7 @@ import kr.ac.apart.service.TaxService;
 import kr.ac.apart.vo.TaxVO;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
 
 @Service("taxService")
@@ -15,7 +16,7 @@ public class TaxServiceImpl implements TaxService{
 	private TaxDAO taxDao;
 	
 	public TaxVO addTax(String user_id, int year, int month, int basic_tax,
-    		int electric_tax, int water_tax, int heating_tax, int internet_tax){
+    		int electric_tax, int water_tax, int heating_tax, int internet_tax) throws Exception{
 		
 		TaxVO tax_vo = new TaxVO();
 		tax_vo.setUser_id(user_id);
@@ -41,4 +42,5 @@ public class TaxServiceImpl implements TaxService{
 		List<TaxVO> tax_vo = taxDao.getOneTax(user_id);
 		return tax_vo;
 	}
+
 }

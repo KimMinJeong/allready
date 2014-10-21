@@ -68,7 +68,7 @@ public class junit_test {
 	}
 	
 	@Test
-	public void addTax(){
+	public void addTax() throws Exception{
 		TaxVO taxVo = new TaxVO();
 		taxVo.setUser_id("2");
 		taxVo.setYear(2014);
