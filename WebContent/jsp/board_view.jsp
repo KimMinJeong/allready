@@ -8,11 +8,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<script src="static/js/jquery-1.11.1.js"></script>
 <title>Insert title here</title>
 <%
 	BoardVO board_vo = (BoardVO)request.getAttribute("vo");

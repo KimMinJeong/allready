@@ -5,6 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
@@ -14,6 +17,11 @@
 </head>
 <% UserVO user_vo = (UserVO)session.getAttribute("UserFlag"); %>
 <body>
-	<iframe src="http://localhost:3000?userId=<%=user_vo.getUser_id()%>" width="1000" height="500"></iframe>
+	<div class="container">
+	<div class="col-md-offset-2 col-md-10">
+		<iframe src="http://192.168.123.129:3000?userId=<%=user_vo.getUser_id()%>" width="80%" height="70%"></iframe>
+		<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
+	</div>
+	</div>
 </body>
 </html>
