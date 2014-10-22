@@ -8,12 +8,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <title>관리자 설정</title>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
@@ -25,28 +25,28 @@
 				List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
 			%>
 			<div class="form-group">
-				<label for="exampleInputEmail1">관리자 ID</label>
-				<input type="text" class="form-control" id="userId" value="<%=vo.getUser_id()%>" readonly />
+				<label class="label-style">관리자 ID</label> 
+				<input type="text" class="form-control input-text-style" id="userId" value="<%=vo.getUser_id()%>" readonly />
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">Password(필수입력)</label> 
-				<input type="text" class="form-control" id="userPassword" placeholder="Password">
+				<label class="label-style">Password(필수입력)</label> 
+				<input type="text" class="form-control input-text-style" id="userPassword" placeholder="Password">
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">관리자 이름</label> 
-				<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>" placeholder="관리자 이름">
+				<label class="label-style">관리자 이름</label> 
+				<input type="text" class="form-control input-text-style" id="userName" value="<%=vo.getUser_name()%>" placeholder="관리자 이름">
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">전화번호</label> 
-				<input type="text" class="form-control" id="userPhone" value="<%=vo.getPhone()%>" placeholder="전화번호">
+				<label class="label-style">전화번호</label> 
+				<input type="text" class="form-control input-text-style" id="userPhone" value="<%=vo.getPhone()%>" placeholder="전화번호">
 			</div>
 
 			<div class="form-group">
-				<label for="disabledSelect">관리하는 동 수</label> 
-				<select id="selectDong" class="form-control">
+				<label class="label-style">관리하는 동 수</label> 
+				<select id="selectDong" class="form-control input-text-style">
 					<option>1</option>
 					<option>2</option>
 					<option>3</option>
@@ -59,26 +59,26 @@
 					<option>10</option>
 				</select>
 			</div>
-
+			
 			<div id="manageDong">
 				<%
-					int i=0;
-				    	if(manageDongList != null){
-				    	for(Manager_DongVO vo2 : manageDongList){
+					int i = 0;
+					if (manageDongList != null) {
+						for (Manager_DongVO vo2 : manageDongList) {
 				%>
-				<input type="text" class="form-control manageSelectDong<%=i%>" value="<%=vo2.getDong()%>" size='10' name="test"><br>
+				<input type="text" class="form-control input-text-style manageSelectDong<%=i%>" value="<%=vo2.getDong()%>" size='10' name="test"><br>
 				<%
 					i++;
-				    }}
+						}
+					}
 				%>
 			</div>
 
 			<div class="col-md-offset-10 col-md-2">
-				<button type="submit" class="btn btn-primary" id="modifyManager">Submit</button>
+				<button type="submit" class="btn button-style" id="modifyManager">Submit</button>
 			</div> <br><br>
 		</div>
 	</div>
-	<hr>
 </body>
 
 <script type="text/javascript">

@@ -136,11 +136,15 @@
 						<%
 							}
 							}
+							if(countComplainBoard == 0){%>
+								<tbody id="tbody"><tr><td colspan="5"><center>게시글이 없습니다.</center></td></tr></tbody>
+							<%}
 						%>
 						</tbody>
 					</table>
 				</div>
-
+				
+				<%if(countComplainBoard != 0){ %>
 				<div align="center">
 					<ul class="pagination">
 						<li><a href="noticeBoard.do">&laquo;</a></li>
@@ -158,6 +162,7 @@
 						<li><a href="complainBoard.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
+				<%} %>
 
 				<form action="search.do">
 					<div class="form-group col-sm-2">

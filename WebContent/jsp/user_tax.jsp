@@ -9,10 +9,12 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 </head>
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
@@ -22,7 +24,7 @@
 	%>
 <body>
 	<input type="hidden" id="userId" value="<%=user.getUser_id()%>">
-	<div class="container">
+	<div class="container font-style">
 	<div class="col-md-12">
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
@@ -58,27 +60,27 @@
 	
 	<% if(user.getRole().equals("NORMAL")){ %>
 	
-	<table class="table" id="table">
-		<tr>
-			<th>년도</th>
-			<th>월</th>
-			<th>일반 관리비</th>
-			<th>전기 사용료</th>
-			<th>수도 사용료</th>
-			<th>난방 사용료</th>
-			<th>인터넷 사용료</th>
+	<table class="table table-bordered table-style" id="table">
+		<tr class="head">
+			<th><center>년도</center></th>
+			<th><center>월</center></th>
+			<th><center>일반 관리비</center></th>
+			<th><center>전기 사용료</center></th>
+			<th><center>수도 사용료</center></th>
+			<th><center>난방 사용료</center></th>
+			<th><center>인터넷 사용료</center></th>
 		</tr>
 		<br><br>
 		<%for (TaxVO vo : OneTax){
 			%>
-			<tr>
- 				<td><%=vo.getYear()%></td> 
- 				<td><%=vo.getMonth()%></td>
- 				<td><%=vo.getBasic_tax()%></td>
- 				<td><%=vo.getElectric_tax()%></td>
- 				<td><%=vo.getWater_tax()%></td> 
-				<td><%=vo.getHeating_tax()%></td>
- 				<td><%=vo.getInternet_tax()%></td>
+			<tr id="body">
+ 				<td><center><%=vo.getYear()%></center></td> 
+ 				<td><center><%=vo.getMonth()%></center></td>
+ 				<td><center><%=vo.getBasic_tax()%></center></td>
+ 				<td><center><%=vo.getElectric_tax()%></center></td>
+ 				<td><center><%=vo.getWater_tax()%></center></td> 
+				<td><center><%=vo.getHeating_tax()%></center></td>
+ 				<td><center><%=vo.getInternet_tax()%></center></td>
 			</tr>
 		<%}%>
 	</table>
