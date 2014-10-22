@@ -19,7 +19,7 @@
 <body>
 	<div class="container">
 	<div class="col-md-offset-2 col-md-10">
-		<iframe src="http://117.17.143.65:3000?userId=<%=user_vo.getUser_id()%>" width="80%" height="70%"></iframe>
+		<iframe src="http://localhost:3000?userId=<%=user_vo.getUser_id()%>" width="80%" height="70%"></iframe>
 		<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
 	</div>
 	</div>

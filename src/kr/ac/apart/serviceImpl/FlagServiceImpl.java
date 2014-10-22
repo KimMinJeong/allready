@@ -24,7 +24,7 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setBoard_no(board_no);
 		
 		flagDAO.addGoodId(flagvo);
-
+		
 		return flagvo;
 	}
 
@@ -35,12 +35,11 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setGood_id(good_id);
 		
 		flagvo = flagDAO.getflag(flagvo);
-		
 		if(flagvo==null){
 
 			addFlagId(good_id, board_no);
 			boardService.addGood(board_no);
-		}		
+		}
 		
 		return flagvo;
 	}
@@ -52,7 +51,6 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setBoard_no(board_no);
 		
 		flagDAO.addBadId(flagvo);
-		System.out.println("add!!");
 		return flagvo;
 	}
 
@@ -63,12 +61,12 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setBad_id(bad_id);
 		
 		flagvo = flagDAO.getflagBad(flagvo);
-			
-		if(flagvo==null){
 
+		if(flagvo==null){
 			addFlagIdBad(bad_id, board_no);
 			boardService.addBad(board_no);
-		}
+		}		
+		
 		return flagvo;
 	}
 
@@ -79,7 +77,6 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setBoard_no(board_no);
 		
 		flagDAO.addCountId(flagvo);
-		System.out.println("add!!");
 		return flagvo;
 	}
 
@@ -90,12 +87,12 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setCount_id(count_id);
 		
 		flagvo = flagDAO.getflagCountId(flagvo);
-	
+		
 		if(flagvo==null){
 
 			addFlagIdCount(count_id, board_no);
 			boardService.updateClicks(board_no);
-		}		
+		}
 		
 		return flagvo;
 	}
