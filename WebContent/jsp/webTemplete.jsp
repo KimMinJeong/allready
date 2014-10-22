@@ -25,7 +25,7 @@
 <%
 	UserVO vo = (UserVO)session.getAttribute("UserFlag");
 %>
-	<div class="container">
+	<div class="container font-style">
 		<div class="masthead">
 			<h3 class="text-muted">
 				<font size="4">

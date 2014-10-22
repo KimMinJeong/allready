@@ -8,13 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/Style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <title>Insert title here</title>
 </head>
 
@@ -22,13 +22,13 @@
 	<%
 		List<ExpressVO> expressList = (List<ExpressVO>) request.getAttribute("list");
 	%>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-12"> <br>
 				<div align="right">
-					<button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">등록</button>
+					<button class="btn button-style navbar-btn" data-toggle="modal" data-target="#myModal">등록</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -40,7 +40,7 @@
 											<h4 class="modal-title" id="myModalLabel" align="left">택배등록</h4>
 										</div>
 										
-										<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+										<button type="button" class="btn button-style" data-dismiss="modal">Close</button>
 									</div>
 									<%
 										List<Manager_DongVO> managerDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
@@ -54,20 +54,34 @@
 											<%
 												}
 											%>
-										</div> <br><br>
+										</div> <br>
 
 										<div class="row" align="center">
 											<div class="col-xs-7">
+												<!-- <div class="form-inline">
+													호수 : <input type="text" class="form-control input-text-style" name="userNo">
+												</div> <br> -->
 												<div class="form-inline">
-													호수 : <input type="text" class="form-control" placeholder="호수를 입력하세요" name="userNo">
-												</div> <br>
+					<div class="input-group">
+						<span class="input-group-addon input-style">호수</span> 
+						<input type="text" class="form-control input-text-style" name="userNo">
+					</div> 
+</div><br>
+												
+												<!-- <div class="form-inline">
+													이름 : <input type="text" class="form-control input-text-style" placeholder="이름을 입력하세요" name="orderer"> <br>
+												</div> <br> -->
 												
 												<div class="form-inline">
-													이름 : <input type="text" class="form-control" placeholder="이름을 입력하세요" name="orderer"> <br>
-												</div> <br>
+					<div class="input-group">
+						<span class="input-group-addon input-style">이름</span> 
+						<input type="text" class="form-control input-text-style" name="orderer">
+					</div> 
+</div><br>
+
 												
 												<div align="right">
-													<select name="express_company">
+													<select name="express_company" class="input-text-style">
 														<option value="cj">CJ</option>
 														<option value="hangin">한진</option>
 														<option value="lojen">로젠</option>
@@ -78,7 +92,7 @@
 													</select>
 												</div> <br>
 
-												<button type="submit" class="btn btn-default">Save changes</button>
+												<button type="submit" class="btn button-style navbar-btn">Save changes</button>
 											</div>
 										</div>
 									</div>
@@ -91,12 +105,13 @@
 				<div class="panel panel-default">
 
 					<!-- Default panel contents -->
-					<div class="panel-heading">
+					<div class="panel-heading" id="panel-style">
 						<center>택배 리스트</center>
 					</div>
 
 					<!-- Table -->
 					<table class="table">
+						<thead class="head">
 						<tr>
 							<th><center>날짜</center></th>
 							<th><center>동호수</center></th>
@@ -104,11 +119,13 @@
 							<th><center>택배회사</center></th>
 							<th><center>수령확인</center></th>
 						</tr>
+						</thead>
 						<%
 							int currentPage = (Integer) request.getAttribute("currentPage");
 							if (expressList != null){
 								for (ExpressVO vo : expressList){
 						%>
+						<tbody id="body">
 						<tr>
 							<td><center><%=vo.getReg_date()%></center></td>
 							<td><center><%=vo.getUser_id()%></center></td>
@@ -158,6 +175,7 @@
 						<%
 							}																																							}
 						%>
+						</tbody>
 					</table>
 				</div>
 
