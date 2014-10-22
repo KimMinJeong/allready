@@ -6,11 +6,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>세대주_방문객</title>
-<script src="static/js/bootstrap.js"></script>
+<title>Insert title here</title>
 <script src="static/js/jquery-1.11.1.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="static/js/bootstrap.js"></script>
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 
@@ -32,6 +31,7 @@
 			<div class="input-group">
 				<span class="input-group-addon">용무</span> 
 				<input type="text" class="form-control" placeholder="용무" name="business">
+		
 			</div>
 		</div> <br><br><br><br>
 
@@ -83,10 +83,11 @@
 				</table>
 			</div>
 	</div>
+	
+
 	<hr>
 </body>
-
-<script type="text/javascript">
+	<script type="text/javascript">
 	$(document).on('click', '.deleteVisitor', function(){
 		alert("delete!");
 		var clickedRow = $(this).closest('tr');
@@ -108,5 +109,7 @@
 		}); 		
 	})
 </script>
+
+
 
 </html>
