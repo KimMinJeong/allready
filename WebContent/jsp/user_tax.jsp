@@ -58,7 +58,7 @@
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<%=dangi_tax%>
-		</div><br><br><br>
+		</div><br><br>
 	
 	<% if(user.getRole().equals("NORMAL")){ %>
 	
@@ -73,8 +73,7 @@
 			<th>인터넷 사용료</th>
 		</tr>
 		<br><br>
-		<%for (TaxVO vo : OneTax){
-			%>
+		<%for (TaxVO vo : OneTax){%>
 			<tr>
  				<td><%=vo.getYear()%></td> 
  				<td><%=vo.getMonth()%></td>
@@ -89,6 +88,30 @@
 </div>
 <div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
 <% }%>
+<%if("MANAGER".equals(user.getRole())){ 
+List<TaxVO> taxList=(List<TaxVO>) request.getAttribute("taxList");%>
+<table class="table" id="table">
+	<tr>
+		<th>동</th>
+		<th>호수</th>
+		<th>년</th>
+		<th>월</th>
+	</tr>
+	<br>
+	<h3>등록 완료 된 세대</h3>
+	<%for(TaxVO tax : taxList){ 
+	if(tax.getUser_id().length()>3){%>
+	<tr>
+		<td><%=tax.getUser_id().substring(0, 3)%> 동</td>
+		<td><%=tax.getUser_id().substring(3)%> 호</td>
+		<td><%=tax.getYear() %></td>
+		<td><%=tax.getMonth() %></td>
+	</tr>
+	<%}
+	}%>
+</table>
+<%} %>
+
 <hr>
 </body>
 

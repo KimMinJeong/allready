@@ -1,3 +1,4 @@
+<%@page import="kr.ac.apart.vo.Manager_DongVO"%>
 <%@page import="kr.ac.apart.vo.TaxVO"%>
 <%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
@@ -19,9 +20,19 @@
 
 </head>
 	<body>
+	<%
+		List<Manager_DongVO> managerDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
+	%>
 	<div class="container">
 	<form action="TaxWriteForm.do" method="post">
-		<p>세대주</p>
+	<%
+		for(Manager_DongVO dongList : managerDongList){
+	%>
+		<input type="checkbox" class="btn btn-default navbar-btn" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%></button> &nbsp;
+	<%
+		}
+	%>	
+		<p>호수</p>
 		<input type="text" class="form-control" name="user_id" id="user_id">
 		<p>년도</p>
 		<select name="year" id="year">
