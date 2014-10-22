@@ -6,22 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script src="static/js/jquery-1.11.1.js"></script>
+<script src="static/js/bootstrap.js"></script>
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 
-<script src="static/js/bootstrap.js"></script>
-<script src="static/js/jquery-1.11.1.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="static/css/Style.css" rel="stylesheet" type="text/css">
-<script src="static/js/jquery-1.11.1.js"></script>
 <title>공지사항</title>
 </head>
 <%
 	UserVO userVO = (UserVO) session.getAttribute("UserFlag");
 %>
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
@@ -34,26 +33,21 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9"> <br>
+			<div class="col-sm-10"> <br>
 				<div align="right">
 				<%
 					if ("MANAGER".equals(userVO.getRole())) {    //로그인한 user의 role이 MANAGER이면 글작성 버튼 생성
 				%>
-					<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
+					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
 				<%
 					}
 				%>
-			</div>
+				</div>
 
-				<div class="panel panel-default">
-
-					<!-- Default panel contents -->
-					<div class="panel-heading">
-						<center>공지사항 게시판</center>
-					</div>
-
+			<div class="panel panel-default">
 					<!-- Table -->
-					<table class="table">
+					<table class="table table-bordered table-style">
+					<thead class="head">
 						<tr>
 							<th><center>번호</center></th>
 							<th><center>제목</center></th>
@@ -61,6 +55,8 @@
 							<th><center>날짜</center></th>
 							<th><center>조회수</center></th>
 						</tr>
+						</thead>
+						
 						<%
 							int currentPage = (Integer) request.getAttribute("page");
 							int countNoticeBoard = (Integer) request.getAttribute("rowNum");
@@ -74,6 +70,8 @@
 									if ("CLOSED".equals(vo.getClosed())) {
 										if (userVO.getUser_id().equals(vo.getWriter_id())) {				
 						%>
+					<!-- <tbody class="body"> -->
+						<tbody id="tbody">
 						<tr> <!-- 게시글이 비공개이고 글쓴이가 로그인한 유저와 같으면 -->
 							<td><center><%=rowNum%></center></td>
 							<td><center><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>&count_id=<%=userVO.getUser_id()%>"><%=vo.getTitle()%></a></center></td>
@@ -137,12 +135,16 @@
 								}
 							}
 						%>
+						<!-- </tbody> -->
+						</tbody>
 					</table>
-				</div>
+					</div>
+				
 
 				
 				<div align="center">
-					<ul class="pagination">
+					
+					<ul class="pagination paging-font-color">
 						<li><a href="noticeBoard.do">&laquo;</a></li>
 						<%
 						int j=1;  //페이지수
@@ -159,7 +161,7 @@
 
 				<form action="search.do">
 					<div class="form-group col-sm-2">
-						<select class="form-control" name="condition">
+						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
 							<option value="writer_id">글쓴이</option>
@@ -167,12 +169,13 @@
 					</div>
 					
 					<div class="col-sm-8">
-						<input type="text" class="form-control" name="str">
+						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="notice">
 					</div>
 					
-					<button type="submit" class="btn btn-default">검색</button>
+					<button type="submit" class="btn button-style">검색</button>
 				</form>
+			</div>
 			</div>
 		</div>
 	</div>
