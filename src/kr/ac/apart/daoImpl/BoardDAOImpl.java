@@ -75,7 +75,7 @@ public class BoardDAOImpl implements BoardDAO {
     }
     
     @Override
-    public int getRowNum(String category){
+    public int getRowNum(String category) throws NullPointerException{
     	return (Integer) sqlMapClientTemplate.queryForObject("getRowNum", category);
     }
 

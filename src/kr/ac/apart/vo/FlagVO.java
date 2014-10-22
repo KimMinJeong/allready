@@ -29,5 +29,10 @@ public class FlagVO {
 	public void setCount_id(String count_id) {
 		this.count_id = count_id;
 	}
-
+	@Override
+	public String toString() {
+		return "FlagVO [good_id=" + good_id + ", bad_id=" + bad_id
+				+ ", count_id=" + count_id + ", board_no=" + board_no + "]";
+	}
+	
 }

@@ -16,5 +16,5 @@ public interface BoardDAO {
     public void addBad(int board_no);
     public void updateClicks(int board_no);
     public List<BoardVO> getNoticeList();
-    public int getRowNum(String category);
+    public int getRowNum(String category) throws NullPointerException;
 }

@@ -19,7 +19,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="#">입구</a></li>
 					<li><a href="#">놀이터</a></li>
@@ -28,11 +28,13 @@
 				</ul>
 			</div>
 		
-			<div class="col-xs-12 col-sm-8"> 
-			<br>
-				<iframe class="cctv_frame" src="http://192.168.123.129:8000/" scrolling="no"></iframe>
+			<div class="col-xs-6 col-md-4"> 
+				<iframe class="cctv_frame" src="http://localhost:8000/cctv01" scrolling="no"></iframe>
+			</div>
+
+			<div class="col-xs-6 col-md-4 col-md-offset-1"> 
 				<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
-				<iframe class="cctv_frame"></iframe>
+				<iframe class="cctv_frame" src="http://localhost:8001/cctv02" scrolling="no"></iframe>
 			</div>
 		</div>
 	</div>
