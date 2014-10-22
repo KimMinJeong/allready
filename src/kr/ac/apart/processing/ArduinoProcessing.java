@@ -15,7 +15,6 @@ public class ArduinoProcessing extends PApplet{
 	}
 	public void setup()
 	{
-	  System.out.println("setup start!");
 	  String portName=Serial.list()[0];
 	  myPort = new Serial(this, portName, 8088);
 	}
@@ -25,17 +24,21 @@ public class ArduinoProcessing extends PApplet{
 	  if(myPort.available() > 0)
 	  {
 	    String value = " ";
-	    
-	    while(value.length()!=4)
+	    while((value==null)||(value.length()!=4)){
 	    	value=myPort.readString();
-	    
-	    System.out.println(value);
+	    }
 	    char is1='N';
 	    char is2='N';
 	    try{
 	    is1=value.split("1")[1].charAt(0);
 	    is2=value.split("2")[1].charAt(0);
-	    }catch(ArrayIndexOutOfBoundsException e){
+	    }catch(ArrayIndexOutOfBoundsException e1){
+	    	System.out.println(e1);
+	    	isfull1="ERROR";
+	    	isfull2="ERROR";
+	    	return;
+	    }catch(NullPointerException e2){
+	    	System.out.println(e2);
 	    	isfull1="ERROR";
 	    	isfull2="ERROR";
 	    	return;

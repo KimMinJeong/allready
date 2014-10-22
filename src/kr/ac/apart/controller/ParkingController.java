@@ -22,6 +22,7 @@ public class ParkingController {
 	@Autowired
 	private ParkingImpl frame;
 	
+	
 	@RequestMapping(value="/user_parking.do")
 	public String user_parking(HttpSession session){
 		UserVO vo = (UserVO) session.getAttribute("UserFlag");

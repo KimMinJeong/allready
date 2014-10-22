@@ -229,6 +229,26 @@
 							<li><a href="expressList.do">택배관리</a></li>
 							<li class="active"><a href="manage_detail.do">설정</a></li>
 							</c:if>
+							<c:if test="${param.nextPage=='tax_write_form.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li class="active"><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
+							<c:if test="${param.nextPage=='tax_view.jsp'}">
+							<li><a href="main.do">Home</a></li>
+							<li><a href="cctv_client.do">CCTV</a></li>
+							<li><a href="user_parking.do">주차장</a></li>
+							<li class="active"><a href="user_tax.do">관리세</a></li>
+							<li><a href="noticeBoard.do">게시판</a></li>
+							<li><a href="user_visitor.do">방문객</a></li>
+							<li><a href="chat_server.do">소통의 장</a></li>
+							<li><a href="user_detail.do">설정</a></li>
+							</c:if>
 							<%
 								}
 							}

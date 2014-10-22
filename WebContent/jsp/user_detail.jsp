@@ -17,10 +17,9 @@
 </head>
 
 <body>
-	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert">
-		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	  	<strong>이메일 형식을 확인해 주세요!!</strong>
-	</div>
+<!-- 	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert"> -->
+<!-- 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+<!-- 	</div> -->
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>

@@ -56,7 +56,7 @@ public class VisitorController {
     	if(request.getParameter("page") != null){   //넘어온 파라미터가 있다면
   		   page = Integer.parseInt(request.getParameter("page"));   //해당파라미터를 int로 캐스팅한 후 변수에 대입
   	   }
-    	System.out.println("aa123 : " + request.getParameter("checkUser"));
+ 
     	mav.addObject("getUserId", request.getParameter("checkUser"));
         mav.addObject("visitRecord", visitorService.getVisitorListManager(page)); //방문기록리스트가져오기
         mav.addObject("visitorList", visitorService.getVisitorListAll()); //등록방문객리스트가져오기
@@ -88,9 +88,8 @@ public class VisitorController {
     	ModelAndView mav = new ModelAndView("redirect:/manage_visitor.do");
     	
     	UserVO vo = userService.getOne(user_id);
-    	System.out.println("vo : " + vo);
+
     	if(vo == null){
-    		System.out.println("null 입니다.");
     		mav.addObject("checkUser", true);
     	}
     	else if(vo != null){
