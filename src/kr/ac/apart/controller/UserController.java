@@ -143,7 +143,7 @@ public class UserController {
     	
     	JSONObject obj = new JSONObject();
     	obj.put("userCheck", userCheck);
-    	
+    	obj.put("getUser", userService.getOne(userId));
     	return obj.toString();
     }
 }

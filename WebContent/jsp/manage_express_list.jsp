@@ -183,11 +183,11 @@
 						</div>
 					</div>
 				</div>
-				<%
-					int expressRowNum = (Integer) request.getAttribute("expressRowNum");
-				%>
-				<div align="center">
-					<ul class="pagination">
+				 <%
+					 int expressRowNum = (Integer) request.getAttribute("expressRowNum");
+				 %>
+ 			 <div align="center">
+					 <ul class="pagination">
 						<li><a href="expressList.do">&laquo;</a></li>
 						<%
 							int j=1;  //페이지수
@@ -202,7 +202,7 @@
 						%>
 						<li><a href="expressList.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
-				</div>
+			 	</div>
 			</div>
 			<!-- /.col-xs-12 main -->
 		</div>

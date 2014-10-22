@@ -68,7 +68,7 @@ public class ExpressServiceImpl implements ExpressService {
 	@Override
 	public int getExpressRowNum(){
 		int count = expressDAO.getExpressRowNum();
-		
+
 		return count;
 	}
 }
