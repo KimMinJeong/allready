@@ -20,37 +20,31 @@
 
 <body>
 	<div class="container font-style">
-	
+
 		<!-- main area -->
 		<div class="navbar-form navbar-center">
-		<form action="addVisitorManager.do" class="navbar-form navbar-left" method="post">
-			<div class="form-group">
-				<input type="text" class="form-control input-text-style" placeholder="동/호수" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
-				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="19" id="visitor_name" name="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
-				<input type="text" class="form-control input-text-style" placeholder="용무" size="48" id="business" name="business">&nbsp;
-				
-				<button type="submit" class="btn button-style" id="addVisitorManagerButton">입력</button>
-			</div>
+			<form action="addVisitorManager.do" class="navbar-form navbar-left" method="post">
+				<div class="form-group">
+					<input type="text" class="form-control input-text-style" placeholder="동/호수" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="text"class="form-control input-text-style" placeholder="방문자 신분" size="19" id="visitor_name" name="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="text" class="form-control input-text-style" placeholder="용무" size="48" id="business" name="business">&nbsp;
+
+					<button type="submit" class="btn button-style" id="addVisitorManagerButton">입력</button>
+				</div>
 			</form>
 		</div> <br><br><br>
-		<%
-			/* boolean getUserId = (boolean)request.getAttribute("getUserId");
-			if(getUserId){
-				System.out.println("세대주가엄서효");
-			}  */
-		%>
 		
 		<form class="navbar-form navbar-right">
 			<div class="form-group">
 				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
 			</div>
-			
+
 			<button type="button" class="btn button-style" id="searching">검색</button>
 		</form> <br><br>
 
 		<div class="col-sm-12 col-xs-12">
 			<div class="panel panel-default">
-			
+
 				<!-- Default panel contents -->
 				<div class="panel-heading" id="panel-style">
 					<center>세대주 방문객 리스트</center>
@@ -67,10 +61,13 @@
 							<th><center>입력</center></th>
 						</tr>
 					</thead>
-						
+
 					<tbody id="searchVisitor" class="body">
+						<tr>
+							<td colspan="5"><center>세대주를 검색해주세요</center></td>
+						</tr>
 					</tbody>
-				</table>	
+				</table>
 			</div> <br>
 
 			<!-- 방문 기록 리스트 테이블 -->
@@ -82,72 +79,81 @@
 
 				<!-- Table -->
 				<table class="table table-bordered table-style" id="visitRecordTable">
-					<thead class = "head">
-					<tr>
-						<th><center>동/호수</center></th>
-						<th><center>방문자신분</center></th>
-						<th><center>용무</center></th>
-						<th><center>날짜</center></th>
-						<th><center>수정/삭제</center></th>
-					</tr>
+					<thead class="head">
+						<tr>
+							<th><center>동/호수</center></th>
+							<th><center>방문자신분</center></th>
+							<th><center>용무</center></th>
+							<th><center>날짜</center></th>
+							<th><center>수정/삭제</center></th>
+						</tr>
 					</thead>
+
 					<tbody id="body">
-					<tr id="add">
+						<tr id="add">
+							<%
+								List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>) request.getAttribute("visitRecord");
+								List<VisitorVO> visitorListAll = (List<VisitorVO>) request.getAttribute("visitorList");
+
+								if (visitorListAll != null) {
+									for (Visit_RecordVO vr : visitRecord) {
+										for (VisitorVO v : visitorListAll) {
+											if (v.getVisitor_no() == vr.getVisitor_no()) {
+							%>
+						<tr id="<%=v.getVisitor_no()%>" class="<%=vr.getVisit_record_no()%>">
+							<td class="textId"><center><%=v.getUser_id()%></center></td>
+							<td class="textName"><center><%=v.getVisitor_name()%></center></td>
+							<td class="textBusiness"><center><%=v.getBusiness()%></center></td>
+							<td class="textRegDate"><center><%=vr.getReg_date()%></center></td>
+							<td class="textButton"><center><button type="button" class="btn button-style modifyVisitRecord" value="<%=vr.getVisit_record_no()%>">수정</button>
+														<button type="button" class="btn button-delete-style deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button></center></td>
+						</tr>
 						<%
-							List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
-						    List<VisitorVO> visitorListAll = (List<VisitorVO>)request.getAttribute("visitorList");
-						               
-						    if(visitorListAll != null){
-						    	for(Visit_RecordVO vr : visitRecord){
-						        	for(VisitorVO v : visitorListAll ){
-						            	if(v.getVisitor_no() == vr.getVisitor_no()){
+											}
+										}
+									}
+								}
+							if (visitRecord.size() == 0) {
 						%>
-					<tr id="<%=v.getVisitor_no()%>" class="<%=vr.getVisit_record_no()%>">
-						<td class="textId"><center><%=v.getUser_id()%></center></td>
-						<td class="textName"><center><%=v.getVisitor_name()%></center></td>
-						<td class="textBusiness"><center><%=v.getBusiness()%></center></td>
-						<td class="textRegDate"><center><%=vr.getReg_date()%></center></td>
-						<td class="textButton"><center>
-								<button type="button" class="btn button-style modifyVisitRecord" value="<%=vr.getVisit_record_no()%>">수정</button>
-								<button type="button" class="btn button-delete-style deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button>
-							</center>
-						</td>
-					</tr>
-					<%
-						}}}}
-					%>
+								<td colspan="5"><center>방문기록이 없습니다</center></td>
+						<%
+							}
+						%>
 					</tbody>
 				</table>
 			</div>
 			<%
 				int currentPage = (Integer) request.getAttribute("page");
 				int countVisitRecord = (Integer) request.getAttribute("countVisitRecord");
+
+				if (countVisitRecord != 0) {
 			%>
 			<div align="center">
 				<ul class="pagination">
 					<li><a href="manage_visitor.do">&laquo;</a></li>
 					<%
-						int j=1;  //페이지수
-						int a=0;  //마지막페이지
-						for(int i=0; i<countVisitRecord; i+=5){%>
+						int j = 1; //페이지수
+						int a = 0; //마지막페이지
+						for (int i = 0; i < countVisitRecord; i += 5) {
+					%>
 							<li><a href="manage_visitor.do?page=<%=i%>"><%=j%></a></li>
-						<%
+					<%
 							j++;
-							a=i;
-						}%>
+							a = i;
+						}
+					%>
 					<li><a href="manage_visitor.do?page=<%=a%>">&raquo;</a></li>
-				
-					<!--<li><a href="manage_visitor.do?page=${page+5}">3</a></li>-->		
+
+					<!--<li><a href="manage_visitor.do?page=${page+5}">3</a></li>-->
 				</ul>
 			</div>
+			<%} %>
 		</div>
 	</div>
-	<hr>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
 	$("#searching").on('click', function() {
-		alert("search");
 		$("#visitorTable tr:not(:first)").remove(); //테이블의 첫행(여기서는 head)빼고 모두 삭제
 		$.ajax({
 			url : "getVisitor.do",
@@ -158,7 +164,6 @@
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
-				alert("success");
 				var content = "";
 				var i = 0;
 				rowCount = 0;
@@ -207,7 +212,6 @@
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
-				alert("success!");
 				clickedRow.remove();
 			},
 			error : function(e) {

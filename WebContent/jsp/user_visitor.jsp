@@ -77,7 +77,7 @@
 							}
 						%>
 						<td><center>
-								<button type="button" class="btn button-style deleteVisitor" value="<%=vo.getVisitor_no()%>">삭제</button>
+								<button type="button" class="btn button-delete-style deleteVisitor" value="<%=vo.getVisitor_no()%>">삭제</button>
 							</center></td>
 					</tr>
 					<%
