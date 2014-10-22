@@ -23,6 +23,7 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -145,38 +146,32 @@ public class TaxController {
     }
     
     @RequestMapping(value="/AddTaxForm.do")
-    public String AddTaxForm(){	
-    	return "webTemplete.jsp?nextPage=tax_write_form";
+    public ModelAndView AddTaxForm(){
+    	ModelAndView mav = new ModelAndView();
+    	List<TaxVO> taxList = taxService.getTaxList();
+    	
+    	mav.addObject("taxList", taxList);
+    	mav.setViewName("webTemplete.jsp?nextPage=tax_write_form");
+    	
+    	return mav;
     }
     
     @RequestMapping(value="/TaxWriteForm.do")
     public ModelAndView TaxWrite(String user_id, int year, int month, int basic_tax,
 		int electric_tax, int water_tax, int heating_tax, int internet_tax){
     	ModelAndView mav = new ModelAndView();
-    	TaxVO tax_vo = taxService.addTax(user_id, year, month, basic_tax, electric_tax, water_tax, heating_tax, internet_tax);
-    	List<TaxVO> taxList = taxService.getTaxList();
     	
-    	mav.addObject("tax_vo", tax_vo);
-    	mav.addObject("taxList", taxList);
-    	
-    	mav.setViewName("webTemplete.jsp?nextPage=tax_view");
-
+    	try{
+	    	TaxVO tax_vo = taxService.addTax(user_id, year, month, basic_tax, electric_tax, water_tax, heating_tax, internet_tax);
+	    	List<TaxVO> taxList = taxService.getTaxList();
+	    	
+	    	mav.addObject("tax_vo", tax_vo);
+	    	mav.addObject("taxList", taxList);
+	    	mav.setViewName("webTemplete.jsp?nextPage=tax_view");
+    	}
+    	catch(Exception e){
+    		mav.setViewName("DuplicatePage");
+    	}
     	return mav;
-    }
-    
-    @RequestMapping(value = "/getTaxOneList.do")
-    public @ResponseBody String getVisitor(String user_id) throws Throwable{
-        List<TaxVO> taxOneList = null;
- 
-        try {
-        	taxOneList = taxService.getOneTax(user_id);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        JSONObject obj = new JSONObject();
-        obj.put("taxOneList", taxOneList);
-        
-        return obj.toString();
     }
 }

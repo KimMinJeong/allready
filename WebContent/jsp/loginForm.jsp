@@ -82,6 +82,7 @@ function UserIdCheck(){
 			$('#id_alert').show();
 		}
 	}
+	$('#id_alert').hide();
 	return false;
 };
 

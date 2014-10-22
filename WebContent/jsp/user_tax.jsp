@@ -31,9 +31,11 @@
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
+		<% if(user.getRole().equals("MANAGER")){ %>
 		<a class="btn btn-default btn-sm" href="AddTaxForm.do">
 			관리비 설정
 		</a>
+		<%} %>
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog">
 					<div class="modal-content">
