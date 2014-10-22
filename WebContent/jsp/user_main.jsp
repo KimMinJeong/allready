@@ -130,9 +130,19 @@
             } %>
          </div>
       </div>
+      <br>
       <!-- /.col-xs-12 main -->
-      
-   </div>
+		<div class="col-xs-12 col-md-12 col-sm-12">
+			<div id="footer">
+				<div class="panel panel-default">
+			         <div class="panel-body">
+			         	콘텐츠에 대한 저작권은 주식회사 Allready, 이하 내용 및 이미지의 무단복제를 금합니다.
+				           <br>ⓒAllready Inc. All rights reseved
+		            </div>
+		       	</div>	
+			</div>
+		</div>
+	</div>
    <!--/.row-->
    <hr>
 </body>

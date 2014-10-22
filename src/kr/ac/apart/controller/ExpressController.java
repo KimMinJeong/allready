@@ -96,8 +96,6 @@ public class ExpressController {
 		vo.setReceiver(receiver);
 		expressService.updateExpress(vo);
 		
-		System.out.println("page : " + page);
-		
 		return "redirect:/expressList.do?page=" + page;
 	}
 }
