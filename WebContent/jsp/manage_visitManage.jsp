@@ -15,23 +15,23 @@
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<script src="static/js/jquery-1.11.1.js"></script>
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <title>관리자_방문일지</title>
 </head>
 
 <body>
-	<div class="container">
+	<div class="container font-style">
 	
 		<!-- main area -->
 		<div class="navbar-form navbar-center">
 		<form action="addVisitorManager.do" class="navbar-form navbar-left" method="post">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="동/호수" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
-				<input type="text" class="form-control" placeholder="방문자 신분" size="19" id="visitor_name" name="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
-				<input type="text" class="form-control inline" placeholder="용무" size="48" id="business" name="business">&nbsp;
+				<input type="text" class="form-control input-text-style" placeholder="동/호수" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="19" id="visitor_name" name="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
+				<input type="text" class="form-control input-text-style" placeholder="용무" size="48" id="business" name="business">&nbsp;
 				
-				<button type="submit" class="btn btn-default inline" id="addVisitorManagerButton">입력</button>
+				<button type="submit" class="btn button-style" id="addVisitorManagerButton">입력</button>
 			</div>
 			</form>
 		</div> <br><br><br>
@@ -44,23 +44,23 @@
 		
 		<form class="navbar-form navbar-right">
 			<div class="form-group">
-				<input type="text" class="form-control" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
+				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
 			</div>
 			
-			<button type="button" class="btn btn-default" id="searching">검색</button>
+			<button type="button" class="btn button-style" id="searching">검색</button>
 		</form> <br><br>
 
 		<div class="col-sm-12 col-xs-12">
 			<div class="panel panel-default">
 			
 				<!-- Default panel contents -->
-				<div class="panel-heading">
+				<div class="panel-heading" id="panel-style">
 					<center>세대주 방문객 리스트</center>
 				</div>
 
 				<!-- Table -->
-				<table class="table" id="visitorTable">
-					<thead>
+				<table class="table table-bordered table-style" id="visitorTable">
+					<thead class="head">
 						<tr>
 							<th><center>동/호수</center></th>
 							<th><center>방문자신분</center></th>
@@ -70,7 +70,7 @@
 						</tr>
 					</thead>
 						
-					<tbody id="searchVisitor">
+					<tbody id="searchVisitor" class="body">
 					</tbody>
 				</table>	
 			</div> <br>
@@ -78,12 +78,13 @@
 			<!-- 방문 기록 리스트 테이블 -->
 			<div class="panel panel-default">
 				<!-- Default panel contents -->
-				<div class="panel-heading">
+				<div class="panel-heading" id="panel-style">
 					<center>방문 기록 리스트</center>
 				</div>
 
 				<!-- Table -->
-				<table class="table" id="visitRecordTable">
+				<table class="table table-bordered table-style" id="visitRecordTable">
+					<thead class = "head">
 					<tr>
 						<th><center>동/호수</center></th>
 						<th><center>방문자신분</center></th>
@@ -91,6 +92,8 @@
 						<th><center>날짜</center></th>
 						<th><center>수정/삭제</center></th>
 					</tr>
+					</thead>
+					<tbody id="body">
 					<tr id="add">
 						<%
 							List<Visit_RecordVO> visitRecord = (List<Visit_RecordVO>)request.getAttribute("visitRecord"); 
@@ -107,14 +110,15 @@
 						<td class="textBusiness"><center><%=v.getBusiness()%></center></td>
 						<td class="textRegDate"><center><%=vr.getReg_date()%></center></td>
 						<td class="textButton"><center>
-								<button type="button" class="btn btn-default modifyVisitRecord" value="<%=vr.getVisit_record_no()%>">수정</button>
-								<button type="button" class="btn btn-default deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button>
+								<button type="button" class="btn button-style modifyVisitRecord" value="<%=vr.getVisit_record_no()%>">수정</button>
+								<button type="button" class="btn button-delete-style deleteVisitRecord" value="<%=vr.getVisit_record_no()%>">삭제</button>
 							</center>
 						</td>
 					</tr>
 					<%
 						}}}}
 					%>
+					</tbody>
 				</table>
 			</div>
 			<%
@@ -145,6 +149,7 @@
 <script type="text/javascript">
 
 	$("#searching").on('click', function() {
+		alert("search");
 		$("#visitorTable tr:not(:first)").remove(); //테이블의 첫행(여기서는 head)빼고 모두 삭제
 		$.ajax({
 			url : "getVisitor.do",
@@ -155,6 +160,7 @@
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
+				alert("success");
 				var content = "";
 				var i = 0;
 				rowCount = 0;
@@ -182,7 +188,7 @@
 					} else if (visitor.fixed == "FIXED") {
 						content += "<td id='fixed" + i + "'><center>" + '고정' + "</center></td>";
 					}
-					content += "<td><center><button type='submit' class='btn btn-default' id='insertButton" + i + "' onClick='location.href=\"insertVisit.do?user_no="+visitor.visitor_no+"\"'>" + '입력' + "</button></center></td></tr>";
+					content += "<td><center><button type='submit' class='btn button-style' id='insertButton" + i + "' onClick='location.href=\"insertVisit.do?user_no="+visitor.visitor_no+"\"'>" + '입력' + "</button></center></td></tr>";
 				});
 				$("#searchVisitor").append(content);
 			},
@@ -235,7 +241,7 @@
 		$('<center><input type="text" id="textUserName" value='+textName+' style = "text-align:center;"></center>').appendTo(nameLocation);
 		$('<center><input type="text" id="textUserBusiness" value='+textBusiness+' style = "text-align:center;"></center>').appendTo(businessLocation);
 		$('<center><input type="text" id="textRegDate" value='+textRegDate+' style = "text-align:center;"></center>').appendTo(regDateLocation);
-		$('<center><button type="button" class="btn btn-default visitorModify">확인</button></center>').appendTo(buttonLocation);			
+		$('<center><button type="button" class="btn button-style visitorModify">확인</button></center>').appendTo(buttonLocation);			
 	});
 	
 	$(document).on('click', '.visitorModify', function(){       //수정버튼 누른 후 확인
@@ -269,7 +275,7 @@
 				$('<center><td>' + data.visitorName + '</td></center>').appendTo(textName);
 				$('<center><td>' + data.visitorBusiness + '</td></center>').appendTo(textBusiness);
 				$('<center><td>' + data.visitorRegDate + '</td></center>').appendTo(textRegDate);
-				$('<center><td><button type="button" class="btn btn-default modifyVisitRecord">수정</button> <button type="button" class="btn btn-default deleteVisitRecord">삭제</button></td></center>').appendTo(textButton);
+				$('<center><td><button type="button" class="btn button-style modifyVisitRecord">수정</button> <button type="button" class="btn button-style deleteVisitRecord">삭제</button></td></center>').appendTo(textButton);
 			},
 			error : function(e) {
 				alert("error!");

@@ -148,6 +148,7 @@ public class VisitorController {
 
     @RequestMapping(value = "/getVisitor.do") //고정방문객 검색
     public @ResponseBody String getVisitor(ModelMap model, String userId3) throws Throwable{
+    	System.out.println("search controller");
         List < VisitorVO > visitorList = null;
         try {
             visitorList = visitorService.getVisitorList(userId3);

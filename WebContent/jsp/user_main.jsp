@@ -15,6 +15,7 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script src="static/js/jquery-1.11.1.js"></script>
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <title>메인</title>
 </head>
 <%
@@ -27,19 +28,19 @@
 			<div class="col-xs-10 col-sm-7"> <br>
 				<div class="panel panel-default">
 					
-					<!-- Default panel contents -->
-					<div class="panel-heading">
-						<center>공지사항</center>
-					</div>
+			
 					
 					<!-- Table -->
-					<table class="table">
+					<table class="table table-bordered table-style">
+						<thead class="head">
 						<tr>
 							<th><center>번호</center></th>
 							<th><center>제목</center></th>
 							<th><center>작성자</center></th>
 							<th><center>날짜</center></th>
 						</tr>
+						</thead>
+						<tbody id="body">
 						<%
 							if(noticeList != null){
 								for(BoardVO vo : noticeList){%>
@@ -52,6 +53,7 @@
 								<%}
 							}
 						%>
+						</tbody>
 					</table>
 				</div>
 			</div>
