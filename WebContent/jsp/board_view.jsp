@@ -106,7 +106,7 @@
 						<div class="navbar-form navbar-center" role="search">
 							<div class="form-group">
 								<input type="hidden" class="form-control" placeholder="게시판넘버" size="5" id="comments_no"> &nbsp;&nbsp;&nbsp;&nbsp; 
-								<input type="text" class="form-control" placeholder="작성이" size="5" id="writer_id" value="<%=user_vo.getUser_id()%>"> 
+								<input type="text" disabled="disabled" class="form-control" placeholder="작성이" size="5" id="writer_id" value="<%=user_vo.getUser_id()%>"> 
 								<input type="text" class="form-control inline" placeholder="댓글을 입력해주세요." size="80" id="contents">
 								<button type="button" class="btn btn-default inline" id="addComments" value=<%=board_vo.getBoard_no() %>>입력</button> <br><br>
 								

@@ -202,7 +202,7 @@ import org.springframework.web.servlet.ModelAndView;
     @RequestMapping("/addGood.do") 
     public String addGood(int board_no,String good_id){
     	flagService.getFlag(board_no, good_id);
-       
+    	
        return "redirect:/boardDetail.do?board_no="+board_no+"&count_id="+good_id;
     }
     

@@ -21,6 +21,7 @@
 	List<TaxVO> taxList = (List<TaxVO>)request.getAttribute("taxList");
 %>
 <body>
+<div class="container">
 	<p>사용자</p>
 	<div><%=tax_vo.getUser_id() %></div>
 	<p>년도</p>
@@ -70,6 +71,7 @@
 		%>
     </thead>
 	</table>
-	
+</div>
 </body>
+
 </html>

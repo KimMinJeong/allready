@@ -24,6 +24,7 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setBoard_no(board_no);
 		
 		flagDAO.addGoodId(flagvo);
+		
 		return flagvo;
 	}
 
@@ -34,7 +35,6 @@ public class FlagServiceImpl implements FlagService {
 		flagvo.setGood_id(good_id);
 		
 		flagvo = flagDAO.getflag(flagvo);
-			
 		if(flagvo==null){
 
 			addFlagId(good_id, board_no);
