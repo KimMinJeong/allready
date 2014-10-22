@@ -6,15 +6,18 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <script src="static/js/bootstrap.js"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<script src="static/js/jquery-1.11.1.js"></script>
 <link href="static/css/stylish-portfolio.css" rel="stylesheet" type="text/css">
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.isotope.min.js"></script>
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <title>메인</title>
 </head>
 <%
@@ -25,6 +28,7 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-10 col-sm-7"> <br>
+
 		 <div class="panel panel-default">
                
          
@@ -54,6 +58,8 @@
                   %>
                   </tbody>
                </table>
+
+				
 				</div>
 			</div>
 
@@ -129,6 +135,7 @@
             <div class="col-lg-4 col-sm-6 text-center">
              <% if(user != null){
                if("NORMAL".equals(user.getRole())){%>
+
                 <img class="img-circle img-responsive img-center" src="static/images/1413905939_Messages-128.png" onClick="top.location.href='chat_server.do'">
                  <%}else if("MANAGER".equals(user.getRole())){ %>
                      <img class="img-circle img-responsive img-center" src="static/images/1413907570_open-box.png" onClick="top.location.href='expressList.do'">
@@ -150,6 +157,7 @@
 			<h2>Between Apartment System</h2>
              <p class="lead">This is Smart Building <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p></center>
 		</div>
+
    <!--/.row-->
    <hr>
 </body>

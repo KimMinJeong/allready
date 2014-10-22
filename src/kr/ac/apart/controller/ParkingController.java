@@ -22,6 +22,7 @@ public class ParkingController {
 	@Autowired
 	private ParkingImpl frame;
 	
+	
 	@RequestMapping(value="/user_parking.do")
 	public String user_parking(HttpSession session){
 		UserVO vo = (UserVO) session.getAttribute("UserFlag");
@@ -36,6 +37,8 @@ public class ParkingController {
 	
 	@RequestMapping(value="/parking.do")
 	public ModelAndView parking(String floor, String section){
+		ArduinoProcessing.isfull1=null;
+		ArduinoProcessing.isfull2=null;
 		frame.check();
 		
 		while(ArduinoProcessing.isfull1==null){}
@@ -70,8 +73,6 @@ public class ParkingController {
 		try {
 			parkingService.updateParking(pv1);
 			parkingService.updateParking(pv2);
-			ArduinoProcessing.isfull1=null;
-			ArduinoProcessing.isfull2=null;
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

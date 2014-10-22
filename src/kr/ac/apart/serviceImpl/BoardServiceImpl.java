@@ -133,8 +133,11 @@ public class BoardServiceImpl implements BoardService {
     
     @Override
     public int getRowNum(String category){
+    	try{
     	int rowNum = boardDao.getRowNum(category);
-    	
     	return rowNum;
+    	}catch(NullPointerException e){
+    		return 0;
+    	}
     }
 }

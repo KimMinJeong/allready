@@ -7,6 +7,8 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
@@ -25,9 +27,11 @@
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
+		<% if(user.getRole().equals("MANAGER")){ %>
 		<a class="btn btn-default btn-sm" href="AddTaxForm.do">
 			관리비 설정
 		</a>
+		<%} %>
 			<div class="modal fade" id="myModal">
 				<div class="modal-dialog">
 					<div class="modal-content">

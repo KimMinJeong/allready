@@ -46,10 +46,7 @@ public class UserServiceImpl implements UserService{
 					}	
 				}
 		}
-		else
-			System.out.println("틀렷어 병시나");
-		
-			return "회원정보가 일치하지 않습니다.ㅠㅠ";
+		return "회원정보가 일치하지 않습니다.ㅠㅠ";
 	}
 	
 	@Override

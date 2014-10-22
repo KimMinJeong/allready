@@ -1,3 +1,5 @@
+<%@page import="kr.ac.apart.vo.TaxVO"%>
+<%@page import="java.util.List"%>
 <%@page import="kr.ac.apart.vo.UserVO"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -8,20 +10,25 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+
 </head>
 	<body>
 	<div class="container">
 	<form action="TaxWriteForm.do" method="post">
 		<p>세대주</p>
-		<input type="text" class="form-control" name="user_id">
+		<input type="text" class="form-control" name="user_id" id="user_id">
 		<p>년도</p>
-		<select name="year">
+		<select name="year" id="year">
+			<option value="2016">2016</option>
+			<option value="2015">2015</option>
 			<option value="2014">2014</option>
 			<option value="2013">2013</option>
 		</select>
 		<p>월</p>
-		<select name="month">
+		<select name="month" id="month">
 			<option value="1">1</option>
 			<option value="2">2</option>
 			<option value="3">3</option>
@@ -50,6 +57,5 @@
 	</form>
 	</div>
 </body>
-
 
 </html>

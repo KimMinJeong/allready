@@ -10,6 +10,10 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+
 <title>민원 게시판</title>
 </head>
 
@@ -30,25 +34,24 @@
 			%>
 
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9"> <br>
+			<div class="col-sm-10"> <br>
 				<div align="right">
 					<%
 						if ("NORMAL".equals(userVO.getRole())) {   //로그인한 사용자의 role이 normal일경우
 					%>
-					<button type="button" class="btn btn-default navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
+					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
 					<%
 						}
 					%>
 				</div>
 
 				<div class="panel panel-default">
-					<!-- Default panel contents -->
-					<div class="panel-heading">
-						<center>민원 게시판</center>
-					</div>
+					
 
 					<!-- Table -->
-					<table class="table">
+					
+					<table class="table table-bordered table-style">
+						<thead class="head">
 						<tr>
 							<th><center>번호</center></th>
 							<th><center>제목</center></th>
@@ -56,6 +59,7 @@
 							<th><center>날짜</center></th>
 							<th><center>조회수</center></th>
 						</tr>
+						</thead>
 						<%
 							int currentPage = (Integer) request.getAttribute("page");  //현재page, 기본값은 0
 							int countComplainBoard = (Integer) request.getAttribute("rowNum");  //현재 complainboard의 row수
@@ -69,6 +73,7 @@
 								if ("CLOSED".equals(vo.getClosed())) {
 									if (user_id.getUser_id().equals(vo.getWriter_id())) {
 						%>
+						<tbody id="tbody">
 						<tr>
 							<td><center><%=rowNum%></center></td>
 							<td><center><span class="glyphicon glyphicon-lock"></span> 
@@ -132,6 +137,7 @@
 							}
 							}
 						%>
+						</tbody>
 					</table>
 				</div>
 
@@ -155,7 +161,7 @@
 
 				<form action="search.do">
 					<div class="form-group col-sm-2">
-						<select class="form-control" name="condition">
+						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
 							<option value="writer_id">글쓴이</option>
@@ -163,11 +169,11 @@
 					</div>
 
 					<div class="col-sm-8">
-						<input type="text" class="form-control" name="str">
+						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="complain">
 					</div>
 
-					<button type="submit" class="btn btn-default">검색</button>
+					<button type="submit" class="btn button-style">검색</button>
 				</form>
 			</div>
 			<!-- /.col-xs-12 main -->

@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>관리자 설정</title>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
@@ -22,12 +25,12 @@
 				List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
 			%>
 			<div class="form-group">
-				<label for="exampleInputEmail1">관리자 ID</label> 
+				<label for="exampleInputEmail1">관리자 ID</label>
 				<input type="text" class="form-control" id="userId" value="<%=vo.getUser_id()%>" readonly />
 			</div>
 
 			<div class="form-group">
-				<label for="exampleInputPassword1">Password</label> 
+				<label for="exampleInputPassword1">Password(필수입력)</label> 
 				<input type="text" class="form-control" id="userPassword" placeholder="Password">
 			</div>
 
@@ -94,7 +97,7 @@
 		
 		if ($("#userPassword").val() == "") {
 			alert("비밀번호를 입력해주세요.");
-		} else{
+		} else{			
 			var selectDong = $("#selectDong").val();
 			arr = [];
 			

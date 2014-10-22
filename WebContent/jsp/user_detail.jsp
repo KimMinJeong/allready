@@ -6,6 +6,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <title>세대주 설정</title>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
@@ -14,10 +17,9 @@
 </head>
 
 <body>
-	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert">
-		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-	  	<strong>이메일 형식을 확인해 주세요!!</strong>
-	</div>
+<!-- 	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert"> -->
+<!-- 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
+<!-- 	</div> -->
 	<div class="container" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>
@@ -121,10 +123,12 @@
 			$("#userPassword").focus();
 			return false;
 		} else {
-			if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
-				alert("E-mail 형식으로 입력해주세요.");
-				$("#userEmail").focus();
-				return false;
+			if($("#userEmail").val()!=""){
+				if($("#userEmail").val().match(/^(\w+)@(\w+)[.](\w+)$/ig)==null){
+					alert("E-mail 형식으로 입력해주세요.");
+					$("#userEmail").focus();
+					return false;
+				}
 			}
 			var selectFamily = $("#selectFamily").val();
 			arrName = [];
