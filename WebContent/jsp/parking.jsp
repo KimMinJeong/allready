@@ -17,11 +17,11 @@
 <body> <br>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
 				<ul class="nav">
-					<li class="active"><a href="#"><font size="4">B1</font></a></li>
-					<li><a href="#"><font size="4">B2</font></a></li>
-					<li><a href="#"><font size="4">B3</font></a></li>
+					<li class="active">B1</li>
+					<li>B2</li>
+					<li>B3</li>
 				</ul>
 			</div>
 

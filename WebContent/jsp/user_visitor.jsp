@@ -8,11 +8,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>세대주_방문객</title>
-<script src="static/js/bootstrap.js"></script>
+
 <script src="static/js/jquery-1.11.1.js"></script>
-<script src="static/js/bootstrap.min.js"></script>
-<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<script src="static/js/bootstrap.js"></script>
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 </head>
@@ -30,6 +29,7 @@
 						<input type="text" class="form-control input-text-style" name="visitor_name">
 					</div>
 				</div>
+
 
 				<div class="form-inline">
 					<div class="input-group">
@@ -88,11 +88,14 @@
 			</table>
 		</div>
 	</div>
+	
+
 	<hr>
 </body>
 
 <script type="text/javascript">
 	$(document).on('click', '.deleteVisitor', function() {
+
 		alert("delete!");
 		var clickedRow = $(this).closest('tr');
 		$.ajax({
@@ -113,5 +116,7 @@
 		});
 	})
 </script>
+
+
 
 </html>

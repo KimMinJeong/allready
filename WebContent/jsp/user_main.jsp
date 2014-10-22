@@ -14,7 +14,9 @@
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<script src="static/js/jquery-1.11.1.js"></script>
+<link href="static/css/stylish-portfolio.css" rel="stylesheet" type="text/css">
+<script src="js/jquery.prettyPhoto.js"></script>
+<script src="js/jquery.isotope.min.js"></script>
 <link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <title>메인</title>
 </head>
@@ -26,125 +28,136 @@
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-10 col-sm-7"> <br>
-				<div class="panel panel-default">
-					
-			
-					
-					<!-- Table -->
-					<table class="table table-bordered table-style">
-						<thead class="head">
-						<tr>
-							<th><center>번호</center></th>
-							<th><center>제목</center></th>
-							<th><center>작성자</center></th>
-							<th><center>날짜</center></th>
-						</tr>
-						</thead>
-						<tbody id="body">
-						<%
-							if(noticeList != null){
-								for(BoardVO vo : noticeList){%>
-									<tr>
-										<td><center><%=vo.getBoard_no()%></center></td>
-										<td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
-										<td><center><%=vo.getWriter_id()%></center></td>
-										<td><center><%=vo.getReg_date()%></center></td>
-									</tr>
-								<%}
-							}
-						%>
-						</tbody>
-					</table>
+
+		 <div class="panel panel-default">
+               
+         
+               
+               <!-- Table -->
+               <table class="table table-bordered table-style">
+                  <thead class="head">
+                  <tr>
+                     <th><center>번호</center></th>
+                     <th><center>제목</center></th>
+                     <th><center>작성자</center></th>
+                     <th><center>날짜</center></th>
+                  </tr>
+                  </thead>
+                  <tbody id="body">
+                  <%
+                     if(noticeList != null){
+                        for(BoardVO vo : noticeList){%>
+                           <tr>
+                              <td><center><%=vo.getBoard_no()%></center></td>
+                              <td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
+                              <td><center><%=vo.getWriter_id()%></center></td>
+                              <td><center><%=vo.getReg_date()%></center></td>
+                           </tr>
+                        <%}
+                     }
+                  %>
+                  </tbody>
+               </table>
+
+				
 				</div>
 			</div>
 
          <div class="container"> <br>
             <div class="row row-offcanvas row-offcanvas-right">
                <div class="row">
-                  <div class="col-xs-6 col-md-3">
-                     <div style="position:relative">
-									<img src="images/profile.jpg" data-src="holder.js/100%x180" alt="...">
-									<div style="position: absolute">
+                  <div class="col-xs-6 col-md-5">
+                               <div class="margin">
+									<img src="static/images/1413979449_Heart.png" >
+									<div class="margin2" style="position: absolute">
 									<% if("NORMAL".equals(user.getRole())){
 										if("FALSE".equals(user.getExpress())){%>
 									<img src="images/MessageOff.jpg" width="50" height="50" alt="...">
 									<%}else if("TRUE".equals(user.getExpress())){%>		
 									<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img src="images/MessageOn.jpg" width="50" height="50" alt="..."></a>
 									<%} }%>
+									
 									</div>
 					</div>
                   </div>
-					<span class="glyphicon glyphicon-off"><a href="logout.do">로그아웃</a></span>
+					
                </div>
             </div>
          </div>
 
-		<!-- main area -->
-		<div class="col-xs-12 col-sm-4"> <br>
-			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='cctv_client.do'">
-				<span class="glyphicon glyphicon-facetime-video"></span> CCTV
-			</button> <br>
-		</div>
-
-		<div class="col-xs-12 col-sm-4"> <br>
-			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_parking.do'">
-				<span class="glyphicon glyphicon-star"></span> 주차장
-			</button>
-		</div>
-
-		<div class="col-xs-12 col-sm-4"> <br>
-			<button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_tax.do'">
-				<span class="glyphicon glyphicon-usd"></span> 관리세
-			</button>
-		</div>
-			
-         <div class="col-xs-12 col-sm-4"> <br>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
-               <span class="glyphicon glyphicon-align-justify"></span> 게시판
-            </button>
-         </div>
-
-         <div class="col-xs-12 col-sm-4"> <br>
-            <% if(user != null){
+    
+<div class="row">
+            <div class="col-lg-12">
+                <center><h2 class="text1">Services</h2></center><br>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">        
+        
+                
+                <img class="img-circle img-responsive img-center" src="static/images/1413905006_film.png" onClick="top.location.href='cctv_client.do'">
+                  <h3>CCTV
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-circle img-responsive img-center" src="static/images/1413906357_aiga_bus_on_grn_circle-128.png" onClick="top.location.href='user_parking.do'">
+                <h3>주차장
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-circle img-responsive img-center" src="static/images/1413905591_graph.png" onClick="top.location.href='user_tax.do'">
+                <h3>관리세
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <img class="img-circle img-responsive img-center" src="static/images/1413907084_flat_icons-graficheria.it-11.png" onClick="top.location.href='noticeBoard.do'">
+                <h3>게시판
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+              <% if(user != null){
                if("NORMAL".equals(user.getRole())){%>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='user_visitor.do'">
-               <span class="glyphicon glyphicon-user"></span> 방문객
-            </button>
-            <%} else if("MANAGER".equals(user.getRole())){ %>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='manage_visitor.do'">
-               <span class="glyphicon glyphicon-user"></span> 방문객
-            </button>
-            <%}
-            }%>
-         </div>
-
-         <div class="col-xs-12 col-sm-4"> <br>
-            <% if(user != null){
+                <img class="img-circle img-responsive img-center" src="static/images/1413906531_man.png"  onClick="top.location.href='user_visitor.do'">
+                 <%} else if("MANAGER".equals(user.getRole())){ %>
+                    <img class="img-circle img-responsive img-center" src="static/images/1413906531_man.png"  onClick="top.location.href='manage_visitor.do'">
+                  <%}} %>
+                <h3>방문객
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+             <% if(user != null){
                if("NORMAL".equals(user.getRole())){%>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='noticeBoard.do'">
-               <span class="glyphicon glyphicon-heart-empty"></span> 소통의 장
-            </button>
-            <%}else if("MANAGER".equals(user.getRole())){ %>
-            <button type="button" class="btn btn-default btn-lg button1" onClick="top.location.href='expressList.do'">
-               <span class="glyphicon glyphicon-heart-empty"></span> 택배관리
-            </button>
-            <%}
-            } %>
-         </div>
-      </div>
-      <br>
-      <!-- /.col-xs-12 main -->
-		<div class="col-xs-12 col-md-12 col-sm-12">
-			<div id="footer">
-				<div class="panel panel-default">
-			         <div class="panel-body">
-			         	콘텐츠에 대한 저작권은 주식회사 Allready, 이하 내용 및 이미지의 무단복제를 금합니다.
-				           <br>ⓒAllready Inc. All rights reseved
-		            </div>
-		       	</div>	
-			</div>
+
+                <img class="img-circle img-responsive img-center" src="static/images/1413905939_Messages-128.png" onClick="top.location.href='chat_server.do'">
+                 <%}else if("MANAGER".equals(user.getRole())){ %>
+                     <img class="img-circle img-responsive img-center" src="static/images/1413907570_open-box.png" onClick="top.location.href='expressList.do'">
+                     <%}} %>
+                <h3>소통의 장
+                    <small>Job Title</small>
+                </h3>
+                <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+            </div>
+        </div><br><br>
+        
+     </div>
+     </div>
+     
+        
+    
+	
+	<div class="navbar-fixed-bottom"><center>
+			<h2>Between Apartment System</h2>
+             <p class="lead">This is Smart Building <a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.</p></center>
 		</div>
-	</div>
+
    <!--/.row-->
    <hr>
 </body>

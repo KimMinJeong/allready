@@ -20,3 +20,8 @@ public interface BoardService {
 	public List<BoardVO> getNoticeList();
 	public int getRowNum(String category);
 }
+
+
+
+
+
