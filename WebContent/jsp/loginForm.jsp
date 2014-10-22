@@ -62,6 +62,8 @@
 $('#id_alert').hide();
 
 function UserIdCheck(){
+	$('#id_alert').hide();
+	
 	var User_Array = new Array();
 	var user_id = $('#user_id').val();
 	var db_user_id = $('#List_user_id').val();
@@ -75,6 +77,7 @@ function UserIdCheck(){
 	for(var i=0;i<=User_Array.length;i++){
 		
 		if(user_id===User_Array[i]){
+			$('#id_alert').hide();
 			return true;
 		}
 		else if(user_id!=User_Array[i]){
@@ -82,10 +85,8 @@ function UserIdCheck(){
 			$('#id_alert').show();
 		}
 	}
-	$('#id_alert').hide();
 	return false;
 };
-
 </script>
 
 </html>

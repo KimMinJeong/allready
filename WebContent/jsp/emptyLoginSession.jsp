@@ -8,11 +8,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>로그인 해주세요.</title>
 </head>
-<body onload="test()">
+<body onload="AlertView()">
 
 </body>
 <script type="text/javascript">
-	function test(){
+	function AlertView(){
 		alert("로그인해주세요.");
 		location.replace("loginForm.do"); 
 	}
