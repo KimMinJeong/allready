@@ -46,3 +46,9 @@ a{
 .input-text-style{
 	border: 1px solid #5bb8b7;
 }
+.label-style{
+	border: 2px solid #5bb8b7;
+	background-color: #66cdcc;
+	color : #FFFFFF;
+	font-size: large;
+}

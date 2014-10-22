@@ -88,15 +88,10 @@
 			</table>
 		</div>
 	</div>
-	
-
-	<hr>
 </body>
 
 <script type="text/javascript">
 	$(document).on('click', '.deleteVisitor', function() {
-
-		alert("delete!");
 		var clickedRow = $(this).closest('tr');
 		$.ajax({
 			url : "updateVisitor.do",
@@ -107,7 +102,6 @@
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
-				alert("success!");
 				clickedRow.remove();
 			},
 			error : function(e) {
@@ -116,7 +110,4 @@
 		});
 	})
 </script>
-
-
-
 </html>
