@@ -104,7 +104,6 @@
 	border-color: #66cdcc;
 }
 
-<<<<<<< HEAD
 element.style {
 }
 
@@ -313,3 +312,55 @@ table tbody{
 }
 
 
+
+@CHARSET "UTF-8";
+
+#panel-style{
+	background-color: #effaf9;
+	color:#000000;
+}
+.head-style{
+	background-color: #53c7c6;
+	color:#FFFFFF
+} 
+
+.body-style{
+	background-color: #FFFFFF;
+	color:#888888;
+}
+table tbody{
+	background-color: #FFFFFF;
+	color:#888888;
+}
+
+.button-style{
+	background-color: #888888;
+	color : #FFFFFF;
+}
+.button-delete-style{
+	background-color: #f39192;
+	color : #FFFFFF;
+}
+
+.table-style{
+	border: 3px solid #5bb8b7;
+}
+.font-style{
+	font-family: -윤고딕310;
+}
+
+.input-style{
+	border: 1px solid #5bb8b7;
+	background-color: #66cdcc;
+	color : #FFFFFF;
+}
+
+.input-text-style{
+	border: 1px solid #5bb8b7;
+}
+.label-style{
+	border: 2px solid #5bb8b7;
+	background-color: #66cdcc;
+	color : #FFFFFF;
+	font-size: large;
+}

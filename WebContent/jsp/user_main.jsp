@@ -25,7 +25,7 @@
 	List<BoardVO> noticeList = (List<BoardVO>) request.getAttribute("getNoticeList");
 %>
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-10 col-sm-7"> <br>
 
@@ -55,6 +55,9 @@
                            </tr>
                         <%}
                      }
+                  	if(noticeList.size()==0){%>
+                  		<tr><td colspan="4"><center>공지사항이 없습니다</center></td></tr>
+                  	<%}
                   %>
                   </tbody>
                </table>
