@@ -16,7 +16,6 @@
 
 <title>민원 게시판</title>
 </head>
-
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">

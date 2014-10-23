@@ -67,7 +67,7 @@ public class BoardServiceImpl implements BoardService {
     }
 
     @Override
-    public BoardVO delete(int board_no){
+    public BoardVO deleteBoard(int board_no){
         BoardVO vo = boardDao.getOne(board_no);
         
         boardDao.delete(board_no);

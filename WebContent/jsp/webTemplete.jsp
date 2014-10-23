@@ -26,7 +26,7 @@
 
 
       
-   <div class="navbar navbar-fixed-top">
+   <div class="navbar navbar-fixed-top font-style">
       <div class="container">   
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
