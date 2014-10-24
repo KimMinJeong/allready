@@ -36,7 +36,7 @@
 				<img src="static/images/C.png" height="300" width="300" class="img-rounded" onclick="#"></a> 
 				
 				<a href="#">
-				<img src="static/images/D.png" height="300" width="300" class="img-rounded" onclick="#"></a><br>
+				<img src="static/images/D.PNG" height="300" width="300" class="img-rounded" onclick="#"></a><br>
 			</div>
 			</div>
 		</div>
