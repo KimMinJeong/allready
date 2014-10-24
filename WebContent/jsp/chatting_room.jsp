@@ -15,11 +15,7 @@
 </head>
 <% UserVO user_vo = (UserVO)session.getAttribute("UserFlag"); %>
 <body>
-<<<<<<< HEAD
 	<div class="container font-style">
-=======
-	<div class="container">
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 	<div class="col-md-offset-2 col-md-10">
 		<iframe src="http://192.168.123.129:3000?userId=<%=user_vo.getUser_id()%>" width="80%" height="70%"></iframe>
 		<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
