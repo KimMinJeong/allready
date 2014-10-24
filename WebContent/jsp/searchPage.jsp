@@ -37,20 +37,9 @@
 			<div class="col-xs-12 col-sm-9">
 				<div class="panel panel-default">
 
-					<!-- Default panel contents -->
-					<div class="panel-heading">
-						<% if("notice".equals(category)){ %>
-								<center>공지사항 게시판</center>
-						<%} else if("complain".equals(category)){ %>
-								<center>민원 게시판</center>
-						<%} else if("free".equals(category)){ %>
-								<center>자유 게시판</center>
-						<%} %>
-					</div>
-
 					<!-- Table -->
-					<table class="table">
-						<tr>
+					<table class="table table-bordered table-style">
+						<tr class="head">
 							<th><center>제목</center></th>
 							<th><center>작성자</center></th>
 							<th><center>날짜</center></th>
@@ -64,7 +53,7 @@
 									if ("CLOSED".equals(vo.getClosed())) {
 										if (user_id.getUser_id().equals(vo.getWriter_id())) {
 						%>
-						<tr>
+						<tr id="body">
 							<td><center><span class="glyphicon glyphicon-lock"></span><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><%=vo.getTitle()%></a></center></td>
 							<%
 								if ("ANONYMOUS".equals(vo.getAnonymous())) {
@@ -108,17 +97,21 @@
 							}
 								}
 							}
-						%>
+							if(BoardList.size() == 0){ %>
+								<tr><td colspan="3"><center>일치하는 검색결과가 없습니다</center></td></tr>
+						<%	} %>
 					</table>
 				</div>
 				
 				<%
 					int currentPage = (Integer) request.getAttribute("page");
 					List<BoardVO> allSearchList = (List<BoardVO>) request.getAttribute("allSearchList");
+					
+					if(allSearchList.size() != 0){
 				%>
 				<div align="center">
 					<ul class="pagination">
-						<li><a href="search.do">&laquo;</a></li>
+						<li><a href="search.do?page=0&condition=<%=condition%>&str=<%=str%>&category=<%=category%>">&laquo;</a></li>
 						<%
 						int j=1;  //페이지수
 						int a=0;  //마지막페이지
@@ -128,13 +121,14 @@
 							j++;
 							a=i;
 						}%>
-						<li><a href="search.do?page=<%=a%>">&raquo;</a></li>
+						<li><a href="search.do?page=<%=a%>&condition=<%=condition%>&str=<%=str%>&category=<%=category%>">&raquo;</a></li>
 					</ul>
 				</div>
+				<% } %>
 				
 				<form action="search.do">
 					<div class="form-group col-sm-2">
-						<select class="form-control" name="condition">
+						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
 							<option value="writer_id">글쓴이</option>
@@ -142,11 +136,11 @@
 					</div>
 
 					<div class="col-sm-8">
-						<input type="text" class="form-control" name="str">
+						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="<%=category%>">
 					</div>
 
-					<button type="submit" class="btn btn-default">검색</button>
+					<button type="submit" class="btn button-style">검색</button>
 				</form>	
 			</div>
 			<!-- /.col-xs-12 main -->

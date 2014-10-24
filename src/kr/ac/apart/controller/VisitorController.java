@@ -68,6 +68,7 @@ public class VisitorController {
 
     @RequestMapping(value = "/addVisitor.do") //nomal user의 방문객 추가
     public String addVisitor(String fixed, String visitor_name, String business, HttpSession session){
+    	System.out.println("addVisitor.do controller");
         UserVO userVO = (UserVO) session.getAttribute("UserFlag");
         String user_id = userVO.getUser_id(); //현재 로그인 중인 user의 id 가져오기
         VisitorVO visitorVO = new VisitorVO();

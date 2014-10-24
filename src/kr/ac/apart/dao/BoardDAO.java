@@ -8,7 +8,7 @@ public interface BoardDAO {
     public void add(BoardVO vo);
     public List<BoardVO> BoardList(String category, int page);
     public BoardVO getOne(int board_no);
-    public int delete(int board_no);
+    public int deleteBoard(int board_no);
     public void updateBoard(BoardVO vo);
     public List<BoardVO> searchBoard(BoardVO search, int page);
     public List<BoardVO> allSearchBoard(BoardVO search);

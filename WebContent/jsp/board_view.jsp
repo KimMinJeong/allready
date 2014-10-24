@@ -65,17 +65,16 @@
 				
 				<p id="board"><%=board_vo.getContents()%></p> <br>
 				<%
-				System.out.println("board : " + board_vo.getCategory() );
 					if(user_vo.getUser_id().equals(board_vo.getWriter_id())) {
 				%>
 				<div id="board_view_btn" align="right">
 					<a href="UpdateForm.do?board_no=<%=board_vo.getBoard_no()%>">
-						<button type="submit" class="btn btn-default navbar-btn">수정</button>
+						<button type="button" class="btn btn-default navbar-btn">수정</button>
 					</a> 
 					
-					<a href="Delete.do?board_no=<%=board_vo.getBoard_no()%>&board_category=<%=board_vo.getCategory()%>">
+					<a href="deleteBoard.do?board_no=<%=board_vo.getBoard_no()%>&board_category=<%=board_vo.getCategory()%>">
 						<button type="button" class="btn btn-default navbar-btn">삭제</button>
-					</a>
+					</a> 
 				</div>
 				<%
 					}
