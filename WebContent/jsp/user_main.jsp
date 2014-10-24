@@ -27,7 +27,7 @@
 <body>
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-10 col-sm-7"> <br>
+			<div class="col-xs-10 col-sm-8"> <br>
 
 		 <div class="panel panel-default">
                
@@ -66,10 +66,9 @@
 				</div>
 			</div>
 
-         <div class="container"> <br>
             <div class="row row-offcanvas row-offcanvas-right">
                <div class="row">
-                  <div class="col-xs-6 col-md-5">
+                  <div class="col-xs-6 col-md-4">
                                <div class="margin">
 									<img src="static/images/1413979449_Heart.png" >
 									<div class="margin2" style="position: absolute">
@@ -86,7 +85,7 @@
 					
                </div>
             </div>
-         </div>
+         
 
     
 <div class="row">

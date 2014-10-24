@@ -60,7 +60,6 @@ public class BoardController {
     
     @RequestMapping(value="/complainBoard.do") 
     public ModelAndView minoneList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
-    	System.out.println("Aa");
     	ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
@@ -121,6 +120,7 @@ public class BoardController {
     @RequestMapping(value="/boardAdd.do") 
     public String boardWrite(String writer_id, String category, String title, String contents, String anonymous, String closed){
         boardService.addBoard(writer_id,category, title, contents, anonymous, closed);
+
         if(category.equals("notice")){
             return "redirect:/noticeBoard.do";
         }
@@ -157,12 +157,8 @@ public class BoardController {
     
     @RequestMapping(value="/deleteBoard.do") 
     public String guestbookdelete(int board_no, String board_category){
-    	System.out.println("boardController.do");
-        System.out.println("board_Category1:"+board_category);
     	
         boardService.deleteBoard(board_no);
-        
-        System.out.println("board_Category2:"+board_category);
         
         if(board_category.equals("notice")){
             return "redirect:/noticeBoard.do";
