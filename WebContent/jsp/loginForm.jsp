@@ -53,7 +53,7 @@
 				<h2>Between Apartment System>_<</h2>
 				<p class="lead">
 					This is Smart Building 
-					<a target="_blank" href="http://join.deathtothestockphoto.com/">Death to the Stock Photo</a>.
+					<a target="_blank" href="http://www.naver.com/">Death to the Stock Photo</a>.
 				</p>
 			</div>
 		</div>

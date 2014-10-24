@@ -18,20 +18,16 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"> <br><br>
 				<ul class="nav">
-<<<<<<< HEAD
+
 					<li class="active"><a href="#">B1</a></li>
 					<li><a href="#">B2</a></li>
 					<li><a href="#">B3</a></li>
-=======
-					<li class="active"><a href="#"><font size="4">B1</font></a></li>
-					<li><a href="#"><font size="4">B2</font></a></li>
-					<li><a href="#"><font size="4">B3</font></a></li>
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
+
 				</ul>
 			</div> <br>
 
 			<div class="col-xs-12 col-sm-9">
-<<<<<<< HEAD
+
 			<div class="margin3">
 				<a href="parking.do?floor='B1'&section='A'">
 				<img src="static/images/A.png" height="300" width="300" class="img-rounded"></a>
@@ -45,19 +41,7 @@
 				<a href="#">
 				<img src="static/images/D.png" height="300" width="300" class="img-rounded" onclick="#"></a><br>
 			</div>
-=======
-				<a href="parking.do?floor='B1'&section='A'">
-				<img src="images/A.png" height="300" width="300" class="img-rounded"></a>
-				
-				<a href="#">
-				<img src="images/B.jpg" height="300" width="300"class="img-rounded" onclick="#"></a><br> 
-				
-				<a href="#">
-				<img src="images/C.jpg" height="300" width="300" class="img-rounded" onclick="#"></a> 
-				
-				<a href="#">
-				<img src="images/D.jpg" height="300" width="300" class="img-rounded" onclick="#"></a><br>
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
+
 			</div>
 		</div>
 	</div>

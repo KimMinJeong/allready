@@ -17,11 +17,9 @@
 </head>
 
 <body>
-<<<<<<< HEAD
+
 	<div class="container font-style" style="margin-top: 4%">
-=======
-	<div class="container" style="margin-top: 4%">
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
+
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>
 			<%

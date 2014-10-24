@@ -23,38 +23,36 @@
 </head>
 
 <body>
-<<<<<<< HEAD
+
 	<div class="container font-style">
-=======
-	<div class="container">
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
+
 		<div class="row row-offcanvas row-offcanvas-left">
 			
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
-					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
-					<li><a href="complainBoard.do">민원 게시판</a></li>
-					<li><a href="freeBoard.do">자유 게시판</a></li>
+					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
+					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
+					<li><a href="freeBoard.do"><font face="'Jeju Gothic', serif" size="4">자유자유</font></a></li>
 				</ul>
 			</div>
 
 			<!-- main area -->
 			<div class="col-xs-12 col-sm-9">
 				<%-- 				<% if(user_vo.getRole().equals("NORMAL") && "")  %> --%>
-				<input type="button" class="btn btn-info btn-sm" value="글쓰기" onClick="location.href='boardWriteForm.do'">
+				<input type="button" class="btn btn-info btn-sm button-style" value="글쓰기" onClick="location.href='boardWriteForm.do'">
 				<%
 					if("notice".equals(board_vo.getCategory())){
 				%>
-						<input type="button" class="btn btn-info btn-sm" id="board_list_btn" value="글목록" onClick="location.href='noticeBoard.do'">
+						<input type="button" class="btn btn-info btn-sm button-style" id="board_list_btn" value="글목록" onClick="location.href='noticeBoard.do'">
 				<%
 					}else if("complain".equals(board_vo.getCategory())){
 				%>
-						<input type="button" class="btn btn-info btn-sm" id="board_list_btn" value="글목록" onClick="location.href='complainBoard.do'">
+						<input type="button" class="btn btn-info btn-sm button-style" id="board_list_btn" value="글목록" onClick="location.href='complainBoard.do'">
 				<%
 					}else if("free".equals(board_vo.getCategory())){
 				%>
-						<input type="button" class="btn btn-info btn-sm" id="board_list_btn" value="글목록" onClick="location.href='freeBoard.do'">
+						<input type="button" class="btn btn-info btn-sm button-style" id="board_list_btn" value="글목록" onClick="location.href='freeBoard.do'">
 				<%
 					}
 				%>
@@ -74,11 +72,11 @@
 				%>
 				<div id="board_view_btn" align="right">
 					<a href="UpdateForm.do?board_no=<%=board_vo.getBoard_no()%>">
-						<button type="submit" class="btn btn-default navbar-btn">수정</button>
+						<button type="submit" class="btn btn-default navbar-btn button-delete-style">수정</button>
 					</a> 
 					
 					<a href="Delete.do?board_no=<%=board_vo.getBoard_no()%>&board_category=<%=board_vo.getCategory()%>">
-						<button type="button" class="btn btn-default navbar-btn">삭제</button>
+						<button type="button" class="btn btn-default navbar-btn button-delete-style">삭제</button>
 					</a>
 				</div>
 				<%
@@ -86,24 +84,24 @@
 					if("complain".equals(board_vo.getCategory())){
 				%>
 				<div align="center">
-					<div class="col-xs-12 col-sm-4">
-						<div class="col-xs-2 col-sm-2">
+					<div class="col-xs-12 col-sm-9">
+						<div class="col-xs-4 col-sm-2 margin7">
 							<form action="addGood.do?board_no=<%=board_vo.getBoard_no()%>">
 								<input type="hidden" name="good_id" value=<%=user_vo.getUser_id()%>> 
 								<input type="hidden" name="board_no" value=<%=board_vo.getBoard_no()%>> 
 								<input type="submit" class="btn btn-default" value="<%=board_vo.getGood()%>"> 
 								
-								<span class="glyphicon glyphicon-thumbs-up"></span>
+								<image class="img-circle img-responsive img-center margin4" src="static/images/1414167353_699566-icon-4-thumb-up-64.png"></image>
 							</form>
 						</div>
 
-						<div class="col-xs-2 col-sm-2">
+						<div class="col-xs-4 col-sm-2">
 							<form action="addBad.do?board_no=<%=board_vo.getBoard_no()%>">
 								<input type="hidden" name="bad_id" value=<%=user_vo.getUser_id()%>> 
 									<input type="hidden" name="board_no" value=<%=board_vo.getBoard_no()%>> 
 									<input type="submit" class="btn btn-default " value="<%=board_vo.getBad()%>"> 
 									
-									<span class="glyphicon glyphicon-thumbs-down"></span>
+									<image class="img-circle img-responsive img-center margin4" src="static/images/1414167589_699991-icon-5-thumb-down-64.png"></image>
 							</form>
 						</div>
 					</div>
@@ -204,7 +202,7 @@
 					+ "</center></td><td><center>"+ data.contents
 					+ "</center></td><td><center>"/* + data.commentsRegDate + "</center></td><td><center><button type='button' class='btn btn-default'  value='" + data.recordNo +"'>" + '수정' + "</button></center></td></tr>" */
 					+ data.commentsRegDate
-					+ "</center></td><td><center><button type='button' class='btn btn-default deleteComments'  value='" + data.maxCommentNo +"'>"
+					+ "</center></td><td><center><button type='button' class='btn btn-default deleteComments button-delete-style'  value='" + data.maxCommentNo +"'>"
 					+ '삭제'
 					+ "</button></center></td></tr>");
 			},
