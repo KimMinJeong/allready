@@ -37,4 +37,14 @@ public class ParkingDAOImpl implements ParkingDAO {
     public int getSectionCount(ParkingVO parking){
         return (int) sqlMapClientTemplate.queryForObject("getSectionCount", parking);
     }
+
+	@Override
+	public int getAllFloor(String floor) {
+		return (int) sqlMapClientTemplate.queryForObject("getAllFloor", floor);
+	}
+
+	@Override
+	public int getAllSection(ParkingVO parking) {
+		return (int) sqlMapClientTemplate.queryForObject("getAllSection", parking);
+	}
 }

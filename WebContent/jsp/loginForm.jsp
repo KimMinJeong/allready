@@ -100,7 +100,7 @@ function UserIdCheck(){
 		if(user_id===User_Array[i]){
 			return true;
 		}
-		else if(user_id!=User_Array[i]){
+		else(user_id!=User_Array[i]){
 			$("strong").text("아이디가 존재하지 않습니다.");
 			$('#id_alert').show();
 		}
