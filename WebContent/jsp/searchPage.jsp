@@ -16,7 +16,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
@@ -150,6 +150,7 @@
 				</form>	
 			</div>
 			<!-- /.col-xs-12 main -->
+		</div>
 		</div>
 		<!--/.row-->
 		<hr>

@@ -25,10 +25,10 @@
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-				<ul class="nav">
-					<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
-					<li><a href="complainBoard.do">민원 게시판</a></li>
-					<li><a href="freeBoard.do">자유 게시판</a></li>
+				<ul class="nav font-style">
+					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
+					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
+					<li><a href="freeBoard.do"><font face="'Jeju Gothic', serif" size="4">자유자유</font></a></li>
 				</ul>
 			</div>
 
@@ -47,8 +47,8 @@
 			<div class="panel panel-default">
 					<!-- Table -->
 					<table class="table table-bordered table-style">
-					<thead class="head">
-						<tr>
+					<thead class="head font-style">
+						<tr>						
 							<th><center>번호</center></th>
 							<th><center>제목</center></th>
 							<th><center>작성자</center></th>
@@ -134,6 +134,11 @@
 							}
 								}
 							}
+							
+							if(countNoticeBoard == 0){%>
+								<tbody id="tbody"><tr><td colspan="5"><center>게시글이 없습니다.</center></td></tr></tbody>
+								
+							<%}
 						%>
 						<!-- </tbody> -->
 						</tbody>
@@ -141,7 +146,7 @@
 					</div>
 				
 
-				
+				<%if(countNoticeBoard != 0){ %>
 				<div align="center">
 					
 					<ul class="pagination paging-font-color">
@@ -158,6 +163,7 @@
 						<li><a href="noticeBoard.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
+				<%} %>
 
 				<form action="search.do">
 					<div class="form-group col-sm-2">
@@ -175,10 +181,9 @@
 					
 					<button type="submit" class="btn button-style">검색</button>
 				</form>
-			</div>
+				</div>
 			</div>
 		</div>
-	</div>
 	<hr>
 	
 	<script type="text/javascript">

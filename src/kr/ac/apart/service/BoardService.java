@@ -10,7 +10,7 @@ public interface BoardService {
 	public List<BoardVO> ComplainBoardList(int page);
 	public List<BoardVO> FreeBoardList(int page);
 	public BoardVO getBoardDetail(int board_no);
-	public BoardVO delete(int board_no);
+	public BoardVO deleteBoard(int board_no);
 	public void updateBoard(BoardVO board);
 	public List<BoardVO> searchBoard(String condition, String str, String category, int page);
 	public List < BoardVO > allSearchBoard(String condition, String str, String category);
@@ -20,8 +20,4 @@ public interface BoardService {
 	public List<BoardVO> getNoticeList();
 	public int getRowNum(String category);
 }
-
-
-
-
 

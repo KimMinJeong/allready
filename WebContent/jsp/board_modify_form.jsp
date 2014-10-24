@@ -1,6 +1,5 @@
 <%@page import="kr.ac.apart.vo.BoardVO"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -9,14 +8,16 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <%
 	BoardVO vo = (BoardVO) request.getAttribute("vo");
 %>
 </head>
 
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
+			
 			<!-- sidebar -->
 			<div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
@@ -27,16 +28,17 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-sm-9">
-				<form action="updateBoard.do">
+			<form action="updateBoard.do">
+				<div class="col-sm-2">
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
-					<select disabled class="form-control">
+					<select disabled class="form-control input-text-style">
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
-					</select><br><br><input type="text" class="form-control title"
-						id="board_title" name="title" value="<%=vo.getTitle()%>">
-					<br>
-					<script type="text/javascript"
-						src="http://js.nicedit.com/nicEdit-latest.js"></script>
+					</select>
+				</div> <br><br>
+				
+				<div class="col-sm-10">
+					<input type="text" class="form-control input-text-style title " id="board_title" name="title" value="<%=vo.getTitle()%>"> <br>
+					<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 					<script type="text/javascript">
 						//<![CDATA[
 						bkLib.onDomLoaded(function() {
@@ -44,29 +46,28 @@
 						});
 						//]]>
 					</script>
-					<textarea name="contents" rows="15%" id="board_textarea"><%=vo.getContents()%></textarea>
-					<br> <br>
-
-					<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
-						<input type="checkbox" name="anonymous" class="checkbox inline" />
-						<span class="text inline" id="anonymous_select">익명</span> <input
-							type="checkbox" name="closed" class="checkbox inline" /> <span
-							class="text inline" id="secret_select">비밀글</span>
-						<button type="submit" class="btn btn-primary inline">등록</button>
-					</div>
-				</form>
-			</div>
-			<!--/.row-->
+					<textarea name="contents" rows="15%" id="board_textarea"><%=vo.getContents()%></textarea> <br><br>
+				<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
+					<input type="checkbox" name="anonymous" class="checkbox inline" />
+					<span class="text inline" id="anonymous_select">익명</span> 
+					
+					<input type="checkbox" name="closed" class="checkbox inline" /> 
+					<span class="text inline" id="secret_select">비밀글</span>
+					
+					<button type="submit" class="btn button-style">등록</button>
+				</div>
+				</div>
+			</form>
 		</div>
-		<!--/.container-->
-		<hr>
+		<!--/.row-->
+	</div>
+	<!--/.container-->
 </body>
 
 <script type="text/javascript">
-	var select_var=$('select option').val();
-	if(select_var=='free'){
-		alert($('select option').val());
-		select_var ='자유';
+	var select_var = $('select option').val();
+	if (select_var == 'free') {
+		select_var = '자유';
 	}
 </script>
 </html>

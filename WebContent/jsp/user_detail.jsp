@@ -14,49 +14,50 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 </head>
 
 <body>
 <!-- 	<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert"> -->
 <!-- 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
 <!-- 	</div> -->
-	<div class="container" style="margin-top: 4%">
+	<div class="container font-style" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
-			<h1 align="center">상세정보 기입란</h1> <br><br>
+			<h1 align="center" >상세정보 기입란</h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
 				List<FamilyVO> familyList = (List<FamilyVO>) request.getAttribute("familyList");
 			%>
 			<form role="form">
 				<div class="form-group">
-					<label for="exampleInputEmail1">세대주 ID</label> 
-					<input type="text" class="form-control" id="userId" value="<%=vo.getUser_id()%>" readOnly>
+					<label for="exampleInputEmail1" class="label-style">세대주 ID</label> 
+					<input type="text" class="form-control input-text-style" id="userId" value="<%=vo.getUser_id()%>" readOnly>
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">Password(필수입력)</label> 
-					<input type="password" class="form-control" id="userPassword">
+					<label for="exampleInputPassword1" class="label-style">Password(필수입력)</label> 
+					<input type="password" class="form-control input-text-style" id="userPassword">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">세대주 이름</label> 
-					<input type="text" class="form-control" id="userName" value="<%=vo.getUser_name()%>">
+					<label for="exampleInputPassword1" class="label-style">세대주 이름</label> 
+					<input type="text" class="form-control input-text-style" id="userName" value="<%=vo.getUser_name()%>">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">E-mail</label> 
-					<input type="text" class="form-control" id="userEmail" value="<%=vo.getE_mail()%>">
+					<label for="exampleInputPassword1" class="label-style">E-mail</label> 
+					<input type="text" class="form-control input-text-style" id="userEmail" value="<%=vo.getE_mail()%>">
 				</div>
 
 				<div class="form-group">
-					<label for="exampleInputPassword1">전화번호</label> 
-					<input type="text" class="form-control" id="userPhone" value="<%=vo.getPhone()%>">
+					<label for="exampleInputPassword1" class="label-style">전화번호</label> 
+					<input type="text" class="form-control input-text-style" id="userPhone" value="<%=vo.getPhone()%>">
 				</div>
 
 				<div class="form-group">
-					<label for="disabledSelect">부양 가족 수</label>
+					<label for="disabledSelect" class="label-style">부양 가족 수</label>
 					<form name="usersFamily">
-						<select id="selectFamily" class="form-control" name="selected">
+						<select id="selectFamily" class="form-control input-text-style" name="selected">
 							<option>1</option>
 							<option>2</option>
 							<option>3</option>
@@ -85,8 +86,8 @@
 								for (FamilyVO familyVo : familyList) {
 						%>
 						<tr>
-							<td><center><input type='text' class='form-control familyName<%=i%>' value="<%=familyVo.getName()%>"></center></td>
-							<td><center><input type='text' class='form-control familyPhone<%=i%>' value="<%=familyVo.getPhone()%>"></center></td>
+							<td><center><input type='text' class='input-text-style form-control familyName<%=i%>' value="<%=familyVo.getName()%>"></center></td>
+							<td><center><input type='text' class='input-text-style form-control familyPhone<%=i%>' value="<%=familyVo.getPhone()%>"></center></td>
 							<%
 								i++;
 									}
@@ -96,7 +97,7 @@
 				</table>
 
 				<div class="col-md-offset-10 col-md-2">
-					<button type="submit" class="btn btn-primary" id="modifyUser">Submit</button>
+					<button type="submit" class="btn button-style" id="modifyUser">Submit</button>
 				</div>
 			</form>
 		</div>

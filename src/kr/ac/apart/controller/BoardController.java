@@ -130,7 +130,7 @@ import org.springframework.web.servlet.ModelAndView;
     }
     
     @RequestMapping(value="/boardDetail.do") 
-    public ModelAndView boardDetail(int board_no,String count_id){
+    public ModelAndView boardDetail(int board_no, String count_id){
         ModelAndView mav = new ModelAndView();
        // boardService.updateClicks(board_no);
         flagService.getFlagCount(board_no, count_id);
@@ -153,15 +153,37 @@ import org.springframework.web.servlet.ModelAndView;
         return mav;
     }
     
-    @RequestMapping("/Delete.do") 
-    public String guestbookdelete(int board_no){
-        boardService.delete(board_no);
-
-        return "redirect:/noticeBoard.do";
+    @RequestMapping(value="/Delete.do") 
+    public String guestbookdelete(int board_no, String board_category){
+    	boardService.deleteBoard(board_no);
+        System.out.println("board_Category:"+board_category);
+        if(board_category.equals("notice")){
+            return "redirect:/noticeBoard.do";
+        }
+        else if(board_category.equals("complain")){
+            return "redirect:/complainBoard.do";
+        }
+        else 
+        	return "redirect:/freeBoard.do";
     }
     
     @RequestMapping("/updateBoard.do") 
-    public String updateBoard(BoardVO board){
+    public String updateBoard(int board_no, String title, String contents, String anonymous, String closed){
+    
+    	BoardVO board = new BoardVO();
+    	
+    	board.setBoard_no(board_no);
+    	board.setTitle(title);
+    	board.setContents(contents);
+   
+    	if (anonymous == null) 
+            board.setAnonymous("IDENTIFIED");
+        else 
+            board.setAnonymous(anonymous);
+        if (closed == null) 
+            board.setClosed("OPEN");
+        else 
+            board.setClosed(closed);
     	
         boardService.updateBoard(board);
     
