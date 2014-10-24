@@ -1,6 +1,5 @@
 @CHARSET "UTF-8";
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
-
 .font-style{
 	font-family: 'Jeju Gothic', serif;﻿
 }
@@ -12,7 +11,7 @@
 	font-size: 11px;
 }
 body {
-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+font-family:'Jeju Gothic', serif;
 font-size: 14px;
 line-height: 1.42857143;
 color: #555555;
@@ -21,6 +20,18 @@ background-color: #ffffff;
 .body{
    background-color: #FFFFFF;
    color:#888888;
+}
+.body-style{
+	background-color: #FFFFFF;
+	color:#888888;
+}
+.button-style{
+	background-color: #888888;
+	color : #FFFFFF;
+}
+.button-delete-style{
+	background-color: #f39192;
+	color : #FFFFFF;
 }
 #board{
 	border-style: dotted;
@@ -49,7 +60,7 @@ background-color: #ffffff;
 .button1 {
 	width: 350px;
 	height: 200px;
-
+}
 #sidebar{
 	width: 15%;
 }
@@ -74,21 +85,25 @@ box-color : #B2E6E5;
 	height :300px;
 	display: inline;
 }
+
 element.style {
 }
 
 html {
-font-size: 10px;
--webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-font-family: sans-serif;
+font-family:'Jeju Gothic', serif;
 -ms-text-size-adjust: 100%;
 -webkit-text-size-adjust: 100%;
+font-size: 10px;
+-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 .head{
    background-color: #53c7c6;
    color:#FFFFFF
+}
+.head-style{
+	background-color: #53c7c6;
+	color:#FFFFFF
 } 
-
 #hr_1{
 	border:0;
 	border-bottom:1px dashed #ccc;
@@ -106,36 +121,19 @@ font-family: sans-serif;
 .inline {
 	display: inline;
 }
-#board_span{
-	margin-right: 2%;
+.input-style{
+	border: 1px solid #5bb8b7;
+	background-color: #66cdcc;
+	color : #FFFFFF;
 }
-#board{
-	border-style: dotted;
-    border-width: 1.5px;
-    border-width: 100%;
-    height: 50%;
+.input-text-style{
+	border: 1px solid #5bb8b7;
 }
-#board_list_btn{
-	margin-left: 80%;
-}
-.ui-datepicker-calendar {
-    display: none;
- }
-
 .strong{
 	font-weight : bold;
 }
-#user_id:hover{
-	-webkit-border-radius: 0;
-    -moz-border-radius: 0;
-    border-radius: 0;
-	color: #ffffff;
-	background: #66cdcc;
-	border-color: #66cdcc;
-}
 
 element.style {
->>>>>>> 1c2b13b9056c8d6edefe827ede874cc2322199c0
 }
 .navbar {
 background-color: #A3E1E0;
@@ -176,6 +174,16 @@ transform: translate3d(0, 0, 0);
 #location {
 	left: -86%
 }
+.label-style{
+	border: 2px solid #5bb8b7;
+	background-color: #66cdcc;
+	color : #FFFFFF;
+	font-size: large;
+}
+#panel-style{
+	background-color: #effaf9;
+	color:#000000;
+}
 
 .size {
 	font-size: 10;
@@ -198,6 +206,7 @@ table tbody{
    background-color: #FFFFFF;
    color:#888888;
 }
+
 .table-style{
 	border: 3px solid #5bb8b7;
 }
@@ -222,11 +231,6 @@ display: block;
 	color: #ffffff;
 	background: #66cdcc;
 	border-color: #66cdcc;
-}
-* {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
 }
 
 .navbar-fixed-top{
@@ -262,52 +266,22 @@ position: relative;
 min-height: 80px;
 margin-bottom: 60px;
 margin-top:30;
-
 }
 
-* {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-}
 user agent stylesheetdiv {
 display: block;
 }
-.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
-content: " ";
-display: table;
-margin-top:10;
-box-color : #B2E6E5;
-font-color: #A0CFCE;
+#user_id:hover{
+	-webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0;
+	color: #ffffff;
+	background: #66cdcc;
+	border-color: #66cdcc;
 }
-
-*:before, *:after {
--webkit-box-sizing: border-box;
--moz-box-sizing: border-box;
-box-sizing: border-box;
-box-color : #B2E6E5;
-}
-
-
-.clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
-clear: both;
-}
-
-body {
-font-family:'Jeju Gothic', serif;
-font-size: 14px;
-line-height: 1.42857143;
-color: #555555;
-background-color: #ffffff;
-}
-
-html {
-font-family: sans-serif;
--ms-text-size-adjust: 100%;
--webkit-text-size-adjust: 100%;
-font-size: 10px;
--webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-}
+.ui-datepicker-calendar {
+    display: none;
+ }
 
 
 .margin{
@@ -329,15 +303,7 @@ font-size: 10px;
 	margin-top: 5%;
 }
 
-.input-style{
-	border: 1px solid #5bb8b7;
-	background-color: #66cdcc;
-	color : #FFFFFF;
-}
 
-.input-text-style{
-	border: 1px solid #5bb8b7;
-}
 .label-style{
 	border: 2px solid #5bb8b7;
 	background-color: #66cdcc;
@@ -352,3 +318,7 @@ font-size: 10px;
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-height: 1200px) and (max-device-height: 1300px) and (orientation: portrait) {
  
 }
+
+
+
+

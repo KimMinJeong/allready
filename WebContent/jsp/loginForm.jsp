@@ -85,7 +85,7 @@ function UserIdCheck(){
 			$('#id_alert').hide();
 			return true;
 		}
-		else(user_id!=User_Array[i]){
+		else if(user_id!=User_Array[i]){
 			$("strong").text("아이디가 존재하지 않습니다.");
 			$('#id_alert').show();
 		}
