@@ -70,7 +70,7 @@ public class BoardServiceImpl implements BoardService {
     public BoardVO deleteBoard(int board_no){
         BoardVO vo = boardDao.getOne(board_no);
         
-        boardDao.delete(board_no);
+        boardDao.deleteBoard(board_no);
         
         return vo;
     }

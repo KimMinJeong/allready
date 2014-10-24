@@ -19,7 +19,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-@Controller("boardController") public class BoardController {
+@Controller("boardController") 
+public class BoardController {
 
     @Autowired 
     private BoardService boardService;
@@ -59,7 +60,8 @@ import org.springframework.web.servlet.ModelAndView;
     
     @RequestMapping(value="/complainBoard.do") 
     public ModelAndView minoneList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
-        ModelAndView mav = new ModelAndView();
+    	System.out.println("Aa");
+    	ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         
     	if(vo == null){
@@ -153,10 +155,15 @@ import org.springframework.web.servlet.ModelAndView;
         return mav;
     }
     
-    @RequestMapping(value="/Delete.do") 
+    @RequestMapping(value="/deleteBoard.do") 
     public String guestbookdelete(int board_no, String board_category){
-    	boardService.deleteBoard(board_no);
-        System.out.println("board_Category:"+board_category);
+    	System.out.println("boardController.do");
+        System.out.println("board_Category1:"+board_category);
+    	
+        boardService.deleteBoard(board_no);
+        
+        System.out.println("board_Category2:"+board_category);
+        
         if(board_category.equals("notice")){
             return "redirect:/noticeBoard.do";
         }
@@ -166,10 +173,10 @@ import org.springframework.web.servlet.ModelAndView;
         else 
         	return "redirect:/freeBoard.do";
     }
-    
+
     @RequestMapping("/updateBoard.do") 
     public String updateBoard(BoardVO board){
-    	
+    	System.out.println("update");
         boardService.updateBoard(board);
     
         return "redirect:/noticeBoard.do";
@@ -208,6 +215,7 @@ import org.springframework.web.servlet.ModelAndView;
     
     @RequestMapping("/addGood.do") 
     public String addGood(int board_no,String good_id){
+    	System.out.println("good");
     	flagService.getFlag(board_no, good_id);
     	
        return "redirect:/boardDetail.do?board_no="+board_no+"&count_id="+good_id;
