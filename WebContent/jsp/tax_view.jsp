@@ -8,17 +8,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<script src="static/js/jquery-1.11.1.js"></script>
+
 <script src="static/js/bootstrap.js"></script>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="static/css/style.css" rel="stylesheet" type="text/css">
+<script src="static/js/bootstrap.min.js"></script>
+<script src="static/js/jquery-1.11.1.js"></script>
+
+<link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">s
 </head>
 <%
 	TaxVO tax_vo = (TaxVO)request.getAttribute("tax_vo");
 	List<TaxVO> taxList = (List<TaxVO>)request.getAttribute("taxList");
 %>
 <body>
-<div class="container">
+<<<<<<< HEAD
+<div class="container font-style">
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 	<p>사용자</p>
 	<div><%=tax_vo.getUser_id() %></div>
 	<p>년도</p>
@@ -68,7 +74,6 @@
 		%>
     </thead>
 	</table>
-</div>
+	
 </body>
-
 </html>

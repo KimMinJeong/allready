@@ -77,7 +77,7 @@
 							}
 						%>
 						<td><center>
-								<button type="button" class="btn button-style deleteVisitor" value="<%=vo.getVisitor_no()%>">삭제</button>
+								<button type="button" class="btn button-delete-style deleteVisitor" value="<%=vo.getVisitor_no()%>">삭제</button>
 							</center></td>
 					</tr>
 					<%
@@ -88,15 +88,10 @@
 			</table>
 		</div>
 	</div>
-	
-
-	<hr>
 </body>
 
 <script type="text/javascript">
 	$(document).on('click', '.deleteVisitor', function() {
-
-		alert("delete!");
 		var clickedRow = $(this).closest('tr');
 		$.ajax({
 			url : "updateVisitor.do",
@@ -107,7 +102,6 @@
 			},
 			contentType : "application/json; charset=utf-8",
 			success : function(data) {
-				alert("success!");
 				clickedRow.remove();
 			},
 			error : function(e) {
@@ -116,7 +110,4 @@
 		});
 	})
 </script>
-
-
-
 </html>

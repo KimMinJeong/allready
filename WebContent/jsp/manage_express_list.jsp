@@ -5,13 +5,15 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
 <title>Insert title here</title>
 </head>
@@ -37,7 +39,7 @@
 										<div class="col-xs-8">
 											<h4 class="modal-title" id="myModalLabel" align="left">택배등록</h4>
 										</div>
-										
+
 										<button type="button" class="btn button-style" data-dismiss="modal">Close</button>
 									</div>
 									<%
@@ -48,7 +50,7 @@
 											<%
 												for(Manager_DongVO dongList : managerDongList){
 											%>
-											<input type="checkbox" class="btn btn-default navbar-btn" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%></button> &nbsp;
+											<input type="checkbox" class="btn btn-default navbar-btn" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%></button>&nbsp;
 											<%
 												}
 											%>
@@ -56,28 +58,20 @@
 
 										<div class="row" align="center">
 											<div class="col-xs-7">
-												<!-- <div class="form-inline">
-													호수 : <input type="text" class="form-control input-text-style" name="userNo">
-												</div> <br> -->
 												<div class="form-inline">
-					<div class="input-group">
-						<span class="input-group-addon input-style">호수</span> 
-						<input type="text" class="form-control input-text-style" name="userNo">
-					</div> 
-</div><br>
-												
-												<!-- <div class="form-inline">
-													이름 : <input type="text" class="form-control input-text-style" placeholder="이름을 입력하세요" name="orderer"> <br>
-												</div> <br> -->
-												
-												<div class="form-inline">
-					<div class="input-group">
-						<span class="input-group-addon input-style">이름</span> 
-						<input type="text" class="form-control input-text-style" name="orderer">
-					</div> 
-</div><br>
+													<div class="input-group">
+														<span class="input-group-addon input-style">호수</span> 
+														<input type="text" class="form-control input-text-style" name="userNo">
+													</div>
+												</div> <br>
 
-												
+												<div class="form-inline">
+													<div class="input-group">
+														<span class="input-group-addon input-style">이름</span> 
+														<input type="text" class="form-control input-text-style" name="orderer">
+													</div>
+												</div> <br>
+
 												<div align="right">
 													<select name="express_company" class="input-text-style">
 														<option value="cj">CJ</option>
@@ -108,71 +102,80 @@
 					</div>
 
 					<!-- Table -->
-					<table class="table">
+					<table class="table table-bordered table-style">
 						<thead class="head">
-						<tr>
-							<th><center>날짜</center></th>
-							<th><center>동호수</center></th>
-							<th><center>이름</center></th>
-							<th><center>택배회사</center></th>
-							<th><center>수령확인</center></th>
-						</tr>
+							<tr>
+								<th><center>날짜</center></th>
+								<th><center>동호수</center></th>
+								<th><center>이름</center></th>
+								<th><center>택배회사</center></th>
+								<th><center>수령확인</center></th>
+							</tr>
 						</thead>
 						<%
 							int currentPage = (Integer) request.getAttribute("currentPage");
+							
 							if (expressList != null){
 								for (ExpressVO vo : expressList){
 						%>
 						<tbody id="body">
-						<tr>
-							<td><center><%=vo.getReg_date()%></center></td>
-							<td><center><%=vo.getUser_id()%></center></td>
-							<td><center><%=vo.getOrderer()%></center></td>
+							<tr>
+								<td><center><%=vo.getReg_date()%></center></td>
+								<td><center><%=vo.getUser_id()%></center></td>
+								<td><center><%=vo.getOrderer()%></center></td>
+								<%
+									if("cj".equals(vo.getExpress_company())){
+								%>
+									<td><center>CJ</center></td>
+								<%
+									} else if("hangin".equals(vo.getExpress_company())){
+								%>
+										<td><center>한진</center></td>
+								<%
+									} else if("lojen".equals(vo.getExpress_company())){
+								%>
+										<td><center>로젠</center></td>
+								<%
+									} else if("yellowCap".equals(vo.getExpress_company())){
+								%>
+										<td><center>Yellow Cap</center></td>
+								<%
+									} else if("post".equals(vo.getExpress_company())){
+								%>
+										<td><center>우체국</center></td>
+								<%
+									} else if("store".equals(vo.getExpress_company())){
+								%>
+										<td><center>편의점</center></td>
+								<%
+									} else if("etc".equals(vo.getExpress_company())){
+								%>
+										<td><center>기타</center></td>
+								<%
+									}
+								%>
+								<td><center>
+								<%
+									if(vo.getReceiver() == null){
+								%>
+										<button id="<%=vo.getExpress_id()%>" class="btn button-style getButton" data-toggle="modal" data-target="#myModal2" value="<%=currentPage%>">확인</button>
+								<%
+									}else if(vo.getReceiver() != null){
+								%>
+										<%=vo.getReceiver()%>&nbsp;
+										<button type="button" class="btn button-delete-style getButton" data-toggle="modal" data-target="#myModal2" id="<%=vo.getExpress_id()%>" value="<%=currentPage%>">수정</button>
+										<%
+									}
+										%>
+									</center></td>
+							</tr>
 							<%
-								if("cj".equals(vo.getExpress_company())){
+								}	
+							}
+							if(expressList.size() == 0){%>
+								<tbody id="body"><tr><td colspan="5"><center>택배 리스트가 없습니다</center></td></tr></tbody>
+							<%}
 							%>
-								<td><center>CJ</center></td>
-							<%
-								} else if("hangin".equals(vo.getExpress_company())){
-							%>
-								<td><center>한진</center></td>
-							<%
-								} else if("lojen".equals(vo.getExpress_company())){
-							%>
-								<td><center>로젠</center></td>
-							<%
-								} else if("yellowCap".equals(vo.getExpress_company())){
-							%>
-								<td><center>Yellow Cap</center></td>
-							<%
-								} else if("post".equals(vo.getExpress_company())){
-							%>
-								<td><center>우체국</center></td>
-							<%
-								} else if("store".equals(vo.getExpress_company())){
-							%>
-								<td><center>편의점</center></td>
-							<%
-								} else if("etc".equals(vo.getExpress_company())){
-							%>
-								<td><center>기타</center></td>
-							<%
-								}
-							%>
-							<td><center>
-									<%
-										if(vo.getReceiver() == null){ %>
-											<button id="<%=vo.getExpress_id()%>" class="btn btn-primary getButton" data-toggle="modal" data-target="#myModal2" value="<%=currentPage%>">확인</button>
-									<% }else if(vo.getReceiver() != null){ %>
-										<%=vo.getReceiver()%> &nbsp; <button type="button" class="btn btn-primary getButton" data-toggle="modal" data-target="#myModal2" id="<%=vo.getExpress_id()%>" value="<%=currentPage%>">수정</button>
-									<%
-										}
-									%>
-								</center></td>
-						</tr>
-						<%
-							}																																							}
-						%>
 						</tbody>
 					</table>
 				</div>
@@ -199,11 +202,13 @@
 						</div>
 					</div>
 				</div>
-				 <%
-					 int expressRowNum = (Integer) request.getAttribute("expressRowNum");
-				 %>
- 			 <div align="center">
-					 <ul class="pagination">
+				<%
+					int expressRowNum = (Integer) request.getAttribute("expressRowNum");
+
+					if(expressRowNum != 0){
+				%>
+				<div align="center">
+					<ul class="pagination">
 						<li><a href="expressList.do">&laquo;</a></li>
 						<%
 							int j=1;  //페이지수
@@ -212,20 +217,22 @@
 						%>
 								<li class="page"><a href="expressList.do?page=<%=i%>"><%=j%></a></li>
 						<%
-								j++;
-								a=i;
+							j++;
+							a=i;
 							}
 						%>
 						<li><a href="expressList.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
-			 	</div>
+				</div>
+				<%
+					}
+				%>
 			</div>
 			<!-- /.col-xs-12 main -->
 		</div>
 		<!--/.row-->
 	</div>
 	<!--/.container-->
-	<hr>
 </body>
 
 <script type="text/javascript">
@@ -238,11 +245,13 @@
 		currentPage = $(this).closest('button').attr('value');
 	});
 
-	$("#submitBtn").on('click', function() {
-		receiver = $("#receiver").val();
-		window.location = "updateExpress.do?express_id=" + id + "&receiver=" + receiver + "&page=" + currentPage;
+	$("#submitBtn").on(
+			'click',
+			function() {
+				receiver = $("#receiver").val();
+				window.location = "updateExpress.do?express_id=" + id + "&receiver=" + receiver + "&page=" + currentPage;
 
-		return false;
-	});
+				return false;
+			});
 </script>
 </html>

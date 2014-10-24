@@ -16,17 +16,26 @@
 
 <title>민원 게시판</title>
 </head>
-
 <body>
+<<<<<<< HEAD
+	<div class="container font-style">
+=======
 	<div class="container">
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
+<<<<<<< HEAD
+					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
+					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
+					<li><a href="freeBoard.do"><font face="'Jeju Gothic', serif" size="4">자유자유</font></a></li>
+=======
 					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
 					<li><a href="complainBoard.do">민원 게시판</a></li>
 					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 				</ul>
 			</div>
 			<%
@@ -136,11 +145,15 @@
 						<%
 							}
 							}
+							if(countComplainBoard == 0){%>
+								<tbody id="tbody"><tr><td colspan="5"><center>게시글이 없습니다.</center></td></tr></tbody>
+							<%}
 						%>
 						</tbody>
 					</table>
 				</div>
-
+				
+				<%if(countComplainBoard != 0){ %>
 				<div align="center">
 					<ul class="pagination">
 						<li><a href="noticeBoard.do">&laquo;</a></li>
@@ -158,6 +171,7 @@
 						<li><a href="complainBoard.do?page=<%=a%>">&raquo;</a></li>
 					</ul>
 				</div>
+				<%} %>
 
 				<form action="search.do">
 					<div class="form-group col-sm-2">
