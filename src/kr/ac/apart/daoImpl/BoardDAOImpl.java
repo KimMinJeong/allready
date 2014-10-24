@@ -31,8 +31,8 @@ public class BoardDAOImpl implements BoardDAO {
     }
     
     @Override 
-    public int delete(int board_no) {
-        return (int)sqlMapClientTemplate.delete("boardDelete",board_no);
+    public int deleteBoard(int board_no) {
+       return (Integer) sqlMapClientTemplate.delete("boardDelete",board_no);
     }
     
     @Override 
