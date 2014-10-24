@@ -15,8 +15,8 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
 </head>
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
@@ -27,7 +27,7 @@
 <body>
 	<input type="hidden" id="userId" value="<%=user.getUser_id()%>">
 	<div class="container font-style">
-	<div class="col-md-12">
+	<div class="col-xs-12 col-md-12">
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
@@ -86,7 +86,7 @@
 		<%}%>
 	</table>
 </div>
-<div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
+<div class="col-xs-12 col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
 <% }%>
 <%if("MANAGER".equals(user.getRole())){ 
 List<TaxVO> taxList=(List<TaxVO>) request.getAttribute("taxList");%>

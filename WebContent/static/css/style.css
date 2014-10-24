@@ -132,9 +132,6 @@ font-size: 10px;
 .strong{
 	font-weight : bold;
 }
-
-element.style {
-}
 .navbar {
 background-color: #A3E1E0;
 filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
@@ -149,17 +146,34 @@ margin-top:30;
 font-family: 'Jeju Gothic', serif;﻿
 }
 
-.navbar-fixed-top {
+.navbar-fixed-bottom {
+border-radius: 0;
+position: fixed;
+right: 0;
+left: 0;
+z-index: 1030;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+}
+
+#navbar{
+	margin-bottom: -0.5%;
+}
+.navbar-fixed-top{
 top: 0;
 border-width: 0 0 4px;
-}
-
-.navbar-fixed-top, .navbar-fixed-bottom {
 border-radius: 0;
-}
-
-.navbar-fixed-top, .navbar-fixed-bottom {
 position: fixed;
+right: 0;
+left: 0;
+z-index: 1030;
+-webkit-transform: translate3d(0, 0, 0);
+transform: translate3d(0, 0, 0);
+
+}
+.navbar-fixed-bottom{
+position:relative;
+border-top:5px solid #A3E1E0;
 right: 0;
 left: 0;
 z-index: 1030;
@@ -170,7 +184,24 @@ transform: translate3d(0, 0, 0);
 #myModal .modal-body{
 	width : 80%;
 }
-
+.margin{
+	margin-left: 35%;
+}
+.margin2{
+	margin-left: 8%;
+}
+.margin3{
+	margin-left:16%;
+}
+.margin4{
+	margin-left:26%;
+}
+.margin5{
+	margin-left: 5%;
+}
+.margin6{
+	margin-top: 5%;
+}
 #location {
 	left: -86%
 }
@@ -193,11 +224,7 @@ transform: translate3d(0, 0, 0);
 	font-size: 11px;
 }
 
-.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
-margin-top:10;
-content: " ";
-display: table;
-}
+
 .strong{
 	font-weight : bold;
 }
@@ -232,42 +259,6 @@ display: block;
 	background: #66cdcc;
 	border-color: #66cdcc;
 }
-
-.navbar-fixed-top{
-top: 0;
-border-width: 0 0 4px;
-border-radius: 0;
-position: fixed;
-right: 0;
-left: 0;
-z-index: 1030;
--webkit-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
-}
-
-.navbar-fixed-bottom{
-position:relative;
-border-top:5px solid #A3E1E0;
-right: 0;
-left: 0;
-z-index: 1030;
--webkit-transform: translate3d(0, 0, 0);
-transform: translate3d(0, 0, 0);
- }
-
-.navbar {
-background-color: #A3E1E0;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
-border-bottom: 5px solid #A3E1E0;
--webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
-border-radius: 4px;
-position: relative;
-min-height: 80px;
-margin-bottom: 60px;
-margin-top:30;
-}
-
 user agent stylesheetdiv {
 display: block;
 }
@@ -279,42 +270,10 @@ display: block;
 	background: #66cdcc;
 	border-color: #66cdcc;
 }
-.ui-datepicker-calendar {
-    display: none;
- }
 
+@media only screen and (min-width: 560px) and (max-width: 768px){
+	
+}
+@media only screen and (min-width: 768px) and (max-device-width: 1200px){
 
-.margin{
-	margin-left: 35%;
-}
-.margin2{
-	margin-left: 8%;
-}
-.margin3{
-	margin-left:16%;
-}
-.margin4{
-	margin-left:26%;
-}
-.margin5{
-	margin-left: 5%;
-}
-.margin6{
-	margin-top: 5%;
-}
-
-
-.label-style{
-	border: 2px solid #5bb8b7;
-	background-color: #66cdcc;
-	color : #FFFFFF;
-	font-size: large;
-}
-
-
-@media only screen and (min-width: 560px) and (max-device-width: 1136px) and (orientation : portrait){
-
-}
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-height: 1200px) and (max-device-height: 1300px) and (orientation: portrait) {
- 
 }

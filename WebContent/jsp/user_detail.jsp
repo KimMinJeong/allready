@@ -14,7 +14,9 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
+
 </head>
 
 <body>
@@ -22,7 +24,7 @@
 <!-- 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
 <!-- 	</div> -->
 	<div class="container font-style" style="margin-top: 4%">
-		<div class="col-md-offset-3 col-md-6">
+		<div class="col-xs-8 col-md-offset-3 col-md-6">
 			<h1 align="center" >상세정보 기입란</h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");

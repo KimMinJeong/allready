@@ -11,6 +11,9 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
+
 </head>
 
 <body>
@@ -19,7 +22,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-3 col-md-2 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="#">입구</a></li>
 					<li><a href="#">놀이터</a></li>

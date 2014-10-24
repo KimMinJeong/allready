@@ -20,7 +20,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
 					<li><a href="complainBoard.do">민원 게시판</a></li>
@@ -34,7 +34,7 @@
 				String category = (String) request.getAttribute("category");
 			%>
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9">
+			<div class="col-xs-12 col-md-9">
 				<div class="panel panel-default">
 
 					<!-- Table -->
@@ -127,7 +127,7 @@
 				<% } %>
 				
 				<form action="search.do">
-					<div class="form-group col-sm-2">
+					<div class="form-group col-xs-3 col-md-2">
 						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
@@ -135,7 +135,7 @@
 						</select>
 					</div>
 
-					<div class="col-sm-8">
+					<div class="col-xs-12 col-md-8">
 						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="<%=category%>">
 					</div>

@@ -6,22 +6,23 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
+
 
 <title>민원 게시판</title>
 </head>
 <body>
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
-
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
 					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
@@ -33,7 +34,7 @@
 			%>
 
 			<!-- main area -->
-			<div class="col-sm-10"> <br>
+			<div class="col-xs-12 col-md-10"> <br>
 				<div align="right">
 					<%
 						if ("NORMAL".equals(userVO.getRole())) {   //로그인한 사용자의 role이 normal일경우
@@ -172,7 +173,7 @@
 						</select>
 					</div>
 
-					<div class="col-sm-8">
+					<div class="col-xs-12 col-md-8">
 						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="complain">
 					</div>

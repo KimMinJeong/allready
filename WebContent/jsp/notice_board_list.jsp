@@ -6,13 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
 
 <title>공지사항</title>
 </head>
@@ -24,7 +26,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar">
 				<ul class="nav font-style">
 					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
 					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
@@ -33,7 +35,7 @@
 			</div>
 
 			<!-- main area -->
-			<div class="col-sm-10"> <br>
+			<div class="col-xs-12 col-md-10"> <br>
 				<div align="right">
 				<%
 					if ("MANAGER".equals(userVO.getRole())) {    //로그인한 user의 role이 MANAGER이면 글작성 버튼 생성

@@ -11,12 +11,15 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
+
 </head>
 
 <body>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation"> <br><br>
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation"> <br><br>
 				<ul class="nav">
 					<li class="active"><a href="#"><font size="4">B1</font></a></li>
 					<li><a href="#"><font size="4">B2</font></a></li>
@@ -24,7 +27,7 @@
 				</ul>
 			</div> <br>
 
-			<div class="col-xs-12 col-sm-9">
+			<div class="col-xs-12 col-md-9">
 			<div class="margin3">
 				<a href="parking.do?floor='B1'&section='A'">
 				<img src="static/images/A.png" height="300" width="300" class="img-rounded"></a>

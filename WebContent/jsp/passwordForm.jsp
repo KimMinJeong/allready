@@ -11,9 +11,8 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
 </head>
 
 <body>
@@ -21,23 +20,23 @@
 	<a href="loginForm.do">메인으로 돌아가기</a>
 	<div class="container font-style" align="right">
 		<div class="center">
-			<div class="col-md-offset-4 col-md-4">
+			<div class="col-xs-6 col-md-12">
 				<div class="input-group">
 					<span class="input-group-addon input-style">아이디</span> 
 					<input type="text" class="form-control input-text-style" id="user_id">
 				</div>
 
-				<div class="input-group .col-lg-offset-4 .col-lg-4">
+				<div class="input-group col-xs-6 col-md-offset-4 col-md-4">
 					<span class="input-group-addon input-style">이&nbsp;&nbsp;름</span> 
 					<input type="text" class="form-control input-text-style" id="user_name">
 				</div>
 
-				<div class="input-group .col-lg-offset-4 .col-lg-4">
+				<div class="input-group col-xs-6 col-md-offset-4 col-md-4">
 					<span class="input-group-addon input-style">이메일</span>
 					<input type="text" class="form-control input-text-style" id="user_email">
 				</div>  <br>
 				
-				<div class="col-lg-offset-4 .col-lg-4" id="passwordHere" align="left">
+				<div class="col-xs-6 col-md-offset-4 col-md-4" id="passwordHere" align="left">
 				</div>
 				
 				<div class="btn-group">

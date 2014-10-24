@@ -15,6 +15,9 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <link href="static/css/stylish-portfolio.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
+
 </head>
 <%
 	UserVO user_vo = (UserVO)session.getAttribute("UserFlag");
@@ -33,7 +36,7 @@
 		<input type="hidden" id="List_user_id" value="<%=user_id%>" />
 
 		<form action="login.do" onsubmit="return UserIdCheck()" class="navbar-form navbar-left">
-			<div class="col-md-offset-12 col-md-11" align="center">
+			<div class="col-xs-12 col-md-offset-12 col-md-11" align="center">
 				<input type="text" class="form-control" placeholder="아이디" id="user_id" name="user_id"> 
 				<input type="password" class="form-control" placeholder="비밀번호" id="user_password" name="user_password"> <br/> 
 				<a href="passwordForm.do">비밀번호 찾기</a>&nbsp;&nbsp;
@@ -49,7 +52,7 @@
 	<section id="about" class="about">
 	<div class="container">
 		<div class="row">
-			<div class="col-lg-12 text-center">
+			<div class="col-xs-12 col-md-12 text-center">
 				<h2>Between Apartment System>_<</h2>
 				<p class="lead">
 					This is Smart Building 
