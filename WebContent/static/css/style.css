@@ -1,9 +1,12 @@
 @CHARSET "UTF-8";
+<<<<<<< HEAD
 @import url(http://fonts.googleapis.com/earlyaccess/jejugothic.css);
 
 .font-style{
 	font-family: 'Jeju Gothic', serif;﻿
 }
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 
 .button1 {
 	width: 350px;
@@ -62,9 +65,13 @@
 	font-size: 11px;
 }
 #sidebar{
+<<<<<<< HEAD
 
 	width: 15%;
 
+=======
+	width: 15%;
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 }
 #board_title{
 	font-size: 30px;
@@ -121,7 +128,10 @@ border-bottom: 5px solid #A3E1E0;
 filter: none;
 -webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
 box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+<<<<<<< HEAD
 font-family: 'Jeju Gothic', serif;﻿
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 }
 
 .navbar-fixed-top {
@@ -167,7 +177,10 @@ display: block;
 margin-top:0;
 content: " ";
 display: table;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 }
 
 *:before, *:after {
@@ -281,7 +294,11 @@ clear: both;
 }
 
 body {
+<<<<<<< HEAD
 font-family:'Jeju Gothic', serif;
+=======
+font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 font-size: 14px;
 line-height: 1.42857143;
 color: #555555;
@@ -319,6 +336,7 @@ table tbody{
 .margin2{
 	margin-left: 8%;
 }
+<<<<<<< HEAD
 .margin3{
 	margin-left:16%;
 }
@@ -335,6 +353,8 @@ table tbody{
 
 
 
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 
 
 
@@ -370,7 +390,13 @@ table tbody{
 .table-style{
 	border: 3px solid #5bb8b7;
 }
+<<<<<<< HEAD
 
+=======
+.font-style{
+	font-family: -윤고딕310;
+}
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 
 .input-style{
 	border: 1px solid #5bb8b7;
@@ -386,4 +412,8 @@ table tbody{
 	background-color: #66cdcc;
 	color : #FFFFFF;
 	font-size: large;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
