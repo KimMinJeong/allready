@@ -83,7 +83,9 @@
 					<%
 						}
 					}
-					%>
+						if(visitorList.size() == 0){%>
+							<tr><td colspan="5"><center>고정방문객이 없습니다</center></td></tr>
+					<%	} %>
 				</tbody>
 			</table>
 		</div>
