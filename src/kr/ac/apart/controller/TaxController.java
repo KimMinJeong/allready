@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import kr.ac.apart.service.ExpressService;
 import kr.ac.apart.service.TaxService;
 import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.BoardVO;
@@ -37,14 +38,15 @@ public class TaxController {
 	
 	@Autowired
 	private UserService userService;
-
-    @SuppressWarnings("deprecation")
+	
 
     @RequestMapping(value="/user_tax.do")
     public ModelAndView tax(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
         List<TaxVO> OneTax = taxService.getOneTax(vo.getUser_id());
+        List<TaxVO> taxList = taxService.getTaxList();
+        mav.addObject("taxList", taxList);
         
     	if(vo == null){
     		mav.setViewName("emptyLoginSession");
@@ -146,10 +148,13 @@ public class TaxController {
     }
     
     @RequestMapping(value="/AddTaxForm.do")
-    public ModelAndView AddTaxForm(){
+    public ModelAndView AddTaxForm(HttpSession session){
     	ModelAndView mav = new ModelAndView();
+    	UserVO vo = (UserVO) session.getAttribute("UserFlag");
+    	String userId=vo.getUser_id();
     	List<TaxVO> taxList = taxService.getTaxList();
     	
+    	mav.addObject("managerDongList", userService.getManagerDong(userId));
     	mav.addObject("taxList", taxList);
     	mav.setViewName("webTemplete.jsp?nextPage=tax_write_form");
     	
@@ -157,17 +162,17 @@ public class TaxController {
     }
     
     @RequestMapping(value="/TaxWriteForm.do")
-    public ModelAndView TaxWrite(String user_id, int year, int month, int basic_tax,
-		int electric_tax, int water_tax, int heating_tax, int internet_tax){
+    public ModelAndView TaxWrite(String userDong, String user_id, int year, int month, int basic_tax,
+		int electric_tax, int water_tax, int heating_tax, int internet_tax, HttpSession session){
     	ModelAndView mav = new ModelAndView();
-    	
+    	String userId=userDong.concat(user_id);
     	try{
-	    	TaxVO tax_vo = taxService.addTax(user_id, year, month, basic_tax, electric_tax, water_tax, heating_tax, internet_tax);
+	    	TaxVO tax_vo = taxService.addTax(userId, year, month, basic_tax, electric_tax, water_tax, heating_tax, internet_tax);
 	    	List<TaxVO> taxList = taxService.getTaxList();
 	    	
 	    	mav.addObject("tax_vo", tax_vo);
 	    	mav.addObject("taxList", taxList);
-	    	mav.setViewName("webTemplete.jsp?nextPage=tax_view");
+	    	mav.setViewName("redirect:/user_tax.do");
     	}
     	catch(Exception e){
     		mav.setViewName("DuplicatePage");

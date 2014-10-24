@@ -35,10 +35,22 @@
 	]]>
 	</select>
 	
+	<select id="getAllFloor" resultClass="Integer" parameterClass="String">
+		SELECT COUNT(*)
+		FROM PARKING
+		WHERE FLOOR=#floor#
+	</select>
+	
 	<select id="getSectionCount" resultClass="Integer" parameterClass="parking">
 		SELECT COUNT(*)
 		FROM PARKING
 		WHERE ISFULL='EMPTY' AND FLOOR=#floor# AND SECTION=#section#
+	</select>
+	
+	<select id="getAllSection" resultClass="Integer" parameterClass="parking">
+		SELECT COUNT(*)
+		FROM PARKING
+		WHERE FLOOR=#floor# AND SECTION=#section#
 	</select>
 	
 	<update id="updateIsFull" parameterClass="parking">
