@@ -12,6 +12,7 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
+<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
@@ -57,7 +58,7 @@
 				</div><!-- /.modal-dialog -->
 			</div><!-- /.modal -->
 			<%=dangi_tax%>
-		</div><br><br><br>
+		</div><br><br>
 	
 	<% if(user.getRole().equals("NORMAL")){ %>
 	
@@ -72,22 +73,45 @@
 			<th><center>인터넷 사용료</center></th>
 		</tr>
 		<br><br>
-		<%for (TaxVO vo : OneTax){
-			%>
-			<tr id="body">
- 				<td><center><%=vo.getYear()%></center></td> 
- 				<td><center><%=vo.getMonth()%></center></td>
- 				<td><center><%=vo.getBasic_tax()%></center></td>
- 				<td><center><%=vo.getElectric_tax()%></center></td>
- 				<td><center><%=vo.getWater_tax()%></center></td> 
-				<td><center><%=vo.getHeating_tax()%></center></td>
- 				<td><center><%=vo.getInternet_tax()%></center></td>
+		<%for (TaxVO vo : OneTax){%>
+			<tr>
+ 				<td><%=vo.getYear()%></td> 
+ 				<td><%=vo.getMonth()%></td>
+ 				<td><%=vo.getBasic_tax()%></td>
+ 				<td><%=vo.getElectric_tax()%></td>
+ 				<td><%=vo.getWater_tax()%></td> 
+				<td><%=vo.getHeating_tax()%></td>
+ 				<td><%=vo.getInternet_tax()%></td>
 			</tr>
 		<%}%>
 	</table>
 </div>
 <div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
 <% }%>
+<%if("MANAGER".equals(user.getRole())){ 
+List<TaxVO> taxList=(List<TaxVO>) request.getAttribute("taxList");%>
+<table class="table" id="table">
+	<tr>
+		<th>동</th>
+		<th>호수</th>
+		<th>년</th>
+		<th>월</th>
+	</tr>
+	<br>
+	<h3>등록 완료 된 세대</h3>
+	<%for(TaxVO tax : taxList){ 
+	if(tax.getUser_id().length()>3){%>
+	<tr>
+		<td><%=tax.getUser_id().substring(0, 3)%> 동</td>
+		<td><%=tax.getUser_id().substring(3)%> 호</td>
+		<td><%=tax.getYear() %></td>
+		<td><%=tax.getMonth() %></td>
+	</tr>
+	<%}
+	}%>
+</table>
+<%} %>
+
 <hr>
 </body>
 
@@ -120,4 +144,5 @@ function drawChart() {
 }
 	  
 </script>
+
 </html>
