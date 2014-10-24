@@ -77,7 +77,9 @@ public class BoardServiceImpl implements BoardService {
 
     @Override
     public void updateBoard(BoardVO board){
-
+    	BoardVO vo= boardDao.getOne(board.getBoard_no());
+    	board.setWriter_id(vo.getWriter_id());
+    	board.setCategory(vo.getCategory());
         boardDao.updateBoard(board);
     }
 

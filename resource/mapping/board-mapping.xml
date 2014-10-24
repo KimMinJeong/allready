@@ -50,7 +50,7 @@
 	
 	<update id="boardUpdate" parameterClass="board" >
 		<![CDATA[
-			UPDATE BOARD SET TITLE=#title#, CONTENTS=#contents#, ANONYMOUS=#anonymous#, CLOSED=#closed#, BOARD_NO=#board_no#, CATEGORY=#category#
+			UPDATE BOARD SET WRITER_ID=#writer_id#, CATEGORY=#category#, TITLE=#title#, CONTENTS=#contents#, ANONYMOUS=#anonymous#, CLOSED=#closed#
  			WHERE BOARD_NO=#board_no#
  		]]> 
 	</update>

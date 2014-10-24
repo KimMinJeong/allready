@@ -30,13 +30,12 @@
 			<div class="col-sm-9">
 				<form action="updateBoard.do">
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
-					<select disabled class="form-control">
+					<select disabled class="form-control" name="category">
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
 					</select><br><br><input type="text" class="form-control title"
 						id="board_title" name="title" value="<%=vo.getTitle()%>">
 					<br>
-					<script type="text/javascript"
-						src="http://js.nicedit.com/nicEdit-latest.js"></script>
+					<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 					<script type="text/javascript">
 						//<![CDATA[
 						bkLib.onDomLoaded(function() {
@@ -48,10 +47,10 @@
 					<br> <br>
 
 					<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
-						<input type="checkbox" name="anonymous" class="checkbox inline" />
-						<span class="text inline" id="anonymous_select">익명</span> <input
-							type="checkbox" name="closed" class="checkbox inline" /> <span
-							class="text inline" id="secret_select">비밀글</span>
+						<input type="checkbox" name="anonymous" class="checkbox inline" value="ANONYMOUS" />
+						<span class="text inline" id="anonymous_select">익명</span> 
+						<input type="checkbox" name="closed" class="checkbox inline" value="CLOSED"/> 
+						<span class="text inline" id="secret_select">비밀글</span>
 						<button type="submit" class="btn btn-primary inline">등록</button>
 					</div>
 				</form>
@@ -63,10 +62,6 @@
 </body>
 
 <script type="text/javascript">
-	var select_var=$('select option').val();
-	if(select_var=='free'){
-		alert($('select option').val());
-		select_var ='자유';
-	}
+	
 </script>
 </html>
