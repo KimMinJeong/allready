@@ -16,7 +16,11 @@
 </head>
 
 <body>
+<<<<<<< HEAD
+	<div class="container font-style">
+=======
 	<div class="container">
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
@@ -151,6 +155,11 @@
 			</div>
 			<!-- /.col-xs-12 main -->
 		</div>
+<<<<<<< HEAD
+		</div>
+		
+=======
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 		<!--/.row-->
 		<hr>
 </body>

@@ -27,12 +27,17 @@
 <body>
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
+<<<<<<< HEAD
+			<div class="col-xs-10 col-sm-8"> <br>
+			 <div class="panel panel-default margin5">
+=======
 			<div class="col-xs-10 col-sm-7"> <br>
 
 		 <div class="panel panel-default">
                
          
                
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
                <!-- Table -->
                <table class="table table-bordered table-style">
                   <thead class="head">
@@ -69,7 +74,11 @@
          <div class="container"> <br>
             <div class="row row-offcanvas row-offcanvas-right">
                <div class="row">
+<<<<<<< HEAD
+                  <div class="col-xs-6 col-md-4">
+=======
                   <div class="col-xs-6 col-md-5">
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
                                <div class="margin">
 									<img src="static/images/1413979449_Heart.png" >
 									<div class="margin2" style="position: absolute">
@@ -89,13 +98,73 @@
          </div>
 
     
+<<<<<<< HEAD
+<div class="row font-style">
+=======
 <div class="row">
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
             <div class="col-lg-12">
                 <center><h2 class="text1">Services</h2></center><br>
             </div>
             <div class="col-lg-4 col-sm-6 text-center">        
         
                 
+<<<<<<< HEAD
+         	<input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413905006_film.png" onClick="top.location.href='cctv_client.do'">
+                  <h3><font face="'Jeju Gothic', serif">CCTV</font>
+                    <small>cctv</small>
+                </h3>
+      
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413906357_aiga_bus_on_grn_circle-128.png" onClick="top.location.href='user_parking.do'">
+                <h3><font face="'Jeju Gothic', serif">주차장</font>
+                    <small>parking</small>
+                </h3>
+            
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center">
+                <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413905591_graph.png" onClick="top.location.href='user_tax.do'">
+                <h3><font face="'Jeju Gothic', serif">관리비</font>
+                    <small>tax</small>
+                </h3>
+          
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center margin6">
+                <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413907084_flat_icons-graficheria.it-11.png" onClick="top.location.href='noticeBoard.do'">
+                <h3><font face="'Jeju Gothic', serif">게시판</font>
+                    <small>board</small>
+                </h3>
+                <p></p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center margin6">
+              <% if(user != null){
+               if("NORMAL".equals(user.getRole())){%>
+                <input type= "image"class="img-circle img-responsive img-center margin4" src="static/images/1413906531_man.png"  onClick="top.location.href='user_visitor.do'">
+                 <%} else if("MANAGER".equals(user.getRole())){ %>
+                    <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413906531_man.png"  onClick="top.location.href='manage_visitor.do'">
+                  <%}} %>
+                <h3><font face="'Jeju Gothic', serif">방문객</font>
+                    <small>visitor</small>
+                </h3>
+                <p></p>
+            </div>
+            <div class="col-lg-4 col-sm-6 text-center margin6">
+             <% if(user != null){
+               if("NORMAL".equals(user.getRole())){%>
+
+                <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413905939_Messages-128.png" onClick="top.location.href='chat_server.do'">
+                  <h3><font face="'Jeju Gothic', serif">소통의 장</font>
+                    <small>chatting</small>
+                </h3>
+                 <%}else if("MANAGER".equals(user.getRole())){ %>
+                     <input type= "image" class="img-circle img-responsive img-center margin4" src="static/images/1413907570_open-box.png" onClick="top.location.href='expressList.do'">
+                    
+                <h3><font face="'Jeju Gothic', serif">택배</font>
+                    <small>express</small>
+                </h3>
+               <%}} %>
+=======
                 <img class="img-circle img-responsive img-center" src="static/images/1413905006_film.png" onClick="top.location.href='cctv_client.do'">
                   <h3>CCTV
                     <small>Job Title</small>
@@ -147,6 +216,7 @@
                     <small>Job Title</small>
                 </h3>
                 <p>What does this team member to? Keep it short! This is also a great spot for social links!</p>
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
             </div>
         </div><br><br>
         

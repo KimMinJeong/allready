@@ -27,14 +27,30 @@
 
       
    <div class="navbar navbar-fixed-top font-style">
+<<<<<<< HEAD
+      <div class="container font-style">   
+        <div class="navbar-collapse collapse font-style" id="navbar-main">
+          <ul class="nav navbar-nav font-style">
+=======
       <div class="container">   
         <div class="navbar-collapse collapse" id="navbar-main">
           <ul class="nav navbar-nav">
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
                  <%
                         if(vo != null){
                            if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
                      %> 
                   
+<<<<<<< HEAD
+                     <li class="active"><a href="main.do"><font size="4" face="'Jeju Gothic', serif;">Home</font></a></li>
+                     <li><a href="cctv_client.do"><font size="4" face="'Jeju Gothic', serif;">CCTV</font></a></li>
+                     <li><a href="user_parking.do"><font size="4" face="'Jeju Gothic', serif;">주차장</font></a></li>
+                     <li><a href="user_tax.do"><font size="4" face="'Jeju Gothic', serif;">관리세</font></a></li>
+                     <li><a href="noticeBoard.do"><font size="4" face="'Jeju Gothic', serif;">게시판</font></a></li>
+                     <li><a href="user_visitor.do"><font size="4" face="'Jeju Gothic', serif;">방문객</font></a></li>
+                     <li><a href="chat_server.do"><font size="4" face="'Jeju Gothic', serif;">소통의 장</font></a></li>
+                     <li><a href="user_detail.do"><font size="4" face="'Jeju Gothic', serif;">설정</font></a></li>
+=======
                      <li class="active"><a href="main.do">Home</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
                      <li><a href="user_parking.do">주차장</a></li>
@@ -43,12 +59,23 @@
                      <li><a href="user_visitor.do">방문객</a></li>
                      <li><a href="chat_server.do">소통의 장</a></li>
                      <li><a href="user_detail.do">설정</a></li>
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
                   
                      
                      <%
                         } else if("MANAGER".equals(vo.getRole())){  //로그인 사용자가 manager
                      %>
                   
+<<<<<<< HEAD
+                     <li class="active"><a href="main.do"><font size="4">Home</font></a></li>
+                     <li><a href="cctv_client.do"><font size="4">CCTV</font></a></li>
+                     <li><a href="user_parking.do"><font size="4">주차장</font></a></li>
+                     <li><a href="noticeBoard.do"><font size="4">게시판</font></a></li>
+                     <li><a href="manage_visitor.do"><font size="4">방문일지</font></a></li>
+                     <li><a href="user_tax.do"><font size="4">전체관리세</font></a></li>
+                     <li><a href="expressList.do"><font size="4">택배관리</font></a></li>
+                     <li><a href="manage_detail.do"><font size="4">설정</font></a></li>
+=======
                      <li class="active"><a href="main.do">Home</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
                      <li><a href="user_parking.do">주차장</a></li>
@@ -57,6 +84,7 @@
                      <li><a href="user_tax.do">전체관리세</a></li>
                      <li><a href="expressList.do">택배관리</a></li>
                      <li><a href="manage_detail.do">설정</a></li>
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
                   
                      
                      <%
@@ -66,8 +94,13 @@
           </ul>
 
           <ul class="nav navbar-nav navbar-right">
+<<<<<<< HEAD
+            <li><a href="logout.do" target="_blank"><font size="5">logout</font></a></li>
+            <li><a href="#" target="_blank"><font size="5">ㅡㅡ^</font></a></li>
+=======
             <li><a href="logout.do" target="_blank">logout</a></li>
             <li><a href="https://wrapbootstrap.com/?ref=bsw" target="_blank">WrapBootstrap</a></li>
+>>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
           </ul>
 
         </div>
