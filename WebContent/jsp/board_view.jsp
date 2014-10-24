@@ -23,7 +23,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 			
 			<!-- sidebar -->

@@ -171,8 +171,23 @@ public class BoardController {
     }
 
     @RequestMapping("/updateBoard.do") 
-    public String updateBoard(BoardVO board){
-    	System.out.println("update");
+    public String updateBoard(int board_no, String title, String contents, String anonymous, String closed){
+    
+    	BoardVO board = new BoardVO();
+    	
+    	board.setBoard_no(board_no);
+    	board.setTitle(title);
+    	board.setContents(contents);
+   
+    	if (anonymous == null) 
+            board.setAnonymous("IDENTIFIED");
+        else 
+            board.setAnonymous(anonymous);
+        if (closed == null) 
+            board.setClosed("OPEN");
+        else 
+            board.setClosed(closed);
+    	
         boardService.updateBoard(board);
     
         return "redirect:/noticeBoard.do";

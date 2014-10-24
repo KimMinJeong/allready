@@ -8,4 +8,6 @@ public interface ParkingDAO {
     public int getFloorCount(String floor);
     public int getParkCount();
     public int getSectionCount(ParkingVO parking);
+    public int getAllFloor(String floor);
+    public int getAllSection(ParkingVO parking);
 }

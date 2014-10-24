@@ -25,17 +25,19 @@
 			</div> <br>
 
 			<div class="col-xs-12 col-sm-9">
+			<div class="margin3">
 				<a href="parking.do?floor='B1'&section='A'">
-				<img src="images/A.png" height="300" width="300" class="img-rounded"></a>
+				<img src="static/images/A.png" height="300" width="300" class="img-rounded"></a>
 				
 				<a href="#">
-				<img src="images/B.jpg" height="300" width="300"class="img-rounded" onclick="#"></a><br> 
+				<img src="static/images/B.png" height="300" width="300"class="img-rounded" onclick="#"></a><br> 
 				
 				<a href="#">
-				<img src="images/C.jpg" height="300" width="300" class="img-rounded" onclick="#"></a> 
+				<img src="static/images/C.png" height="300" width="300" class="img-rounded" onclick="#"></a> 
 				
 				<a href="#">
-				<img src="images/D.jpg" height="300" width="300" class="img-rounded" onclick="#"></a><br>
+				<img src="static/images/D.png" height="300" width="300" class="img-rounded" onclick="#"></a><br>
+			</div>
 			</div>
 		</div>
 	</div>

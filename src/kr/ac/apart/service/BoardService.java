@@ -21,7 +21,3 @@ public interface BoardService {
 	public int getRowNum(String category);
 }
 
-
-
-
-

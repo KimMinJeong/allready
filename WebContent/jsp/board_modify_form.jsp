@@ -15,7 +15,7 @@
 </head>
 
 <body>
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 			
 			<!-- sidebar -->
@@ -38,7 +38,6 @@
 				
 				<div class="col-sm-10">
 					<input type="text" class="form-control input-text-style title " id="board_title" name="title" value="<%=vo.getTitle()%>"> <br>
-							
 					<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 					<script type="text/javascript">
 						//<![CDATA[
@@ -48,7 +47,6 @@
 						//]]>
 					</script>
 					<textarea name="contents" rows="15%" id="board_textarea"><%=vo.getContents()%></textarea> <br><br>
-
 				<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
 					<input type="checkbox" name="anonymous" class="checkbox inline" />
 					<span class="text inline" id="anonymous_select">익명</span> 

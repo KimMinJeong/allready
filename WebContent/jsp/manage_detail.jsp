@@ -17,7 +17,7 @@
 </head>
 
 <body>
-	<div class="container" style="margin-top: 4%">
+	<div class="container font-style" style="margin-top: 4%">
 		<div class="col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>
 			<%

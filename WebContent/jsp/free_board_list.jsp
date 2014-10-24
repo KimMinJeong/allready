@@ -24,16 +24,15 @@
 
 		<!-- Nav tabs -->
 	</div>
-
-	<div class="container">
+	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
 			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
-					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
-					<li><a href="complainBoard.do">민원 게시판</a></li>
-					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
+					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
+					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
+					<li><a href="freeBoard.do"><font face="'Jeju Gothic', serif" size="4">자유자유</font></a></li>
 				</ul>
 			</div>
 			<%

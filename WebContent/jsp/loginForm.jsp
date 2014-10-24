@@ -66,28 +66,31 @@
 <script type="text/javascript">
 	$('#id_alert').hide();
 
-	function UserIdCheck() {
-		var User_Array = new Array();
-		var user_id = $('#user_id').val();
-		var db_user_id = $('#List_user_id').val();
-
-		db_user_id = db_user_id.replace(/,/g, []);
-		db_user_id = db_user_id.replace("[", "");
-		db_user_id = db_user_id.replace("]", "");
-
-		User_Array = db_user_id.split(' ');
-
-		for ( var i = 0; i <= User_Array.length; i++) {
-
-			if (user_id === User_Array[i]) {
-				return true;
-			} else if (user_id != User_Array[i]) {
-				$("strong").text("아이디가 존재하지 않습니다.");
-				$('#id_alert').show();
-			}
+function UserIdCheck(){
+	$('#id_alert').hide();
+	
+	var User_Array = new Array();
+	var user_id = $('#user_id').val();
+	var db_user_id = $('#List_user_id').val();
+	
+	db_user_id = db_user_id.replace(/,/g, []);
+	db_user_id=db_user_id.replace("[","");
+	db_user_id=db_user_id.replace("]","");
+	
+	User_Array = db_user_id.split(' ');
+	
+	for(var i=0;i<=User_Array.length;i++){
+		
+		if(user_id===User_Array[i]){
+			$('#id_alert').hide();
+			return true;
 		}
-		$('#id_alert').hide();
-		return false;
-	};
+		else if(user_id!=User_Array[i]){
+			$("strong").text("아이디가 존재하지 않습니다.");
+			$('#id_alert').show();
+		}
+	}
+	return false;
+};
 </script>
 </html>
