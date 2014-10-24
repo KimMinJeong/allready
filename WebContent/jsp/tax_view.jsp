@@ -14,17 +14,14 @@
 <script src="static/js/jquery-1.11.1.js"></script>
 
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
-<link href="static/css/style.css" rel="stylesheet" type="text/css">s
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
 </head>
 <%
 	TaxVO tax_vo = (TaxVO)request.getAttribute("tax_vo");
 	List<TaxVO> taxList = (List<TaxVO>)request.getAttribute("taxList");
 %>
 <body>
-<<<<<<< HEAD
 <div class="container font-style">
-=======
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
 	<p>사용자</p>
 	<div><%=tax_vo.getUser_id() %></div>
 	<p>년도</p>
@@ -41,7 +38,7 @@
 	<div><%=tax_vo.getHeating_tax() %></div>
 	<p>인터넷비용</p>
 	<div><%=tax_vo.getInternet_tax() %></div>
-	
+</div>
 	<table id="table-custom-sort" data-height="299" data-sort-order="desc">
     <thead>
 	    <tr>

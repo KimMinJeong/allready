@@ -52,13 +52,15 @@ public class UserController {
         
     	if(vo != null){
     		String user_id = vo.getUser_id();
-    		UserVO user=userService.getOne(user_id);
+    		UserVO user = userService.getOne(user_id);
+    		
     		session.setAttribute("UserFlag", user);
     		mav.setViewName("webTemplete.jsp?nextPage=user_main");
     	}
     	else
-    		mav.setViewName("emptyLoginSession");
-    	
+    	{
+    		mav.setViewName("AlertPage");
+    	}
     	mav.addObject("getNoticeList", list);
     	
     	return mav;

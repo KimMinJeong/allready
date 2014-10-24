@@ -14,11 +14,8 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<<<<<<< HEAD
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
-=======
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
->>>>>>> 1e37c7456117a7bed2107b809b36f8437d99e8ce
+
 </head>
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
