@@ -24,7 +24,7 @@
 <!-- 		<button type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button> -->
 <!-- 	</div> -->
 	<div class="container font-style" style="margin-top: 4%">
-		<div class="col-xs-8 col-md-offset-3 col-md-6">
+		<div class="col-xs-12 col-md-offset-3 col-md-6">
 			<h1 align="center" >상세정보 기입란</h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
@@ -98,7 +98,7 @@
 					</tbody>
 				</table>
 
-				<div class="col-md-offset-10 col-md-2">
+				<div class="col-xs-2 col-md-offset-10 col-md-2">
 					<button type="submit" class="btn button-style" id="modifyUser">Submit</button>
 				</div>
 			</form>

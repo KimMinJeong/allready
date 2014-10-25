@@ -20,7 +20,7 @@
 
 <body>
 	<div class="container font-style" style="margin-top: 4%">
-		<div class="col-xs-8 col-md-offset-3 col-md-6">
+		<div class="col-xs-12 col-md-offset-3 col-md-6">
 			<h1 align="center">상세정보 기입란</h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
