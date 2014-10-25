@@ -38,7 +38,7 @@
 					<%
 						if ("NORMAL".equals(userVO.getRole())) {   //로그인한 사용자의 role이 normal일경우
 					%>
-					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
+					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do?category=complain'">글작성</button>
 					<%
 						}
 					%>
@@ -62,7 +62,7 @@
 						<%
 							int currentPage = (Integer) request.getAttribute("page");  //현재page, 기본값은 0
 							int countComplainBoard = (Integer) request.getAttribute("rowNum");  //현재 complainboard의 row수
-			
+							
 							List<BoardVO> BoardList = (List<BoardVO>) request.getAttribute("list");
 							UserVO user_id = (UserVO) session.getAttribute("UserFlag");
 							int rowNum = (Integer) request.getAttribute("rowNum") + 1 - currentPage;

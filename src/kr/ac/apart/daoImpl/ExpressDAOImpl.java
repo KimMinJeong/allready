@@ -16,7 +16,7 @@ public class ExpressDAOImpl implements ExpressDAO{
 	SqlMapClientTemplate sqlMapClientTemplate;
 	
 	@Override
-	public void addExpress(ExpressVO vo){
+	public void addExpress(ExpressVO vo) throws Exception{
 		sqlMapClientTemplate.insert("addExpress", vo);
 	}
 

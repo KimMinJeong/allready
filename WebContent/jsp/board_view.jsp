@@ -73,7 +73,7 @@
 					</a> 
 					
 					<a href="deleteBoard.do?board_no=<%=board_vo.getBoard_no()%>&board_category=<%=board_vo.getCategory()%>">
-						<button type="button" class="btn btn-default navbar-btn">삭제</button>
+						<button type="button" class="btn btn-default navbar-btn" id="deleteButton">삭제</button>
 					</a> 
 				</div>
 				<%
@@ -226,6 +226,16 @@
 				alert("error!");
 			}
 		});
+	});
+	
+
+	$("#deleteButton").on('click', function(){
+		againCheck = confirm("정말 삭제하시겠습니까?");
+		if(againCheck == true)
+		{
+			document.form.submit();
+		}else
+			return false;
 	});
 </script>
 </html>

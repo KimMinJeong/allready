@@ -9,8 +9,10 @@ import javax.servlet.http.HttpSession;
 import kr.ac.apart.service.ExpressService;
 import kr.ac.apart.service.UserService;
 import kr.ac.apart.vo.ExpressVO;
+import kr.ac.apart.vo.Manager_DongVO;
 import kr.ac.apart.vo.UserVO;
 
+import org.apache.jasper.tagplugins.jstl.core.ForEach;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -35,8 +37,12 @@ public class ExpressController {
 	@RequestMapping(value="/addExpress.do")
 	public String addExpress(String userDong, String userNo, String orderer, String express_company){
 		String user_id = userDong + userNo;
-
-		expressService.addExpress(user_id, orderer, express_company);
+		
+		try {
+			expressService.addExpress(user_id, orderer, express_company);
+		} catch (Exception e) {
+			return "NullToParentKey";
+		}
 		
 		UserVO user=new UserVO();
 		
@@ -46,11 +52,22 @@ public class ExpressController {
 		return "redirect:/expressList.do";
 	}
 	
+	@SuppressWarnings("unused")
 	@RequestMapping(value="/expressList.do")
 	public ModelAndView getExpressList(HttpSession session, HttpServletRequest request, HttpServletResponse response){
 		ModelAndView mav = new ModelAndView();
 		UserVO vo = (UserVO) session.getAttribute("UserFlag");
-        
+		List<Manager_DongVO> dongList=(List<Manager_DongVO>) userService.getManagerDong(vo.getUser_id());
+		Manager_DongVO commandDong=new Manager_DongVO();
+		for(int i=0;i<dongList.size();i++){
+			commandDong=dongList.get(i);
+		}
+		if(commandDong.getDong()==null){
+			mav.addObject("commandDongList", null);
+		}else{
+			mav.addObject("commandDongList", dongList);
+		}
+		
     	if(vo == null){
     		mav.setViewName("emptyLoginSession");
     	}

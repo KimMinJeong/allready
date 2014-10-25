@@ -31,7 +31,7 @@
 			<form action="updateBoard.do">
 				<div class="col-sm-2">
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
-					<select disabled class="form-control input-text-style">
+					<select name="category" class="form-control input-text-style">
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
 					</select>
 				</div> <br><br>
@@ -54,7 +54,8 @@
 					<input type="checkbox" name="closed" class="checkbox inline" /> 
 					<span class="text inline" id="secret_select">비밀글</span>
 					
-					<button type="submit" class="btn button-style">등록</button>
+					<button type="submit" id="modiBoard" class="btn button-style">등록</button>
+					<button type="button" class="btn button-style" id="cancleButton">취소</button>
 				</div>
 				</div>
 			</form>
@@ -69,5 +70,22 @@
 	if (select_var == 'free') {
 		select_var = '자유';
 	}
+	
+	$("#cancleButton").on('click', function(){
+		againCheck = confirm("정말 취소하시겠습니까?");
+		if(againCheck == true)
+		{
+			location.href="javascript:history.back()";
+		}else
+			return false;
+	});
+	
+	$("#modiBoard").on('click', function(){
+		if($("#board_title").val()==""){
+			alert("제목을 입력해주세요");
+			$("#board_title").focus();
+			return false;
+		}
+	});
 </script>
 </html>
