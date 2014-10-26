@@ -14,7 +14,7 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
@@ -98,7 +98,7 @@
 				</table>
 
 				<div class="col-xs-2 col-md-offset-10 col-md-2">
-					<button type="submit" class="btn button-style" id="modifyUser">Submit</button>
+					<button type="submit" class="btn button-style" id="modifyUser">저장</button>
 				</div>
 			</form>
 		</div>

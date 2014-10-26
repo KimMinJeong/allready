@@ -10,7 +10,7 @@
 <!-- Bootstrap core CSS -->
 <link href="static/css/bootstrap.css" rel="stylesheet">
 <link href="static/css/bootstrap.min.css" rel="stylesheet" media="screen">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 260px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -30,7 +30,7 @@
                         if(vo != null){
                            if("NORMAL".equals(vo.getRole())){   //로그인 사용자가 normal
                      %>       
-                     <li class="active"><a href="main.do">Home</a></li>
+                     <li class="active"><a href="main.do">HOME</a></li>
                      <li><a href="cctv_client.do">CCTV</a></li>
                      <li><a href="user_parking.do">주차장</a></li>
                      <li><a href="user_tax.do">관리세</a></li>
@@ -38,6 +38,7 @@
                      <li><a href="user_visitor.do">방문객</a></li>
                      <li><a href="chat_server.do">소통의 장</a></li>
                      <li><a href="user_detail.do">설정</a></li>
+                     <li><a href="logout.do">로그아웃</a></li>
                   
                      
                      <%
@@ -52,11 +53,12 @@
                      <li><a href="user_tax.do">전체관리세</a></li>
                      <li><a href="expressList.do">택배관리</a></li>
                      <li><a href="manage_detail.do">설정</a></li>
+                     <li><a href="logout.do">로그아웃</a></li>
                      <%
                         }
                      }
                      %>
-                     <li><a href="logout.do" target="_blank">logout</a></li>
+                     
           </ul>
         </div>
     </nav>

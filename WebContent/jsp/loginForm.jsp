@@ -15,7 +15,7 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <link href="static/css/stylish-portfolio.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 <%
@@ -25,7 +25,7 @@
 <body>
 	<header id="top" class="header">
 	<div class="text-vertical-center">
-		<h1>BETWEEN APARTMENT</h1>
+		<h1 id="main_font">BETWEEN APARTMENT</h1>
 		
 		<div class="alert alert-danger alert-dismissible" id="id_alert" role="alert">
 			<button type="button" class="close" data-dismiss="alert">
@@ -50,10 +50,10 @@
 	
 	<div id="about" class="about">
 		<div class="col-xs-12 col-md-12 text-center">
-			<h2>Between Apartment System</h2>
-			<p class="lead">
+			<h2 id="main_font2">Between Apartment System</h2>
+			<p class="lead" id="main_font3">
 				This is Smart Building 
-				<a target="_blank" href="#">ⓒAllready Inc. All rights reseved</a>.
+				<a href="#">ⓒAllready Inc. All rights reserved</a>.
 			</p>
 		</div>
 	</div>

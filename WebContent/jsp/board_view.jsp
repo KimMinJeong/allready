@@ -14,7 +14,7 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 
 <title>Insert title here</title>
@@ -28,17 +28,25 @@
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 			<!-- sidebar -->
-			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas board_sidebar" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
 					<li><a href="complainBoard.do">민원 게시판</a></li>
 					<li><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
 			</div>
+			
+			<div class="col-xs-12 col-md-3" id="mobile_board_bar">
+				<div class="navbar-form navbar-left" role="search">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="noticeBoard.do">공지게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="complainBoard.do">민원게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="freeBoard.do">자유게시판</a>&nbsp;&nbsp;
+				</div>
+			</div>
 
 			<!-- main area -->
 			<div class="col-xs-12 col-md-9">
-				<%-- 				<% if(user_vo.getRole().equals("NORMAL") && "")  %> --%>
 				<input type="button" class="btn btn-info btn-sm" value="글쓰기" onClick="location.href='boardWriteForm.do'">
 				<%
 					if("notice".equals(board_vo.getCategory())){

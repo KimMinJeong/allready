@@ -17,13 +17,9 @@ line-height: 1.42857143;
 color: #555555;
 background-color: #ffffff;
 }
-.body{
+.body .body-style{
    background-color: #FFFFFF;
    color:#888888;
-}
-.body-style{
-	background-color: #FFFFFF;
-	color:#888888;
 }
 .button-style{
 	background-color: #888888;
@@ -43,6 +39,10 @@ background-color: #ffffff;
 	width:85%;
 	font-size: 30px;
 }
+.title{
+	font-size: 16px;
+	width:85%;
+}
 #board_textarea{
 	width:85%;
 	height:300px;
@@ -61,9 +61,7 @@ background-color: #ffffff;
 	width: 350px;
 	height: 200px;
 }
-#sidebar{
-	width: 15%;
-}
+
 .clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
 clear: both;
 }
@@ -81,8 +79,8 @@ box-sizing: border-box;
 box-color : #B2E6E5;
 }
 .cctv_frame{ 
-	width :400px;
-	height :300px;
+	width :290px;
+	height :250px;
 	display: inline;
 }
 
@@ -142,19 +140,7 @@ font-size: 10px;
 .strong{
 	font-weight : bold;
 }
-.navbar {
-background-color: #A3E1E0;
-filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
-border-bottom: 5px solid #A3E1E0;
--webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
-border-radius: 4px;
-position: relative;
-min-height: 80px;
-margin-bottom: 60px;
-margin-top:30;
-font-family: 'Jeju Gothic', serif;﻿
-}
+
 
 .navbar-fixed-bottom {
 border-radius: 0;
@@ -234,12 +220,9 @@ transform: translate3d(0, 0, 0);
 	margin: 0 auto;
 	font-size: 11px;
 }
-
-
 .strong{
 	font-weight : bold;
 }
-
 table tbody{
    background-color: #FFFFFF;
    color:#888888;
@@ -281,7 +264,56 @@ display: block;
 	background: #66cdcc;
 	border-color: #66cdcc;
 }
-@media only screen and (min-width: 260px) and (max-width: 768px){
+@media only screen and (min-width: 300px) and (max-width: 768px){
+	#main_font{
+		font-size: 40px;
+	}
+	#main_font2{
+		font-size: 15px;
+	}
+	#main_font3{
+		font-size: 13px;
+	}
+	.board_sidebar{
+		display: none;
+	}
+	#board_table{
+		margin-top: 10px;
+	}
+
+	#chatting{
+		width : 80%;
+		height : 70%;
+	}
+	.cctv_sidebar{
+		display: none;
+	}
+	#sidebar {
+		width: 100%;
+		font-size: 15px;
+	}
+	.navbar {
+		background-color: #A3E1E0;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
+		border-bottom: 5px solid #A3E1E0;
+		-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		position: relative;
+		min-height: 60px;
+		margin-top:0px;
+		font-family: 'Jeju Gothic', serif;﻿
+	}
+	#navbar ul{
+		width: 100%;
+	}
+	#navbar ul li{
+		display: table-cell;
+		font-size: 16px;
+	}
+	#navbar ul li a{
+			content: 'Parking';
+		} 
 	#main_img{
 		width: 100px;
 		height: 100px;
@@ -290,34 +322,66 @@ display: block;
 		width:20px;
 		height:20px;
 	}
-	#chatting{
-		width : 80%;
-		height : 70%;
+	#mobile_bar{
+		margin-top: -30px;
+	}
+	#mobile_board_bar{
+		margin-top: -30px;
+		margin-bottom: -25px;
+		font-size: 15px;
+	}
+	#free_board_bar{
+		margin-bottom: -20px;
 	}
 	#parking_img{
-		width : 120px;
-		height: 120px;
+		width : 84px;
+		height: 84px;
 	}
 	#parking_section{
 		margin-left: 10%;
 	}
-	#navbar ul li{
-		width: 5%;
-		display: table-cell;
-		font-size: 16px;
+	.parking_sidebar{
+		display: none;
 	}
+	#visitor_submit_btn{
+		margin-top: 10px;
+	}
+	
+	
 }
 @media only screen and (min-width: 768px){
-	#message_img{
-		width:50px;
-		height:50px;
-	}
 	#chatting{
 		width : 80%;
 		height : 70%;
+	}
+	#sidebar{
+		width: 15%;
+		font-size: 20px;
+	}
+	.navbar {
+		background-color: #A3E1E0;
+		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
+		border-bottom: 5px solid #A3E1E0;
+		-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
+		border-radius: 4px;
+		position: relative;
+		min-height: 80px;
+		margin-bottom: 60px;
+		margin-top:30;
+		font-family: 'Jeju Gothic', serif;
+		font-size: 20px;
+	}
+	#message_img{
+		width:50px;
+		height:50px;
 	}
 	#parking_img{
 		width :300px;
 		height: 300px;
 	}
+	#mobile_bar, #mobile_board_bar{
+		display: none;
+	}
+	
 }

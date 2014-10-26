@@ -11,7 +11,7 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
@@ -21,7 +21,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-12 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-4 col-md-3 sidebar-offcanvas cctv_sidebar" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="#">입구</a></li>
 					<li><a href="#">놀이터</a></li>
@@ -29,11 +29,19 @@
 					<li><a href="#">후문</a></li>
 				</ul>
 			</div>
+			<div class="col-xs-12 col-md-3" id="mobile_bar">
+				<div class="navbar-form navbar-left" role="search">
+				  <a href="#">입구</a>&nbsp;&nbsp;
+				  <a href="#">놀이터</a>&nbsp;&nbsp;
+				  <a href="#">정문</a>&nbsp;&nbsp;
+				  <a href="#">후문</a>
+				</div>
+			</div>
 		
 			<div class="col-xs-12 col-md-4"> 
 				<iframe class="cctv_frame" src="http://192.168.123.129:8000/cctv01" scrolling="no"></iframe>
 			</div>
-
+			
 			<div class="col-xs-12 col-md-4 col-md-offset-1"> 
 				<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
 				<iframe class="cctv_frame" src="http://192.168.123.129:8001/cctv02" scrolling="no"></iframe>

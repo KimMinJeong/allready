@@ -15,7 +15,7 @@
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
 <link href="static/css/stylish-portfolio.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
 <link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <script src="js/jquery.prettyPhoto.js"></script>
 <script src="js/jquery.isotope.min.js"></script>
@@ -140,8 +140,8 @@
         </div><br>
      </div>
 	<div class="navbar-fixed-bottom"><center>
-		<h2>Between Apartment System</h2>
-        <p class="lead">This is Smart Building <a target="_blank" href="#">ⓒAllready Inc. All rights reseved</a>.</p></center>
+		<h2 id="main_font2">Between Apartment System</h2>
+        <p class="lead" id="main_font3">This is Smart Building<a href="#">ⓒAllready Inc. All rights reserved</a>.</p></center>
 	</div>
 </body>
 </html>
