@@ -21,9 +21,9 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar">
 				<ul class="nav">
-					<li class="active">B1</li>
-					<li>B2</li>
-					<li>B3</li>
+					<li class="active"><a href="#"><font size="8">B1</font><br><font size="3"><%=request.getAttribute("B1") %></font></a></li>
+					<li><a href="#"><font size="8">B2</font><br><font size="3"><%=request.getAttribute("B2") %></font></a></li>
+					<li><a href="#"><font size="8">B3</font><br><font size="3"><%=request.getAttribute("B3") %></font></a></li>
 				</ul>
 			</div>
 
@@ -74,18 +74,18 @@
 
    if(isfull1 == "FULL"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-            "background-color", "red");
+            "background-color", "#f39192");
    } else if(isfull1 == "EMPTY"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-            "background-color", "blue");
+            "background-color", "#888888");
    }
    
 	if (isfull2 == "FULL") {
 		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
-				"background-color", "red");
+				"background-color", "#f39192");
 	} else if (isfull2 == "EMPTY") {
 		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
-				"background-color", "blue");
+				"background-color", "#888888");
 	}
 
 	function start() {

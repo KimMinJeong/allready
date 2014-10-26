@@ -20,16 +20,15 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			<div class="col-xs-4 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation"> <br><br>
 				<ul class="nav">
-					<li class="active"><a href="#"><font size="4">B1</font></a></li>
-					<li><a href="#"><font size="4">B2</font></a></li>
-					<li><a href="#"><font size="4">B3</font></a></li>
+					<li class="active"><a href="#"><font size="8">B1</font><br><font size="3"><%=request.getAttribute("B1") %></font></a></li>
+					<li><a href="#"><font size="8">B2</font><br><font size="3"><%=request.getAttribute("B2") %></font></a></li>
+					<li><a href="#"><font size="8">B3</font><br><font size="3"><%=request.getAttribute("B3") %></font></a></li>
 				</ul>
 			</div> <br>
 
 			<div class="col-xs-8 col-md-4" id="parking_section">
 				<a href="parking.do?floor='B1'&section='A'">
-				<img src="static/images/A.png" id="parking_img" class="img-rounded"></a>
-				
+				<img src="static/images/A.png" id="parking_img" class="img-rounded"></a>	
 				<a href="#">
 				<img src="static/images/C.png" id="parking_img" class="img-rounded" onclick="#"></a> 
 			</div>

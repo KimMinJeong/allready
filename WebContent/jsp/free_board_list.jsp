@@ -37,12 +37,11 @@
 				<%
 					if ("NORMAL".equals(userVO.getRole())) {
 				%>
-				<div align="right">
-					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
-				</div>
+					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do?category=free'">글작성</button>
 				<%
 					}
 				%>
+				</div>
 				<div class="panel panel-default">
 
 					<!-- Default panel contents -->
@@ -70,7 +69,6 @@
 							int rowNum = (Integer) request.getAttribute("rowNum") + 1 - currentPage;
 
 							for (BoardVO vo : BoardList) {
-								int board_no = vo.getBoard_no();
 								rowNum--;
 
 								if ("CLOSED".equals(vo.getClosed())) {

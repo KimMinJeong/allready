@@ -24,14 +24,28 @@ public class ParkingController {
 	
 	
 	@RequestMapping(value="/user_parking.do")
-	public String user_parking(HttpSession session){
+	public ModelAndView user_parking(HttpSession session){
+		ModelAndView mav=new ModelAndView();
 		UserVO vo = (UserVO) session.getAttribute("UserFlag");
-        
+		String B1, B2, B3;
+        try {
+			B1=parkingService.getFloorCount("B1");
+			B2=parkingService.getFloorCount("B2");
+			B3=parkingService.getFloorCount("B3");
+			mav.addObject("B1", B1);
+			mav.addObject("B2", B2);
+			mav.addObject("B3", B3);
+		} catch (Exception e) {
+			mav.setViewName("NoPage");
+			return mav;
+		}
     	if(vo == null){
-    		return "emptyLoginSession";
+    		mav.setViewName("emptyLoginSession");
+    		return mav;
     	}
     	else{
-    		return "webTemplete.jsp?nextPage=user_parking";
+    		mav.setViewName("webTemplete.jsp?nextPage=user_parking");
+    		return mav;
     	}
 	}
 	
@@ -39,6 +53,7 @@ public class ParkingController {
 	public ModelAndView parking(String floor, String section){
 		ArduinoProcessing.isfull1=null;
 		ArduinoProcessing.isfull2=null;
+		String B1, B2, B3;
 		frame.check();
 		
 		while(ArduinoProcessing.isfull1==null){}
@@ -68,7 +83,7 @@ public class ParkingController {
 		pv2.setFloor(floor);
 		pv2.setSection(section);
 		pv2.setParking_lot(parking_lot);
-		pv2.setIsfull(full1);
+		pv2.setIsfull(full2);
 		
 		try {
 			parkingService.updateParking(pv1);
@@ -76,9 +91,20 @@ public class ParkingController {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+        try {
+			B1=parkingService.getFloorCount("B1");
+			B2=parkingService.getFloorCount("B2");
+			B3=parkingService.getFloorCount("B3");
+			mav.addObject("B1", B1);
+			mav.addObject("B2", B2);
+			mav.addObject("B3", B3);
+		} catch (Exception e) {
+			mav.setViewName("NoPage");
+			return mav;
+		}
 		mav.addObject("isfull1", full1);
 		mav.addObject("isfull2", full2);
+		
 		
 		return mav;
 	}
