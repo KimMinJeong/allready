@@ -12,9 +12,8 @@
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
-
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body> <br>
@@ -42,12 +41,11 @@
 							<td>A1</td>
 							<td>A2</td>
 							<td>A3</td>
-							<td>A4</td>
 							<td></td>
 							<td>B1</td>
 							<td>B2</td>
 							<td>B3</td>
-							<td>B4</td>
+						
 						</tr>
 						
 						<tr>
@@ -58,12 +56,10 @@
 							<td>C1</td>
 							<td>C2</td>
 							<td>C3</td>
-							<td>C4</td>
 							<td></td>
 							<td>D1</td>
 							<td>D2</td>
 							<td>D3</td>
-							<td>D4</td>
 						</tr>
 					</table>
 				</div>

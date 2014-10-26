@@ -14,9 +14,8 @@
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" type="text/css" href="style.css" media="only and min-width: 560px) and (max-width: 768px)" id="stylesheet-768" />
-<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px) and (max-device-width: 1200px)" id="stylesheet-1200" />
-
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 360px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <title>관리자_방문일지</title>
 </head>
 
@@ -34,15 +33,15 @@
 					<button type="submit" class="btn button-style" id="addVisitorManagerButton">입력</button>
 				</div>
 			</form>
-		</div> <br><br><br>
+		</div>
 		
 		<form class="navbar-form navbar-right">
 			<div class="form-group">
-				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
+				<input type="text" class="form-control input-text-style" placeholder="동/호수" size="20%" align="center" name="user_id" id="searchUserId">
 			</div>
 
 			<button type="button" class="btn button-style" id="searching">검색</button>
-		</form> <br><br>
+		</form>
 
 		<div class="col-xs-12 col-md-12">
 			<div class="panel panel-default">
