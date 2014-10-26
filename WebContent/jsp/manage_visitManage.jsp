@@ -25,7 +25,7 @@
 		<div class="navbar-form navbar-center">
 			<form action="addVisitorManager.do" class="navbar-form navbar-left" method="post">
 				<div class="form-group">
-					<input type="text" class="form-control input-text-style" placeholder="동/호수" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
+					<input type="text" class="form-control input-text-style" placeholder="동/호수 (예:101101)" size="19" id="user_id" name="user_id"> &nbsp;&nbsp;&nbsp;&nbsp; 
 					<input type="text"class="form-control input-text-style" placeholder="방문자 신분" size="19" id="visitor_name" name="visitor_name"> &nbsp;&nbsp;&nbsp;&nbsp; 
 					<input type="text" class="form-control input-text-style" placeholder="용무" size="48" id="business" name="business">&nbsp;
 

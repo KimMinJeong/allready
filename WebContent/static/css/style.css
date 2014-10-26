@@ -217,6 +217,13 @@ table tbody{
 	bgcolor : green;
 }
 #table1 #table2 tr > td{
+	color: white;
+	text-align:center;
+	font-size: 30px;
+	background-color: #888888;
+}
+#table2{
+	border-color: white;
 }
 user agent stylesheetdiv {
 display: block;
@@ -318,6 +325,3 @@ display: block;
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-height: 1200px) and (max-device-height: 1300px) and (orientation: portrait) {
  
 }
-
-
-

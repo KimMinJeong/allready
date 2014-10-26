@@ -27,4 +27,13 @@ public class ParkingServiceImpl implements ParkingService {
 	public void updateParking(ParkingVO pv){
 		parkingDao.updateIsFull(pv);
 	}
+
+	@Override
+	public String getFloorCount(String floor) throws Exception {
+		int AllCount=parkingDao.getAllFloor(floor);
+		int EmptyCount=parkingDao.getFloorCount(floor);
+		String EmptyByAll=EmptyCount+"/"+AllCount;
+		return EmptyByAll;
+	}
+	
 }
