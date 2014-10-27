@@ -39,8 +39,9 @@
 							<td>A1</td>
 							<td>A2</td>
 							<td>A3</td>
-							<td>A4</td>
-							<td>A5</td>
+							<td>A4<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
+							<td>A5<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
+							
 						</tr>
 						
 						<tr>
