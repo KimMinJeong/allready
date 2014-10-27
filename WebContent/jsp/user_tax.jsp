@@ -75,13 +75,13 @@
 		<br><br>
 		<%for (TaxVO vo : OneTax){%>
 			<tr>
- 				<td><%=vo.getYear()%></td> 
- 				<td><%=vo.getMonth()%></td>
- 				<td><%=vo.getBasic_tax()%></td>
- 				<td><%=vo.getElectric_tax()%></td>
- 				<td><%=vo.getWater_tax()%></td> 
-				<td><%=vo.getHeating_tax()%></td>
- 				<td><%=vo.getInternet_tax()%></td>
+ 				<td><center><%=vo.getYear()%></center></td> 
+ 				<td><center><%=vo.getMonth()%></center></td>
+ 				<td><center><%=vo.getBasic_tax()%></center></td>
+ 				<td><center><%=vo.getElectric_tax()%></center></td>
+ 				<td><center><%=vo.getWater_tax()%></center></td> 
+				<td><center><%=vo.getHeating_tax()%></center></td>
+ 				<td><center><%=vo.getInternet_tax()%></center></td>
 			</tr>
 		<%}%>
 	</table>

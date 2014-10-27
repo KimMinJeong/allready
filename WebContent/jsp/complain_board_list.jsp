@@ -25,12 +25,12 @@
 			<!-- sidebar -->
 			<div class="col-xs-6 col-md-3 sidebar-offcanvas board_sidebar" id="sidebar" role="navigation">
 				<ul class="nav">
-					<li class="active"><a href="noticeBoard.do">공지게시판</a></li>
-					<li><a href="complainBoard.do">민원게시판</a></li>
-					<li><a href="freeBoard.do">자유게시판</a></li>
+					<li class="active"><a href="noticeBoard.do">공지 게시판</a></li>
+					<li><a href="complainBoard.do">민원 게시판</a></li>
+					<li><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
 			</div>
-			
+			<div><br></div>
 			<div class="col-xs-12 col-md-3" id="mobile_board_bar">
 				<div class="navbar-form navbar-left" role="search">
 					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -47,8 +47,10 @@
 					%>
 					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do?category=complain'">글작성</button>
 					<%
-						}
+						}else{
 					%>
+					<br><br>
+					<%} %>
 				</div>
 
 				<div class="panel panel-default">
@@ -59,11 +61,11 @@
 					<table class="table table-bordered table-style">
 						<thead class="head">
 						<tr>
-							<th><center>번호</center></th>
-							<th><center>제목</center></th>
-							<th><center>작성자</center></th>
-							<th><center>날짜</center></th>
-							<th><center>조회수</center></th>
+							<th><center>No.</center></th>
+							<th id="th_board_title"><center>제목</center></th>
+							<th><center>ID</center></th>
+							<th id="th_board_date"><center>날짜</center></th>
+							<th><center>Click</center></th>
 						</tr>
 						</thead>
 						<%
@@ -171,7 +173,7 @@
 				<%} %>
 
 				<form action="search.do">
-					<div class="form-group col-sm-2">
+					<div class="form-group col-xs-12 col-md-2">
 						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
@@ -184,7 +186,7 @@
 						<input type="hidden" class="form-control" name="category" value="complain">
 					</div>
 
-					<button type="submit" class="btn button-style">검색</button>
+					<button type="submit" class="btn button-style" id="board_btn">검색</button>
 				</form>
 			</div>
 			<!-- /.col-xs-12 main -->
@@ -192,8 +194,6 @@
 		<!--/.row-->
 	</div>
 	<!--/.container-->
-	</div>
-	<!--/.page-container-->
 	<hr>
 </body>
 </html>

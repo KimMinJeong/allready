@@ -55,7 +55,10 @@ background-color: #ffffff;
 	margin-right: 2%;
 }
 #board_list_btn{
-	margin-left: 80%;
+	margin-left: 86%;
+}
+#board_list_btn2{
+	margin-left: 93%;
 }
 .button1 {
 	width: 350px;
@@ -64,14 +67,9 @@ background-color: #ffffff;
 
 .clearfix:after, .dl-horizontal dd:after, .container:after, .container-fluid:after, .row:after, .form-horizontal .form-group:after, .btn-toolbar:after, .btn-group-vertical > .btn-group:after, .nav:after, .navbar:after, .navbar-header:after, .navbar-collapse:after, .pager:after, .panel-body:after, .modal-footer:after {
 clear: both;
+
 }
-.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
-content: " ";
-display: table;
-margin-top:10;
-box-color : #B2E6E5;
-font-color: #A0CFCE;
-}
+
 *:before, *:after {
 -webkit-box-sizing: border-box;
 -moz-box-sizing: border-box;
@@ -183,9 +181,6 @@ transform: translate3d(0, 0, 0);
 .margin{
 	margin-left: 35%;
 }
-.margin2{
-	margin-left: 8%;
-}
 .margin3{
 	margin-left:16%;
 }
@@ -198,7 +193,9 @@ transform: translate3d(0, 0, 0);
 .margin6{
 	margin-top: 5%;
 }
-
+.margin7{
+   margin-left: 50%;
+}
 #location {
 	left: -86%
 }
@@ -228,9 +225,6 @@ table tbody{
    color:#888888;
 }
 
-.table-style{
-	border: 3px solid #5bb8b7;
-}
 #table1 #table2 #full_color{
 	bgcolor : red;
 }
@@ -265,22 +259,23 @@ display: block;
 	border-color: #66cdcc;
 }
 @media only screen and (min-width: 300px) and (max-width: 768px){
-	#main_font{
-		font-size: 40px;
-	}
-	#main_font2{
-		font-size: 15px;
-	}
-	#main_font3{
-		font-size: 13px;
-	}
 	.board_sidebar{
 		display: none;
 	}
 	#board_table{
 		margin-top: 10px;
+		font-size: 12px;
 	}
-
+	#board_btn{
+		margin-top: 5;
+		margin-left: 222;
+	}
+	#br{
+		display: none;
+	}
+	#board_write_btn{
+		margin-bottom: -30px;
+	}
 	#chatting{
 		width : 80%;
 		height : 70%;
@@ -295,14 +290,14 @@ display: block;
 	.navbar {
 		background-color: #A3E1E0;
 		filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff54b4eb', endColorstr='#ff1d9ce5', GradientType=0);
-		border-bottom: 5px solid #A3E1E0;
+		border-bottom:0px solid #A3E1E0;
 		-webkit-box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
 		box-shadow: 0 1px 0px rgba(0, 0, 0, 0.1);
 		border-radius: 4px;
 		position: relative;
-		min-height: 60px;
 		margin-top:0px;
-		font-family: 'Jeju Gothic', serif;﻿
+		font-family: 'Jeju Gothic', serif;
+		
 	}
 	#navbar ul{
 		width: 100%;
@@ -310,25 +305,51 @@ display: block;
 	#navbar ul li{
 		display: table-cell;
 		font-size: 16px;
+		padding-left: 2%;
 	}
 	#navbar ul li a{
 			content: 'Parking';
-		} 
+	}
+	#main_font{
+		font-size: 40px;
+	}
+	#main_font2{
+		font-size: 15px;
+	}
+	#main_font3{
+		font-size: 13px;
+	} 
 	#main_img{
 		width: 100px;
 		height: 100px;
 	}
 	#message_img{
-		width:20px;
-		height:20px;
+		width:40px;
+		height:40px;
 	}
 	#mobile_bar{
 		margin-top: -30px;
 	}
 	#mobile_board_bar{
 		margin-top: -30px;
-		margin-bottom: -25px;
-		font-size: 15px;
+		margin-bottom: -15px;
+		font-size: 14px;
+	}
+	#mobile_topmargin{
+		margin-top: 30px;
+	}
+	.table-style{
+		border: 3px solid #5bb8b7;
+		font-size: 11px;
+	}
+	#th_board_title{
+		width: 50%;
+	}
+	#th_board_date{
+		width : 60px;
+	}
+	#th_board_date2{
+		display: none;
 	}
 	#free_board_bar{
 		margin-bottom: -20px;
@@ -343,10 +364,37 @@ display: block;
 	.parking_sidebar{
 		display: none;
 	}
+	#postbox{
+		width: 60px;
+		height: 60px;
+		margin-top: 35px;
+	}
 	#visitor_submit_btn{
 		margin-top: 10px;
 	}
-	
+	.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+		content: " ";
+		display: table;
+		margin-top:10px;
+		box-color : #B2E6E5;
+		font-color: #A0CFCE;
+		margin-bottom: -4px;
+	}
+	#logout{
+		display: none;
+	}
+	#logout2{
+		margin-left :80%;
+		margin-top: -23px;
+	}
+	#setting_img{
+		margin-left : 70%;
+		width: 30px;
+		height: 30px;
+	}
+	#setting{
+		display: none;
+	}
 	
 }
 @media only screen and (min-width: 768px){
@@ -383,5 +431,30 @@ display: block;
 	#mobile_bar, #mobile_board_bar{
 		display: none;
 	}
-	
+	.table-style{
+	border: 3px solid #5bb8b7;
+	}
+	.clearfix:before, .clearfix:after, .dl-horizontal dd:before, .dl-horizontal dd:after, .container:before, .container:after, .container-fluid:before, .container-fluid:after, .row:before, .row:after, .form-horizontal .form-group:before, .form-horizontal .form-group:after, .btn-toolbar:before, .btn-toolbar:after, .btn-group-vertical > .btn-group:before, .btn-group-vertical > .btn-group:after, .nav:before, .nav:after, .navbar:before, .navbar:after, .navbar-header:before, .navbar-header:after, .navbar-collapse:before, .navbar-collapse:after, .pager:before, .pager:after, .panel-body:before, .panel-body:after, .modal-footer:before, .modal-footer:after {
+		content: " ";
+		display: table;
+		margin-top:10;
+		box-color : #B2E6E5;
+		font-color: #A0CFCE;
+	}
+	.margin2{
+		margin-left: 8%;
+	}
+	#postbox{
+		width: 200px;
+		height: 200px;
+	}
+	#message_img{
+		margin-left: 70px;
+	}
+	#logout2{
+		display: none;
+	}
+	#setting_img{
+		display: none;
+	}
 }

@@ -17,7 +17,7 @@ public class CommentsController{
 
     @RequestMapping(value="/addComments.do") 
     public @ResponseBody String addComments(int board_no, String writer_id, String contents){
-
+    	System.out.println("board_no="+board_no+", writer_id="+writer_id+", contents="+contents);
         commentsService.addComments(board_no, writer_id, contents);
 
         JSONObject obj = new JSONObject();

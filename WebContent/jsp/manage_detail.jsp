@@ -20,7 +20,7 @@
 <body>
 	<div class="container font-style" style="margin-top: 4%">
 		<div class="col-xs-12 col-md-offset-3 col-md-6">
-			<h1 align="center">상세정보 기입란</h1> <br><br>
+			<h1 align="center"><div class="font-style">상세정보 기입란</div></h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
 				List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");

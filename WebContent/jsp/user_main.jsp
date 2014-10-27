@@ -28,17 +28,19 @@
 %>
 <body>
 	<div class="container font-style">
+			<a href="manage_detail.do"><img src="static/images/1414436360_setting.png" id="setting_img"/></a>
+            <a href="logout.do"><p id="logout2">로그아웃</p></a>
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-12 col-md-10"> <br>
+			<div class="col-xs-9 col-md-9"> <br>
 			 <div class="panel panel-default margin5">
                <!-- Table -->
                <table class="table table-bordered table-style">
                   <thead class="head">
                   <tr>
-                     <th><center>번호</center></th>
-                     <th><center>제목</center></th>
-                     <th><center>작성자</center></th>
-                     <th><center>날짜</center></th>
+                     <th><center>No.</center></th>
+                     <th id="th_board_title"><center>제목</center></th>
+                     <th><center>ID</center></th>
+                     <th id="th_board_date2"><center>날짜</center></th>
                   </tr>
                   </thead>
                   <tbody id="body">
@@ -49,7 +51,7 @@
                               <td><center><%=vo.getBoard_no()%></center></td>
                               <td><a href="boardDetail.do?board_no=<%=vo.getBoard_no()%>"><center><%=vo.getTitle()%></center></a></td>
                               <td><center><%=vo.getWriter_id()%></center></td>
-                              <td><center><%=vo.getReg_date()%></center></td>
+                              <td id="th_board_date2"><center><%=vo.getReg_date()%></center></td>
                            </tr>
                         <%}
                      }
@@ -65,13 +67,14 @@
 			</div>
 
             <div class="row row-offcanvas row-offcanvas-right">
-                  <div class="col-xs-6 col-md-2">
+                  <div class="col-xs-3 col-md-2">
+                  <div id=""><img src="static/images/1414421105_MailBox.png" id="postbox"></div>
 						<div class="margin2" style="position: absolute">
 						<% if("NORMAL".equals(user.getRole())){
 							if("FALSE".equals(user.getExpress())){%>
-						<img src="../images/close_mail.png" width="50" height="50">
+						<img src="images/MessageOff.jpg" width="50" height="50" id="message_img">
 						<%}else if("TRUE".equals(user.getExpress())){%>		
-						<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img id="message_img" src="../images/opend_mail.png"></a>
+						<a href="checkExpress.do?user_id=<%=user.getUser_id()%>"><img id="message_img" src="static/images/1414421324_envelope.png" style="margin-left:99%;"></a>
 						<%} }%>
 					</div>
                </div>
