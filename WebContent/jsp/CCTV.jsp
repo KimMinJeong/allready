@@ -38,7 +38,7 @@
 				</div>
 			</div>
 		
-			<div class="col-xs-6 col-md-4"> 
+			<div class="col-xs-12 col-md-4"> 
 				<iframe class="cctv_frame" src="http://localhost:8000/cctv01" scrolling="no"></iframe>
 			</div>
 			
