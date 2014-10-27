@@ -40,7 +40,8 @@ public class TaxController {
 	private UserService userService;
 	
 
-    @RequestMapping(value="/user_tax.do")
+    @SuppressWarnings("unused")
+	@RequestMapping(value="/user_tax.do")
     public ModelAndView tax(HttpSession session) {
         ModelAndView mav = new ModelAndView();
         UserVO vo = (UserVO) session.getAttribute("UserFlag");
