@@ -40,11 +40,7 @@
 							<td>A2</td>
 							<td>A3</td>
 							<td>A4</td>
-							<td></td>
-							<td>B1</td>
-							<td>B2</td>
-							<td>B3</td>
-							<td>B4</td>
+							<td>A5</td>
 						</tr>
 						
 						<tr>
@@ -52,15 +48,11 @@
 						</tr>
 						
 						<tr height="250px">
-							<td>C1</td>
-							<td>C2</td>
-							<td>C3</td>
-							<td>C4</td>
-							<td></td>
-							<td>D1</td>
-							<td>D2</td>
-							<td>D3</td>
-							<td>D4</td>
+							<td>A6</td>
+							<td>A7</td>
+							<td>A8</td>
+							<td>A9</td>
+							<td>A10</td>
 						</tr>
 					</table>
 				</div>
@@ -72,6 +64,9 @@
 <script type="text/javascript">
    var isfull1 = $("#isfull1").val();
    var isfull2 = $("#isfull2").val();
+   
+   $("#table1 #table2 tr:nth-child(2) td:nth-child(1)").css(
+           "background-color", "white");
 
    if(isfull1 == "FULL"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
@@ -82,10 +77,10 @@
    }
    
 	if (isfull2 == "FULL") {
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
+		$("#table1 #table2 tr:nth-child(3) td:nth-child(5)").css(
 				"background-color", "#f39192");
 	} else if (isfull2 == "EMPTY") {
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
+		$("#table1 #table2 tr:nth-child(3) td:nth-child(5)").css(
 				"background-color", "#888888");
 	}
 
