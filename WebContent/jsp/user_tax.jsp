@@ -15,8 +15,8 @@
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
-
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 	<%
 		Element korea_tax = (Element) request.getAttribute("korea_tax");
@@ -27,7 +27,7 @@
 <body>
 	<input type="hidden" id="userId" value="<%=user.getUser_id()%>">
 	<div class="container font-style">
-	<div class="col-md-12">
+	<div class="col-xs-12 col-md-12">
 		<button class="btn btn-warning btn-sm" data-toggle="modal" data-target="#myModal">
         	전국 평균 관리비
 		</button>
@@ -75,18 +75,18 @@
 		<br><br>
 		<%for (TaxVO vo : OneTax){%>
 			<tr>
- 				<td><%=vo.getYear()%></td> 
- 				<td><%=vo.getMonth()%></td>
- 				<td><%=vo.getBasic_tax()%></td>
- 				<td><%=vo.getElectric_tax()%></td>
- 				<td><%=vo.getWater_tax()%></td> 
-				<td><%=vo.getHeating_tax()%></td>
- 				<td><%=vo.getInternet_tax()%></td>
+ 				<td><center><%=vo.getYear()%></center></td> 
+ 				<td><center><%=vo.getMonth()%></center></td>
+ 				<td><center><%=vo.getBasic_tax()%></center></td>
+ 				<td><center><%=vo.getElectric_tax()%></center></td>
+ 				<td><center><%=vo.getWater_tax()%></center></td> 
+				<td><center><%=vo.getHeating_tax()%></center></td>
+ 				<td><center><%=vo.getInternet_tax()%></center></td>
 			</tr>
 		<%}%>
 	</table>
 </div>
-<div class="col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
+<div class="col-xs-12 col-md-12" id="chart_div" style="width: 800px; height:200px;"></div>
 <% }%>
 <%if("MANAGER".equals(user.getRole())){ 
 List<TaxVO> taxList=(List<TaxVO>) request.getAttribute("taxList");%>

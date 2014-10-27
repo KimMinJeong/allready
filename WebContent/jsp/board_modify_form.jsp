@@ -8,7 +8,10 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
+
+   	
 <%
 	BoardVO vo = (BoardVO) request.getAttribute("vo");
 %>
@@ -19,7 +22,7 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 			
 			<!-- sidebar -->
-			<div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li class="active"><a href="noticeBoard.do">공지사항 게시판</a></li>
 					<li><a href="complainBoard.do">민원 게시판</a></li>
@@ -29,14 +32,14 @@
 
 			<!-- main area -->
 			<form action="updateBoard.do">
-				<div class="col-sm-2">
+				<div class="col-xs-2 col-md-2">
 					<input type="hidden" name="board_no" value=<%=vo.getBoard_no()%>>
 					<select name="category" class="form-control input-text-style">
 						<option value="<%=vo.getCategory()%>"><%=vo.getCategory()%></option>
 					</select>
 				</div> <br><br>
 				
-				<div class="col-sm-10">
+				<div class="col-xs-12 col-md-10">
 					<input type="text" class="form-control input-text-style title " id="board_title" name="title" value="<%=vo.getTitle()%>"> <br>
 					<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 					<script type="text/javascript">
@@ -47,7 +50,7 @@
 						//]]>
 					</script>
 					<textarea name="contents" rows="15%" id="board_textarea"><%=vo.getContents()%></textarea> <br><br>
-				<div class="col-md-4 col-md-offset-8" id="board_modify_btn">
+				<div class="col-xs-6 col-md-4 col-xs-offset-6 col-md-offset-8" id="board_modify_btn">
 					<input type="checkbox" name="anonymous" class="checkbox inline" />
 					<span class="text inline" id="anonymous_select">익명</span> 
 					

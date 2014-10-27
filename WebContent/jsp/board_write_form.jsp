@@ -11,7 +11,8 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <%
 	UserVO LoginInfo = (UserVO) session.getAttribute("UserFlag");
 %>
@@ -22,17 +23,25 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas board_sidebar" id="sidebar" role="navigation">
 				<ul class="nav">
-					<li><a href="noticeBoard.do">공지사항</a></li>
+					<li><a href="noticeBoard.do">공지 게시판</a></li>
 					<li class="active"><a href="complainBoard.do">민원 게시판</a></li>
 					<li><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
 			</div> <br>
-
+			
+			<div class="col-xs-12 col-md-3" id="mobile_board_bar">
+				<div class="navbar-form navbar-left" role="search">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="noticeBoard.do">공지게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="complainBoard.do">민원게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="freeBoard.do">자유게시판</a>&nbsp;&nbsp;
+				</div>
+			</div>
 			<!-- main area -->
 			<form action="boardAdd.do">
-				<div class="col-sm-2">
+				<div class="col-xs-4 col-md-2">
 					<select name="category" id="select" class="form-control input-text-style">
 						<%
 							if ("MANAGER".equals(LoginInfo.getRole())) {
@@ -53,10 +62,9 @@
 					</select>
 				</div>
 
-				<div class="col-sm-10">
-					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br> 
-					<input type="text" id="board_title" class="form-control input-text-style title " name="title" placeholder="제목을 입력해주세요"> <br>
-				
+				<div class="col-xs-12 col-md-10">
+					<input type="hidden" name="writer_id" value="<%=LoginInfo.getUser_id()%>"> <br>
+					<input type="text" class="form-control input-text-style title " name="title" placeholder="제목을 입력해주세요"> <br>
 					<script type="text/javascript" src="http://js.nicedit.com/nicEdit-latest.js"></script>
 					<script type="text/javascript">
 						//<![CDATA[
@@ -67,7 +75,7 @@
 					</script>
 					<textarea class="textarea" id="board_textarea" name="contents"> </textarea> <br>
 
-					<div class="col-md-4 col-md-offset-8">
+					<div class="col-xs-12 col-md-4 col-md-offset-8">
 						<input type="checkbox" name="anonymous" class="checkbox inline" value="ANONYMOUS" /> 
 						<span class="text inline">익명</span> 
 						

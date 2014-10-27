@@ -6,14 +6,15 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
-
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <title>공지사항</title>
 </head>
 <%
@@ -22,38 +23,48 @@
 <body>
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
-
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
-				<ul class="nav font-style">
-					<li class="active"><a href="noticeBoard.do"><font face="'Jeju Gothic', serif" size="4">공지사항</font></a></li>
-					<li><a href="complainBoard.do"><font face="'Jeju Gothic', serif" size="4">민원사항</font></a></li>
-					<li><a href="freeBoard.do"><font face="'Jeju Gothic', serif" size="4">자유자유</font></a></li>
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas board_sidebar" id="sidebar" role="navigation">
+				<ul class="nav">
+					<li class="active"><a href="noticeBoard.do">공지 게시판</a></li>
+					<li><a href="complainBoard.do">민원 게시판</a></li>
+					<li><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
+			</div>
+			<div class="col-xs-12 col-md-3" id="mobile_board_bar">
+				<div class="navbar-form navbar-left" role="search">
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="noticeBoard.do">공지게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="complainBoard.do">민원게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="freeBoard.do">자유게시판</a>&nbsp;&nbsp;
+				</div>
 			</div>
 
 			<!-- main area -->
-			<div class="col-sm-10"> <br>
+			<div class="col-xs-12 col-md-10">
 				<div align="right">
+				
 				<%
 					if ("MANAGER".equals(userVO.getRole())) {    //로그인한 user의 role이 MANAGER이면 글작성 버튼 생성
 				%>
+					<br>
 					<button type="button" class="btn button-style navbar-btn" onClick="top.location.href='boardWriteForm.do'">글작성</button>
 				<%
-					}
+					}else{
 				%>
+					<div id="br"><br><br></div>
+				<%} %>
 				</div>
 
-			<div class="panel panel-default">
 					<!-- Table -->
-					<table class="table table-bordered table-style">
-					<thead class="head font-style">
+					<table class="table table-bordered"  id="board_table">
+					<thead class="head">
 						<tr>						
-							<th><center>번호</center></th>
-							<th><center>제목</center></th>
-							<th><center>작성자</center></th>
-							<th><center>날짜</center></th>
-							<th><center>조회수</center></th>
+							<th><center>No.</center></th>
+							<th id="th_board_title"><center>제목</center></th>
+							<th><center>ID</center></th>
+							<th id="th_board_date"><center>날짜</center></th>
+							<th><center>Click</center></th>
 						</tr>
 						</thead>
 						
@@ -143,7 +154,6 @@
 						<!-- </tbody> -->
 						</tbody>
 					</table>
-					</div>
 				
 
 				<%if(countNoticeBoard != 0){ %>
@@ -166,7 +176,7 @@
 				<%} %>
 
 				<form action="search.do">
-					<div class="form-group col-sm-2">
+					<div class="form-group col-xs-12 col-md-2">
 						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
@@ -174,12 +184,12 @@
 						</select>
 					</div>
 					
-					<div class="col-sm-8">
+					<div class="col-xs-12 col-md-8">
 						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="notice">
 					</div>
 					
-					<button type="submit" class="btn button-style">검색</button>
+					<button type="submit" class="btn button-style" id="board_btn">검색</button>
 				</form>
 				</div>
 			</div>

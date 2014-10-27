@@ -11,13 +11,14 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<title>Insert title here</title>
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 <% UserVO user_vo = (UserVO)session.getAttribute("UserFlag"); %>
 <body>
 	<div class="container font-style">
-	<div class="col-md-offset-2 col-md-10">
-		<iframe src="http://192.168.123.129:3000?userId=<%=user_vo.getUser_id()%>" width="80%" height="70%"></iframe>
+	<div class="col-xs-12 col-md-10">
+		<iframe src="http://192.168.123.129:3000?userId=<%=user_vo.getUser_id()%>" id="chatting"></iframe>
 		<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
 	</div>
 	</div>

@@ -115,6 +115,7 @@ public class BoardController {
     
     @RequestMapping(value="/boardWriteForm.do") 
     public ModelAndView boardWriteForm(String category){
+    	System.out.println("category"+category);
     	ModelAndView mav=new ModelAndView("webTemplete.jsp?nextPage=board_write_form");
     	mav.addObject("boardCategory", category);
     	return mav;
@@ -235,7 +236,7 @@ public class BoardController {
     
     @RequestMapping("/addGood.do") 
     public String addGood(int board_no,String good_id){
-    	System.out.println("good");
+    	
     	flagService.getFlag(board_no, good_id);
     	
        return "redirect:/boardDetail.do?board_no="+board_no+"&count_id="+good_id;
