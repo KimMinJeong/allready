@@ -12,12 +12,14 @@
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body> <br>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar">
 				<ul class="nav">
 					<li class="active"><a href="#"><font size="8">B1</font><br><font size="3"><%=request.getAttribute("B1") %></font></a></li>
 					<li><a href="#"><font size="8">B2</font><br><font size="3"><%=request.getAttribute("B2") %></font></a></li>
@@ -25,7 +27,7 @@
 				</ul>
 			</div>
 
-			<div class="col-xs-12 col-sm-9"> <br>
+			<div class="col-xs-12 col-md-9"> <br>
 				<%
 					String isfull1 = (String) request.getAttribute("isfull1");
 					String isfull2 = (String) request.getAttribute("isfull2");
@@ -41,7 +43,6 @@
 							<td>A3</td>
 							<td>A4<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
 							<td>A5<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
-							
 						</tr>
 						
 						<tr>

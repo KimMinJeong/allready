@@ -11,10 +11,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
-<script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <title>관리자_방문일지</title>
 </head>
 
@@ -32,17 +33,17 @@
 					<button type="submit" class="btn button-style" id="addVisitorManagerButton">입력</button>
 				</div>
 			</form>
-		</div> <br><br><br>
+		</div>
 		
 		<form class="navbar-form navbar-right">
 			<div class="form-group">
-				<input type="text" class="form-control input-text-style" placeholder="방문자 신분" size="20%" align="center" name="user_id" id="searchUserId">
+				<input type="text" class="form-control input-text-style" placeholder="동/호수" size="20%" align="center" name="user_id" id="searchUserId">
 			</div>
 
 			<button type="button" class="btn button-style" id="searching">검색</button>
-		</form> <br><br>
+		</form>
 
-		<div class="col-sm-12 col-xs-12">
+		<div class="col-xs-12 col-md-12">
 			<div class="panel panel-default">
 
 				<!-- Default panel contents -->
@@ -290,90 +291,6 @@
 		alert("일치하는 세대주가 없습니다.");
 		location.replace("manage_visitor.do"); 
 	}
-	
-	//==================================================================================
-	//var rowCount; //동적으로 생성된 table row 갯수 선언
-	//세대주의 동,호수/방문객이름/방문객용무를 직접 입력한 후 ajax로 방문기록 테이블에 붙이기
-	/* $("#addVisitorManagerButton").on('click', //동,호수 , 이름, 용무 입력 후 추가 버튼 클릭시
-		function() { //직접 입력
-		$.ajax({
-			url : "addVisitorManager.do",
-			type : "get",
-			dataType : "json",
-			data : {
-				user_id : $("#user_id").val(),
-				visitor_name : $("#visitor_name").val(),
-				business : $("#business").val()
-			},
-			contentType : "application/json; charset=utf-8",
-			success : function(data) {
-				alert("success");
-				//countVisitRecord = countVisitRecord + 1;
-				var reg = data.add2;
-				$("#add").after(//append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
-					"<tr><td class><center>"
-					+ data.add.user_id
-					+ "</center></td><td><center>"
-					+ data.add.visitor_name
-					+ "</center></td><td><center>"
-					+ data.add.business
-					+ "</center></td><td><center>"
-					+ reg
-					+ "</center></td><td><center><button type='button' class='btn btn-default visitorModify' value='" + data.recordNo +"'>"
-					+ '수정'
-					+ "</button>"
-					+ '  '
-					+ "<button type='button' class='btn btn-default deleteVisitRecord' value='"+data.recordNo+"'>"
-					+ '삭제'
-					+ "</button></center></td></tr>");
-			},
-			error : function(e) {
-				alert("error");
-			}
-		});
-	}); */
-	
-	//===============================================================================================
-	//검색된 세대주의 방문객을 방문객리스트에 넣기
-	/* for ( var i = 1; i < 10; i++) {
-	$(document).on('click', '#insertButton' + i, function() { //검색된 방문객 방문객리스트에 추가
-		var trid = $(this).closest('tr').attr('id'); //클릭한 행 tr의 id
-		$.ajax({
-			url : "insertVisit.do",
-			type : "get",
-			dataType : "json",
-			data : {
-				insertUserNo : $(this).closest('tr').attr('class'),
-				insertUserId : $("#visitorTable #userId"+ trid).text(),
-				insertVisitorName : $("#visitorTable #visitorName" + trid).text(),
-				insertBusiness : $("#visitorTable #business" + trid).text()
-			},
-			contentType : "application/json; charset=utf-8",
-			success : function(data) {
-				alert("success");
-				$("#add").after(  //append는 선택자의 자식한테 붙고 after는 같은 레벨의 형제.
-					"<tr><td><center>"
-					+ data.user_id
-					+ "</center></td><td><center>"
-					+ data.visitor_name
-					+ "</center></td><td><center>"
-					+ data.business
-					+ "</center></td><td><center>"
-					+ data.regdate
-					+ "</center></td><td><center><button type='button' class='btn btn-default modifyVisitRecord' value='" + data.recordNo +"'>"
-					+ '수정'
-					+ "</button>"
-					+ '  '
-					+ "<button type='button' class='btn btn-default deleteVisitRecord' value='" + data.recordNo +"'>"
-					+ '삭제'
-					+ "</button></center></td></tr>");
-			},
-			error : function(e) {
-				alert("실패!");
-			}
-		});
-	});
-} */
 	
 </script>
 </body>

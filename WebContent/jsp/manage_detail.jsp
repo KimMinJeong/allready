@@ -13,13 +13,14 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body>
 	<div class="container font-style" style="margin-top: 4%">
-		<div class="col-md-offset-3 col-md-6">
-			<h1 align="center">상세정보 기입란</h1> <br><br>
+		<div class="col-xs-12 col-md-offset-3 col-md-6">
+			<h1 align="center"><div class="font-style">상세정보 기입란</div></h1> <br><br>
 			<%
 				UserVO vo = (UserVO) session.getAttribute("UserFlag");
 				List<Manager_DongVO> manageDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
@@ -74,7 +75,7 @@
 				%>
 			</div>
 
-			<div class="col-md-offset-10 col-md-2">
+			<div class="col-xs-3 col-md-offset-10 col-md-2">
 				<button type="submit" class="btn button-style" id="modifyManager">Submit</button>
 			</div> <br><br>
 		</div>
