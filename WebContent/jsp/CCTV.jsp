@@ -29,12 +29,12 @@
 			</div>
 		
 			<div class="col-xs-6 col-md-4"> 
-				<iframe class="cctv_frame" src="http://192.168.123.129:8000/cctv01" scrolling="no"></iframe>
+				<iframe class="cctv_frame" src="http://localhost:8000/cctv01" scrolling="no"></iframe>
 			</div>
 
 			<div class="col-xs-6 col-md-4 col-md-offset-1"> 
 				<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
-				<iframe class="cctv_frame" src="http://192.168.123.129:8001/cctv02" scrolling="no"></iframe>
+				<iframe class="cctv_frame" src="http://localhost:8001/cctv02" scrolling="no"></iframe>
 			</div>
 		</div>
 	</div>
