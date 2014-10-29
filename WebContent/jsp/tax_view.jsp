@@ -15,6 +15,8 @@
 
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 <%
 	TaxVO tax_vo = (TaxVO)request.getAttribute("tax_vo");

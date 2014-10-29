@@ -1,3 +1,4 @@
+<%@page import="kr.ac.apart.vo.UserVO"%>
 <%@page import="kr.ac.apart.vo.Manager_DongVO"%>
 <%@page import="kr.ac.apart.vo.ExpressVO"%>
 <%@page import="java.util.*"%>
@@ -10,25 +11,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <script src="static/js/jquery-1.11.1.js"></script>
 <script src="static/js/bootstrap.js"></script>
-<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
-<link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
 <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js"></script>
 
-<title>Insert title here</title>
+<link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
+<link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body>
 	<%
 		List<ExpressVO> expressList = (List<ExpressVO>) request.getAttribute("list");
+		List<Manager_DongVO> commandDongList=(List<Manager_DongVO>) request.getAttribute("commandDongList");
 	%>
 	<div class="container font-style">
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-12"> <br>
+			<div class="col-xs-12 col-md-12"> <br>
 				<div align="right">
-					<button class="btn button-style navbar-btn" data-toggle="modal" data-target="#myModal">등록</button>
+					<input type="hidden" id="commandDongList" value=<%=commandDongList %>>
+					<button class="btn button-style navbar-btn" data-toggle="modal" data-target="#myModal" id="sign_up">등록</button>
 
 					<!-- Modal -->
 					<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -36,7 +39,7 @@
 							<form action="addExpress.do">
 								<div class="modal-content">
 									<div class="modal-header">
-										<div class="col-xs-8">
+										<div class="col-xs-8 col-md-6">
 											<h4 class="modal-title" id="myModalLabel" align="left">택배등록</h4>
 										</div>
 
@@ -50,7 +53,7 @@
 											<%
 												for(Manager_DongVO dongList : managerDongList){
 											%>
-											<input type="checkbox" class="btn btn-default navbar-btn" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%></button>&nbsp;
+											<input type="radio" class="btn btn-default navbar-btn" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%>&nbsp;
 											<%
 												}
 											%>
@@ -61,14 +64,14 @@
 												<div class="form-inline">
 													<div class="input-group">
 														<span class="input-group-addon input-style">호수</span> 
-														<input type="text" class="form-control input-text-style" name="userNo">
+														<input type="text" class="form-control input-text-style" name="userNo" id="userNo">
 													</div>
 												</div> <br>
 
 												<div class="form-inline">
 													<div class="input-group">
 														<span class="input-group-addon input-style">이름</span> 
-														<input type="text" class="form-control input-text-style" name="orderer">
+														<input type="text" class="form-control input-text-style" name="orderer" id="orderer">
 													</div>
 												</div> <br>
 
@@ -84,7 +87,7 @@
 													</select>
 												</div> <br>
 
-												<button type="submit" class="btn button-style navbar-btn">Save changes</button>
+												<button type="submit" class="btn button-style navbar-btn" id="saveButton">Save changes</button>
 											</div>
 										</div>
 									</div>
@@ -253,5 +256,30 @@
 
 				return false;
 			});
-</script>
+	
+	$("#saveButton").on('click', function(){
+		if($('input[name=userDong]:checked').val()==null){
+			alert("해당 동을 선택해주세요");
+			return false;
+		}
+		if($("#userNo").val()==""){
+			alert("호수를 입력해 주세요");
+			$("#userNo").focus();
+			return false;
+		}
+		if($("#orderer").val()==""){
+			alert("수령자의 이름을 입력해 주세요");
+			$("#orderer").focus();
+			return false;
+		}
+	});
+	
+	$("#sign_up").on('click', function(){
+		dong=$("#commandDongList").val();
+		if(dong=="null"){
+			alert("설정에서 관리하는 동에 대한 정보를 입력해주세요");
+			return false;
+		}
+	});
+	</script>
 </html>

@@ -12,6 +12,8 @@
 <script src="static/js/bootstrap.js"></script>
 <link href="static/css/bootstrap.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 <title>Insert title here</title>
 </head>
 
@@ -20,13 +22,21 @@
 		<div class="row row-offcanvas row-offcanvas-left">
 
 			<!-- sidebar -->
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas board_sidebar" id="sidebar" role="navigation">
 				<ul class="nav">
 					<li><a href="noticeBoard.do">공지사항 게시판</a></li>
 					<li><a href="complainBoard.do">민원 게시판</a></li>
 					<li class="active"><a href="freeBoard.do">자유 게시판</a></li>
 				</ul>
-			</div> <br><br>
+			</div> 
+			<div class="col-xs-12 col-md-3" id="mobile_board_bar">
+				<div class="navbar-form navbar-left" role="search">
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="noticeBoard.do">공지게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="complainBoard.do">민원게시판</a>&nbsp;&nbsp;&nbsp;&nbsp;
+				  <a href="freeBoard.do">자유게시판</a>&nbsp;&nbsp;
+				</div>
+			</div>
 			
 			<%
 				String condition = (String) request.getAttribute("condition");
@@ -34,7 +44,7 @@
 				String category = (String) request.getAttribute("category");
 			%>
 			<!-- main area -->
-			<div class="col-xs-12 col-sm-9">
+			<div class="col-xs-12 col-md-9">
 				<div class="panel panel-default">
 
 					<!-- Table -->
@@ -127,7 +137,7 @@
 				<% } %>
 				
 				<form action="search.do">
-					<div class="form-group col-sm-2">
+					<div class="form-group col-xs-12 col-md-2">
 						<select class="form-control input-style" name="condition">
 							<option value="title">제목</option>
 							<option value="contents">내용</option>
@@ -135,12 +145,12 @@
 						</select>
 					</div>
 
-					<div class="col-sm-8">
+					<div class="col-xs-12 col-md-8">
 						<input type="text" class="form-control input-text-style" name="str">
 						<input type="hidden" class="form-control" name="category" value="<%=category%>">
 					</div>
 
-					<button type="submit" class="btn button-style">검색</button>
+					<button type="submit" class="btn button-style" id="board_btn">검색</button>
 				</form>	
 			</div>
 			<!-- /.col-xs-12 main -->

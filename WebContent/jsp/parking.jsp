@@ -12,20 +12,22 @@
 <script src="static/js/bootstrap.min.js"></script>
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body> <br>
 	<div class="container">
 		<div class="row row-offcanvas row-offcanvas-left">
-			<div class="col-xs-6 col-sm-3 sidebar-offcanvas" id="sidebar">
+			<div class="col-xs-6 col-md-3 sidebar-offcanvas" id="sidebar">
 				<ul class="nav">
-					<li class="active">B1</li>
-					<li>B2</li>
-					<li>B3</li>
+					<li class="active"><a href="#"><font size="8">B1</font><br><font size="3"><%=request.getAttribute("B1") %></font></a></li>
+					<li><a href="#"><font size="8">B2</font><br><font size="3"><%=request.getAttribute("B2") %></font></a></li>
+					<li><a href="#"><font size="8">B3</font><br><font size="3"><%=request.getAttribute("B3") %></font></a></li>
 				</ul>
 			</div>
 
-			<div class="col-xs-12 col-sm-9"> <br>
+			<div class="col-xs-12 col-md-9"> <br>
 				<%
 					String isfull1 = (String) request.getAttribute("isfull1");
 					String isfull2 = (String) request.getAttribute("isfull2");
@@ -39,12 +41,8 @@
 							<td>A1</td>
 							<td>A2</td>
 							<td>A3</td>
-							<td>A4</td>
-							<td></td>
-							<td>B1</td>
-							<td>B2</td>
-							<td>B3</td>
-							<td>B4</td>
+							<td>A4<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
+							<td>A5<br><br><img src="static/images/handicap.png" width="60px" height="60px" /></td>
 						</tr>
 						
 						<tr>
@@ -52,15 +50,11 @@
 						</tr>
 						
 						<tr height="250px">
-							<td>C1</td>
-							<td>C2</td>
-							<td>C3</td>
-							<td>C4</td>
-							<td></td>
-							<td>D1</td>
-							<td>D2</td>
-							<td>D3</td>
-							<td>D4</td>
+							<td>A6</td>
+							<td>A7</td>
+							<td>A8</td>
+							<td>A9</td>
+							<td>A10</td>
 						</tr>
 					</table>
 				</div>
@@ -72,21 +66,24 @@
 <script type="text/javascript">
    var isfull1 = $("#isfull1").val();
    var isfull2 = $("#isfull2").val();
+   
+   $("#table1 #table2 tr:nth-child(2) td:nth-child(1)").css(
+           "background-color", "white");
 
    if(isfull1 == "FULL"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-            "background-color", "red");
+            "background-color", "#f39192");
    } else if(isfull1 == "EMPTY"){
       $("#table1 #table2 tr:nth-child(1) td:nth-child(1)").css(
-            "background-color", "blue");
+            "background-color", "#888888");
    }
    
 	if (isfull2 == "FULL") {
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
-				"background-color", "red");
+		$("#table1 #table2 tr:nth-child(3) td:nth-child(5)").css(
+				"background-color", "#f39192");
 	} else if (isfull2 == "EMPTY") {
-		$("#table1 #table2 tr:nth-child(1) td:nth-child(2)").css(
-				"background-color", "blue");
+		$("#table1 #table2 tr:nth-child(3) td:nth-child(5)").css(
+				"background-color", "#888888");
 	}
 
 	function start() {

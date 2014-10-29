@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <%@page import="kr.ac.apart.vo.Manager_DongVO"%>
 <%@page import="kr.ac.apart.vo.TaxVO"%>
 <%@page import="java.util.List"%>
@@ -17,14 +16,26 @@
 <link href="static/css/jquery-ui-1.10.4.css" rel="stylesheet" type="text/css">
 <link href="static/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 <link href="static/css/style.css" rel="stylesheet" type="text/css">
-<link href="static/css/seulStyle.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 300px) and (max-width: 768px)" id="stylesheet-768" />
+<link rel="stylesheet" type="text/css" href="style.css" media="only and (min-width: 768px)" id="stylesheet-1200" />
 </head>
 
 <body>
+	<%
+		List<Manager_DongVO> managerDongList = (List<Manager_DongVO>) request.getAttribute("managerDongList");
+	%>
 	<div class="container font-style">
 		<div class="col-md-offset-3 col-md-6">
 			<form action="TaxWriteForm.do" method="post">
-				<label class="label-style">세대주</label> 
+				<label class="label-style">세대주 호 수</label>
+				<% 
+					for(Manager_DongVO dongList : managerDongList){
+				%>
+				<input type="radio" class="btn button-style" name="userDong" value="<%=dongList.getDong()%>"><%=dongList.getDong()%>&nbsp;
+				<%
+					}
+				%>
+				(동)
 				<input type="text" class="form-control input-text-style" name="user_id"> <br>
 
 				<label class="label-style">YEAR(년도)</label> <br> 
