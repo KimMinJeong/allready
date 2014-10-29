@@ -19,7 +19,7 @@ public class ParkingDAOImpl implements ParkingDAO {
     }
     
     public void updateIsFull(ParkingVO pv){
-        //		System.out.println(pv);
+//        		System.out.println(pv);
         sqlMapClientTemplate.update("updateIsFull", pv);
     }
     

@@ -20,7 +20,7 @@ public class ExpressServiceImpl implements ExpressService {
     private UserDAO userDAO;
 
     @Override 
-    public ExpressVO addExpress(String user_id, String orderer, String express_company){
+    public ExpressVO addExpress(String user_id, String orderer, String express_company) throws Exception{
         ExpressVO vo = new ExpressVO();
     
         vo.setUser_id(user_id);

@@ -6,7 +6,7 @@ import kr.ac.apart.vo.ExpressVO;
 import kr.ac.apart.vo.UserVO;
 
 public interface ExpressService {
-	public ExpressVO addExpress(String user_id, String orderer, String express_company);
+	public ExpressVO addExpress(String user_id, String orderer, String express_company) throws Exception;
 	public List<ExpressVO> getExpressList(int page);
 	public void updateExpress(ExpressVO vo);
 	public ExpressVO getExpressOne(int express_id);

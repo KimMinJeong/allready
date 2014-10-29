@@ -17,6 +17,7 @@ import kr.ac.apart.vo.UserVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller("boardController") 
@@ -113,8 +114,11 @@ public class BoardController {
     }
     
     @RequestMapping(value="/boardWriteForm.do") 
-    public String boardWriteForm(){
-    	return "webTemplete.jsp?nextPage=board_write_form";
+    public ModelAndView boardWriteForm(String category){
+    	System.out.println("category"+category);
+    	ModelAndView mav=new ModelAndView("webTemplete.jsp?nextPage=board_write_form");
+    	mav.addObject("boardCategory", category);
+    	return mav;
     }
     
     @RequestMapping(value="/boardAdd.do") 
@@ -170,9 +174,8 @@ public class BoardController {
         	return "redirect:/freeBoard.do";
     }
 
-    @RequestMapping("/updateBoard.do") 
-    public String updateBoard(int board_no, String title, String contents, String anonymous, String closed){
-    
+    @RequestMapping(value="/updateBoard.do") 
+    public String updateBoard(int board_no, String category,String title, String contents, String anonymous, String closed){
     	BoardVO board = new BoardVO();
     	
     	board.setBoard_no(board_no);
@@ -190,7 +193,14 @@ public class BoardController {
     	
         boardService.updateBoard(board);
     
-        return "redirect:/noticeBoard.do";
+        if("notice".equals(category)){
+            return "redirect:/noticeBoard.do";
+        }
+        else if("complain".equals(category)){
+            return "redirect:/complainBoard.do";
+        }
+        else 
+        	return "redirect:/freeBoard.do";
     }
     
     @RequestMapping("/search.do") 
@@ -226,7 +236,7 @@ public class BoardController {
     
     @RequestMapping("/addGood.do") 
     public String addGood(int board_no,String good_id){
-    	System.out.println("good");
+    	
     	flagService.getFlag(board_no, good_id);
     	
        return "redirect:/boardDetail.do?board_no="+board_no+"&count_id="+good_id;

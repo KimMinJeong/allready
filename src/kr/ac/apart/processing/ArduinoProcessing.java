@@ -11,7 +11,7 @@ public class ArduinoProcessing extends PApplet{
 	public static String isfull1=null;
 	public static String isfull2=null;
 	static{
-		System.load("C:\\sk\\jSSC-2.8.dll");
+		System.load("C:\\SK\\jSSC-2.8.dll");
 	}
 	public void setup()
 	{
