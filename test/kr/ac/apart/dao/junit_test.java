@@ -38,11 +38,10 @@ public class junit_test {
 	@Test
 	public void updateParking() throws IOException {
 		ParkingVO pv=new ParkingVO();
-		pv.setFloor("B1 ");
-		pv.setSection("A ");
-		pv.setParking_lot("1 ");
-		pv.setIsfull("EMPTY");
-		pv.setParking_no(1);
+		pv.setFloor("B1");
+		pv.setSection("A");
+		pv.setParking_lot("1");
+		pv.setIsfull("FULL");
 		parkingDao.updateIsFull(pv);
 	}
 	

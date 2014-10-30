@@ -27,7 +27,9 @@ public class ParkingController {
 	public ModelAndView user_parking(HttpSession session){
 		ModelAndView mav=new ModelAndView();
 		UserVO vo = (UserVO) session.getAttribute("UserFlag");
-		String B1, B2, B3;
+		String B1=null;
+		String B2=null;
+		String B3=null;
         try {
 			B1=parkingService.getFloorCount("B1");
 			B2=parkingService.getFloorCount("B2");

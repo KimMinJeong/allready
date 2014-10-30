@@ -35,7 +35,7 @@
 			</div>
 
 			<div class="col-xs-8 col-md-4" id="parking_section">
-				<a href="parking.do?floor='B1'&section='A'">
+				<a href="parking.do?floor=B1&section=A">
 					<img src="static/images/A.png" id="parking_img" class="img-rounded">
 				</a>	
 				<a href="#">

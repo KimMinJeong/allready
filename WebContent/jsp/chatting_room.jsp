@@ -18,7 +18,7 @@
 <body>
 	<div class="container font-style">
 	<div class="col-xs-12 col-md-10">
-		<iframe src="http://192.168.123.129:3000?userId=<%=user_vo.getUser_id()%>" id="chatting"></iframe>
+		<iframe src="http://localhost:3000?userId=<%=user_vo.getUser_id()%>" id="chatting"></iframe>
 		<!-- 자신이 연결한 ip주소를 넣어주셔야 합니다.(cmd창에서 ipconfig ->ip4확인 하여 넣어주세요!)  -->
 	</div>
 	</div>

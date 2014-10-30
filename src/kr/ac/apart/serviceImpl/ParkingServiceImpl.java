@@ -25,6 +25,7 @@ public class ParkingServiceImpl implements ParkingService {
 
 	@Override
 	public void updateParking(ParkingVO pv){
+		System.out.println("Service:"+pv);
 		parkingDao.updateIsFull(pv);
 	}
 
